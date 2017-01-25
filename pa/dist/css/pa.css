@@ -1,0 +1,22 @@
+.smarthublogo {
+    width: 80px;
+    margin-left: 12px;
+}
+
+.smarthublogocontainer {
+    width: 230px;
+    background: #222d32;
+    color: white;
+    position: fixed;
+    bottom: 12px;
+    text-align: center;
+    align-content: center;
+}
+
+#mapid {
+    height: 600px;
+}
+
+.with-margin-top {
+    margin-top: 16px;
+}
