@@ -20,3 +20,8 @@
 .with-margin-top {
     margin-top: 16px;
 }
+
+.chart-height{
+    max-height: 300px;
+    max-width: 300px;
+}

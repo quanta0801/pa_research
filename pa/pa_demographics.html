@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Demographics |PAResearch</title>
+  <title>Template |PAResearch</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <!-- bootstrap slider -->
+  <link rel="stylesheet" href="plugins/bootstrap-slider/slider.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -20,7 +22,10 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/skin-red.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+  <link rel="stylesheet" href="plugins/iCheck/minimal/grey.css">
+  <link rel="stylesheet" href="plugins/iCheck/minimal/green.css">
+  <link rel="stylesheet" href="plugins/iCheck/minimal/red.css">
+  <link rel="stylesheet" href="plugins/iCheck/minimal/yellow.css">
   <!-- jvectormap -->
   <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
   <!-- Date Picker -->
@@ -44,7 +49,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="#" class="logo">
+    <a href="pa_demographics.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>PA</b>Re</span>
       <!-- logo for regular state and mobile devices -->
@@ -88,6 +93,10 @@
               </li>
             </ul>
           </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="ion ion-ios-people"></i></a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -106,16 +115,12 @@
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- sidebar menu: : style can be found in sidebar.less -->
+
+      <!-- Right navigation bar -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         <li>
-          <a href="pa_segment.html">
-            <i class="fa fa-filter"></i> <span>Segment Selection</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
+          <a href="pa_demographics.html">
             <i class="fa fa-dashboard"></i> <span>Demographics</span>
           </a>
         </li>
@@ -158,77 +163,61 @@
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-lg-3 col-xs-6">
+
+        <!-- Segment widget-->
+        <div class="col-sm-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-light-blue">
             <div class="inner">
-              <h3>PMET</h3>
+              <h3 id="segment_display">...</h3>
 
               <p>Segment</p>
             </div>
             <div class="icon">
               <i class="ion ion-ios-people"></i>
             </div>
-            <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-              <div class="inner">
-                <h3>ALL</h3>
 
-                <p>Microsegment</p>
-              </div>
-              <div class="icon">
-                <i class="fa fa-user"></i>
-              </div>
-            <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <!-- Age Range widget -->
+        <div class="col-sm-4 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>22,431</h3>
-
-              <p>Sample Size</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-ios-people"></i>
-            </div>
-            <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>19 - 65</h3>
+              <h3 id="ageRange_display">...</h3>
 
               <p>Age Range</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
         </div>
         <!-- ./col -->
-      </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-6 connectedSortable">
-          <!-- GENDER CHART -->
-          <div class="box box-primary">
+
+        <!-- Sample Size widget -->
+        <div class="col-sm-4 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3 id="sampleSize_display">...</h3>
+
+              <p>Sample Size</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-ios-people"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <!-- Gender chart -->
+        <section class="col-md-3 col-xs-6 connectedSortable">
+          <!-- CHART BOX -->
+          <div class="box box-default">
             <div class="box-header with-border">
               <h3 class="box-title">Gender Distribution</h3>
-
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -236,21 +225,21 @@
             </div>
             <div class="box-body">
               <div class="chart">
-                <canvas id="genderBarChart"></canvas>
+                <canvas id="genderChart"></canvas>
               </div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </section>
+        <!-- left / right col -->
 
-        <!-- Right col -->
-        <section class="col-lg-6 connectedSortable">
-          <!-- AGE DISTRIBUTION CHART -->
-          <div class="box box-primary">
+        <!-- Left / Right col -->
+        <section class="col-md-3 col-xs-6 connectedSortable">
+          <!-- CHART BOX -->
+          <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Age Distribution</h3>
-
+              <h3 class="box-title">Race Distribution</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -258,26 +247,21 @@
             </div>
             <div class="box-body">
               <div class="chart">
-                <canvas id="ageHist"></canvas>
+                <canvas id="raceChart"></canvas>
               </div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </section>
-        <!-- right col -->
-      </div>
-      <!-- /.row (main row) -->
+        <!-- left / right col -->
 
-      <!--Main Row 2 -->
-      <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-6 connectedSortable">
-          <!-- POPULATION CHART -->
-          <div class="box box-primary">
+        <!-- Left / Right col -->
+        <section class="col-md-6 col-xs-12 connectedSortable">
+          <!-- CHART BOX -->
+          <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Population Distribution</h3>
-
+              <h3 class="box-title">Age Distribution (10 years)</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -285,71 +269,476 @@
             </div>
             <div class="box-body">
               <div class="chart">
-                <canvas id="popBarChart"></canvas>
+                <canvas id="age10Chart"></canvas>
               </div>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         </section>
-        <!-- left col -->
+        <!-- left / right col -->
+
+        <!-- Left / Right col -->
+        <section class="col-md-6 col-xs-12 connectedSortable">
+          <!-- CHART BOX -->
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Age Distribution (5 years)</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="age5Chart"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </section>
+        <!-- left / right col -->
+
       </div>
-      <!-- /.row (main row 2) -->
+      <!-- /.row -->
 
-
-        <!--main content template -->
-        <!--&lt;!&ndash; Main row &ndash;&gt;-->
-        <!--<div class="row">-->
-          <!--&lt;!&ndash; Left / Right col &ndash;&gt;-->
-          <!--<section class="col-lg-6 connectedSortable">-->
-            <!--&lt;!&ndash; CHART BOX &ndash;&gt;-->
-            <!--<div class="box box-primary">-->
-              <!--<div class="box-header with-border">-->
-                <!--<h3 class="box-title">some chart title</h3>-->
-                <!--<div class="box-tools pull-right">-->
-                  <!--<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>-->
-                  <!--</button>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="box-body">-->
-                <!--<div class="chart">-->
-                  <!--<canvas id="someChart"></canvas>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--&lt;!&ndash; /.box-body &ndash;&gt;-->
+      <!--main content template -->
+      <!--&lt;!&ndash; Left / Right col &ndash;&gt;-->
+      <!--<section class="col-lg-6 col-xs-12 connectedSortable">-->
+        <!--&lt;!&ndash; CHART BOX &ndash;&gt;-->
+        <!--<div class="box box-primary">-->
+          <!--<div class="box-header with-border">-->
+            <!--<h3 class="box-title">some chart title</h3>-->
+            <!--<div class="box-tools pull-right">-->
+              <!--<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>-->
+              <!--</button>-->
             <!--</div>-->
-            <!--&lt;!&ndash; /.box &ndash;&gt;-->
-          <!--</section>-->
-          <!--&lt;!&ndash; right col &ndash;&gt;-->
+          <!--</div>-->
+          <!--<div class="box-body">-->
+            <!--<div class="chart">-->
+              <!--<canvas id="someChart"></canvas>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--&lt;!&ndash; /.box-body &ndash;&gt;-->
         <!--</div>-->
-        <!--&lt;!&ndash; /.row (main row) &ndash;&gt;-->
-        <!-- ./main content template -->
-
+        <!--&lt;!&ndash; /.box &ndash;&gt;-->
+      <!--</section>-->
+      <!--&lt;!&ndash; left / right col &ndash;&gt;-->
+       <!--./main content template -->
 
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
   <footer class="main-footer">
+    <!-- To the right -->
     <div class="pull-right hidden-xs">
       Powered by Customer 360
     </div>
+    <!-- Default to the left -->
     <strong>Copyright &copy; 2017 <a href="https://www.starhub.com/">StarHub Ltd</a>.</strong> All rights
     reserved.
   </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-light">
+    <form id="filter_form" action="apply_filter" method="post">
+      <div class="margin">
+
+        <!-- Segment Selector -->
+        <h4>Select Segment:</h4>
+        <div id="segment_selector" class="btn-group btn-group-justified" role="group" data-toggle="buttons">
+          <label id="segment_PMET" class="btn btn-danger">
+            <input type="radio" name="segment" value="PMET" autocomplete="off">PMET</label>
+          <label id="segment_Parents" class="btn btn-danger">
+            <input type="radio" name="segment" value="Parents" autocomplete="off">Parents</label>
+        </div>
+        <!-- /.segment selector -->
+
+        <!-- Filtering type -->
+        <h4>Filter Type:</h4>
+        <div id="filter_type_selector" class="btn-group btn-group-justified" data-toggle="buttons">
+          <a id="filter_type_demographics" href="#demographics-tab" class="btn btn-default" data-toggle="tab">
+            <input type="radio" name="filter_type" value="demographics" autocomplete="off"><small>Demographics</small></a>
+          <a id="filter_type_planning_area" href="#planning_area-tab" class="btn btn-default" data-toggle="tab">
+            <input type="radio" name="filter_type" value="planning_area" autocomplete="off"><small>Planning Areas</small></a>
+        </div>
+        <!--/.filtering type -->
+
+        <!-- Tab panes -->
+        <div id="filter_type_pane" class="tab-content">
+          <!-- Demographics tab content -->
+          <div class="tab-pane" id="demographics-tab">
+            <div class="with-margin-top"></div>
+            <!-- Age Range Selector-->
+            <div class="box box-warning box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">Age Range <small id="ageSliderValue">19 - 65</small></div>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.box-header-->
+              <!-- box-body -->
+              <div class="box-body">
+                <div class="margin">
+                  <input id="ageSlider" class="form-control" name="age" type="text" />
+                </div>
+              </div>
+              <!-- /. box-body-->
+            </div>
+            <!-- /.box -->
+
+            <!-- Gender box -->
+            <div class="box box-warning box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">Gender</div>
+                <!-- box-tools -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <!-- /.box-body-->
+              <div class="box-body">
+                <!-- checkbox -->
+                <div class="form-group">
+                  <ul style="list-style: none">
+                    <li><label><input type="radio" class="minimal-yellow" name="gender" value="BOTH">Both</label></li>
+                    <li><label><input type="radio" class="minimal-yellow" name="gender" value="FEMALE">Female</label></li>
+                    <li><label><input type="radio" class="minimal-yellow" name="gender" value="MALE">Male</label></li>
+                  </ul>
+                </div>
+                <!-- /.form group -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.Gender box-->
+
+            <!-- Race box -->
+            <div class="box box-warning box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">Race</div>
+                <!-- box-tools -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <!-- /.box-body-->
+              <div class="box-body">
+                <!-- checkbox -->
+                <div class="form-group">
+                  <ul style="list-style: none">
+                    <li><label><input type="checkbox" class="minimal-yellow" name="race" value="CHINESE">Chinese</label></li>
+                    <li><label><input type="checkbox" class="minimal-yellow" name="race" value="EURASIAN">Eurasian</label></li>
+                    <li><label><input type="checkbox" class="minimal-yellow" name="race" value="INDIAN">Indian</label></li>
+                    <li><label><input type="checkbox" class="minimal-yellow" name="race" value="MALAY">Malay</label></li>
+                    <li><label><input type="checkbox" class="minimal-yellow" name="race" value="OTHERS">Others</label></li>
+                  </ul>
+                </div>
+                <!-- /.form group -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.Race box-->
+
+            <!-- Residence box -->
+            <div class="box box-success box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">Region of Residence</div>
+                <!-- box-tools -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <!-- /.box-body-->
+              <div class="box-body">
+                <!-- checkbox -->
+                <div class="form-group">
+                  <ul style="list-style: none">
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="Central">Central</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="East">East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="North">North</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="North-East">North-East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="West">West</label></li>
+                  </ul>
+                </div>
+                <!-- /.form group -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.Residence box-->
+
+            <!-- Workplace box -->
+            <div class="box box-success box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">Region of Workplace</div>
+                <!-- box-tools -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <!-- /.box-body-->
+              <div class="box-body">
+                <!-- checkbox -->
+                <div class="form-group">
+                  <ul style="list-style: none">
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="Central">Central</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="East">East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="North">North</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="North-East">North-East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="West">West</label></li>
+                  </ul>
+                </div>
+                <!-- /.form group -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.Workplace box-->
+          </div>
+
+          <!-- Planning Area tab content -->
+          <div class="tab-pane" id="planning_area-tab">
+            <h5>Apply filter to:</h5>
+            <div class="btn-group btn-group-justified" role="group" data-toggle="buttons">
+              <label id="area_filter_infer_residence_" class="btn btn-warning">
+                <input type="radio" name="area_filter" value="infer_residence_" autocomplete="off">Residence</label>
+              <label id="area_filter_infer_workplace_" class="btn btn-warning">
+                <input type="radio" name="area_filter" value="infer_workplace_" autocomplete="off">Workplace</label>
+            </div>
+
+            <!--<div class="with-margin-top"></div>-->
+            <h5>Planning Areas:</h5>
+
+            <!-- Central box -->
+            <div class="box box-success box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">Central</div>
+                <!-- box-tools -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <!-- /.box-body-->
+              <div class="box-body pre-scrollable">
+                <!-- checkbox -->
+                <div id="region_central" class="form-group">
+                  <ul style="list-style: none">
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bishan">Bishan</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bukit Merah">Bukit Merah</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bukit Timah">Bukit Timah</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Downtown Core">Downtown Core</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Geylang">Geylang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Kallang">Kallang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Marina East">Marina East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Marina South">Marina South</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Marine Parade">Marine Parade</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Museum">Museum</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Newton">Newton</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Novena">Novena</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Orchard">Orchard</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Outram">Outram</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Queenstown">Queenstown</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="River Valley">River Valley</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Rochor">Rochor</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Singapore River">Singapore River</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Southern Islands">Southern Islands</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Straits View">Straits View</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Tanglin">Tanglin</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Toa Payoh">Toa Payoh</label></li>
+                  </ul>
+                </div>
+                <!-- /.form group -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.Central box-->
+
+            <!-- East box -->
+            <div class="box box-success box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">East</div>
+                <!-- box-tools -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <!-- /.box-body-->
+              <div id="region_east" class="box-body pre-scrollable">
+                <!-- checkbox -->
+                <div class="form-group">
+                  <ul style="list-style: none">
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bedok">Bedok</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Changi">Changi</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Changi Bay">Changi Bay</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Pasir Ris">Pasir Ris</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Paya Lebar">Paya Lebar</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Tampines">Tampines</label></li>
+                  </ul>
+                </div>
+                <!-- /.form group -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.East box-->
+
+            <!-- North box -->
+            <div class="box box-success box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">North</div>
+                <!-- box-tools -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <!-- /.box-body-->
+              <div class="box-body pre-scrollable">
+                <!-- checkbox -->
+                <div id="region_north" class="form-group">
+                  <ul style="list-style: none">
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Central Water Catchment">Central Water Catchment</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Lim Chu Kang">Lim Chu Kang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Mandai">Mandai</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Sembawang">Sembawang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Simpang">Simpang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Sungei Kadut">Sungei Kadut</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Woodlands">Woodlands</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Yishun">Yishun</label></li>
+                  </ul>
+                </div>
+                <!-- /.form group -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.North box-->
+
+            <!-- Northeast box -->
+            <div class="box box-success box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">North-East</div>
+                <!-- box-tools -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <!-- /.box-body-->
+              <div class="box-body pre-scrollable">
+                <!-- checkbox -->
+                <div id="region_northeast" class="form-group">
+                  <ul style="list-style: none">
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Ang Mo Kio">Ang Mo Kio</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Hougang">Hougang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="North-Eastern Islands">North-Eastern Islands</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Punggol">Punggol</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Seletar">Seletar</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Sengkang">Sengkang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Serangoon">Serangoon</label></li>
+                  </ul>
+                </div>
+                <!-- /.form group -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.Northeast box-->
+
+            <!-- West box -->
+            <div class="box box-success box-solid collapsed-box">
+              <div class="box-header">
+                <div class="box-title">West</div>
+                <!-- box-tools -->
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.box-tools -->
+              </div>
+              <!-- /.box-header -->
+              <!-- /.box-body-->
+              <div class="box-body pre-scrollable">
+                <!-- checkbox -->
+                <div id="region_west" class="form-group">
+                  <ul style="list-style: none">
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Boon Lay">Boon Lay</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bukit Batok">Bukit Batok</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bukit Panjang">Bukit Panjang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Choa Chu Kang">Choa Chu Kang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Clementi">Clementi</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Jurong East">Jurong East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Jurong West">Jurong West</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Pioneer">Pioneer</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Tengah">Tengah</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Tuas">Tuas</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Western Islands">Western Islands</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Western Water Catchment">Western Water Catchment</label></li>
+                  </ul>
+                </div>
+                <!-- /.form group -->
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.West box-->
+
+          </div>
+          <!-- /.tab-pane -->
+        </div>
+
+        <!-- reset / submit -->
+        <hr>
+        <!--<input id="button1" type="button" class="btn btn-success" value="Button" />-->
+        <input id="submit" type="submit" class="btn btn-success" value="Apply" />
+      </div>
+    </form>
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
 <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<!--<script>-->
-  <!--$.widget.bridge('uibutton', $.ui.button);-->
-<!--</script>-->
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- Bootstrap slider -->
+<script src="plugins/bootstrap-slider/bootstrap-slider.js"></script>
 <!-- ChartJS 2.4.0 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js"></script>
 <!-- Sparkline -->
@@ -371,11 +760,14 @@
 <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
 <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="plugins/iCheck/icheck.min.js"></script>
 <!-- FastClick -->
 <script src="plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <!-- PA javascript -->
+<script src="dist/js/pages/pa_template.js"></script>
 <script src="dist/js/pages/pa_demographics.js"></script>
 </body>
 </html>

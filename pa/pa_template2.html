@@ -22,6 +22,7 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/skin-red.min.css">
   <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/iCheck/minimal/grey.css">
   <link rel="stylesheet" href="plugins/iCheck/minimal/green.css">
   <link rel="stylesheet" href="plugins/iCheck/minimal/red.css">
   <link rel="stylesheet" href="plugins/iCheck/minimal/yellow.css">
@@ -166,7 +167,7 @@
           <!-- small box -->
           <div class="small-box bg-light-blue">
             <div class="inner">
-              <h3 id="segment_display">PMET</h3>
+              <h3 id="segment_display">...</h3>
 
               <p>Segment</p>
             </div>
@@ -181,7 +182,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3 id="ageRange_display">19 - 65</h3>
+              <h3 id="ageRange_display">...</h3>
 
               <p>Age Range</p>
             </div>
@@ -195,7 +196,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3 id="sampleSize_display">22,431</h3>
+              <h3 id="sampleSize_display">...</h3>
 
               <p>Sample Size</p>
             </div>
@@ -253,7 +254,7 @@
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-light">
-    <form action="http://localhost:3000/apply_filter" method="post">
+    <form id="filter_form" action="apply_filter" method="post">
       <div class="margin">
 
         <!-- Segment Selector -->
@@ -380,11 +381,11 @@
                 <!-- checkbox -->
                 <div class="form-group">
                   <ul style="list-style: none">
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="central">Central</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="east">East</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="north">North</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="northeast">Northeast</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="west">West</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="Central">Central</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="East">East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="North">North</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="North-East">North-East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_residence_region" value="West">West</label></li>
                   </ul>
                 </div>
                 <!-- /.form group -->
@@ -411,11 +412,11 @@
                 <!-- checkbox -->
                 <div class="form-group">
                   <ul style="list-style: none">
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="central">Central</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="east">East</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="north">North</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="northeast">Northeast</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="west">West</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="Central">Central</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="East">East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="North">North</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="North-East">North-East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="infer_workplace_region" value="West">West</label></li>
                   </ul>
                 </div>
                 <!-- /.form group -->
@@ -454,30 +455,30 @@
               <!-- /.box-body-->
               <div class="box-body pre-scrollable">
                 <!-- checkbox -->
-                <div class="form-group">
+                <div id="region_central" class="form-group">
                   <ul style="list-style: none">
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="bishan">Bishan</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="bukit_merah">Bukit Merah</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="bukit_timah">Bukit Timah</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="downtown_core">Downtown Core</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="geylang">Geylang</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="kallang">Kallang</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="marina_east">Marina East</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="marina_south">Marina South</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="marine_parade">Marine Parade</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="museum">Museum</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="newton">Newton</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="novena">Novena</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="orchard">Orchard</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="outram">Outram</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="queenstown">Queenstown</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="river_valley">River Valley</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="rochor">Rochor</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="singapore_river">Singapore River</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="southern_islands">Southern Islands</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="straits_view">Straits View</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="tanglin">Tanglin</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="toa_payoh">Toa Payoh</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bishan">Bishan</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bukit Merah">Bukit Merah</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bukit Timah">Bukit Timah</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Downtown Core">Downtown Core</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Geylang">Geylang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Kallang">Kallang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Marina East">Marina East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Marina South">Marina South</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Marine Parade">Marine Parade</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Museum">Museum</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Newton">Newton</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Novena">Novena</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Orchard">Orchard</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Outram">Outram</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Queenstown">Queenstown</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="River Valley">River Valley</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Rochor">Rochor</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Singapore River">Singapore River</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Southern Islands">Southern Islands</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Straits View">Straits View</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Tanglin">Tanglin</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Toa Payoh">Toa Payoh</label></li>
                   </ul>
                 </div>
                 <!-- /.form group -->
@@ -500,16 +501,16 @@
               </div>
               <!-- /.box-header -->
               <!-- /.box-body-->
-              <div class="box-body pre-scrollable">
+              <div id="region_east" class="box-body pre-scrollable">
                 <!-- checkbox -->
                 <div class="form-group">
                   <ul style="list-style: none">
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="bedok">Bedok</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="changi">Changi</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="changi_bay">Changi Bay</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="pasir_ris">Pasir Ris</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="paya_lebar">Paya Lebar</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="tampines">Tampines</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bedok">Bedok</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Changi">Changi</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Changi Bay">Changi Bay</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Pasir Ris">Pasir Ris</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Paya Lebar">Paya Lebar</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Tampines">Tampines</label></li>
                   </ul>
                 </div>
                 <!-- /.form group -->
@@ -534,16 +535,16 @@
               <!-- /.box-body-->
               <div class="box-body pre-scrollable">
                 <!-- checkbox -->
-                <div class="form-group">
+                <div id="region_north" class="form-group">
                   <ul style="list-style: none">
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="central_water_catchment">Central Water Catchment</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="lim_chu_kang">Lim Chu Kang</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="mandai">Mandai</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="sembawang">Sembawang</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="simpang">Simpang</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="sungei_kadut">Sungei Kadut</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="woodlands">Woodlands</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="yishun">Yishun</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Central Water Catchment">Central Water Catchment</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Lim Chu Kang">Lim Chu Kang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Mandai">Mandai</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Sembawang">Sembawang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Simpang">Simpang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Sungei Kadut">Sungei Kadut</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Woodlands">Woodlands</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Yishun">Yishun</label></li>
                   </ul>
                 </div>
                 <!-- /.form group -->
@@ -555,7 +556,7 @@
             <!-- Northeast box -->
             <div class="box box-success box-solid collapsed-box">
               <div class="box-header">
-                <div class="box-title">Northeast</div>
+                <div class="box-title">North-East</div>
                 <!-- box-tools -->
                 <div class="box-tools pull-right">
                   <button type="button" class="btn btn-box-tool" data-widget="collapse">
@@ -568,15 +569,15 @@
               <!-- /.box-body-->
               <div class="box-body pre-scrollable">
                 <!-- checkbox -->
-                <div class="form-group">
+                <div id="region_northeast" class="form-group">
                   <ul style="list-style: none">
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="ang_mo_kio">Ang Mo Kio</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="hougang">Hougang</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="north_eastern_islands">North-Eastern Islands</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="punggol">Punggol</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="seletar">Seletar</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="sengkang">Sengkang</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="serangoon">Serangoon</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Ang Mo Kio">Ang Mo Kio</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Hougang">Hougang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="North-Eastern Islands">North-Eastern Islands</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Punggol">Punggol</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Seletar">Seletar</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Sengkang">Sengkang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Serangoon">Serangoon</label></li>
                   </ul>
                 </div>
                 <!-- /.form group -->
@@ -601,20 +602,20 @@
               <!-- /.box-body-->
               <div class="box-body pre-scrollable">
                 <!-- checkbox -->
-                <div class="form-group">
+                <div id="region_west" class="form-group">
                   <ul style="list-style: none">
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="boon_lay">Boon Lay</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="bukit_batok">Bukit Batok</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="bukit_panjang">Bukit Panjang</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="choa_chu_kang">Choa Chu Kang</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="clementi">Clementi</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="jurong_east">Jurong East</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="jurong_west">Jurong West</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="pioneer">Pioneer</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="tengah">Tengah</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="tuas">Tuas</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="western_islands">Western Islands</label></li>
-                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="western_water_catchment">Western Water Catchment</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Boon Lay">Boon Lay</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bukit Batok">Bukit Batok</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Bukit Panjang">Bukit Panjang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Choa Chu Kang">Choa Chu Kang</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Clementi">Clementi</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Jurong East">Jurong East</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Jurong West">Jurong West</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Pioneer">Pioneer</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Tengah">Tengah</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Tuas">Tuas</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Western Islands">Western Islands</label></li>
+                    <li><label><input type="checkbox" class="minimal-green" name="planning_area" value="Western Water Catchment">Western Water Catchment</label></li>
                   </ul>
                 </div>
                 <!-- /.form group -->
@@ -629,9 +630,8 @@
 
         <!-- reset / submit -->
         <hr>
-        <input id="button1" type="button" class="btn btn-success" value="Toggle1" />
-        <input id="button2" type="button" class="btn btn-success" value="Toggle2" />
-        <input type="submit" class="btn btn-success" value="Apply" />
+        <!--<input id="button1" type="button" class="btn btn-success" value="Button" />-->
+        <input id="submit" type="submit" class="btn btn-success" value="Apply" />
       </div>
     </form>
   </aside>
