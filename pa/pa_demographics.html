@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Template |PAResearch</title>
+  <title>Demographics |PAResearch</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -134,6 +134,32 @@
             <i class="fa fa-map-marker"></i> <span>Geospatial Analysis</span>
           </a>
       </ul>
+
+      <!-- Calendar -->
+      <div class="box box-solid bg-green-gradient ">
+        <div class="box-header">
+          <i class="fa fa-calendar"></i>
+
+          <h3 class="box-title">Calendar</h3>
+          <!-- tools box -->
+          <div class="pull-right box-tools">
+
+            <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+            </button>
+          </div>
+          <!-- /. tools -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+          <!--The calendar -->
+          <div id="calendar" style="width: 100%"></div>
+        </div>
+
+      </div>
+      <!-- /.box -->
+      <!-- end calander -->
     </section>
     <!-- /.sidebar -->
 
@@ -165,7 +191,7 @@
       <div class="row">
 
         <!-- Segment widget-->
-        <div class="col-sm-4 col-xs-6">
+        <div class="col-sm-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-light-blue">
             <div class="inner">
@@ -181,7 +207,7 @@
         <!-- ./col -->
 
         <!-- Age Range widget -->
-        <div class="col-sm-4 col-xs-6">
+        <div class="col-sm-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -197,7 +223,7 @@
         <!-- ./col -->
 
         <!-- Sample Size widget -->
-        <div class="col-sm-4 col-xs-12">
+        <div class="col-sm-3 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
@@ -212,6 +238,24 @@
         </div>
         <!-- ./col -->
 
+        <!-- Month widget -->
+        <div class="col-sm-3 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3 id="month_display">7/2016</h3>
+
+              <p>Data Month</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-calendar"></i>
+            </div>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+
+      <div class="row">
         <!-- Gender chart -->
         <section class="col-md-3 col-xs-6 connectedSortable">
           <!-- CHART BOX -->
@@ -299,7 +343,9 @@
           <!-- /.box -->
         </section>
         <!-- left / right col -->
+      </div>
 
+      <div class="row">
         <!-- Left / Right col -->
         <section class="col-md-4 col-xs-6 connectedSortable">
           <!-- CHART BOX -->
@@ -327,7 +373,7 @@
           <!-- CHART BOX -->
           <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Planning Area of Residence</h3>
+              <h3 class="box-title">Top 20 Planning Area of Residence</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -371,7 +417,7 @@
           <!-- CHART BOX -->
           <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Planning Area of Workplace</h3>
+              <h3 class="box-title">Top 20 Planning Area of Workplace</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>

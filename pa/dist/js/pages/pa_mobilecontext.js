@@ -1,15 +1,3 @@
-var attrTable = {
-    'gender': {},
-    'race': {},
-    'age': {},
-    'infer_residence_region': {},
-    'infer_residence_planning_area': {},
-    'infer_workplace_region': {},
-    'infer_workplace_planning_area': {},
-    'residence_districtcode': {},
-    'residence_type': {}
-};
-
 $(function () {
     //----------
     //- iCheck -
@@ -56,19 +44,35 @@ $(function () {
         area_filter: 'infer_residence_',
         planning_area: 'Bishan'
     };
+    var domainAttrTable = {
+        'tier1': {},
+        'tier2': {},
+        'domain': {}
+    };
     var ageTable = {
         'age5': {},
         'age10': {}
     };
+    var month = 7, year = 2016;
 
     // initialise slider and slider value
     $("#ageSlider").slider({
         ticks: sliderDefaultValue,
         value: sliderDefaultValue,
         // ticks_labels: [19, 65],
-    });
-    $('#ageSlider').on('slide', function(sldEvt) {
+    }).on('slide', function(sldEvt) {
         $('#ageSliderValue').text(sldEvt.value[0] + ' - ' + sldEvt.value[1]);
+    });
+
+    // initialise calendar
+    $("#calendar").datepicker({
+        format: "mm-yyyy",
+        viewMode: "months",
+        minViewMode: "months"
+    }).on('changeMonth', function(e) {
+        month = e.date.getMonth() + 1;
+        year = e.date.getFullYear();
+        query_domain(year, month)
     });
 
 
@@ -77,107 +81,41 @@ $(function () {
     //---------------------
 
     // // Chart.defaults.global.maintainAspectRatio = false;
-    // var barChartOptions = {
-    //     legend: {
-    //         display: false
-    //     }
-    // };
-    // // gender chart
-    // var genderData = {
-    //     labels: ["Male", "Female"],
-    //     datasets: [{
-    //         data: [1, 1],
-    //         backgroundColor: ['red', 'green']
-    //     }]
-    // };
-    // var genderChartCanvas = $("#genderChart");
-    // var genderChart = new Chart(genderChartCanvas, {
-    //     type: 'pie',
-    //     data: genderData
-    // });
-    // // race chart
-    // var raceData = {
-    //     labels: ["Chinese", "Malay", "Indian", "Eurasian", "Others"],
-    //     datasets: [{
-    //         data: [1, 1, 1, 1, 1],
-    //         backgroundColor: ['red', 'orange', 'green', 'blue', 'purple']
-    //     }]
-    // };
-    // var raceChartCanvas = $("#raceChart");
-    // var raceChart = new Chart(raceChartCanvas, {
-    //     type: 'pie',
-    //     data: raceData
-    // });
-    // // age10 chart
-    // var age10Data = {
-    //     labels: ["20-29", "30-39", "40-49", "50-59", "Above 59"],
-    //     datasets: [{
-    //         label: '# of People',
-    //         data: [1, 1, 1, 1, 1],
-    //         backgroundColor: 'red'
-    //     }]
-    // };
-    // var age10ChartCanvas = $("#age10Chart");
-    // var age10Chart = new Chart(age10ChartCanvas, {
-    //     type: 'bar',
-    //     data: age10Data,
-    //     options: barChartOptions
-    // });
-    // // age5 chart
-    // var age5Data = {
-    //     labels: ["20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "Above 64"],
-    //     datasets: [{
-    //         label: '# of People',
-    //         data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    //         backgroundColor: 'red'
-    //     }]
-    // };
-    // var age5ChartCanvas = $("#age5Chart");
-    // var age5Chart = new Chart(age5ChartCanvas, {
-    //     type: 'bar',
-    //     data: age5Data,
-    //     options: barChartOptions
-    // });
-    // // region chart
-    // var regionData = {
-    //     labels: ["Central", "East", "North", "North-East", "West"],
-    //     datasets: [{
-    //         label: '# of People',
-    //         data: [1, 1, 1, 1, 1],
-    //         backgroundColor: ['red', 'orange', 'green', 'blue', 'purple']
-    //     }]
-    // };
-    // var regionResidenceChartCanvas = $("#regionResidenceChart");
-    // var regionResidenceChart = new Chart(regionResidenceChartCanvas, {
-    //     type: 'pie',
-    //     data: regionData
-    // });
-    // var regionWorkplaceChartCanvas = $("#regionWorkplaceChart");
-    // var regionWorkplaceChart = new Chart(regionWorkplaceChartCanvas, {
-    //     type: 'pie',
-    //     data: regionData
-    // });
-    // // region chart
-    // var planningAreaData = {
-    //     labels: ["Central", "East", "North", "North-East", "West"],
-    //     datasets: [{
-    //         label: '# of People',
-    //         data: [1, 1, 1, 1, 1],
-    //         backgroundColor: 'red'
-    //     }]
-    // };
-    // var pAreaResidenceChartCanvas = $("#pAreaResidenceChart");
-    // var pAreaResidenceChart = new Chart(pAreaResidenceChartCanvas, {
-    //     type: 'bar',
-    //     data: planningAreaData,
-    //     options: barChartOptions
-    // });
-    // var pAreaWorkplaceChartCanvas = $("#pAreaWorkplaceChart");
-    // var pAreaWorkplaceChart = Chart.Bar(pAreaWorkplaceChartCanvas, {
-    //     type: 'bar',
-    //     data: planningAreaData,
-    //     options: barChartOptions
-    // });
+    var barChartOptions = {
+        legend: {
+            display: false
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    };
+    // tier1 chart
+    var tier1ChartCanvas = $("#tier1Chart");
+    var tier1Chart = new Chart(tier1ChartCanvas, {
+        type: 'bar',
+        data: {
+            datasets: [{
+                data: [1]
+            }]
+        },
+        options: barChartOptions
+    });
+    // tier2 chart
+    var tier2ChartCanvas = $("#tier2Chart");
+    var tier2Chart = new Chart(tier2ChartCanvas, {
+        type: 'bar',
+        data: {
+            datasets: [{
+                data: [1]
+            }]
+        },
+        options: barChartOptions
+    });
+    var domainTable = $("#top_domain_table").DataTable();
 
     loadSettingsFromCookie();
 
@@ -297,7 +235,6 @@ $(function () {
             type: frm.attr('method'),
             data: frm.serialize()
         }).success(updateTopWidgets).then(updateDataTable).then(updateCharts);
-        // }).success(updateTopWidgets).success(updateDataTable).success(updateCharts)
     });
 
     function updateTopWidgets(cookieData) {
@@ -307,31 +244,74 @@ $(function () {
     }
 
     function updateDataTable() {
-        // Object.keys(attrTable).map(updateDomainAttrData);
         // console.log(attrTable);
         // updateAgeTable();
     }
 
-    function updateDomainAttrData(column) {
-        attrTable[column] = {};
+    function query_domain(year, month) {
         $.ajax({
-            url: 'query_crm/' + column,
-            async: false
-        }).success(function (results) {
-            for (i = 0; i < results.length; i++) {
-                var row = results[i];
-                if (row[column] && (row[column] != "UNKNOWN")) {
-                    attrTable[column][row[column]] = row.count;
-                }
+            url: 'query_mc_domain/' + year + '/' + month
+        }).success(updateDomainData).success(function() {
+            updateChart(tier1Chart, domainAttrTable.tier1, 10);
+            updateChart(tier2Chart, domainAttrTable.tier2, 20);
+            updateDomainTable('traffic');
+        });
+    }
+
+    function updateDomainData(results) {
+        domainAttrTable.tier1 = {};
+        domainAttrTable.tier2 = {};
+        domainAttrTable.domain = results;
+        for (i = 0; i < results.length; i++) {
+            var row = results[i];
+            if (!domainAttrTable.tier1[row.tier1]) {
+                domainAttrTable.tier1[row.tier1] = parseInt(row.traffic);
+            } else {
+                domainAttrTable.tier1[row.tier1] += parseInt(row.traffic);
             }
+            if (!domainAttrTable.tier2[row.tier2]) {
+                domainAttrTable.tier2[row.tier2] = parseInt(row.traffic);
+            } else {
+                domainAttrTable.tier2[row.tier2] += parseInt(row.traffic);
+            }
+        }
+    }
+
+    function sortDomainData(data, col) {
+        return data.sort(function(first, second) {
+              return second[col] - first[col];
         })
     }
 
+    function updateDomainTable(sortedCol) {
+        var data = sortDomainData(domainAttrTable.domain, sortedCol).slice(0, 100);
+        console.log(data[0]);
+        domainTable.destroy();
+        $("#top_domain_list").html("");
+        for (i=0;i<data.length;i++) {
+            var row = data[i];
+            var rowHtml = "<tr>";
+            rowHtml += "<td>" + (i + 1) + "</td>";
+            rowHtml += "<td>" + row.domain + "</td>";
+            rowHtml += "<td>" + row.tier2 + "</td>";
+            rowHtml += "<td>" + row.tier1 + "</td>";
+            rowHtml += "<td>" + row.traffic + "</td>";
+            rowHtml += "<td>" + row.count + "</td>";
+            rowHtml += "</tr>";
+            $("#top_domain_list").append(rowHtml);
+        }
+        domainTable = $("#top_domain_table").DataTable({
+            "paging": true,
+            "autoWidth": true,
+            "pageLength": 25,
+            "order": [[ 4, 'desc' ],  [5, 'desc' ]],
+            "scrollX": true,
+            "retrieve": true,
+        });
+    }
+
     function updateCharts() {
-        // updateGenderChart(genderChart);
-        // updateRaceChart(raceChart);
-        // updateAge5Chart(age5Chart);
-        // updateAge10Chart(age10Chart);
+        // updateChart(tier1Chart, domainAttrTable.tier1);
     }
 
     function resetChart(chart) {
@@ -342,15 +322,17 @@ $(function () {
     }
 
     function updateChart(chart, dataDict, dataLength, chartColourArray) {
+        if (!dataDict) resetChart(chart);
         var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
-        dataLength = dataLength || dataDict.length;
+        dataLength = dataLength || Object.keys(dataDict).length;
         dataSorted = dataSorted.slice(0, dataLength);
         chartColourArray = chartColourArray || getColourArray(dataLength);
         var labels = getKeys(dataSorted);
         var values = getValues(dataSorted);
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;
-        chart.data.datasets[0].data = dataSorted;
+        chart.data.datasets[0].data = values;
+        chart.update();
     }
 
     function dictToKeyValueArray(dict){
@@ -366,11 +348,11 @@ $(function () {
     function getColourArray(numOfLabels) {
         var colourArray = []
         if (numOfLabels == 1) {
-            colourArray = "HSL(0,100%,50%)"
+            colourArray = "hsl(0,100%,50%)"
         } else {
             for (var i = 0; i < numOfLabels; i++) {
                 var segmentAngle = parseInt(i * 360 / numOfLabels);
-                colourArray.push("HSL(" + segmentAngle + ",100%,50%)");
+                colourArray.push("hsl(" + segmentAngle + ",100%,50%)");
             }
         }
         return colourArray
