@@ -243,11 +243,11 @@
         <!-- ./col -->
 
         <!-- Left / Right col -->
-        <section class="col-md-6 col-xs-12 connectedSortable">
+        <section class="col-md-5 col-xs-12 connectedSortable">
           <!-- CHART BOX -->
           <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Tier 1 Interests</h3>
+              <h3 class="box-title">Domain Tier 1 Category</h3>
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -265,12 +265,13 @@
         <!-- left / right col -->
 
         <!-- Left / Right col -->
-        <section class="col-md-12 col-xs-12 connectedSortable">
+        <section class="col-md-7 col-xs-12 connectedSortable">
           <!-- CHART BOX -->
           <div class="box box-default">
             <div class="box-header with-border">
-              <h3 class="box-title">Tier 2 Interests</h3>
+              <h3 class="box-title">Domain Tier 2 Category</h3>
               <div class="box-tools pull-right">
+                <button type="button" id="tier2Reset" class="btn btn-box-tool">Reset</button>
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
               </div>
@@ -293,7 +294,7 @@
           <!-- Box -->
           <div class="box box-default">
             <div class="box-header with-border">
-              <h3 id="table-title" class="box-title">Top Domains Visited</h3>
+              <h3 id="table-title" class="box-title">Top 100 Visited Domains</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -324,8 +325,129 @@
           </div>
         </section>
         <!-- left / right col -->
+
+        <!-- Left / Right col -->
+        <section class="col-md-4 col-xs-12 connectedSortable">
+          <!-- CHART BOX -->
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Parenting Forums Visited</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="forumChart"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </section>
+        <!-- left / right col -->
+
+
+        <!-- Left / Right col -->
+        <section class="col-md-8 col-xs-12 connectedSortable">
+          <!-- DATA TABLE -->
+          <!-- Box -->
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 id="table-title" class="box-title">Top 20 Forum Threads</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <!-- /.box-body -->
+            <div class="box-body">
+              <div class="table table-bordered table-striped">
+                <table id="top_thread_table" class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Thread</th>
+                    <th>Forum</th>
+                    <th>Traffic</th>
+                    <th>Unique Subscribers</th>
+                  </tr>
+                  </thead>
+                  <tbody id="top_thread_list"></tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- End Table List-->
+          </div>
+        </section>
+        <!-- left / right col -->
+
+        <!-- Left / Right col -->
+        <section class="col-md-4 col-xs-12 connectedSortable">
+          <!-- CHART BOX -->
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Interest Groups Visited</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="chart">
+                <canvas id="networkTypeChart"></canvas>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </section>
+        <!-- left / right col -->
+
+
+        <!-- Left / Right col -->
+        <section class="col-md-8 col-xs-12 connectedSortable">
+          <!-- DATA TABLE -->
+          <!-- Box -->
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 id="table-title" class="box-title">Top 20 Interest Groups</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <!-- /.box-body -->
+            <div class="box-body">
+              <div class="table table-bordered table-striped">
+                <table id="top_networkName_table" class="table no-margin">
+                  <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Group Name</th>
+                    <th>Group Category</th>
+                    <th>Traffic</th>
+                    <th>Unique Subscribers</th>
+                  </tr>
+                  </thead>
+                  <tbody id="top_networkName_list"></tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- End Table List-->
+          </div>
+        </section>
+        <!-- left / right col -->
       </div>
       <!-- /.row -->
+
 
       <!--main content template -->
       <!--&lt;!&ndash; Main row &ndash;&gt;-->

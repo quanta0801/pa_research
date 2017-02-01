@@ -59,6 +59,68 @@ $(function () {
         'residence_districtcode': {},
         'residence_type': {}
     };
+    var regionTable = {
+        'Ang Mo Kio': 'North-East',
+        'Bedok': 'East',
+        'Bishan': 'Central',
+        'Boon Lay': 'West',
+        'Bukit Batok': 'West',
+        'Bukit Merah': 'Central',
+        'Bukit Panjang': 'West',
+        'Bukit Timah': 'Central',
+        'Central Water Catchment': 'North',
+        'Changi': 'East',
+        'Changi Bay': 'East',
+        'Choa Chu Kang': 'West',
+        'Clementi': 'West',
+        'Downtown Core': 'Central',
+        'Geylang': 'Central',
+        'Hougang': 'North-East',
+        'Jurong East': 'West',
+        'Jurong West': 'West',
+        'Kallang': 'Central',
+        'Lim Chu Kang': 'North',
+        'Mandai': 'North',
+        'Marina East': 'Central',
+        'Marina South': 'Central',
+        'Marine Parade': 'Central',
+        'Museum': 'Central',
+        'Newton': 'Central',
+        'North-Eastern Islands': 'North-East',
+        'Novena': 'Central',
+        'Orchard': 'Central',
+        'Outram': 'Central',
+        'Pasir Ris': 'East',
+        'Paya Lebar': 'East',
+        'Pioneer': 'West',
+        'Punggol': 'North-East',
+        'Queenstown': 'Central',
+        'River Valley': 'Central',
+        'Rochor': 'Central',
+        'Seletar': 'North-East',
+        'Sembawang': 'North',
+        'Sengkang': 'North-East',
+        'Serangoon': 'North-East',
+        'Simpang': 'North',
+        'Singapore River': 'Central',
+        'Southern Islands': 'Central',
+        'Straits View': 'Central',
+        'Sungei Kadut': 'North',
+        'Tampines': 'East',
+        'Tanglin': 'Central',
+        'Tengah': 'West',
+        'Toa Payoh': 'Central',
+        'Tuas': 'West',
+        'Western Islands': 'West',
+        'Western Water Catchment': 'West',
+        'Woodlands': 'North',
+        'Yishun': 'North'
+    };
+    var colourMap = {
+        residence: {},
+        workplace: {}
+    };
+    var month = 7, year = 2016;
 
     // initialise slider and slider value
     $("#ageSlider").slider({
@@ -75,11 +137,9 @@ $(function () {
         viewMode: "months",
         minViewMode: "months"
     }).on('changeMonth', function(e) {
-        $('#month_display').text(e.date.getMonth() + '/' + e.date.getFullYear());
-        // console.log(e.date.getMonth());
-        // console.log(e.date.getFullYear());
-        // selected_month = ('0' + (e.date.getMonth()+1)).slice(-2)
-        // selected_year = e.date.getFullYear()
+        month = e.date.getMonth() + 1;
+        year = e.date.getFullYear();
+        $('#month_display').text(month + '/' + year);
     });
 
 
@@ -370,10 +430,10 @@ $(function () {
         updateChart(raceChart, attrTable.race);
         updateAge5Chart(age5Chart);
         updateAge10Chart(age10Chart);
-        updateChart(regionResidenceChart, attrTable.infer_residence_region);
-        updateChart(regionWorkplaceChart, attrTable.infer_workplace_region);
-        updateChart(pAreaResidenceChart, attrTable.infer_residence_planning_area, 20);
-        updateChart(pAreaWorkplaceChart, attrTable.infer_workplace_planning_area, 20);
+        colourMap.residence = updateChart(regionResidenceChart, attrTable.infer_residence_region);
+        colourMap.workplace = updateChart(regionWorkplaceChart, attrTable.infer_workplace_region);
+        updateChartWithColourMapping(pAreaResidenceChart, attrTable.infer_residence_planning_area, 20, regionTable, colourMap.residence);
+        updateChartWithColourMapping(pAreaWorkplaceChart, attrTable.infer_workplace_planning_area, 20, regionTable, colourMap.workplace);
     }
 
     function resetChart(chart) {
@@ -389,6 +449,27 @@ $(function () {
         dataSorted = dataSorted.slice(0, dataLength);
         chartColourArray = chartColourArray || getColourArray(dataLength);
         var labels = getKeys(dataSorted);
+        var values = getValues(dataSorted);
+        chart.data.labels = labels;
+        chart.data.datasets[0].backgroundColor = chartColourArray;
+        chart.data.datasets[0].data = values;
+        chart.update();
+        var colourMap = {};
+        for (i=0;i<dataLength;i++){
+            colourMap[labels[i]] = chartColourArray[i];
+        }
+        return colourMap;
+    }
+
+    function updateChartWithColourMapping(chart, dataDict, dataLength, mapTable, colourMap) {
+        if (!dataDict) resetChart(chart);
+        var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
+        dataLength = dataLength || Object.keys(dataDict).length;
+        dataSorted = dataSorted.slice(0, dataLength);
+        var labels = getKeys(dataSorted);
+        chartColourArray = labels.map(function(el){
+            return colourMap[mapTable[el]] || 'rgba(0,0,0,0.1)';
+        });
         var values = getValues(dataSorted);
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;

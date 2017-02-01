@@ -44,10 +44,24 @@ $(function () {
         area_filter: 'infer_residence_',
         planning_area: 'Bishan'
     };
-    var domainAttrTable = {
-        'tier1': {},
-        'tier2': {},
-        'domain': {}
+    var rawData = {
+        'domain': {},
+        'thread': {},
+        'network_name': {}
+    };
+    var aggData = {
+        'domainTier1': {},
+        'domainTier2': {},
+        'network_type': {},
+        'forum': {}
+    };
+    var mapTable = {
+        'domainTier2': {}
+    };
+    var colourMap = {
+        'domainTier1': {},
+        'network_type': {},
+        'forum': {}
     };
     var ageTable = {
         'age5': {},
@@ -72,7 +86,8 @@ $(function () {
     }).on('changeMonth', function(e) {
         month = e.date.getMonth() + 1;
         year = e.date.getFullYear();
-        query_domain(year, month)
+        $('#month_display').text('...');
+        query_data(year, month);
     });
 
 
@@ -87,6 +102,18 @@ $(function () {
         },
         scales: {
             yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    };
+    var horizontalBarChartOptions = {
+        legend: {
+            display: false
+        },
+        scales: {
+            xAxes: [{
                 ticks: {
                     beginAtZero:true
                 }
@@ -115,9 +142,32 @@ $(function () {
         },
         options: barChartOptions
     });
+    var forumChartCanvas = $("#forumChart");
+    var forumChart = new Chart(forumChartCanvas, {
+        type: 'horizontalBar',
+        data: {
+            datasets: [{
+                data: [1]
+            }]
+        },
+        options: horizontalBarChartOptions
+    });
+    var networkTypeChartCanvas = $("#networkTypeChart");
+    var networkTypeChart = new Chart(networkTypeChartCanvas, {
+        type: 'horizontalBar',
+        data: {
+            datasets: [{
+                data: [1]
+            }]
+        },
+        options: horizontalBarChartOptions
+    });
     var domainTable = $("#top_domain_table").DataTable();
+    var threadTable = $("#top_thread_table").DataTable();
+    var networkNameTable = $("#top_networkName_table").DataTable();
 
     loadSettingsFromCookie();
+    $('#month_display').text('...');
 
     function loadSettingsFromCookie() {
         $.ajax({
@@ -126,8 +176,7 @@ $(function () {
             if (results.filter_settings) {
                 parseCurrentFilter(results.filter_settings);
                 updateTopWidgets(results);
-                updateDataTable();
-                updateCharts();
+                query_data(year, month);
             } else {
                 parseCurrentFilter(default_options);
                 $('#submit').submit();
@@ -222,6 +271,17 @@ $(function () {
         disableOptions($(this).val());
     });
 
+    $('#tier1Chart').click(function(evt){
+        var activePoints = tier1Chart.getElementsAtEvent(evt);
+        var firstPoint = activePoints[0];
+        var label = tier1Chart.data.labels[firstPoint._index];
+        updateChartWithFilter(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1, label);
+    });
+
+    $('#tier2Reset').click(function() {
+        updateChartWithColourMapping(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1);
+    });
+
     //filters applied, query new data, update charts
     $('#filter_form').submit(function(evt) {
         evt.preventDefault();
@@ -234,7 +294,9 @@ $(function () {
             url: 'apply_filter',
             type: frm.attr('method'),
             data: frm.serialize()
-        }).success(updateTopWidgets).then(updateDataTable).then(updateCharts);
+        }).success(updateTopWidgets).then(function() {
+            query_data(year, month);
+        });
     });
 
     function updateTopWidgets(cookieData) {
@@ -243,49 +305,43 @@ $(function () {
         $('#ageRange_display').text(cookieData.crmProp.minage + ' - ' + cookieData.crmProp.maxage);
     }
 
-    function updateDataTable() {
-        // console.log(attrTable);
-        // updateAgeTable();
+    function sortObject(obj, sortAttr) {
+        return obj.sort(function(first, second) {
+            return second[sortAttr] - first[sortAttr];
+        })
+    }
+
+    function query_data(year, month){
+        query_domain(year, month);
+        query_forum(year, month);
+        query_interest_group(year, month);
     }
 
     function query_domain(year, month) {
         $.ajax({
             url: 'query_mc_domain/' + year + '/' + month
         }).success(updateDomainData).success(function() {
-            updateChart(tier1Chart, domainAttrTable.tier1, 10);
-            updateChart(tier2Chart, domainAttrTable.tier2, 20);
+            colourMap.domainTier1 = updateChart(tier1Chart, aggData.domainTier1, 10);
+            updateChartWithColourMapping(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1);
             updateDomainTable('traffic');
+            $('#month_display').text(month + '/' + year);
         });
     }
-
     function updateDomainData(results) {
-        domainAttrTable.tier1 = {};
-        domainAttrTable.tier2 = {};
-        domainAttrTable.domain = results;
+        aggData.domainTier1 = {};
+        aggData.domainTier2 = {};
+        rawData.domain = results;
         for (i = 0; i < results.length; i++) {
             var row = results[i];
-            if (!domainAttrTable.tier1[row.tier1]) {
-                domainAttrTable.tier1[row.tier1] = parseInt(row.traffic);
-            } else {
-                domainAttrTable.tier1[row.tier1] += parseInt(row.traffic);
-            }
-            if (!domainAttrTable.tier2[row.tier2]) {
-                domainAttrTable.tier2[row.tier2] = parseInt(row.traffic);
-            } else {
-                domainAttrTable.tier2[row.tier2] += parseInt(row.traffic);
-            }
+            if (!aggData.domainTier1[row.tier1]) aggData.domainTier1[row.tier1] = parseInt(row.traffic);
+            else aggData.domainTier1[row.tier1] += parseInt(row.traffic);
+            if (!aggData.domainTier2[row.tier2]) aggData.domainTier2[row.tier2] = parseInt(row.traffic);
+            else aggData.domainTier2[row.tier2] += parseInt(row.traffic);
+            if (!mapTable.domainTier2[row.tier2]) mapTable.domainTier2[row.tier2] = row.tier1;
         }
     }
-
-    function sortDomainData(data, col) {
-        return data.sort(function(first, second) {
-              return second[col] - first[col];
-        })
-    }
-
     function updateDomainTable(sortedCol) {
-        var data = sortDomainData(domainAttrTable.domain, sortedCol).slice(0, 100);
-        console.log(data[0]);
+        var data = sortObject(rawData.domain, sortedCol).slice(0, 100);
         domainTable.destroy();
         $("#top_domain_list").html("");
         for (i=0;i<data.length;i++) {
@@ -293,8 +349,8 @@ $(function () {
             var rowHtml = "<tr>";
             rowHtml += "<td>" + (i + 1) + "</td>";
             rowHtml += "<td>" + row.domain + "</td>";
-            rowHtml += "<td>" + row.tier2 + "</td>";
-            rowHtml += "<td>" + row.tier1 + "</td>";
+            rowHtml += "<td style=\"background-color:" + colourMap.domainTier1[row.tier1] +"\">" + row.tier2 + "</td>";
+            rowHtml += "<td style=\"background-color:" + colourMap.domainTier1[row.tier1] +"\">" + row.tier1 + "</td>";
             rowHtml += "<td>" + row.traffic + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
             rowHtml += "</tr>";
@@ -303,15 +359,95 @@ $(function () {
         domainTable = $("#top_domain_table").DataTable({
             "paging": true,
             "autoWidth": true,
-            "pageLength": 25,
+            "pageLength": 10,
             "order": [[ 4, 'desc' ],  [5, 'desc' ]],
+            "scrollX": true,
+            "retrieve": true
+        });
+    }
+
+    function query_forum(year, month) {
+        $.ajax({
+            url: 'query_mc_forum/' + year + '/' + month
+        }).success(updateForumData).success(function() {
+            colourMap.forum = updateChart(forumChart, aggData.forum);
+            updateForumTable('traffic');
+        });
+    }
+    function updateForumData(results) {
+        aggData.forum = {};
+        rawData.thread = results;
+        for (i = 0; i < results.length; i++) {
+            var row = results[i];
+            if (!aggData.forum[row.forum]) aggData.forum[row.forum] = parseInt(row.traffic);
+            else aggData.forum[row.forum] += parseInt(row.traffic);
+        }
+    }
+    function updateForumTable(sortedCol) {
+        var data = sortObject(rawData.thread, sortedCol).slice(0, 20);
+        threadTable.destroy();
+        $("#top_thread_list").html("");
+        for (i=0;i<data.length;i++) {
+            var row = data[i];
+            var rowHtml = "<tr>";
+            rowHtml += "<td>" + (i + 1) + "</td>";
+            rowHtml += "<td>" + row.thread + "</td>";
+            rowHtml += "<td style=\"background-color:" + colourMap.forum[row.forum] +"\">" + row.forum + "</td>";
+            rowHtml += "<td>" + row.traffic + "</td>";
+            rowHtml += "<td>" + row.count + "</td>";
+            rowHtml += "</tr>";
+            $("#top_thread_list").append(rowHtml);
+        }
+        threadTable = $("#top_thread_table").DataTable({
+            "paging": true,
+            "autoWidth": true,
+            "pageLength": 5,
+            "order": [[ 3, 'desc' ],  [4, 'desc' ]],
             "scrollX": true,
             "retrieve": true,
         });
     }
 
-    function updateCharts() {
-        // updateChart(tier1Chart, domainAttrTable.tier1);
+    function query_interest_group(year, month) {
+        $.ajax({
+            url: 'query_mc_interest_group/' + year + '/' + month
+        }).success(updateNetworkData).success(function() {
+            colourMap.network_type = updateChart(networkTypeChart, aggData.network_type);
+            updateNetworkTable('traffic');
+        });
+    }
+    function updateNetworkData(results) {
+        aggData.network_type = {};
+        rawData.network_name = results;
+        for (i = 0; i < results.length; i++) {
+            var row = results[i];
+            if (!aggData.network_type[row.network_type]) aggData.network_type[row.network_type] = parseInt(row.traffic);
+            else aggData.network_type[row.network_type] += parseInt(row.traffic);
+        }
+    }
+    function updateNetworkTable(sortedCol) {
+        var data = sortObject(rawData.network_name, sortedCol).slice(0, 20);
+        networkNameTable.destroy();
+        $("#top_networkName_list").html("");
+        for (i=0;i<data.length;i++) {
+            var row = data[i];
+            var rowHtml = "<tr>";
+            rowHtml += "<td>" + (i + 1) + "</td>";
+            rowHtml += "<td>" + row.network_name + "</td>";
+            rowHtml += "<td style=\"background-color:" + colourMap.network_type[row.network_type] +"\">" + row.network_type + "</td>";
+            rowHtml += "<td>" + row.traffic + "</td>";
+            rowHtml += "<td>" + row.count + "</td>";
+            rowHtml += "</tr>";
+            $("#top_networkName_list").append(rowHtml);
+        }
+        networkNameTable = $("#top_networkName_table").DataTable({
+            "paging": true,
+            "autoWidth": true,
+            "pageLength": 5,
+            "order": [[ 3, 'desc' ],  [4, 'desc' ]],
+            "scrollX": true,
+            "retrieve": true,
+        });
     }
 
     function resetChart(chart) {
@@ -324,10 +460,34 @@ $(function () {
     function updateChart(chart, dataDict, dataLength, chartColourArray) {
         if (!dataDict) resetChart(chart);
         var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
+        if (dataLength && dataLength > Object.keys(dataDict).length) dataLength = Object.keys(dataDict).length;
         dataLength = dataLength || Object.keys(dataDict).length;
         dataSorted = dataSorted.slice(0, dataLength);
-        chartColourArray = chartColourArray || getColourArray(dataLength);
         var labels = getKeys(dataSorted);
+        var values = getValues(dataSorted);
+        chartColourArray = chartColourArray || getColourArray(dataLength);
+        chart.data.labels = labels;
+        chart.data.datasets[0].backgroundColor = chartColourArray;
+        chart.data.datasets[0].data = values;
+        chart.update();
+        var colourMap = {};
+        for (i=0;i<dataLength;i++){
+            colourMap[labels[i]] = chartColourArray[i];
+        }
+        return colourMap;
+    }
+
+    function updateChartWithColourMapping(chart, dataDict, dataLength, mapTable, colourMap) {
+        if (!dataDict) resetChart(chart);
+        var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
+        if (dataLength && dataLength > Object.keys(dataDict).length) dataLength = Object.keys(dataDict).length;
+        dataLength = dataLength || Object.keys(dataDict).length;
+        dataSorted = dataSorted.slice(0, dataLength);
+        var labels = getKeys(dataSorted);
+        chartColourArray = labels.map(function(el){
+            if (mapTable) return colourMap[mapTable[el]] || 'rgba(0,0,0,0.1)';
+            else return colourMap[el] || 'rgba(0,0,0,0.1)';
+        });
         var values = getValues(dataSorted);
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;
@@ -335,7 +495,17 @@ $(function () {
         chart.update();
     }
 
-    function dictToKeyValueArray(dict){
+    function updateChartWithFilter(chart, dataDict, dataLength, mapTable, colourMap, filterValue) {
+        var dataDictSub = {};
+        for (var key in dataDict) {
+            if (dataDict.hasOwnProperty(key) && mapTable[key] == filterValue){
+                dataDictSub[key] = dataDict[key];
+            }
+        }
+        updateChart(chart, dataDictSub, dataLength, colourMap[filterValue]);
+    }
+
+    function dictToKeyValueArray(dict) {
         return Object.keys(dict).map(function(key) {
             return [key, dict[key]];
         })
@@ -346,7 +516,7 @@ $(function () {
     }
 
     function getColourArray(numOfLabels) {
-        var colourArray = []
+        var colourArray = [];
         if (numOfLabels == 1) {
             colourArray = "hsl(0,100%,50%)"
         } else {
@@ -373,14 +543,4 @@ $(function () {
         }
         return valueArray
     }
-
-    // Update Chart Template
-    // function updateGenderChart(chart) {
-    //     if (!attrTable.gender) {
-    //         resetChart(chart);
-    //     }
-    //     chart.data.datasets[0].data[0] = attrTable.gender.MALE || 0;
-    //     chart.data.datasets[0].data[1] = attrTable.gender.FEMALE || 0;
-    //     chart.update();
-    // }
 });
