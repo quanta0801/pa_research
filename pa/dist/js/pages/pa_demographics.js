@@ -193,7 +193,7 @@ $(function () {
         datasets: [{
             label: '# of People',
             data: [1, 1, 1, 1, 1],
-            backgroundColor: 'red'
+            backgroundColor: "hsl(0,100%,75%)"
         }]
     };
     var age10ChartCanvas = $("#age10Chart");
@@ -208,7 +208,7 @@ $(function () {
         datasets: [{
             label: '# of People',
             data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            backgroundColor: 'red'
+            backgroundColor: "hsl(0,100%,75%)"
         }]
     };
     var age5ChartCanvas = $("#age5Chart");
@@ -490,11 +490,11 @@ $(function () {
     function getColourArray(numOfLabels) {
         var colourArray = [];
         if (numOfLabels == 1) {
-            colourArray = "hsl(0,100%,50%)"
+            colourArray = "hsl(0,100%,75%)"
         } else {
             for (var i = 0; i < numOfLabels; i++) {
                 var segmentAngle = parseInt(i * 360 / numOfLabels);
-                colourArray.push("hsl(" + segmentAngle + ",100%,50%)");
+                colourArray.push("hsl(" + segmentAngle + ",100%,75%)");
             }
         }
         return colourArray

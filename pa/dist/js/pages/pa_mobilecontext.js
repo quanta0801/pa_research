@@ -271,15 +271,51 @@ $(function () {
         disableOptions($(this).val());
     });
 
-    $('#tier1Chart').click(function(evt){
+    tier1ChartCanvas.click(function(evt){
         var activePoints = tier1Chart.getElementsAtEvent(evt);
         var firstPoint = activePoints[0];
-        var label = tier1Chart.data.labels[firstPoint._index];
-        updateChartWithFilter(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1, label);
+        if (firstPoint) {
+            var label = tier1Chart.data.labels[firstPoint._index];
+            updateChartWithFilter(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1, label);
+            updateDomainTable('traffic', 'tier1', label);
+        }
+    });
+    tier2ChartCanvas.click(function(evt) {
+        var activePoints = tier2Chart.getElementsAtEvent(evt);
+        var firstPoint = activePoints[0];
+        if (firstPoint) {
+            var label = tier2Chart.data.labels[firstPoint._index];
+            updateDomainTable('traffic', 'tier2', label);
+        }
+    });
+    networkTypeChartCanvas.click(function(evt) {
+        var activePoints = networkTypeChart.getElementsAtEvent(evt);
+        var firstPoint = activePoints[0];
+        if (firstPoint) {
+            var label = networkTypeChart.data.labels[firstPoint._index];
+            updateNetworkTable('traffic', label);
+        }
+    });
+    forumChartCanvas.click(function(evt) {
+        var activePoints = forumChart.getElementsAtEvent(evt);
+        var firstPoint = activePoints[0];
+        if (firstPoint) {
+            var label = forumChart.data.labels[firstPoint._index];
+            updateThreadTable('traffic', label);
+        }
     });
 
     $('#tier2Reset').click(function() {
         updateChartWithColourMapping(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1);
+    });
+    $('#domainReset').click(function() {
+        updateDomainTable('traffic');
+    });
+    $('#threadReset').click(function() {
+        updateThreadTable('traffic');
+    });
+    $('#networkReset').click(function() {
+        updateNetworkTable('traffic');
     });
 
     //filters applied, query new data, update charts
@@ -340,21 +376,25 @@ $(function () {
             if (!mapTable.domainTier2[row.tier2]) mapTable.domainTier2[row.tier2] = row.tier1;
         }
     }
-    function updateDomainTable(sortedCol) {
-        var data = sortObject(rawData.domain, sortedCol).slice(0, 100);
+    function updateDomainTable(sortedCol, filterCol, filterValue) {
+        var data = sortObject(rawData.domain, sortedCol);
         domainTable.destroy();
         $("#top_domain_list").html("");
-        for (i=0;i<data.length;i++) {
-            var row = data[i];
+        var i = 0, j = 0;
+        while (i<100 && j < data.length) {
+            var row = data[j];
+            j++;
+            if (filterValue) if (row[filterCol] != filterValue) continue;
             var rowHtml = "<tr>";
-            rowHtml += "<td>" + (i + 1) + "</td>";
+            rowHtml += "<td>" + j + "</td>";
             rowHtml += "<td>" + row.domain + "</td>";
-            rowHtml += "<td style=\"background-color:" + colourMap.domainTier1[row.tier1] +"\">" + row.tier2 + "</td>";
-            rowHtml += "<td style=\"background-color:" + colourMap.domainTier1[row.tier1] +"\">" + row.tier1 + "</td>";
+            rowHtml += "<td style=\"background-color:" + (colourMap.domainTier1[row.tier1] || 'rgba(0,0,0,0.1)') +"\">" + row.tier2 + "</td>";
+            rowHtml += "<td style=\"background-color:" + (colourMap.domainTier1[row.tier1] || 'rgba(0,0,0,0.1)') +"\">" + row.tier1 + "</td>";
             rowHtml += "<td>" + row.traffic + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
             rowHtml += "</tr>";
             $("#top_domain_list").append(rowHtml);
+            i++;
         }
         domainTable = $("#top_domain_table").DataTable({
             "paging": true,
@@ -371,7 +411,7 @@ $(function () {
             url: 'query_mc_forum/' + year + '/' + month
         }).success(updateForumData).success(function() {
             colourMap.forum = updateChart(forumChart, aggData.forum);
-            updateForumTable('traffic');
+            updateThreadTable('traffic');
         });
     }
     function updateForumData(results) {
@@ -383,20 +423,24 @@ $(function () {
             else aggData.forum[row.forum] += parseInt(row.traffic);
         }
     }
-    function updateForumTable(sortedCol) {
-        var data = sortObject(rawData.thread, sortedCol).slice(0, 20);
+    function updateThreadTable(sortedCol, filterValue) {
+        var data = sortObject(rawData.thread, sortedCol);
         threadTable.destroy();
         $("#top_thread_list").html("");
-        for (i=0;i<data.length;i++) {
-            var row = data[i];
+        var i = 0, j = 0;
+        while (i<20 && j < data.length) {
+            var row = data[j];
+            j++;
+            if (filterValue) if (row.forum != filterValue) continue;
             var rowHtml = "<tr>";
-            rowHtml += "<td>" + (i + 1) + "</td>";
+            rowHtml += "<td>" + j + "</td>";
             rowHtml += "<td>" + row.thread + "</td>";
             rowHtml += "<td style=\"background-color:" + colourMap.forum[row.forum] +"\">" + row.forum + "</td>";
             rowHtml += "<td>" + row.traffic + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
             rowHtml += "</tr>";
             $("#top_thread_list").append(rowHtml);
+            i++;
         }
         threadTable = $("#top_thread_table").DataTable({
             "paging": true,
@@ -425,20 +469,24 @@ $(function () {
             else aggData.network_type[row.network_type] += parseInt(row.traffic);
         }
     }
-    function updateNetworkTable(sortedCol) {
-        var data = sortObject(rawData.network_name, sortedCol).slice(0, 20);
+    function updateNetworkTable(sortedCol, filterValue) {
+        var data = sortObject(rawData.network_name, sortedCol);
         networkNameTable.destroy();
         $("#top_networkName_list").html("");
-        for (i=0;i<data.length;i++) {
-            var row = data[i];
+        var i = 0, j = 0;
+        while (i<20 && j < data.length) {
+            var row = data[j];
+            j++;
+            if (filterValue) if (row.network_type != filterValue) continue;
             var rowHtml = "<tr>";
-            rowHtml += "<td>" + (i + 1) + "</td>";
+            rowHtml += "<td>" + j + "</td>";
             rowHtml += "<td>" + row.network_name + "</td>";
             rowHtml += "<td style=\"background-color:" + colourMap.network_type[row.network_type] +"\">" + row.network_type + "</td>";
             rowHtml += "<td>" + row.traffic + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
             rowHtml += "</tr>";
             $("#top_networkName_list").append(rowHtml);
+            i++;
         }
         networkNameTable = $("#top_networkName_table").DataTable({
             "paging": true,
@@ -518,11 +566,11 @@ $(function () {
     function getColourArray(numOfLabels) {
         var colourArray = [];
         if (numOfLabels == 1) {
-            colourArray = "hsl(0,100%,50%)"
+            colourArray = "hsl(0,100%,75%)"
         } else {
             for (var i = 0; i < numOfLabels; i++) {
                 var segmentAngle = parseInt(i * 360 / numOfLabels);
-                colourArray.push("hsl(" + segmentAngle + ",100%,50%)");
+                colourArray.push("hsl(" + segmentAngle + ",100%,75%)");
             }
         }
         return colourArray
