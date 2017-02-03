@@ -139,6 +139,9 @@ $(function () {
     }).on('changeMonth', function(e) {
         month = e.date.getMonth() + 1;
         year = e.date.getFullYear();
+        $.ajax({
+            url: 'cookie_set_date/' + year + '/' + month
+        });
         $('#month_display').text(month + '/' + year);
     });
 
@@ -269,9 +272,17 @@ $(function () {
                 updateTopWidgets(results);
                 updateDataTable();
                 updateCharts();
+                year = results.dateParams.year;
+                month = results.dateParams.month;
+                $('#month_display').text(month + '/' + year)
             } else {
                 parseCurrentFilter(default_options);
                 $('#submit').submit();
+                year = 2016;
+                month = 7;
+                $.ajax({
+                    url: 'cookie_set_date/2016/7'
+                })
             }
         })
     }
@@ -516,21 +527,6 @@ $(function () {
         return valueArray
     }
 
-    // function updateGenderChart(chart) {
-    //     if (!attrTable.gender) resetChart(chart);
-    //     chart.data.datasets[0].data[0] = attrTable.gender.MALE || 0;
-    //     chart.data.datasets[0].data[1] = attrTable.gender.FEMALE || 0;
-    //     chart.update();
-    // }
-    // function updateRaceChart(chart) {
-    //     if (!attrTable.race) resetChart(chart);
-    //     chart.data.datasets[0].data[0] = attrTable.race.CHINESE || 0;
-    //     chart.data.datasets[0].data[1] = attrTable.race.MALAY || 0;
-    //     chart.data.datasets[0].data[2] = attrTable.race.INDIAN || 0;
-    //     chart.data.datasets[0].data[3] = attrTable.race.EURASIAN || 0;
-    //     chart.data.datasets[0].data[4] = attrTable.race.OTHERS || 0;
-    //     chart.update();
-    // }
     function updateAge10Chart(chart) {
         if (!ageTable.age10) {
             resetChart(chart);

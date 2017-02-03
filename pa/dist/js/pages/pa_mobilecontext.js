@@ -67,7 +67,7 @@ $(function () {
         'age5': {},
         'age10': {}
     };
-    var month = 7, year = 2016;
+    var month = null, year = null;
 
     // initialise slider and slider value
     $("#ageSlider").slider({
@@ -84,9 +84,12 @@ $(function () {
         viewMode: "months",
         minViewMode: "months"
     }).on('changeMonth', function(e) {
+        $('#month_display').text('...');
         month = e.date.getMonth() + 1;
         year = e.date.getFullYear();
-        $('#month_display').text('...');
+        $.ajax({
+            url: 'cookie_set_date/' + year + '/' + month
+        });
         query_data(year, month);
     });
 
@@ -176,10 +179,16 @@ $(function () {
             if (results.filter_settings) {
                 parseCurrentFilter(results.filter_settings);
                 updateTopWidgets(results);
-                query_data(year, month);
+                year = results.dateParams.year;
+                month = results.dateParams.month;
+                query_data(year, month)
             } else {
                 parseCurrentFilter(default_options);
                 $('#submit').submit();
+                $.ajax({
+                    url: 'cookie_set_date/2016/7'
+                });
+                query_data(2016, 7)
             }
         })
     }

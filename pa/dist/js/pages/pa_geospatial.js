@@ -1,15 +1,3 @@
-var attrTable = {
-    'gender': {},
-    'race': {},
-    'age': {},
-    'infer_residence_region': {},
-    'infer_residence_planning_area': {},
-    'infer_workplace_region': {},
-    'infer_workplace_planning_area': {},
-    'residence_districtcode': {},
-    'residence_type': {}
-};
-
 $(function () {
     //----------
     //- iCheck -
@@ -71,113 +59,39 @@ $(function () {
         $('#ageSliderValue').text(sldEvt.value[0] + ' - ' + sldEvt.value[1]);
     });
 
+    // initialise calendar
+    $("#calendar").datepicker({
+        format: "mm-yyyy",
+        viewMode: "months",
+        minViewMode: "months"
+    }).on('changeMonth', function(e) {
+        $('#month_display').text('...');
+        month = e.date.getMonth() + 1;
+        year = e.date.getFullYear();
+        $.ajax({
+            url: 'cookie_set_date/' + year + '/' + month
+        });
+        query_data(year, month);
+    });
+
 
     //---------------------
     //- initialise charts -
     //---------------------
 
     // // Chart.defaults.global.maintainAspectRatio = false;
-    // var barChartOptions = {
-    //     legend: {
-    //         display: false
-    //     }
-    // };
-    // // gender chart
-    // var genderData = {
-    //     labels: ["Male", "Female"],
-    //     datasets: [{
-    //         data: [1, 1],
-    //         backgroundColor: ['red', 'green']
-    //     }]
-    // };
-    // var genderChartCanvas = $("#genderChart");
-    // var genderChart = new Chart(genderChartCanvas, {
-    //     type: 'pie',
-    //     data: genderData
-    // });
-    // // race chart
-    // var raceData = {
-    //     labels: ["Chinese", "Malay", "Indian", "Eurasian", "Others"],
-    //     datasets: [{
-    //         data: [1, 1, 1, 1, 1],
-    //         backgroundColor: ['red', 'orange', 'green', 'blue', 'purple']
-    //     }]
-    // };
-    // var raceChartCanvas = $("#raceChart");
-    // var raceChart = new Chart(raceChartCanvas, {
-    //     type: 'pie',
-    //     data: raceData
-    // });
-    // // age10 chart
-    // var age10Data = {
-    //     labels: ["20-29", "30-39", "40-49", "50-59", "Above 59"],
-    //     datasets: [{
-    //         label: '# of People',
-    //         data: [1, 1, 1, 1, 1],
-    //         backgroundColor: 'red'
-    //     }]
-    // };
-    // var age10ChartCanvas = $("#age10Chart");
-    // var age10Chart = new Chart(age10ChartCanvas, {
-    //     type: 'bar',
-    //     data: age10Data,
-    //     options: barChartOptions
-    // });
-    // // age5 chart
-    // var age5Data = {
-    //     labels: ["20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "Above 64"],
-    //     datasets: [{
-    //         label: '# of People',
-    //         data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    //         backgroundColor: 'red'
-    //     }]
-    // };
-    // var age5ChartCanvas = $("#age5Chart");
-    // var age5Chart = new Chart(age5ChartCanvas, {
-    //     type: 'bar',
-    //     data: age5Data,
-    //     options: barChartOptions
-    // });
-    // // region chart
-    // var regionData = {
-    //     labels: ["Central", "East", "North", "North-East", "West"],
-    //     datasets: [{
-    //         label: '# of People',
-    //         data: [1, 1, 1, 1, 1],
-    //         backgroundColor: ['red', 'orange', 'green', 'blue', 'purple']
-    //     }]
-    // };
-    // var regionResidenceChartCanvas = $("#regionResidenceChart");
-    // var regionResidenceChart = new Chart(regionResidenceChartCanvas, {
-    //     type: 'pie',
-    //     data: regionData
-    // });
-    // var regionWorkplaceChartCanvas = $("#regionWorkplaceChart");
-    // var regionWorkplaceChart = new Chart(regionWorkplaceChartCanvas, {
-    //     type: 'pie',
-    //     data: regionData
-    // });
-    // // region chart
-    // var planningAreaData = {
-    //     labels: ["Central", "East", "North", "North-East", "West"],
-    //     datasets: [{
-    //         label: '# of People',
-    //         data: [1, 1, 1, 1, 1],
-    //         backgroundColor: 'red'
-    //     }]
-    // };
-    // var pAreaResidenceChartCanvas = $("#pAreaResidenceChart");
-    // var pAreaResidenceChart = new Chart(pAreaResidenceChartCanvas, {
-    //     type: 'bar',
-    //     data: planningAreaData,
-    //     options: barChartOptions
-    // });
-    // var pAreaWorkplaceChartCanvas = $("#pAreaWorkplaceChart");
-    // var pAreaWorkplaceChart = Chart.Bar(pAreaWorkplaceChartCanvas, {
-    //     type: 'bar',
-    //     data: planningAreaData,
-    //     options: barChartOptions
-    // });
+    var barChartOptions = {
+        legend: {
+            display: false
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    };
 
     loadSettingsFromCookie();
 
@@ -188,11 +102,18 @@ $(function () {
             if (results.filter_settings) {
                 parseCurrentFilter(results.filter_settings);
                 updateTopWidgets(results);
-                updateDataTable();
-                updateCharts();
+                year = results.dateParams.year;
+                month = results.dateParams.month;
+                query_data(year, month)
             } else {
                 parseCurrentFilter(default_options);
                 $('#submit').submit();
+                year = 2016;
+                month = 7;
+                $.ajax({
+                    url: 'cookie_set_date/2016/7'
+                })
+                query_data(2016, 7);
             }
         })
     }
@@ -296,8 +217,9 @@ $(function () {
             url: 'apply_filter',
             type: frm.attr('method'),
             data: frm.serialize()
-        }).success(updateTopWidgets).then(updateDataTable).then(updateCharts);
-        // }).success(updateTopWidgets).success(updateDataTable).success(updateCharts)
+        }).success(updateTopWidgets).then(function() {
+            query_data(year, month);
+        });
     });
 
     function updateTopWidgets(cookieData) {
@@ -306,32 +228,35 @@ $(function () {
         $('#ageRange_display').text(cookieData.crmProp.minage + ' - ' + cookieData.crmProp.maxage);
     }
 
-    function updateDataTable() {
-        // Object.keys(attrTable).map(updateDomainAttrData);
-        // console.log(attrTable);
-        // updateAgeTable();
-    }
-
-    function updateDomainAttrData(column) {
-        attrTable[column] = {};
-        $.ajax({
-            url: 'query_crm/' + column,
-            async: false
-        }).success(function (results) {
-            for (i = 0; i < results.length; i++) {
-                var row = results[i];
-                if (row[column] && (row[column] != "UNKNOWN")) {
-                    attrTable[column][row[column]] = row.count;
-                }
-            }
+    function sortObject(obj, sortAttr) {
+        return obj.sort(function(first, second) {
+            return second[sortAttr] - first[sortAttr];
         })
     }
 
-    function updateCharts() {
-        // updateGenderChart(genderChart);
-        // updateRaceChart(raceChart);
-        // updateAge5Chart(age5Chart);
-        // updateAge10Chart(age10Chart);
+    function query_data(year, month){
+        query_grid_daily(year, month);
+        query_poi(year, month);
+    }
+
+    function query_grid_daily(year, month) {
+        console.time('Grid_query');
+        $.ajax({
+            url: 'query_loc_grid_daily/' + year + '/' + month
+        }).success(function(results) {
+
+            console.timeEnd('Grid_query');
+            $('#month_display').text(month + '/' + year);
+        })
+    }
+
+    function query_poi(year, month) {
+        $.ajax({
+            url: 'query_loc_poi/' + year + '/' + month
+        }).success(updatePOIData)
+    }
+    function updatePOIData(results){
+
     }
 
     function resetChart(chart) {
@@ -342,18 +267,54 @@ $(function () {
     }
 
     function updateChart(chart, dataDict, dataLength, chartColourArray) {
+        if (!dataDict) resetChart(chart);
         var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
-        dataLength = dataLength || dataDict.length;
+        if (dataLength && dataLength > Object.keys(dataDict).length) dataLength = Object.keys(dataDict).length;
+        dataLength = dataLength || Object.keys(dataDict).length;
         dataSorted = dataSorted.slice(0, dataLength);
-        chartColourArray = chartColourArray || getColourArray(dataLength);
         var labels = getKeys(dataSorted);
+        var values = getValues(dataSorted);
+        chartColourArray = chartColourArray || getColourArray(dataLength);
+        chart.data.labels = labels;
+        chart.data.datasets[0].backgroundColor = chartColourArray;
+        chart.data.datasets[0].data = values;
+        chart.update();
+        var colourMap = {};
+        for (i=0;i<dataLength;i++){
+            colourMap[labels[i]] = chartColourArray[i];
+        }
+        return colourMap;
+    }
+
+    function updateChartWithColourMapping(chart, dataDict, dataLength, mapTable, colourMap) {
+        if (!dataDict) resetChart(chart);
+        var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
+        if (dataLength && dataLength > Object.keys(dataDict).length) dataLength = Object.keys(dataDict).length;
+        dataLength = dataLength || Object.keys(dataDict).length;
+        dataSorted = dataSorted.slice(0, dataLength);
+        var labels = getKeys(dataSorted);
+        chartColourArray = labels.map(function(el){
+            if (mapTable) return colourMap[mapTable[el]] || 'rgba(0,0,0,0.1)';
+            else return colourMap[el] || 'rgba(0,0,0,0.1)';
+        });
         var values = getValues(dataSorted);
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;
-        chart.data.datasets[0].data = dataSorted;
+        chart.data.datasets[0].data = values;
+        chart.update();
     }
 
-    function dictToKeyValueArray(dict){
+    function updateChartWithFilter(chart, dataDict, dataLength, mapTable, colourMap, filterValue) {
+        var dataDictSub = {};
+        for (var key in dataDict) {
+            if (dataDict.hasOwnProperty(key) && mapTable[key] == filterValue){
+                dataDictSub[key] = dataDict[key];
+            }
+        }
+        updateChart(chart, dataDictSub, dataLength, colourMap[filterValue]);
+    }
+
+    function dictToKeyValueArray(dict) {
         return Object.keys(dict).map(function(key) {
             return [key, dict[key]];
         })
@@ -364,13 +325,13 @@ $(function () {
     }
 
     function getColourArray(numOfLabels) {
-        var colourArray = []
+        var colourArray = [];
         if (numOfLabels == 1) {
-            colourArray = "HSL(0,100%,50%)"
+            colourArray = "hsl(0,100%,75%)"
         } else {
             for (var i = 0; i < numOfLabels; i++) {
                 var segmentAngle = parseInt(i * 360 / numOfLabels);
-                colourArray.push("HSL(" + segmentAngle + ",100%,50%)");
+                colourArray.push("hsl(" + segmentAngle + ",100%,75%)");
             }
         }
         return colourArray
@@ -391,14 +352,4 @@ $(function () {
         }
         return valueArray
     }
-
-    // Update Chart Template
-    // function updateGenderChart(chart) {
-    //     if (!attrTable.gender) {
-    //         resetChart(chart);
-    //     }
-    //     chart.data.datasets[0].data[0] = attrTable.gender.MALE || 0;
-    //     chart.data.datasets[0].data[1] = attrTable.gender.FEMALE || 0;
-    //     chart.update();
-    // }
 });

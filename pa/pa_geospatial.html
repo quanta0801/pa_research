@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Template |PAResearch</title>
+  <title>Geospatial |PAResearch</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -130,6 +130,32 @@
             <i class="fa fa-map-marker"></i> <span>Geospatial Analysis</span>
           </a>
       </ul>
+
+      <!-- Calendar -->
+      <div class="box box-solid bg-green-gradient ">
+        <div class="box-header">
+          <i class="fa fa-calendar"></i>
+
+          <h3 class="box-title">Calendar</h3>
+          <!-- tools box -->
+          <div class="pull-right box-tools">
+
+            <button type="button" class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i>
+            </button>
+          </div>
+          <!-- /. tools -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+          <!--The calendar -->
+          <div id="calendar" style="width: 100%"></div>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+      <!-- end calander -->
     </section>
     <!-- /.sidebar -->
 
@@ -146,12 +172,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Demographics Dashboard
-        <small>A review of the segment</small>
+        Geospatial Dashboard
+        <small>Geospatial Analysis of the Segment</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Demographics</li>
+        <li class="active">Geospatial</li>
       </ol>
     </section>
 
@@ -159,7 +185,7 @@
     <section class="content">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-sm-4 col-xs-6">
+        <div class="col-sm-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-light-blue">
             <div class="inner">
@@ -174,7 +200,7 @@
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-sm-4 col-xs-6">
+        <div class="col-sm-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -188,7 +214,7 @@
             <!--<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
         </div>
-        <div class="col-sm-4 col-xs-12">
+        <div class="col-sm-3 col-xs-12">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
@@ -203,6 +229,21 @@
           </div>
         </div>
         <!-- ./col -->
+
+        <!-- Sample Size widget -->
+        <div class="col-sm-3 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3 id="month_display">...</h3>
+
+              <p>Data Month</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-calendar"></i>
+            </div>
+          </div>
+        </div>
         <!-- ./col -->
       </div>
       <!-- /.row -->
