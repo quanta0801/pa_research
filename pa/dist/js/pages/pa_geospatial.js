@@ -44,10 +44,23 @@ $(function () {
         area_filter: 'infer_residence_',
         planning_area: 'Bishan'
     };
-    var ageTable = {
-        'age5': {},
-        'age10': {}
+    var rawData = {
+        grid_id: [],
+        poi_name: []
     };
+    var aggData = {
+        poi_type: {},
+        poi_cat: {}
+    };
+    var mapTable = {
+        'domainTier2': {}
+    };
+    var colourMap = {
+        'domainTier1': {},
+        'network_type': {},
+        'forum': {}
+    };
+    var month = null, year = null;
 
     // initialise slider and slider value
     $("#ageSlider").slider({
@@ -112,7 +125,7 @@ $(function () {
                 month = 7;
                 $.ajax({
                     url: 'cookie_set_date/2016/7'
-                })
+                });
                 query_data(2016, 7);
             }
         })
@@ -212,6 +225,7 @@ $(function () {
         $('#segment_display').text('...');
         $('#sampleSize_display').text('...');
         $('#ageRange_display').text('...');
+        $('#month_display').text('...');
 
         $.ajax({
             url: 'apply_filter',
@@ -237,6 +251,17 @@ $(function () {
     function query_data(year, month){
         query_grid_daily(year, month);
         query_poi(year, month);
+        if (mouseclick_mode == MOUSECLICK_HEXGRID) {
+            refreshMapForGridSegment();
+        } else if (mouseclick_mode == MOUSECLICK_POI_SEGMENT) {
+            refreshMapForPOISegment();
+        } else if (mouseclick_mode == MOUSECLICK_LIFESPHERE) {
+            refreshMapForLifeSphere();
+        } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_HOME) {
+            refreshMapForCCAttractionHome();
+        } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_WORK) {
+            refreshMapForCCAttractionWork();
+        }
     }
 
     function query_grid_daily(year, month) {
@@ -244,16 +269,18 @@ $(function () {
         $.ajax({
             url: 'query_loc_grid_daily/' + year + '/' + month
         }).success(function(results) {
-
             console.timeEnd('Grid_query');
             $('#month_display').text(month + '/' + year);
         })
     }
 
     function query_poi(year, month) {
+        console.time('POI_query');
         $.ajax({
             url: 'query_loc_poi/' + year + '/' + month
-        }).success(updatePOIData)
+        }).success(updatePOIData).success(function(){
+            console.timeEnd('POI_query');
+        })
     }
     function updatePOIData(results){
 
@@ -352,4 +379,56 @@ $(function () {
         }
         return valueArray
     }
+
+
+
+    var indicatorsForUseCase = [
+        "#button-mapmode-grid",
+        "#button-mapmode-poi",
+        "#button-mapmode-lifesphere",
+        "#button-mapmode-cc-home",
+        "#button-mapmode-cc-work"
+    ];
+
+    function setIndicatorForUseCase(indicatorID, someClass, listOfIndicators) {
+        listOfIndicators.forEach(function (someIndicatorID) {
+            if (someIndicatorID == indicatorID) {
+                $(someIndicatorID).toggleClass(someClass, true);
+            } else {
+                $(someIndicatorID).toggleClass(someClass, false);
+            }
+        })
+    }
+
+
+    document.getElementById('button-mapmode-grid').addEventListener('click', function () {
+        refreshMapForGridSegment();
+        setIndicatorForUseCase('#button-mapmode-grid', 'active', indicatorsForUseCase);
+    }, false);
+
+    document.getElementById('button-mapmode-poi').addEventListener('click', function () {
+        refreshMapForPOISegment();
+        setIndicatorForUseCase('#button-mapmode-poi', 'active', indicatorsForUseCase);
+    }, false);
+
+    document.getElementById('button-mapmode-lifesphere').addEventListener('click', function () {
+        refreshMapForLifeSphere();
+        setIndicatorForUseCase('#button-mapmode-lifesphere', 'active', indicatorsForUseCase);
+    }, false);
+
+    document.getElementById('button-mapmode-cc-home').addEventListener('click', function () {
+        refreshMapForCCAttractionHome();
+        setIndicatorForUseCase('#button-mapmode-cc-home', 'active', indicatorsForUseCase);
+    }, false);
+
+    document.getElementById('button-mapmode-cc-work').addEventListener('click', function () {
+        refreshMapForCCAttractionWork();
+        setIndicatorForUseCase('#button-mapmode-cc-work', 'active', indicatorsForUseCase);
+    }, false);
+
+
+
+
+
+
 });

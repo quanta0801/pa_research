@@ -45,9 +45,9 @@ $(function () {
         planning_area: 'Bishan'
     };
     var rawData = {
-        'domain': {},
-        'thread': {},
-        'network_name': {}
+        'domain': [],
+        'thread': [],
+        'network_name': []
     };
     var aggData = {
         'domainTier1': {},
@@ -62,10 +62,6 @@ $(function () {
         'domainTier1': {},
         'network_type': {},
         'forum': {}
-    };
-    var ageTable = {
-        'age5': {},
-        'age10': {}
     };
     var month = null, year = null;
 
@@ -334,6 +330,7 @@ $(function () {
         $('#segment_display').text('...');
         $('#sampleSize_display').text('...');
         $('#ageRange_display').text('...');
+        $('#month_display').text('...');
 
         $.ajax({
             url: 'apply_filter',
