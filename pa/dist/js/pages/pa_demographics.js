@@ -28,15 +28,15 @@ $(function () {
     var default_options = { segment: 'PMET',
         filter_type: 'demographics',
         age: '20,70',
-        gender: 'BOTH',
-        race: [ 'CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS' ],
+        gender: 'Both',
+        race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
     var default_demo_op = {
         age: '20,70',
-        gender: 'BOTH',
-        race: [ 'CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS' ],
+        gender: 'Both',
+        race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
@@ -45,20 +45,21 @@ $(function () {
         planning_area: 'Bishan'
     };
     var ageTable = {
-        'age5': {},
-        'age10': {}
+        age5: {},
+        age10: {}
     };
     var attrTable = {
-        'gender': {},
-        'race': {},
-        'age': {},
-        'infer_residence_region': {},
-        'infer_residence_planning_area': {},
-        'infer_workplace_region': {},
-        'infer_workplace_planning_area': {},
-        'residence_districtcode': {},
-        'residence_type': {}
+        gender: {},
+        race: {},
+        age: {},
+        infer_residence_region: {},
+        infer_residence_planning_area: {},
+        infer_workplace_region: {},
+        infer_workplace_planning_area: {},
+        residence_districtcode: {},
+        residence_type: {}
     };
+    var populationData = {};
     var regionTable = {
         'Ang Mo Kio': 'North-East',
         'Bedok': 'East',
@@ -149,7 +150,6 @@ $(function () {
     //---------------------
     //- initialise charts -
     //---------------------
-
     // Chart.defaults.global.maintainAspectRatio = false;
     var barChartOptions = {
         legend: {
@@ -158,19 +158,58 @@ $(function () {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero: true
                 }
             }]
         }
     };
-    // gender chart
-    // var genderData = {
-    //     labels: ["Male", "Female"],
-    //     datasets: [{
-    //         data: [1, 1],
-    //         backgroundColor: ['red', 'green']
-    //     }]
+
+    // var chartOptions = {
+    //     bar: {
+    //         legend: {
+    //             display: false
+    //         },
+    //         scales: {
+    //             yAxes: [{
+    //                 ticks: {
+    //                     beginAtZero: true
+    //                 }
+    //             }]
+    //         }
+    //     }
     // };
+    // var defaultChartData = {
+    //     pie: {
+    //         datasets: [{
+    //             data: [1]
+    //         }]
+    //     },
+    //     bar: {
+    //         datasets: [{
+    //             label: '# of people',
+    //             data: [1]
+    //         }]
+    //     }
+    // };
+    // function createNewChart(canvas, chartType, chartData) {
+    //     return new Chart($('#' + canvas), {
+    //         type: chartType,
+    //         data: chartData || defaultChartData[chartType],
+    //         options: chartOptions[chartType]
+    //     })
+    // }
+    // var genderChart = createNewChart('genderChart', 'pie');
+    // var raceChart = createNewChart('raceChart', 'pie');
+    // var age10Chart = createNewChart('age10Chart', 'bar', age10Data);
+    // var age5Chart = createNewChart('age5Chart', 'bar', age5Data);
+    // var regionResidenceChart = createNewChart('regionResidenceChart', 'pie');
+    // var regionWorkplaceChart = createNewChart('regionWorkplaceChart', 'pie');
+    // var pAreaResidenceChart = createNewChart('pAreaResidenceChart', 'bar');
+    // var pAreaWorkplaceChart = createNewChart('pAreaWorkplaceChart', 'bar');
+    // var residenceTypeChart = createNewChart('residenceTypeChart', 'bar');
+
+
+    // gender chart
     var genderChartCanvas = $("#genderChart");
     var genderChart = new Chart(genderChartCanvas, {
         type: 'pie',
@@ -192,9 +231,10 @@ $(function () {
     });
     // age10 chart
     var age10Data = {
-        labels: ["20-29", "30-39", "40-49", "50-59", "Above 59"],
+        labels: ["Under 30", "30-39", "40-49", "50-59", "Above 59"],
         datasets: [{
             label: '# of People',
+            yAxisID: 'a',
             data: [1, 1, 1, 1, 1],
             backgroundColor: "hsl(0,100%,75%)"
         }]
@@ -203,11 +243,38 @@ $(function () {
     var age10Chart = new Chart(age10ChartCanvas, {
         type: 'bar',
         data: age10Data,
-        options: barChartOptions
+        options: {
+            legend: {
+                display: false
+            },
+            tooltips: {
+                intersect: false,
+                mode: "x"
+            },
+            hover: {
+                intersect: false,
+                mode: "x"
+            },
+            scales: {
+                yAxes: [{
+                    id: 'a',
+                    position: 'left',
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }, {
+                    id: 'b',
+                    position: 'right',
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
     });
     // age5 chart
     var age5Data = {
-        labels: ["20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "Above 64"],
+        labels: ["Under 25", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "Above 64"],
         datasets: [{
             label: '# of People',
             data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -245,16 +312,29 @@ $(function () {
         type: 'bar',
         data: {
             datasets: [{
+                label: '# of People',
                 data: [1]
             }]
         },
         options: barChartOptions
     });
     var pAreaWorkplaceChartCanvas = $("#pAreaWorkplaceChart");
-    var pAreaWorkplaceChart = Chart.Bar(pAreaWorkplaceChartCanvas, {
+    var pAreaWorkplaceChart = new Chart(pAreaWorkplaceChartCanvas, {
         type: 'bar',
         data: {
             datasets: [{
+                label: '# of People',
+                data: [1]
+            }]
+        },
+        options: barChartOptions
+    });
+    var residenceTypeChartCanvas = $("#residenceTypeChart");
+    var residenceTypeChart = new Chart(residenceTypeChartCanvas, {
+        type: 'bar',
+        data: {
+            datasets: [{
+                label: '# of People',
                 data: [1]
             }]
         },
@@ -262,6 +342,7 @@ $(function () {
     });
 
     loadSettingsFromCookie();
+    loadPopulationMetrics();
 
     function loadSettingsFromCookie() {
         $.ajax({
@@ -425,26 +506,51 @@ $(function () {
         Object.keys(ageDict).map(function(key){
             var ageBandFloor = (key / ageBand >> 0) * ageBand;
             if (ageBandFloor >= 70) ageBandFloor -= ageBand;
+            else if (ageBandFloor < 20) ageBandFloor += ageBand;
             if (!ageBandDict[ageBandFloor]) {
-                ageBandDict[ageBandFloor] = parseInt(ageDict[key]);
+                ageBandDict[ageBandFloor] = parseFloat(ageDict[key]);
             } else {
-                ageBandDict[ageBandFloor] += parseInt(ageDict[key]);
+                ageBandDict[ageBandFloor] += parseFloat(ageDict[key]);
             }
         });
         return ageBandDict
     }
 
+    function loadPopulationMetrics() {
+        $.ajax({
+            url: 'query_population'
+        }).success(updatePopulationData).then(updatePopulationCharts)
+    }
+
+    function updatePopulationData(results) {
+        for (i=0;i<results.length;i++) {
+            var row = results[i];
+            if (!populationData[row.field]) populationData[row.field] = {};
+            populationData[row.field][row.value] = row.percent;
+        }
+        populationData['age5'] = makeAgeHist(populationData.age, 5);
+        populationData['age10'] = makeAgeHist(populationData.age, 10);
+        updatePopulationAge10Chart(age10Chart, populationData.age10)
+    }
+
+    function updatePopulationCharts() {
+
+    }
+
     function updateCharts() {
-        // updateGenderChart(genderChart);
+        genderChart.data.datasets[1] = {
+            label: 'Population %',
+            data: [3000, 4000]
+        };
         updateChart(genderChart, attrTable.gender);
-        // updateRaceChart(raceChart);
         updateChart(raceChart, attrTable.race);
-        updateAge5Chart(age5Chart);
-        updateAge10Chart(age10Chart);
+        updateAge5Chart(age5Chart, ageTable.age5);
+        updateAge10Chart(age10Chart, ageTable.age10);
         colourMap.residence = updateChart(regionResidenceChart, attrTable.infer_residence_region);
         colourMap.workplace = updateChart(regionWorkplaceChart, attrTable.infer_workplace_region);
         updateChartWithColourMapping(pAreaResidenceChart, attrTable.infer_residence_planning_area, 20, regionTable, colourMap.residence);
         updateChartWithColourMapping(pAreaWorkplaceChart, attrTable.infer_workplace_planning_area, 20, regionTable, colourMap.workplace);
+        updateChart(residenceTypeChart, attrTable.residence_type);
     }
 
     function resetChart(chart) {
@@ -500,13 +606,9 @@ $(function () {
 
     function getColourArray(numOfLabels) {
         var colourArray = [];
-        if (numOfLabels == 1) {
-            colourArray = "hsl(0,100%,75%)"
-        } else {
-            for (var i = 0; i < numOfLabels; i++) {
-                var segmentAngle = parseInt(i * 360 / numOfLabels);
-                colourArray.push("hsl(" + segmentAngle + ",100%,75%)");
-            }
+        for (var i = 0; i < numOfLabels; i++) {
+            var segmentAngle = parseInt(i * 360 / numOfLabels);
+            colourArray.push("hsl(" + segmentAngle + ",100%,75%)");
         }
         return colourArray
     }
@@ -527,31 +629,48 @@ $(function () {
         return valueArray
     }
 
-    function updateAge10Chart(chart) {
-        if (!ageTable.age10) {
+    function convertToPercent(value) {
+        return (value * 100).toFixed(1);
+    }
+
+    function updateAge10Chart(chart, dataDict) {
+        if (!dataDict) {
             resetChart(chart);
         }
-        chart.data.datasets[0].data[0] = ageTable.age10['20'] || 0;
-        chart.data.datasets[0].data[1] = ageTable.age10['30'] || 0;
-        chart.data.datasets[0].data[2] = ageTable.age10['40'] || 0;
-        chart.data.datasets[0].data[3] = ageTable.age10['50'] || 0;
-        chart.data.datasets[0].data[4] = ageTable.age10['60'] || 0;
+        chart.data.datasets[0].data[0] = dataDict['20'] || 0;
+        chart.data.datasets[0].data[1] = dataDict['30'] || 0;
+        chart.data.datasets[0].data[2] = dataDict['40'] || 0;
+        chart.data.datasets[0].data[3] = dataDict['50'] || 0;
+        chart.data.datasets[0].data[4] = dataDict['60'] || 0;
         chart.update();
     }
-    function updateAge5Chart(chart) {
-        if (!ageTable.age5) {
+    function updateAge5Chart(chart, dataDict) {
+        if (!dataDict) {
             resetChart(chart);
         }
-        chart.data.datasets[0].data[0] = ageTable.age5['20'] || 0;
-        chart.data.datasets[0].data[1] = ageTable.age5['25'] || 0;
-        chart.data.datasets[0].data[2] = ageTable.age5['30'] || 0;
-        chart.data.datasets[0].data[3] = ageTable.age5['35'] || 0;
-        chart.data.datasets[0].data[4] = ageTable.age5['40'] || 0;
-        chart.data.datasets[0].data[5] = ageTable.age5['45'] || 0;
-        chart.data.datasets[0].data[6] = ageTable.age5['50'] || 0;
-        chart.data.datasets[0].data[7] = ageTable.age5['55'] || 0;
-        chart.data.datasets[0].data[8] = ageTable.age5['60'] || 0;
-        chart.data.datasets[0].data[9] = ageTable.age5['65'] || 0;
+        chart.data.datasets[0].data[0] = dataDict['20'] || 0;
+        chart.data.datasets[0].data[1] = dataDict['25'] || 0;
+        chart.data.datasets[0].data[2] = dataDict['30'] || 0;
+        chart.data.datasets[0].data[3] = dataDict['35'] || 0;
+        chart.data.datasets[0].data[4] = dataDict['40'] || 0;
+        chart.data.datasets[0].data[5] = dataDict['45'] || 0;
+        chart.data.datasets[0].data[6] = dataDict['50'] || 0;
+        chart.data.datasets[0].data[7] = dataDict['55'] || 0;
+        chart.data.datasets[0].data[8] = dataDict['60'] || 0;
+        chart.data.datasets[0].data[9] = dataDict['65'] || 0;
+        chart.update();
+    }
+    function updatePopulationAge10Chart(chart, dataDict) {
+        popData = {
+            label: 'Population %',
+            yAxisID: 'b',
+            data: [convertToPercent(dataDict['20']),
+                convertToPercent(dataDict['30']),
+                convertToPercent(dataDict['40']),
+                convertToPercent(dataDict['50']),
+                convertToPercent(dataDict['60'])]
+        };
+        chart.data.datasets[1] = popData;
         chart.update();
     }
 });

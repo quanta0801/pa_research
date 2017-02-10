@@ -28,15 +28,15 @@ $(function () {
     var default_options = { segment: 'PMET',
         filter_type: 'demographics',
         age: '20,70',
-        gender: 'BOTH',
-        race: [ 'CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS' ],
+        gender: 'Both',
+        race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
     var default_demo_op = {
         age: '20,70',
-        gender: 'BOTH',
-        race: [ 'CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS' ],
+        gender: 'Both',
+        race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
@@ -249,8 +249,9 @@ $(function () {
     }
 
     function query_data(year, month){
-        query_grid_daily(year, month);
-        query_poi(year, month);
+        $('#month_display').text(month + '/' + year);
+        // query_grid_daily(year, month);
+        // query_poi(year, month);
         if (mouseclick_mode == MOUSECLICK_HEXGRID) {
             refreshMapForGridSegment();
         } else if (mouseclick_mode == MOUSECLICK_POI_SEGMENT) {
