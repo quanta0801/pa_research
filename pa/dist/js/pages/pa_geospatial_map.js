@@ -160,11 +160,42 @@ map.on('click', function (e) {
             var planning_area = cacheGridRegion[feature.properties.gid]["planning_area"];
             var region = cacheGridRegion[feature.properties.gid]["region"];
 
-            popup = new mapboxgl.Popup({closeButton: false})
-                .setLngLat(ll) //.setLngLat(map.unproject(e.point))
-                .setHTML(feature.properties.gid)
-                .setHTML("<strong>" + feature.properties.gid + "</strong><p>" + planning_area + " | " + region + "</p>")
-                .addTo(map);
+            var finalGridSegment = null;
+            if (weekMode == WEEKMODE_WEEKDAY) {
+                finalGridSegment = data_grid_segment;
+            } else if (weekMode == WEEKMODE_WEEKEND) {
+                finalGridSegment = data_grid_segment_weekend;
+            }
+
+            // IF first load. No grid segment yet
+            if (!finalGridSegment) {
+                popup = new mapboxgl.Popup({closeButton: false})
+                    .setLngLat(ll) //.setLngLat(map.unproject(e.point))
+                    .setHTML(feature.properties.gid)
+                    .setHTML("<strong>" + feature.properties.gid + "</strong>" +
+                        "<p>" + planning_area + " | " + region + "</p>"
+                    )
+                    .addTo(map);
+            } else {
+                var count_imsi = 0;
+                if (finalGridSegment && finalGridSegment[feature.properties["gid"]] != undefined) {
+                    count_imsi = finalGridSegment[feature.properties["gid"]]["count_imsi"];
+                    // avg_frequency = data_poi_segment[feature.properties["n"]]["avg_frequency"];
+                    // avg_dwell_time = data_poi_segment[feature.properties["n"]]["avg_dwell_time"];
+                }
+
+                popup = new mapboxgl.Popup({closeButton: false})
+                    .setLngLat(ll) //.setLngLat(map.unproject(e.point))
+                    .setHTML(feature.properties.gid)
+                    .setHTML("<strong>" + feature.properties.gid + "</strong>" +
+                        "<p>" + planning_area + " | " + region + "</p>" +
+                        "<p>" + count_imsi + " people" + "</p>"
+                    )
+                    .addTo(map);
+
+            }
+
+
         } else {
             popup = new mapboxgl.Popup({closeButton: false})
                 .setLngLat(ll) //.setLngLat(map.unproject(e.point))
@@ -312,11 +343,39 @@ map.on('mousemove', function (e) {
             var planning_area = cacheGridRegion[feature.properties.gid]["planning_area"];
             var region = cacheGridRegion[feature.properties.gid]["region"];
 
-            popup = new mapboxgl.Popup({closeButton: false})
-                .setLngLat(ll) //.setLngLat(map.unproject(e.point))
-                .setHTML(feature.properties.gid)
-                .setHTML("<strong>" + feature.properties.gid + "</strong><p>" + planning_area + " | " + region + "</p>")
-                .addTo(map);
+            var finalGridSegment = null;
+            if (weekMode == WEEKMODE_WEEKDAY) {
+                finalGridSegment = data_grid_segment;
+            } else if (weekMode == WEEKMODE_WEEKEND) {
+                finalGridSegment = data_grid_segment_weekend;
+            }
+
+            // IF first load. No grid segment yet
+            if (!finalGridSegment) {
+                popup = new mapboxgl.Popup({closeButton: false})
+                    .setLngLat(ll) //.setLngLat(map.unproject(e.point))
+                    .setHTML(feature.properties.gid)
+                    .setHTML("<strong>" + feature.properties.gid + "</strong><p>" + planning_area + " | " + region + "</p>")
+                    .addTo(map);
+            } else {
+                var count_imsi = 0;
+                if (finalGridSegment && finalGridSegment[feature.properties["gid"]] != undefined) {
+                    count_imsi = finalGridSegment[feature.properties["gid"]]["count_imsi"];
+                    // avg_frequency = data_poi_segment[feature.properties["n"]]["avg_frequency"];
+                    // avg_dwell_time = data_poi_segment[feature.properties["n"]]["avg_dwell_time"];
+                }
+
+                popup = new mapboxgl.Popup({closeButton: false})
+                    .setLngLat(ll) //.setLngLat(map.unproject(e.point))
+                    .setHTML(feature.properties.gid)
+                    .setHTML("<strong>" + feature.properties.gid + "</strong>" +
+                        "<p>" + planning_area + " | " + region + "</p>" +
+                        "<p>" + count_imsi + " people" + "</p>"
+                    )
+                    .addTo(map);
+
+            }
+
         }
 
     } else if (isPoiDataLoaded && mouseclick_mode == MOUSECLICK_LIFESPHERE) {
@@ -351,7 +410,7 @@ map.on('mousemove', function (e) {
                 .setHTML("<strong>" + feature.properties["n"] + "</strong><p>" + feature.properties["c"] + "</p>")
                 .addTo(map);
         } else {
-            // ELSE first load. No lifesphere yet.
+            // ELSE lifesphere exists
             let count_imsi = 0;
             if (finalPOISegment && finalPOISegment[feature.properties["n"]] != undefined) {
                 count_imsi = finalPOISegment[feature.properties["n"]]["count_imsi"];
@@ -763,7 +822,7 @@ function refreshCrowdDensityChart(labels_one, dataset_one, min_ylimit, labels_tw
         options: {
             title: {
                 display: true,
-                text: 'Hourly Crowd Density',
+                text: '# of Repeat Visits',
                 fontSize: 12,
                 fontColor: "#EEEEEE"
 
@@ -836,6 +895,8 @@ function showLeaderboard(someTitle, someSubtitle){
     $("#map-infograph-title").html(someTitle);
     $("#map-infograph-subtitle").html(someSubtitle);
     $("#infograph-spacer-bar-leaderboard").show();
+
+
 
     $("#infograph-spacer-crowd-density").hide();
     $("#infograph-spacer-bar-frequency").hide();
@@ -1155,7 +1216,7 @@ function showPOISegment() {
             }
 
 
-            console.log(leaderboard_poi_segment);
+            // console.log(leaderboard_poi_segment);
 
             if (dataTableForLeaderboard == null) {
                 dataTableForLeaderboard = $('#table-leaderboard').DataTable({
@@ -1165,8 +1226,8 @@ function showPOISegment() {
                     paging: false,
                     columns: [
                         {title: "POI"},
-                        {title: "Crowd(MF)"},
-                        {title: "Crowd(SS)"}
+                        {title: "Weekday"},
+                        {title: "Weekend"}
                     ],
                     order: [[2, 'desc']]
                 });
@@ -1174,7 +1235,7 @@ function showPOISegment() {
                 dataTableForLeaderboard.clear().rows.add(leaderboard_poi_segment).draw();
             }
 
-            showLeaderboard("POI Leaderboard", "");
+            showLeaderboard("POI Leaderboard - # of People", "");
 
             console.log("showPOISegment OK", poi_segment_weekdayResults.length, poi_segment_weekendResults.length);
         });
@@ -1238,7 +1299,6 @@ function refreshDwellTimeChart() {
         avg_frequency = roundNumber(data_poi_segment[poi_key]["avg_frequency"], 2);
         avg_dwell_time = roundNumber(parseFloat(data_poi_segment[poi_key]["avg_dwell_time"]) / 60, 2);
     }
-    console.log(avg_frequency_weekend, avg_frequency);
 
     var avg_frequency_weekend = 0;
     var avg_dwell_time_weekend = 0;
@@ -1248,6 +1308,7 @@ function refreshDwellTimeChart() {
     }
 
     $("#map-infograph-subtitle").html(lastClickedPOI.properties["n"]);
+    // console.log(avg_frequency_weekend, avg_frequency);
 
 
     var dwellingWeekday = [avg_dwell_time, avg_dwell_time_weekend];
@@ -1349,7 +1410,7 @@ function refreshDwellTimeChart() {
         options: {
             title: {
                 display: true,
-                text: 'Avg. Frequency',
+                text: 'Total Repeated Visits',
                 fontSize: 12,
                 fontColor: "#EEEEEE"
             },
@@ -1504,7 +1565,7 @@ function renderLifeSphere(long, lat) {
             let unit = 'kilometers';
 
 
-            console.log(lifeSphere_weekdayResult, lifeSphere_weekendResult);
+            // console.log(lifeSphere_weekdayResult, lifeSphere_weekendResult);
             // Buffer on Weekday
             list_of_buffers_weekday = [];
             for (let i = 0; i < lifeSphere_weekdayResult.length; i++) {
@@ -1679,7 +1740,7 @@ function renderLifeSphere(long, lat) {
             }
 
 
-            console.log(leaderboard_poi_segment);
+            // console.log(leaderboard_poi_segment);
 
             if (dataTableForLeaderboard == null) {
                 dataTableForLeaderboard = $('#table-leaderboard').DataTable({
@@ -1689,8 +1750,8 @@ function renderLifeSphere(long, lat) {
                     paging: false,
                     columns: [
                         {title: "POI"},
-                        {title: "Crowd(MF)"},
-                        {title: "Crowd(SS)"}
+                        {title: "Weekday"},
+                        {title: "Weekend"}
                     ],
                     order: [[2, 'desc']]
                 });
@@ -1698,7 +1759,7 @@ function renderLifeSphere(long, lat) {
                 dataTableForLeaderboard.clear().rows.add(leaderboard_poi_segment).draw();
             }
 
-            showLeaderboard("POI LifeSphere Leaderboard", "");
+            showLeaderboard("POI LifeSphere Leaderboard - # of People", "");
 
             console.log("renderLifeSphere OK");
         });
@@ -2168,3 +2229,10 @@ window.addEventListener("keydown", function (event) {
 
 
 
+
+$(function(){
+    $(".map-chart-leaderboard").slimScroll({
+        height: '510px',
+        color: '#999999'
+    });
+});

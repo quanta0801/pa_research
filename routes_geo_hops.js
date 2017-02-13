@@ -1,4 +1,5 @@
 let GLOBALS = require('./app_globals');
+let UTILITY = require('./app_utility');
 
 module.exports = function (app) {
 

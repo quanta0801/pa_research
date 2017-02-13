@@ -1,5 +1,5 @@
 let GLOBALS = require('./app_globals');
-
+let UTILITY = require('./app_utility');
 module.exports = function(app){
 
     app.get('/db/cc', function (req, res) {
@@ -44,12 +44,14 @@ module.exports = function(app){
             which_grid = "infer_workplace_grid";
         }
 
+        month_wanted = req.cookies.dateParams.year + "-" + UTILITY.padZero(req.cookies.dateParams.month) + '-01';
+        console.log("month_wanted = " + month_wanted);
+
         let qrystr = req.cookies.query;
         let whereOrAnd = ' WHERE ';
         if (qrystr.toLowerCase().indexOf('where') !== -1){
             whereOrAnd = ' AND ';
         }
-
 
         console.log('/db/ccattraction', qrystr);
         GLOBALS.pool.connect(function (err, client, done) {

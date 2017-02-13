@@ -3,7 +3,9 @@ let UTILITY = require('./app_utility');
 
 module.exports = {
 
-
+    padZero: function(n) {
+        return n < 10 ? '0' + n : n
+    },
     // addDevHeaders: function(res) {
     //     if (GLOBALS.enableCORS) {
     //

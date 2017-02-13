@@ -1,4 +1,5 @@
 let GLOBALS = require('./app_globals');
+let UTILITY = require('./app_utility');
 
 module.exports = function(app){
 
@@ -18,6 +19,9 @@ module.exports = function(app){
         let is_weekend = (typeof req.query.is_weekend !== 'undefined') ? (req.query.is_weekend === 'true') : false;
         let month_wanted = (typeof req.query.month_wanted !== 'undefined') ? req.query.month_wanted : '2016-07-01';
 
+        month_wanted = req.cookies.dateParams.year + "-" + UTILITY.padZero(req.cookies.dateParams.month) + '-01';
+        console.log("month_wanted = " + month_wanted);
+
         let qrystr = req.cookies.query;
         console.log('/db/poisegment', qrystr);
         GLOBALS.pool.connect(function (err, client, done) {
@@ -25,7 +29,7 @@ module.exports = function(app){
                 return console.error('error fetching client from pool', err);
             }
             client.query({
-                text: "SELECT poi_name, COUNT(DISTINCT imsi) as count_imsi, AVG(frequency) as avg_frequency, AVG(avg_dwell_time) as avg_dwell_time\
+                text: "SELECT poi_name, COUNT(DISTINCT imsi) as count_imsi, SUM(frequency) as avg_frequency, AVG(avg_dwell_time) as avg_dwell_time\
                         FROM smarthub.smarthub_pa.loc_poi\
                         WHERE imsi in (\
                             SELECT imsi " + qrystr + "\

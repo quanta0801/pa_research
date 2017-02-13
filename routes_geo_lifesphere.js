@@ -1,4 +1,5 @@
 let GLOBALS = require('./app_globals');
+let UTILITY = require('./app_utility');
 
 module.exports = function(app){
 
@@ -48,6 +49,9 @@ module.exports = function(app){
         // let infer_residence = (typeof req.query.infer_residence !== 'undefined') ? req.query.infer_residence : 'Tampines';
 
         let grid_wanted = (typeof req.query.grid_wanted !== 'undefined') ? req.query.grid_wanted : '1410157';
+
+        month_wanted = req.cookies.dateParams.year + "-" + UTILITY.padZero(req.cookies.dateParams.month) + '-01';
+        console.log("month_wanted = " + month_wanted);
 
         let qrystr = req.cookies.query;
         console.log('/db/lifesphere', qrystr);
