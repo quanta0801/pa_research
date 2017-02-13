@@ -6,12 +6,12 @@ module.exports = function(app){
         // to run a query we can acquire a client from the pool,
         // run a query on the client, and then return the client to the pool
 
-        let is_pmet = (typeof req.query.is_parent !== 'undefined') ? (req.query.is_pmet === 'true') : true;
-        let is_parent = (typeof req.query.is_parent !== 'undefined') ? (req.query.is_parent === 'true') : false;
-        let min_age = (typeof req.query.max_age !== 'undefined') ? parseInt(req.query.max_age) : 35;
-        let max_age = (typeof req.query.min_age !== 'undefined') ? parseInt(req.query.min_age) : 200;
-        let race_wanted = (typeof req.query.race_wanted !== 'undefined') ? req.query.race_wanted : 'INDIAN';
-        let infer_residence = (typeof req.query.infer_residence !== 'undefined') ? req.query.infer_residence : 'Tampines';
+        // let is_pmet = (typeof req.query.is_parent !== 'undefined') ? (req.query.is_pmet === 'true') : true;
+        // let is_parent = (typeof req.query.is_parent !== 'undefined') ? (req.query.is_parent === 'true') : false;
+        // let min_age = (typeof req.query.max_age !== 'undefined') ? parseInt(req.query.max_age) : 35;
+        // let max_age = (typeof req.query.min_age !== 'undefined') ? parseInt(req.query.min_age) : 200;
+        // let race_wanted = (typeof req.query.race_wanted !== 'undefined') ? req.query.race_wanted : 'INDIAN';
+        // let infer_residence = (typeof req.query.infer_residence !== 'undefined') ? req.query.infer_residence : 'Tampines';
 
         let freq_threshold = (typeof req.query.freq_threshold !== 'undefined') ? req.query.freq_threshold : 0;
         let avg_dwell_time = (typeof req.query.avg_dwell_time !== 'undefined') ? req.query.avg_dwell_time : 1800;
@@ -25,7 +25,7 @@ module.exports = function(app){
                 return console.error('error fetching client from pool', err);
             }
             client.query({
-                text: "SELECT poi_name, AVG(frequency) as avg_frequency, AVG(avg_dwell_time) as avg_dwell_time\
+                text: "SELECT poi_name, COUNT(DISTINCT imsi) as count_imsi, AVG(frequency) as avg_frequency, AVG(avg_dwell_time) as avg_dwell_time\
                         FROM smarthub.smarthub_pa.loc_poi\
                         WHERE imsi in (\
                             SELECT imsi " + qrystr + "\

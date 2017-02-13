@@ -12,29 +12,55 @@ let popup = new mapboxgl.Popup({
  * GLOBAL VARIABLES *
  **********************************/
 
+const WEEKMODE_WEEKDAY = 1;
+const WEEKMODE_WEEKEND = 2;
+let weekMode = WEEKMODE_WEEKDAY;
+
 // FOR THE GRID
 let isHexGridLoaded = false;
 let layer_hexgrid = "layer_hexgrid";
 let source_hexgrid = "source_hexgrid";
-let data_hexgrid = null;
+let data_render_hexgrid = null;
 let map_hexgrid = {};
 let isGridRegionLoaded = false;
+// == For infographic
+let data_grid_segment = null;
+let data_grid_segment_weekend = null;
+// == For map
+let grid_segment_weekdayResults = null;
+let grid_segment_weekendResults = null;
 
 // FOR THE POI
 let isPoiDataLoaded = false;
 let layer_poi = "layer_poi";
 let source_poi = "source_poi";
-let data_poi = null;
+let data_render_poi = null;
 let map_poi = {};
-
+// == For leaderboard
+let leaderboard_poi_segment = null;
+// == For infographic
 let data_poi_segment = null;
 let data_poi_segment_weekend = null;
+// == For map
+let poi_segment_weekdayResults = null;
+let poi_segment_weekendResults = null;
+
+
 
 // FOR THE LIFESPHERE
 let source_lifesphere = "source_lifesphere";
 let layer_lifesphere_buffers = "layer_lifesphere_buffers";
 let layer_lifesphere_point = "layer_lifesphere_point";
-
+// == For infographic
+var lifeSphere_weekdayResult = null;
+var visitedPOI_weekdayResult = null;
+var lifeSphere_weekendResult = null;
+var visitedPOI_weekendResult = null;
+// == For map
+var buff_data_weekday = null;
+var buff_data_weekend = null;
+var list_of_buffers_weekday = null;
+var list_of_buffers_weekend = null;
 
 // FOR THE CC
 let isCCPoiDataLoaded = false;
@@ -55,7 +81,6 @@ const MOUSECLICK_LIFESPHERE_TEST = 4;
 const MOUSECLICK_CC_ATTRACTION_HOME = 5;
 const MOUSECLICK_CC_ATTRACTION_WORK = 6;
 let mouseclick_mode = MOUSECLICK_CC_ATTRACTION_HOME;
-
 
 
 function roundNumber(value, exp) {
@@ -104,7 +129,6 @@ function preloadGridRegion() {
 }
 
 
-
 let lastClickedGrid = 0;
 let lastClickedPOI = 0;
 let lastClickedCCPOI = 0;
@@ -131,7 +155,7 @@ map.on('click', function (e) {
         var ll = new mapboxgl.LngLat(centroid[0], centroid[1]);
 
         lastClickedGrid = feature.properties.gid;
-        console.log("Clicked:" ,lastClickedGrid);
+        console.log("Clicked:", lastClickedGrid);
         if (isGridRegionLoaded) {
             var planning_area = cacheGridRegion[feature.properties.gid]["planning_area"];
             var region = cacheGridRegion[feature.properties.gid]["region"];
@@ -159,6 +183,9 @@ map.on('click', function (e) {
             popup.remove();
             lastClickedPOI = null;
             clearInfoGraphic();
+            if (data_poi_segment) {
+                showLeaderboard("POI Leaderboard", "");
+            }
             return;
         }
 
@@ -166,24 +193,37 @@ map.on('click', function (e) {
             popup.remove();
             lastClickedPOI = null;
             clearInfoGraphic();
+            if (data_poi_segment) {
+                showLeaderboard("POI Leaderboard", "");
+            }
             return;
         }
 
         let feature = features[0];
-        let avg_frequency = 0;
-        let avg_dwell_time = 0;
+        let count_imsi = 0;
+        // let avg_frequency = 0;
+        // let avg_dwell_time = 0;
 
-        if (data_poi_segment[feature.properties["n"]] != undefined) {
-            avg_frequency = data_poi_segment[feature.properties["n"]]["avg_frequency"];
-            avg_dwell_time = data_poi_segment[feature.properties["n"]]["avg_dwell_time"];
+        var finalPOISegment = null;
+        if (weekMode == WEEKMODE_WEEKDAY) {
+            finalPOISegment = data_poi_segment;
+        } else if (weekMode == WEEKMODE_WEEKEND) {
+            finalPOISegment = data_poi_segment_weekend;
+        }
+
+        if (finalPOISegment && finalPOISegment[feature.properties["n"]] != undefined) {
+            count_imsi = finalPOISegment[feature.properties["n"]]["count_imsi"];
+            // avg_frequency = data_poi_segment[feature.properties["n"]]["avg_frequency"];
+            // avg_dwell_time = data_poi_segment[feature.properties["n"]]["avg_dwell_time"];
         }
 
         lastClickedPOI = feature;
 
         popup.setLngLat(feature.geometry.coordinates)
             .setHTML("<strong>" + feature.properties["n"] + "</strong>" +
-                "<p>" + "Frequency: " + roundNumber(avg_frequency, 2) + "</p>"+
-                "<p>" + "Dwell Time: " + roundNumber(avg_dwell_time, 2) + "</p>")
+                "<p>" + count_imsi + " people" + "</p>")
+            // "<p>" + "Frequency: " + roundNumber(avg_frequency, 2) + "</p>"+
+            // "<p>" + "Dwell Time: " + roundNumber(avg_dwell_time, 2) + "</p>")
             .addTo(map);
 
         refreshDwellTimeChart();
@@ -207,6 +247,7 @@ map.on('click', function (e) {
             // clearLifeSphere();
             // showPOI();
             refreshMapForLifeSphere();
+            clearInfoGraphic();
         }
 
 
@@ -295,11 +336,34 @@ map.on('mousemove', function (e) {
 
         let feature = features[0];
 
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup.setLngLat(feature.geometry.coordinates)
-            .setHTML("<strong>" + feature.properties["c"] + "</strong><p>" + feature.properties["n"] + "</p>")
-            .addTo(map);
+        var finalPOISegment = null;
+        if (weekMode == WEEKMODE_WEEKDAY) {
+            finalPOISegment = data_poi_segment;
+        } else if (weekMode == WEEKMODE_WEEKEND) {
+            finalPOISegment = data_poi_segment_weekend;
+        }
+
+        // IF first load. No lifesphere yet.
+        if (!finalPOISegment) {
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup.setLngLat(feature.geometry.coordinates)
+                .setHTML("<strong>" + feature.properties["n"] + "</strong><p>" + feature.properties["c"] + "</p>")
+                .addTo(map);
+        } else {
+            // ELSE first load. No lifesphere yet.
+            let count_imsi = 0;
+            if (finalPOISegment && finalPOISegment[feature.properties["n"]] != undefined) {
+                count_imsi = finalPOISegment[feature.properties["n"]]["count_imsi"];
+            }
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup.setLngLat(feature.geometry.coordinates)
+                .setHTML("<strong>" + feature.properties["n"] + "</strong><p>" + count_imsi + " people" + "</p>")
+                .addTo(map);
+        }
+
+
     } else if (isCCPoiDataLoaded && (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_HOME || mouseclick_mode == MOUSECLICK_CC_ATTRACTION_WORK)) {
         let features = map.queryRenderedFeatures(e.point, {layers: [layer_cc_poi]});
         // Change the cursor style as a UI indicator.
@@ -341,18 +405,26 @@ map.on('mousemove', function (e) {
         }
 
         let feature = features[0];
-        let avg_frequency = 0;
-        let avg_dwell_time = 0;
+        // let avg_frequency = 0;
+        // let avg_dwell_time = 0;
+        let count_imsi = 0;
 
-        if (data_poi_segment[feature.properties["n"]] != undefined) {
-            avg_frequency = data_poi_segment[feature.properties["n"]]["avg_frequency"];
-            avg_dwell_time = data_poi_segment[feature.properties["n"]]["avg_dwell_time"];
+        var finalPOISegment = null;
+        if (weekMode == WEEKMODE_WEEKDAY) {
+            finalPOISegment = data_poi_segment;
+        } else if (weekMode == WEEKMODE_WEEKEND) {
+            finalPOISegment = data_poi_segment_weekend;
+        }
+
+        if (finalPOISegment && finalPOISegment[feature.properties["n"]] != undefined) {
+            count_imsi = finalPOISegment[feature.properties["n"]]["count_imsi"];
+            // avg_frequency = data_poi_segment[feature.properties["n"]]["avg_frequency"];
+            // avg_dwell_time = data_poi_segment[feature.properties["n"]]["avg_dwell_time"];
         }
 
         popup.setLngLat(feature.geometry.coordinates)
             .setHTML("<strong>" + feature.properties["n"] + "</strong>" +
-                "<p>" + "Frequency: " + roundNumber(avg_frequency, 2) + "</p>"+
-                "<p>" + "Dwell Time: " + roundNumber(avg_dwell_time, 2) + "</p>")
+                "<p>" + count_imsi + " people" + "</p>")
             .addTo(map);
 
     }
@@ -366,59 +438,137 @@ map.on('mousemove', function (e) {
 
 function clearGrid() {
     if (isHexGridLoaded) {
-        for (let i = 0; i < data_hexgrid.features.length; i++) {
-            data_hexgrid.features[i]["properties"]["freq"] = 0;
+        for (let i = 0; i < data_render_hexgrid.features.length; i++) {
+            data_render_hexgrid.features[i]["properties"]["freq"] = 0;
         }
-        map.getSource(source_hexgrid).setData(data_hexgrid);
+        map.getSource(source_hexgrid).setData(data_render_hexgrid);
     }
 }
 
+function switchRenderGrid(someResults, debugMessage) {
+    if (!someResults) {
+        return;
+    }
 
+    clearGrid();
+    for (let i = 0; i < someResults.length; i++) {
+        let some_row = someResults[i];
+        // Get GridID as key
+        let key = some_row["grid_id"];
+        if (!key) {
+            continue;
+        }
+        let grid_map_index = map_hexgrid[key];
+        // Update the feature in the feature collection
+        data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = some_row["count_imsi"];
+    }
+    map.getSource(source_hexgrid).setData(data_render_hexgrid);
+    console.log("switchRenderGrid " + debugMessage + " OK");
+
+}
 
 function getLOCDaily() {
     if (isHexGridLoaded) {
-        $.getJSON("db/locdaily", function (result) {
-            // Create a Map where Key = Grid ID, Value = Index in FeatureCollection
-            for (let i = 0; i < result.length; i++) {
-                let some_row = result[i];
+        grid_segment_weekdayResults = null;
+        grid_segment_weekendResults = null;
+
+        $.when(
+            $.getJSON("db/locdaily?is_weekend=false", function (result) {
+                grid_segment_weekdayResults = result
+            }).fail(function () {
+                console.log("getLOCDaily Weekday error");
+            }),
+
+            $.getJSON("db/locdaily?is_weekend=true", function (result) {
+                grid_segment_weekendResults = result
+            }).fail(function () {
+                console.log("getLOCDaily Weekend error");
+            })
+        ).then(function () {
+            // console.log(grid_segment_weekdayResults, grid_segment_weekendResults);
+
+            data_grid_segment = {};
+            var counter = 0;
+            for (let i = 0; i < grid_segment_weekdayResults.length; i++) {
+                let some_row = grid_segment_weekdayResults[i];
                 // Get GridID as key
                 let key = some_row["grid_id"];
-                // let key = some_row["infer_residence_grid"];
                 if (!key) {
                     continue;
                 }
-                // key = some_row["infer_workplace_grid"];
+
+                data_grid_segment[key] = {};
+                data_grid_segment[key]["count_imsi"] = some_row["count_imsi"];
+
                 let grid_map_index = map_hexgrid[key];
                 // Update the feature in the feature collection
-                data_hexgrid.features[grid_map_index]["properties"]["freq"] = some_row["crowd"];
+                if (weekMode == WEEKMODE_WEEKDAY) {
+                    data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = some_row["count_imsi"];
+                }
+
             }
 
-            // Update the map layer source
-            map.getSource(source_hexgrid).setData(data_hexgrid);
-            console.log("getLOCDaily OK");
-        }).fail(function () {
-            console.log("getLOCDaily error");
+            data_grid_segment_weekend = {};
+            for (let i = 0; i < grid_segment_weekendResults.length; i++) {
+                let some_row = grid_segment_weekendResults[i];
+                // Get GridID as key
+                let key = some_row["grid_id"];
+                if (!key) {
+                    continue;
+                }
+
+                data_grid_segment_weekend[key] = {};
+                data_grid_segment_weekend[key]["count_imsi"] = some_row["count_imsi"];
+
+                let grid_map_index = map_hexgrid[key];
+                // Update the feature in the feature collection
+                if (weekMode == WEEKMODE_WEEKEND) {
+                    data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = some_row["count_imsi"];
+                }
+            }
+
+            map.getSource(source_hexgrid).setData(data_render_hexgrid);
+
         });
+
     }
 }
 
 
 function showLOCHourlyChart() {
     if (isHexGridLoaded) {
-        $.getJSON("db/lochourly?grid_wanted=" + lastClickedGrid, function (result) {
+
+        var weekdayResults = null;
+        var weekendResults = null;
+
+        $.when(
+            $.getJSON("db/lochourly?is_weekend=false&grid_wanted=" + lastClickedGrid, function (result) {
+                weekdayResults = result
+            }).fail(function () {
+                console.log("showLOCHourlyChart Weekday error");
+            }),
+
+            $.getJSON("db/lochourly?is_weekend=true&grid_wanted=" + lastClickedGrid, function (result) {
+                weekendResults = result
+            }).fail(function () {
+                console.log("showLOCHourlyChart Weekend error");
+            })
+        ).then(function () {
             // Create a Map where Key = Grid ID, Value = Index in FeatureCollection
-            console.log(result);
             var time_map = {};
-            for (let i = 0; i < result.length; i++) {
-                let some_row = result[i];
-                time_map[some_row["hour"]] = some_row["crowd"];
+            if (weekdayResults) {
+                for (let i = 0; i < weekdayResults.length; i++) {
+                    let some_row = weekdayResults[i];
+                    time_map[some_row["hour"]] = some_row["count_imsi"];
+                    // console.log("Weekday: ", some_row["hour"], some_row["crowd"]);
+                }
             }
 
 
             var min_ylimit = 0;
             var time_dataset = [];
             var time_labels = [], i, j;
-            for(i=0; i<24; i++) {
+            for (i = 0; i < 24; i++) {
                 var time_key = padZero(i) + ":" + "00" + ":00";
                 var time_key_pretty = '';
                 if (i < 12) {
@@ -446,31 +596,75 @@ function showLOCHourlyChart() {
 
                 time_dataset.push(crowd_value);
 
-                console.log(time_key_pretty, crowd_value)
             }
 
             // Update the map layer source
-            // map.getSource(source_hexgrid).setData(data_hexgrid);
-            for (var j = 0; j < 6; j++){
+            // map.getSource(source_hexgrid).setData(data_render_hexgrid);
+            for (var j = 0; j < 6; j++) {
                 time_labels.push(time_labels.shift());
                 time_dataset.push(time_dataset.shift());
             }
 
-            refreshCrowdDensityChart(time_labels, time_dataset, min_ylimit);
+
+            var time_map_weekend = {};
+            if (weekendResults) {
+                for (let i = 0; i < weekendResults.length; i++) {
+                    let some_row = weekendResults[i];
+                    time_map_weekend[some_row["hour"]] = some_row["count_imsi"];
+                    // console.log("Weekend: ", some_row["hour"], some_row["crowd"]);
+                }
+            }
+
+
+            var min_ylimit_weekend = 0;
+            var time_dataset_weekend = [];
+            var time_labels_weekend = [];
+            for (i = 0; i < 24; i++) {
+                var time_key = padZero(i) + ":" + "00" + ":00";
+                var time_key_pretty = '';
+                if (i < 12) {
+                    time_key_pretty = i + " am";
+                } else {
+                    time_key_pretty = (i - 12) + " pm";
+                }
+
+                if (i == 0) {
+                    time_key_pretty = "12" + " am";
+                } else if (i == 12) {
+                    time_key_pretty = i + " pm";
+                }
+
+                time_labels_weekend.push(time_key_pretty);
+                var crowd_value = 0;
+                if (time_key in time_map_weekend) {
+                    crowd_value = time_map_weekend[time_key];
+                }
+
+                if (parseInt(crowd_value) > min_ylimit_weekend) {
+                    min_ylimit_weekend = parseInt(crowd_value);
+                }
+
+                time_dataset_weekend.push(crowd_value);
+
+            }
+
+            // Update the map layer source
+            // map.getSource(source_hexgrid).setData(data_render_hexgrid);
+            for (var j = 0; j < 6; j++) {
+                time_labels_weekend.push(time_labels_weekend.shift());
+                time_dataset_weekend.push(time_dataset_weekend.shift());
+            }
+
+            refreshCrowdDensityChart(time_labels, time_dataset, min_ylimit,
+                time_labels_weekend, time_dataset_weekend, min_ylimit_weekend);
+
             console.log("showLOCHourlyChart OK");
 
-
-
-
-        }).fail(function () {
-            console.log("showLOCHourlyChart error");
         });
+
+
     }
 }
-
-
-
-
 
 
 var ctxCrowdDensity = document.getElementById("myChartCrowdDensity");
@@ -478,7 +672,7 @@ var myLineChart = null;
 Chart.defaults.global.responsive = true;
 Chart.defaults.global.maintainAspectRatio = false;
 
-function refreshCrowdDensityChart(labels_one, dataset_one, min_ylimit) {
+function refreshCrowdDensityChart(labels_one, dataset_one, min_ylimit, labels_two, dataset_two, min_ylimit_two) {
     $("#map-infograph-container").show();
     $("#infograph-spacer-crowd-density").show();
 
@@ -495,15 +689,23 @@ function refreshCrowdDensityChart(labels_one, dataset_one, min_ylimit) {
 
 
     // Round y-Axis to nearest 10, or 100
+
+    // Determine only one Y Limit. Get the bigger of two.
+    if (min_ylimit < min_ylimit_two) {
+        min_ylimit = min_ylimit_two;
+    }
+
     if (min_ylimit < 10) {
         min_ylimit = 10;
     } else if (min_ylimit < 100) {
-        min_ylimit = Math.ceil(min_ylimit/10)*10;
+        min_ylimit = Math.ceil(min_ylimit / 10) * 10;
     } else {
-        min_ylimit = Math.ceil(min_ylimit/100)*100;
+        min_ylimit = Math.ceil(min_ylimit / 100) * 100;
     }
 
-    console.log("min_ylimit", min_ylimit);
+    // console.log("min_ylimit", min_ylimit);
+    // console.log("dataset_one", dataset_one);
+    // console.log("dataset_one", dataset_two);
 
     var data = {
         labels: labels_one,
@@ -529,30 +731,30 @@ function refreshCrowdDensityChart(labels_one, dataset_one, min_ylimit) {
                 pointHitRadius: 10,
                 data: dataset_one,
                 spanGaps: false
+
+            },
+            {
+                label: "Weekends",
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(132,199,42,0.4)",
+                borderColor: "rgba(132,199,42,1)",
+                borderCapStyle: 'butt',
+                borderDash: [],
+                borderDashOffset: 0.0,
+                borderJoinStyle: 'miter',
+                pointBorderColor: "rgba(132,199,42,1)",
+                pointBackgroundColor: "#fff",
+                pointBorderWidth: 1,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(132,199,42,1)",
+                pointHoverBorderColor: "rgba(220,220,220,1)",
+                pointHoverBorderWidth: 2,
+                pointRadius: 1,
+                pointHitRadius: 10,
+                data: dataset_two,
+                spanGaps: false
             }
-            // },
-            // {
-            //     label: "Weekends",
-            //     fill: false,
-            //     lineTension: 0.1,
-            //     backgroundColor: "rgba(132,199,42,0.4)",
-            //     borderColor: "rgba(132,199,42,1)",
-            //     borderCapStyle: 'butt',
-            //     borderDash: [],
-            //     borderDashOffset: 0.0,
-            //     borderJoinStyle: 'miter',
-            //     pointBorderColor: "rgba(132,199,42,1)",
-            //     pointBackgroundColor: "#fff",
-            //     pointBorderWidth: 1,
-            //     pointHoverRadius: 5,
-            //     pointHoverBackgroundColor: "rgba(132,199,42,1)",
-            //     pointHoverBorderColor: "rgba(220,220,220,1)",
-            //     pointHoverBorderWidth: 2,
-            //     pointRadius: 1,
-            //     pointHitRadius: 10,
-            //     data: dataset_one,
-            //     spanGaps: false
-            // }
         ]
     };
     var config = {
@@ -567,7 +769,7 @@ function refreshCrowdDensityChart(labels_one, dataset_one, min_ylimit) {
 
             },
             legend: {
-                display: false,
+                display: true,
                 position: "bottom",
                 labels: {
                     fontColor: "#EEEEEE"
@@ -610,6 +812,8 @@ function refreshCrowdDensityChart(labels_one, dataset_one, min_ylimit) {
         myLineChart.destroy();
 
     myLineChart = new Chart(ctxCrowdDensity, config);
+
+    console.log("refreshCrowdDensityChart OK")
 }
 
 
@@ -617,9 +821,27 @@ function clearInfoGraphic() {
     $("#map-infograph-container").hide();
     $("#map-infograph-title").html("");
     $("#map-infograph-subtitle").html("");
+
+    $("#infograph-spacer-bar-leaderboard").hide();
+    $("#infograph-spacer-crowd-density").hide();
+    $("#infograph-spacer-bar-frequency").hide();
+    $("#infograph-spacer-bar-dwelling").hide();
+
     clearLineChart();
     clearBarChart();
 }
+
+function showLeaderboard(someTitle, someSubtitle){
+    $("#map-infograph-container").show();
+    $("#map-infograph-title").html(someTitle);
+    $("#map-infograph-subtitle").html(someSubtitle);
+    $("#infograph-spacer-bar-leaderboard").show();
+
+    $("#infograph-spacer-crowd-density").hide();
+    $("#infograph-spacer-bar-frequency").hide();
+    $("#infograph-spacer-bar-dwelling").hide();
+}
+
 
 function clearLineChart() {
     if (myLineChart != null) {
@@ -631,10 +853,9 @@ function clearLineChart() {
 }
 
 
-
 function renderGrid() {
     $.getJSON("json/grid", function (result) {
-        data_hexgrid = result;
+        data_render_hexgrid = result;
         // Create a Map where Key = Grid ID, Value = Index in FeatureCollection
         for (let i = 0; i < result.features.length; i++) {
             let some_hex = result.features[i];
@@ -645,7 +866,7 @@ function renderGrid() {
 
         map.addSource(source_hexgrid, {
             type: 'geojson',
-            data: data_hexgrid
+            data: data_render_hexgrid
         });
 
         map.addLayer({
@@ -699,28 +920,28 @@ function renderGrid() {
 
 function clearPOI() {
     if (isPoiDataLoaded) {
-        for (let i = 0; i < data_poi.features.length; i++) {
-            data_poi.features[i]["properties"]["o"] = 0;
-            data_poi.features[i]["properties"]["freq"] = 0;
+        for (let i = 0; i < data_render_poi.features.length; i++) {
+            data_render_poi.features[i]["properties"]["o"] = 0;
+            data_render_poi.features[i]["properties"]["freq"] = 0;
         }
-        map.getSource(source_poi).setData(data_poi);
+        map.getSource(source_poi).setData(data_render_poi);
     }
 }
 
 
 function showPOI() {
     if (isPoiDataLoaded) {
-        for (let i = 0; i < data_poi.features.length; i++) {
-            data_poi.features[i]["properties"]["o"] = 1;
+        for (let i = 0; i < data_render_poi.features.length; i++) {
+            data_render_poi.features[i]["properties"]["o"] = 1;
         }
-        map.getSource(source_poi).setData(data_poi);
+        map.getSource(source_poi).setData(data_render_poi);
     }
 }
 
 
 function renderPOI() {
     $.getJSON("json/poi", function (result) {
-        data_poi = result;
+        data_render_poi = result;
         // Create a Map where Key = Grid ID, Value = Index in FeatureCollection
         for (let i = 0; i < result.features.length; i++) {
             let some_poi = result.features[i];
@@ -731,7 +952,7 @@ function renderPOI() {
 
         map.addSource(source_poi, {
             type: 'geojson',
-            data: data_poi
+            data: data_render_poi
         });
 
         map.addLayer({
@@ -744,7 +965,7 @@ function renderPOI() {
                     "property": "freq",
                     'stops': [
                         [0, 2],
-                        [50, 20]
+                        [100, 10]
                     ]
                 },
                 // color circles by ethnicity, using data-driven styles
@@ -782,78 +1003,180 @@ function renderPOI() {
     });
 }
 
+function switchRenderPOI(someResult, debugMessage) {
+    if (!someResult) {
+        return;
+    }
+
+    for (let i = 0; i < someResult.length; i++) {
+        let some_row = someResult[i];
+        // Get GridID as key
+        let key = some_row["poi_name"];
+        let count_imsi = some_row["count_imsi"];
+        let avg_frequency = some_row["avg_frequency"];
+        let avg_dwell_time = some_row["avg_dwell_time"];
+
+        let poi_map_index = map_poi[key];
+
+        if (poi_map_index == undefined) {
+            console.log(key, poi_map_index);
+        } else {
+            // Update the feature in the feature collection
+            data_render_poi.features[poi_map_index]["properties"]["freq"] = count_imsi;
+            data_render_poi.features[poi_map_index]["properties"]["o"] = 1;
+        }
+    }
+    map.getSource(source_poi).setData(data_render_poi);
+    console.log("switchRenderPOI " + debugMessage + " OK");
+
+
+}
+
+var dataTableForLeaderboard = null;
+
 
 
 function showPOISegment() {
     if (isPoiDataLoaded) {
-        var weekdayResults = null;
-        var weekendResults = null;
+        poi_segment_weekdayResults = null;
+        poi_segment_weekendResults = null;
 
         $.when(
             $.getJSON("db/poisegment?is_weekend=false", function (result) {
-                weekdayResults = result
+                poi_segment_weekdayResults = result
             }).fail(function () {
                 console.log("showPOISegment error");
             }),
 
             $.getJSON("db/poisegment?is_weekend=true", function (result) {
-                weekendResults = result
+                poi_segment_weekendResults = result
             }).fail(function () {
                 console.log("showPOISegment error");
             })
         ).then(function () {
+            var combined_data = {};
+
+
             data_poi_segment = {};
 
-
-            for (let i = 0; i < weekdayResults.length; i++) {
-                let some_row = weekdayResults[i];
+            for (let i = 0; i < poi_segment_weekdayResults.length; i++) {
+                let some_row = poi_segment_weekdayResults[i];
                 // Get GridID as key
                 let key = some_row["poi_name"];
+                let count_imsi = some_row["count_imsi"];
                 let avg_frequency = some_row["avg_frequency"];
                 let avg_dwell_time = some_row["avg_dwell_time"];
 
                 data_poi_segment[key] = {};
+                data_poi_segment[key]["count_imsi"] = count_imsi;
                 data_poi_segment[key]["avg_frequency"] = avg_frequency;
                 data_poi_segment[key]["avg_dwell_time"] = avg_dwell_time;
 
+                if (!(key in combined_data)) {
+                    combined_data[key] = {};
+                    combined_data[key]["weekend"] = {};
+                    combined_data[key]["weekend"]["count_imsi"] = 0;
+                    combined_data[key]["weekend"]["avg_frequency"] = 0;
+                    combined_data[key]["weekend"]["avg_dwell_time"] = 0;
+                }
+                combined_data[key]["weekday"] = {};
+                combined_data[key]["weekday"]["count_imsi"] = count_imsi;
+                combined_data[key]["weekday"]["avg_frequency"] = avg_frequency;
+                combined_data[key]["weekday"]["avg_dwell_time"] = avg_dwell_time;
+
                 let poi_map_index = map_poi[key];
 
-                if (poi_map_index == undefined){
-                    console.log(key, poi_map_index);
-                } else {
-                    // Update the feature in the feature collection
-                    data_poi.features[poi_map_index]["properties"]["freq"] = avg_frequency;
-                    data_poi.features[poi_map_index]["properties"]["o"] = 1;
+                if (weekMode == WEEKMODE_WEEKDAY) {
+                    if (poi_map_index == undefined) {
+                        console.log(key, poi_map_index);
+                    } else {
+                        // Update the feature in the feature collection
+                        data_render_poi.features[poi_map_index]["properties"]["freq"] = count_imsi;
+                        data_render_poi.features[poi_map_index]["properties"]["o"] = 1;
+                    }
                 }
 
             }
-            map.getSource(source_poi).setData(data_poi);
 
             data_poi_segment_weekend = {};
-            for (let i = 0; i < weekendResults.length; i++) {
-                let some_row = weekendResults[i];
+            for (let i = 0; i < poi_segment_weekendResults.length; i++) {
+                let some_row = poi_segment_weekendResults[i];
                 // Get GridID as key
                 let key = some_row["poi_name"];
+                let count_imsi = some_row["count_imsi"];
                 let avg_frequency = some_row["avg_frequency"];
                 let avg_dwell_time = some_row["avg_dwell_time"];
 
                 data_poi_segment_weekend[key] = {};
+                data_poi_segment_weekend[key]["count_imsi"] = count_imsi;
                 data_poi_segment_weekend[key]["avg_frequency"] = avg_frequency;
                 data_poi_segment_weekend[key]["avg_dwell_time"] = avg_dwell_time;
 
-                // let poi_map_index = map_poi[key];
-                //
-                // if (poi_map_index == undefined){
-                //     console.log(key, poi_map_index);
-                // } else {
-                //     // Update the feature in the feature collection
-                //     data_poi.features[poi_map_index]["properties"]["freq"] = avg_frequency;
-                //     data_poi.features[poi_map_index]["properties"]["o"] = 1;
-                // }
+                if (!(key in combined_data)) {
+                    combined_data[key] = {};
+                    combined_data[key]["weekday"] = {};
+                    combined_data[key]["weekday"]["count_imsi"] = 0;
+                    combined_data[key]["weekday"]["avg_frequency"] = 0;
+                    combined_data[key]["weekday"]["avg_dwell_time"] = 0;
+                }
+                combined_data[key]["weekend"] = {};
+                combined_data[key]["weekend"]["count_imsi"] = count_imsi;
+                combined_data[key]["weekend"]["avg_frequency"] = avg_frequency;
+                combined_data[key]["weekend"]["avg_dwell_time"] = avg_dwell_time;
+
+                let poi_map_index = map_poi[key];
+
+                if (weekMode == WEEKMODE_WEEKEND) {
+                    if (poi_map_index == undefined) {
+                        console.log(key, poi_map_index);
+                    } else {
+                        // Update the feature in the feature collection
+                        data_render_poi.features[poi_map_index]["properties"]["freq"] = count_imsi;
+                        data_render_poi.features[poi_map_index]["properties"]["o"] = 1;
+                    }
+                }
 
             }
 
-            console.log("showPOISegment OK", weekdayResults.length, weekendResults.length);
+            map.getSource(source_poi).setData(data_render_poi);
+
+            leaderboard_poi_segment = [];
+            for (var key in combined_data) {
+                var some_poi = combined_data[key];
+                var row_array = [];
+                row_array.push(key);
+                row_array.push(some_poi["weekday"]["count_imsi"]);
+                row_array.push(some_poi["weekend"]["count_imsi"]);
+                // row_array.push(some_poi["weekday"]["avg_frequency"]);
+                // row_array.push(some_poi["weekend"]["avg_frequency"]);
+                // row_array.push(some_poi["weekday"]["avg_dwell_time"]);
+                // row_array.push(some_poi["weekend"]["avg_dwell_time"]);
+                leaderboard_poi_segment.push(row_array);
+            }
+
+
+            console.log(leaderboard_poi_segment);
+
+            if (dataTableForLeaderboard == null) {
+                dataTableForLeaderboard = $('#table-leaderboard').DataTable({
+                    data: leaderboard_poi_segment,
+                    lengthChange: false,
+                    searching: false,
+                    paging: false,
+                    columns: [
+                        {title: "POI"},
+                        {title: "Crowd(MF)"},
+                        {title: "Crowd(SS)"}
+                    ],
+                    order: [[2, 'desc']]
+                });
+            } else {
+                dataTableForLeaderboard.clear().rows.add(leaderboard_poi_segment).draw();
+            }
+
+            showLeaderboard("POI Leaderboard", "");
+
+            console.log("showPOISegment OK", poi_segment_weekdayResults.length, poi_segment_weekendResults.length);
         });
 
 
@@ -877,12 +1200,12 @@ function showPOISegment() {
         //             console.log(key, poi_map_index);
         //         } else {
         //             // Update the feature in the feature collection
-        //             data_poi.features[poi_map_index]["properties"]["freq"] = avg_frequency;
-        //             data_poi.features[poi_map_index]["properties"]["o"] = 1;
+        //             data_render_poi.features[poi_map_index]["properties"]["freq"] = avg_frequency;
+        //             data_render_poi.features[poi_map_index]["properties"]["o"] = 1;
         //         }
         //
         //     }
-        //     map.getSource(source_poi).setData(data_poi);
+        //     map.getSource(source_poi).setData(data_render_poi);
         //
         //     console.log("showPOISegment OK", result.length);
         //
@@ -891,8 +1214,6 @@ function showPOISegment() {
         // });
     }
 }
-
-
 
 
 var myBarChartDwelling = null;
@@ -905,6 +1226,8 @@ function refreshDwellTimeChart() {
     $("#map-infograph-container").show();
     $("#infograph-spacer-bar-dwelling").show();
     $("#infograph-spacer-bar-frequency").show();
+
+    $("#infograph-spacer-bar-leaderboard").hide();
 
     $("#map-infograph-title").html("<strong> POI Analysis </strong>");
     var poi_key = lastClickedPOI.properties["n"];
@@ -1097,25 +1420,79 @@ function clearLifeSphere() {
 }
 
 
+function switchRenderLifeSphere(someBuffData, someListOfBuffers, someDataPOISegment, debugMessage) {
+    if (!someBuffData) {
+        return;
+    }
+
+    if (map.getSource(source_lifesphere) == undefined) {
+        map.addSource(source_lifesphere, {
+            "type": "geojson",
+            "data": someBuffData
+        });
+    } else {
+        map.getSource(source_lifesphere).setData(someBuffData);
+    }
+
+    // CHECK ALL POIS If they fall inside the buffer area
+    for (let i = 0; i < data_render_poi.features.length; i++) {
+        // Get second last buffer == 75 percentile
+        let isInside = false;
+        let isVisited = false;
+        let poiID = data_render_poi.features[i]["properties"]["n"];
+
+        isInside = turf.inside(data_render_poi.features[i], someListOfBuffers[someListOfBuffers.length - 2]); // returns true
+        isVisited = poiID in someDataPOISegment;
+
+
+        // console.log(poiID, isVisited);
+        if (isInside && isVisited) {
+            data_render_poi.features[i]["properties"]["freq"] = someDataPOISegment[poiID]["count_imsi"];
+            data_render_poi.features[i]["properties"]["o"] = 1;
+        } else {
+            data_render_poi.features[i]["properties"]["o"] = 0;
+        }
+    }
+    map.getSource(source_poi).setData(data_render_poi);
+
+    console.log("switchRenderLifeSphere " + debugMessage + " OK!");
+}
+
 function renderLifeSphere(long, lat) {
     console.log(long, lat);
     if (isPoiDataLoaded) {
-        var lifeSphereResult = null;
-        var visitedPOIResult = null;
+        lifeSphere_weekdayResult = null;
+        lifeSphere_weekendResult = null;
+
+        visitedPOI_weekdayResult = null;
+        visitedPOI_weekendResult = null;
 
         $.when(
-            $.getJSON("db/lifesphere?grid_wanted=" + lastClickedGrid, function (result) {
-                lifeSphereResult = result
+            $.getJSON("db/lifesphere?is_weekend=false&grid_wanted=" + lastClickedGrid, function (result) {
+                lifeSphere_weekdayResult = result
             }).fail(function () {
-                console.log("error");
+                console.log("lifeSphere_weekdayResult error");
             }),
-
-            $.getJSON("db/visitedpoi?grid_wanted=" + lastClickedGrid, function (result) {
-                visitedPOIResult = result
+            $.getJSON("db/lifesphere?is_weekend=true&grid_wanted=" + lastClickedGrid, function (result) {
+                lifeSphere_weekendResult = result
             }).fail(function () {
-                console.log("error");
+                console.log("lifeSphere_weekendResult error");
+            }),
+            $.getJSON("db/visitedpoi?is_weekend=false&grid_wanted=" + lastClickedGrid, function (result) {
+                visitedPOI_weekdayResult = result
+            }).fail(function () {
+                console.log("visitedPOI_weekdayResult error");
+            }),
+            $.getJSON("db/visitedpoi?is_weekend=true&grid_wanted=" + lastClickedGrid, function (result) {
+                visitedPOI_weekendResult = result
+            }).fail(function () {
+                console.log("visitedPOI_weekendResult error");
             })
         ).then(function () {
+            var combined_data = {};
+
+
+
             let pt = {
                 "type": "Feature",
                 "properties": {},
@@ -1126,26 +1503,54 @@ function renderLifeSphere(long, lat) {
             };
             let unit = 'kilometers';
 
-            let list_of_buffers = [];
-            console.log(lifeSphereResult);
-            for (let i = 0; i < lifeSphereResult.length; i++) {
-                let some_row = lifeSphereResult[i];
+
+            console.log(lifeSphere_weekdayResult, lifeSphere_weekendResult);
+            // Buffer on Weekday
+            list_of_buffers_weekday = [];
+            for (let i = 0; i < lifeSphere_weekdayResult.length; i++) {
+                let some_row = lifeSphere_weekdayResult[i];
                 if (parseInt(some_row["quartile"]) <= 3) {
                     let buffer_distance = some_row["buffer_distance"];
-                    list_of_buffers.push(turf.buffer(pt, buffer_distance, unit));
+                    list_of_buffers_weekday.push(turf.buffer(pt, buffer_distance, unit));
                 }
             }
-            list_of_buffers.push(pt);
+            list_of_buffers_weekday.push(pt);
 
-            let buff_data = turf.featureCollection(list_of_buffers);
+            buff_data_weekday = turf.featureCollection(list_of_buffers_weekday);
 
-            if (map.getSource(source_lifesphere) == undefined) {
-                map.addSource(source_lifesphere, {
-                    "type": "geojson",
-                    "data": buff_data
-                });
-            } else {
-                map.getSource(source_lifesphere).setData(buff_data);
+
+            // Buffer on Weekend
+            list_of_buffers_weekend = [];
+            for (let i = 0; i < lifeSphere_weekendResult.length; i++) {
+                let some_row = lifeSphere_weekendResult[i];
+                if (parseInt(some_row["quartile"]) <= 3) {
+                    let buffer_distance = some_row["buffer_distance"];
+                    list_of_buffers_weekend.push(turf.buffer(pt, buffer_distance, unit));
+                }
+            }
+            list_of_buffers_weekend.push(pt);
+
+            buff_data_weekend = turf.featureCollection(list_of_buffers_weekend);
+
+
+            if (weekMode == WEEKMODE_WEEKDAY) {
+                if (map.getSource(source_lifesphere) == undefined) {
+                    map.addSource(source_lifesphere, {
+                        "type": "geojson",
+                        "data": buff_data_weekday
+                    });
+                } else {
+                    map.getSource(source_lifesphere).setData(buff_data_weekday);
+                }
+            } else if (weekMode == WEEKMODE_WEEKEND) {
+                if (map.getSource(source_lifesphere) == undefined) {
+                    map.addSource(source_lifesphere, {
+                        "type": "geojson",
+                        "data": buff_data_weekend
+                    });
+                } else {
+                    map.getSource(source_lifesphere).setData(buff_data_weekend);
+                }
             }
 
 
@@ -1173,29 +1578,127 @@ function renderLifeSphere(long, lat) {
             }
 
             // MAP Visited POIS
-            let visitedPOIMap = {};
-            for (let i = 0; i < visitedPOIResult.length; i++) {
-                visitedPOIMap[visitedPOIResult[i]["poi_name"]] = true;
-                // console.log(visitedPOIResult[i]["poi_name"]);
+            // Weekdays
+            data_poi_segment = {};
+            for (let i = 0; i < visitedPOI_weekdayResult.length; i++) {
+                let key = visitedPOI_weekdayResult[i]["poi_name"];
+                data_poi_segment[key] = {};
+
+                var count_imsi = visitedPOI_weekdayResult[i]["count_imsi"];
+                var avg_frequency = visitedPOI_weekdayResult[i]["avg_frequency"];
+                var avg_dwell_time = visitedPOI_weekdayResult[i]["avg_dwell_time"];
+
+                data_poi_segment[key]["count_imsi"] = count_imsi;
+                data_poi_segment[key]["avg_frequency"] = avg_frequency;
+                data_poi_segment[key]["avg_dwell_time"] = avg_dwell_time;
+
+                if (!(key in combined_data)) {
+                    combined_data[key] = {};
+                    combined_data[key]["weekend"] = {};
+                    combined_data[key]["weekend"]["count_imsi"] = 0;
+                    combined_data[key]["weekend"]["avg_frequency"] = 0;
+                    combined_data[key]["weekend"]["avg_dwell_time"] = 0;
+                }
+                combined_data[key]["weekday"] = {};
+                combined_data[key]["weekday"]["count_imsi"] = count_imsi;
+                combined_data[key]["weekday"]["avg_frequency"] = avg_frequency;
+                combined_data[key]["weekday"]["avg_dwell_time"] = avg_dwell_time;
+
             }
-            // console.log(visitedPOIMap);
+
+            // Weekends
+            data_poi_segment_weekend = {};
+            for (let i = 0; i < visitedPOI_weekendResult.length; i++) {
+                let key = visitedPOI_weekendResult[i]["poi_name"];
+                data_poi_segment_weekend[key] = {};
+
+                var count_imsi = visitedPOI_weekendResult[i]["count_imsi"];
+                var avg_frequency = visitedPOI_weekendResult[i]["avg_frequency"];
+                var avg_dwell_time = visitedPOI_weekendResult[i]["avg_dwell_time"];
+
+                data_poi_segment_weekend[key]["count_imsi"] = visitedPOI_weekendResult[i]["count_imsi"];
+                data_poi_segment_weekend[key]["avg_frequency"] = visitedPOI_weekendResult[i]["avg_frequency"];
+                data_poi_segment_weekend[key]["avg_dwell_time"] = visitedPOI_weekendResult[i]["avg_dwell_time"];
+
+                if (!(key in combined_data)) {
+                    combined_data[key] = {};
+                    combined_data[key]["weekday"] = {};
+                    combined_data[key]["weekday"]["count_imsi"] = 0;
+                    combined_data[key]["weekday"]["avg_frequency"] = 0;
+                    combined_data[key]["weekday"]["avg_dwell_time"] = 0;
+                }
+                combined_data[key]["weekend"] = {};
+                combined_data[key]["weekend"]["count_imsi"] = count_imsi;
+                combined_data[key]["weekend"]["avg_frequency"] = avg_frequency;
+                combined_data[key]["weekend"]["avg_dwell_time"] = avg_dwell_time;
+            }
+
 
             // CHECK ALL POIS If they fall inside the buffer area
-            for (let i = 0; i < data_poi.features.length; i++) {
+            for (let i = 0; i < data_render_poi.features.length; i++) {
                 // Get second last buffer == 75 percentile
-                let isInside = turf.inside(data_poi.features[i], list_of_buffers[list_of_buffers.length - 2]); // returns true
+                let isInside = false;
+                let isVisited = false;
+                let poiID = data_render_poi.features[i]["properties"]["n"];
 
-                let poiID = data_poi.features[i]["properties"]["n"];
-                let isVisited = poiID in visitedPOIMap;
+                var final_data_poi_segment = null;
+                if (weekMode == WEEKMODE_WEEKDAY) {
+                    isInside = turf.inside(data_render_poi.features[i], list_of_buffers_weekday[list_of_buffers_weekday.length - 2]); // returns true
+                    isVisited = poiID in data_poi_segment;
+                    final_data_poi_segment = data_poi_segment;
+                } else if (weekMode == WEEKMODE_WEEKEND) {
+                    isInside = turf.inside(data_render_poi.features[i], list_of_buffers_weekend[list_of_buffers_weekend.length - 2]); // returns true
+                    isVisited = poiID in data_poi_segment_weekend;
+                    final_data_poi_segment = data_poi_segment_weekend;
+                }
 
                 // console.log(poiID, isVisited);
                 if (isInside && isVisited) {
-                    data_poi.features[i]["properties"]["o"] = 1;
+                    data_render_poi.features[i]["properties"]["freq"] = final_data_poi_segment[poiID]["count_imsi"];
+                    data_render_poi.features[i]["properties"]["o"] = 1;
                 } else {
-                    data_poi.features[i]["properties"]["o"] = 0;
+                    data_render_poi.features[i]["properties"]["o"] = 0;
                 }
             }
-            map.getSource(source_poi).setData(data_poi);
+            map.getSource(source_poi).setData(data_render_poi);
+
+
+
+            leaderboard_poi_segment = [];
+            for (var key in combined_data) {
+                var some_poi = combined_data[key];
+                var row_array = [];
+                row_array.push(key);
+                row_array.push(some_poi["weekday"]["count_imsi"]);
+                row_array.push(some_poi["weekend"]["count_imsi"]);
+                // row_array.push(some_poi["weekday"]["avg_frequency"]);
+                // row_array.push(some_poi["weekend"]["avg_frequency"]);
+                // row_array.push(some_poi["weekday"]["avg_dwell_time"]);
+                // row_array.push(some_poi["weekend"]["avg_dwell_time"]);
+                leaderboard_poi_segment.push(row_array);
+            }
+
+
+            console.log(leaderboard_poi_segment);
+
+            if (dataTableForLeaderboard == null) {
+                dataTableForLeaderboard = $('#table-leaderboard').DataTable({
+                    data: leaderboard_poi_segment,
+                    lengthChange: false,
+                    searching: false,
+                    paging: false,
+                    columns: [
+                        {title: "POI"},
+                        {title: "Crowd(MF)"},
+                        {title: "Crowd(SS)"}
+                    ],
+                    order: [[2, 'desc']]
+                });
+            } else {
+                dataTableForLeaderboard.clear().rows.add(leaderboard_poi_segment).draw();
+            }
+
+            showLeaderboard("POI LifeSphere Leaderboard", "");
 
             console.log("renderLifeSphere OK");
         });
@@ -1257,16 +1760,16 @@ function addLifeSphere(long, lat) {
 
 
         // CHECK ALL POIS If they fall inside the buffer area
-        for (let i = 0; i < data_poi.features.length; i++) {
-            let isInside = turf.inside(data_poi.features[i], buffered_three); // returns true
+        for (let i = 0; i < data_render_poi.features.length; i++) {
+            let isInside = turf.inside(data_render_poi.features[i], buffered_three); // returns true
 
             if (isInside) {
-                data_poi.features[i]["properties"]["o"] = 1;
+                data_render_poi.features[i]["properties"]["o"] = 1;
             } else {
-                data_poi.features[i]["properties"]["o"] = 0;
+                data_render_poi.features[i]["properties"]["o"] = 0;
             }
         }
-        map.getSource(source_poi).setData(data_poi);
+        map.getSource(source_poi).setData(data_render_poi);
 
     }
 
@@ -1287,13 +1790,13 @@ function renderInferredResidenceGrids() {
                 if (key != null) {
                     let grid_map_index = map_hexgrid[key];
                     // Update the feature in the feature collection
-                    data_hexgrid.features[grid_map_index]["properties"]["freq"] = -1;
+                    data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = -1;
                 }
 
             }
 
             // Update the map layer source
-            map.getSource(source_hexgrid).setData(data_hexgrid);
+            map.getSource(source_hexgrid).setData(data_render_hexgrid);
             console.log("renderInferredResidenceGrids OK");
         }).fail(function () {
             console.log("error");
@@ -1312,10 +1815,10 @@ function renderPreviouslyInferredResidenceGrids() {
             if (key != null) {
                 let grid_map_index = map_hexgrid[key];
                 // Update the feature in the feature collection
-                data_hexgrid.features[grid_map_index]["properties"]["freq"] = 0;
+                data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = 0;
             }
         }
-        map.getSource(source_hexgrid).setData(data_hexgrid);
+        map.getSource(source_hexgrid).setData(data_render_hexgrid);
 
         result = previouslyInferredResidence;
         // console.log("previouslyInferredResidence", result);
@@ -1326,12 +1829,12 @@ function renderPreviouslyInferredResidenceGrids() {
             if (key != null) {
                 let grid_map_index = map_hexgrid[key];
                 // Update the feature in the feature collection
-                data_hexgrid.features[grid_map_index]["properties"]["freq"] = -2;
+                data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = -2;
             }
         }
 
         // Update the map layer source
-        map.getSource(source_hexgrid).setData(data_hexgrid);
+        map.getSource(source_hexgrid).setData(data_render_hexgrid);
         console.log("renderPreviouslyInferredResidenceGrids OK");
     }
 }
@@ -1350,26 +1853,25 @@ function renderGridOneHop() {
                 let grid_map_index = map_hexgrid[key];
                 // Update the feature in the feature collection
                 if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_HOME || mouseclick_mode == MOUSECLICK_CC_ATTRACTION_WORK) {
-                    data_hexgrid.features[grid_map_index]["properties"]["freq"] = 1000;
-                } else if (data_hexgrid.features[grid_map_index]["properties"]["freq"] == -1
-                    || data_hexgrid.features[grid_map_index]["properties"]["freq"] == -2) {
-                    data_hexgrid.features[grid_map_index]["properties"]["freq"] = 1000;
+                    data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = 1000;
+                } else if (data_render_hexgrid.features[grid_map_index]["properties"]["freq"] == -1
+                    || data_render_hexgrid.features[grid_map_index]["properties"]["freq"] == -2) {
+                    data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = 1000;
                 }
             }
             // Also populate the lastClickedGrid
             let grid_map_index = map_hexgrid[lastClickedGrid];
             // Update the feature in the feature collection
-            data_hexgrid.features[grid_map_index]["properties"]["freq"] = 1000;
+            data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = 1000;
 
             // Update the map layer source
-            map.getSource(source_hexgrid).setData(data_hexgrid);
+            map.getSource(source_hexgrid).setData(data_render_hexgrid);
             console.log("renderGridOneHop OK");
         }).fail(function () {
             console.log("error");
         });
     }
 }
-
 
 
 /*****************************
@@ -1489,10 +1991,10 @@ function renderGridTwoHop() {
                 let grid_map_index = map_hexgrid[key];
                 // Update the feature in the feature collection
                 if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_HOME || mouseclick_mode == MOUSECLICK_CC_ATTRACTION_WORK) {
-                    data_hexgrid.features[grid_map_index]["properties"]["freq"] = -1;
+                    data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = -1;
                     counter += 1;
-                } else if (data_hexgrid.features[grid_map_index]["properties"]["freq"] == -1) {
-                    data_hexgrid.features[grid_map_index]["properties"]["freq"] = -1;
+                } else if (data_render_hexgrid.features[grid_map_index]["properties"]["freq"] == -1) {
+                    data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = -1;
                 }
 
             }
@@ -1500,10 +2002,10 @@ function renderGridTwoHop() {
             // Also populate the lastClickedGrid
             let grid_map_index = map_hexgrid[lastClickedGrid];
             // Update the feature in the feature collection
-            data_hexgrid.features[grid_map_index]["properties"]["freq"] = 1000;
+            data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = 1000;
 
             // Update the map layer source
-            map.getSource(source_hexgrid).setData(data_hexgrid);
+            map.getSource(source_hexgrid).setData(data_render_hexgrid);
             console.log("renderGridTwoHop OK");
         }).fail(function () {
             console.log("error");
@@ -1536,12 +2038,12 @@ function showCCAttraction() {
                 if (key) {
                     let grid_map_index = map_hexgrid[key];
                     // Update the feature in the feature collection
-                    data_hexgrid.features[grid_map_index]["properties"]["freq"] = some_row["count"];
+                    data_render_hexgrid.features[grid_map_index]["properties"]["freq"] = some_row["count"];
                 }
             }
 
             // Update the map layer source
-            map.getSource(source_hexgrid).setData(data_hexgrid);
+            map.getSource(source_hexgrid).setData(data_render_hexgrid);
 
             console.log("showCCAttraction OK");
         }).fail(function () {
@@ -1554,12 +2056,20 @@ function showCCAttraction() {
 /*********************
  * KEYBOARD CONTROLS *
  *********************/
+function clearData() {
+    data_poi_segment = null;
+    buff_data_weekend = null;
+    buff_data_weekday = null;
+}
+
+
 function clearEverything() {
     clearGrid();
     clearPOI();
     clearCCPOI();
     clearLifeSphere();
     clearInfoGraphic();
+    clearData();
     if (popup) {
         popup.remove();
     }
@@ -1583,6 +2093,7 @@ function refreshMapForLifeSphere() {
     clearEverything();
     showPOI();
     clearLifeSphere();
+    clearInfoGraphic();
     renderInferredResidenceGrids();
     mouseclick_mode = MOUSECLICK_LIFESPHERE;
 }

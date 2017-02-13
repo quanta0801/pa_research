@@ -72,7 +72,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="dist/img/avatar_f1.png" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Chan Mali Chan</span>
+                            <span class="hidden-xs">User 1</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -80,7 +80,7 @@
                                 <img src="dist/img/avatar_f1.png" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Chan Mali Chan
+                                    User 1
                                 </p>
                             </li>
                             <!-- Menu Footer-->
@@ -109,7 +109,7 @@
                     <img src="dist/img/avatar_f1.png" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Chan Mali Chan</p>
+                    <p>User 1</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -264,6 +264,10 @@
                             <button type="button" class="btn btn-default" id="button-mapmode-cc-home">CC (Home)</button>
                             <button type="button" class="btn btn-default" id="button-mapmode-cc-work">CC (Work)</button>
                         </div>
+                        <div id="map-button-container-right" class="btn-group">
+                            <button type="button" class="btn btn-default active" id="button-mapmode-weekday">Weekday</button>
+                            <button type="button" class="btn btn-default" id="button-mapmode-weekend">Weekend</button>
+                        </div>
                         <div id="map-infograph-container">
                             <div id="map-infograph-title"></div>
                             <div id="map-infograph-subtitle"></div>
@@ -280,6 +284,11 @@
                             <div class="infograph-spacer" id="infograph-spacer-bar-dwelling">
                                 <div class="map-chart">
                                     <canvas id="myBarChartDwelling"></canvas>
+                                </div>
+                            </div>
+                            <div class="infograph-spacer" id="infograph-spacer-bar-leaderboard">
+                                <div class="map-chart-leaderboard">
+                                    <table id="table-leaderboard" width="100%"></table>
                                 </div>
                             </div>
                         </div>

@@ -28,15 +28,15 @@ $(function () {
     var default_options = { segment: 'PMET',
         filter_type: 'demographics',
         age: '20,70',
-        gender: 'Both',
-        race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
+        gender: 'BOTH',
+        race: [ 'CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
     var default_demo_op = {
         age: '20,70',
-        gender: 'Both',
-        race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
+        gender: 'BOTH',
+        race: [ 'CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
@@ -78,12 +78,11 @@ $(function () {
         viewMode: "months",
         minViewMode: "months"
     }).on('changeMonth', function(e) {
-        $('#month_display').text('...');
         month = e.date.getMonth() + 1;
         year = e.date.getFullYear();
-        $.ajax({
-            url: 'cookie_set_date/' + year + '/' + month
-        });
+        // $.ajax({
+        //     url: 'cookie_set_date/' + year + '/' + month
+        // });
         query_data(year, month);
     });
 
@@ -249,7 +248,7 @@ $(function () {
     }
 
     function query_data(year, month){
-        $('#month_display').text(month + '/' + year);
+        $('#month_display').text('...');
         // query_grid_daily(year, month);
         // query_poi(year, month);
         if (mouseclick_mode == MOUSECLICK_HEXGRID) {
@@ -263,29 +262,29 @@ $(function () {
         } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_WORK) {
             refreshMapForCCAttractionWork();
         }
+        $('#month_display').text(month + '/' + year)
     }
 
-    function query_grid_daily(year, month) {
-        console.time('Grid_query');
-        $.ajax({
-            url: 'query_loc_grid_daily/' + year + '/' + month
-        }).success(function(results) {
-            console.timeEnd('Grid_query');
-            $('#month_display').text(month + '/' + year);
-        })
-    }
-
-    function query_poi(year, month) {
-        console.time('POI_query');
-        $.ajax({
-            url: 'query_loc_poi/' + year + '/' + month
-        }).success(updatePOIData).success(function(){
-            console.timeEnd('POI_query');
-        })
-    }
-    function updatePOIData(results){
-
-    }
+    // function query_grid_daily(year, month) {
+    //     console.time('Grid_query');
+    //     $.ajax({
+    //         url: 'query_loc_grid_daily/' + year + '/' + month
+    //     }).success(function(results) {
+    //         console.timeEnd('Grid_query');
+    //         $('#month_display').text(month + '/' + year);
+    //     })
+    // }
+    // function query_poi(year, month) {
+    //     console.time('POI_query');
+    //     $.ajax({
+    //         url: 'query_loc_poi/' + year + '/' + month
+    //     }).success(updatePOIData).success(function(){
+    //         console.timeEnd('POI_query');
+    //     })
+    // }
+    // function updatePOIData(results){
+    //
+    // }
 
     function resetChart(chart) {
         for (i; i < chart.data.datasets[0].data.length; i++){
@@ -427,6 +426,47 @@ $(function () {
         setIndicatorForUseCase('#button-mapmode-cc-work', 'active', indicatorsForUseCase);
     }, false);
 
+
+    var indicatorsForWeekType = [
+        "#button-mapmode-weekday",
+        "#button-mapmode-weekend"
+    ];
+
+    document.getElementById('button-mapmode-weekday').addEventListener('click', function () {
+        // refreshMapForCCAttractionWork();
+        if (weekMode == WEEKMODE_WEEKDAY) {
+            return;
+        }
+        weekMode = WEEKMODE_WEEKDAY;
+
+        if (mouseclick_mode == MOUSECLICK_HEXGRID) {
+            switchRenderGrid(grid_segment_weekdayResults, "Weekday!");
+        } else if (mouseclick_mode == MOUSECLICK_POI_SEGMENT) {
+            switchRenderPOI(poi_segment_weekdayResults, "Weekday!");
+        } else if (mouseclick_mode == MOUSECLICK_LIFESPHERE) {
+            switchRenderLifeSphere(buff_data_weekday, list_of_buffers_weekday, data_poi_segment, "Weekday!");
+        }
+
+        setIndicatorForUseCase('#button-mapmode-weekday', 'active', indicatorsForWeekType);
+    }, false);
+
+    document.getElementById('button-mapmode-weekend').addEventListener('click', function () {
+        // refreshMapForCCAttractionWork();
+        if (weekMode == WEEKMODE_WEEKEND) {
+            return;
+        }
+        weekMode = WEEKMODE_WEEKEND;
+
+        if (mouseclick_mode == MOUSECLICK_HEXGRID) {
+            switchRenderGrid(grid_segment_weekendResults, "Weekend!");
+        } else if (mouseclick_mode == MOUSECLICK_POI_SEGMENT) {
+            switchRenderPOI(poi_segment_weekendResults, "Weekend!");
+        } else if (mouseclick_mode == MOUSECLICK_LIFESPHERE) {
+            switchRenderLifeSphere(buff_data_weekend, list_of_buffers_weekday, data_poi_segment_weekend, "Weekend!");
+        }
+
+        setIndicatorForUseCase('#button-mapmode-weekend', 'active', indicatorsForWeekType);
+    }, false);
 
 
 

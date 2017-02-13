@@ -117,6 +117,40 @@ $(function () {
         'Woodlands': 'North',
         'Yishun': 'North'
     };
+    var defaultColourArray =    ['#a6cee3',
+                                '#1f78b4',
+                                '#b2df8a',
+                                '#33a02c',
+                                '#e31a1c',
+                                '#fdbf6f',
+                                '#ff7f00',
+                                '#cab2d6',
+                                '#6a3d9a',
+                                '#b15928',
+                                '#ffff99',
+                                '#fb9a99'];
+    var defaultColourArray2 =   ['#fb8072',
+                                '#80b1d3',
+                                '#fdb462',
+                                '#b3de69',
+                                '#fccde5',
+                                '#d9d9d9',
+                                '#bc80bd',
+                                '#ccebc5',
+                                '#ffed6f',
+                                '#8dd3c7',
+                                '#ffffb3',
+                                '#bebada'];
+    var defaultColourArray3 =   ['rgba(50,136,189,0.7)',
+                                'rgba(102,194,165,0.7)',
+                                'rgba(171,221,164,0.7)',
+                                'rgba(230,245,152,0.7)',
+                                'rgba(254,224,139,0.7)',
+                                'rgba(253,174,97,0.7)',
+                                'rgba(244,109,67,0.7)',
+                                'rgba(213,62,79,0.7)',
+                                'rgba(158,1,66,0.7)']; //'rgba(94,79,162,0.7)','rgba(255,255,191,0.7)',
+    // var defaultColourArray3 = ['#e6f598','#abdda4','#66c2a5','#3288bd','#2278cd','#fee08b','#d53e4f','#f46d43','#fdae61'];
     var colourMap = {
         residence: {},
         workplace: {}
@@ -155,6 +189,14 @@ $(function () {
         legend: {
             display: false
         },
+        tooltips: {
+            intersect: false,
+            mode: "x"
+        },
+        hover: {
+            intersect: false,
+            mode: "x"
+        },
         scales: {
             yAxes: [{
                 ticks: {
@@ -163,6 +205,35 @@ $(function () {
             }]
         }
     };
+    var ageChartOptions = {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            intersect: false,
+            mode: "x"
+        },
+        hover: {
+            intersect: false,
+            mode: "x"
+        },
+        scales: {
+            yAxes: [{
+                id: 0,
+                position: 'left',
+                ticks: {
+                    beginAtZero: true
+                }
+            }, {
+                id: 1,
+                position: 'right',
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    };
+    var ageChartColour = 'rgba(102,194,165,0.7)';
 
     // var chartOptions = {
     //     bar: {
@@ -234,58 +305,32 @@ $(function () {
         labels: ["Under 30", "30-39", "40-49", "50-59", "Above 59"],
         datasets: [{
             label: '# of People',
-            yAxisID: 'a',
+            yAxisID: 0,
             data: [1, 1, 1, 1, 1],
-            backgroundColor: "hsl(0,100%,75%)"
+            backgroundColor: ageChartColour
         }]
     };
     var age10ChartCanvas = $("#age10Chart");
     var age10Chart = new Chart(age10ChartCanvas, {
         type: 'bar',
         data: age10Data,
-        options: {
-            legend: {
-                display: false
-            },
-            tooltips: {
-                intersect: false,
-                mode: "x"
-            },
-            hover: {
-                intersect: false,
-                mode: "x"
-            },
-            scales: {
-                yAxes: [{
-                    id: 'a',
-                    position: 'left',
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }, {
-                    id: 'b',
-                    position: 'right',
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
+        options: ageChartOptions
     });
     // age5 chart
     var age5Data = {
         labels: ["Under 25", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "Above 64"],
         datasets: [{
             label: '# of People',
+            yAxisID: 0,
             data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-            backgroundColor: "hsl(0,100%,75%)"
+            backgroundColor: ageChartColour
         }]
     };
     var age5ChartCanvas = $("#age5Chart");
     var age5Chart = new Chart(age5ChartCanvas, {
         type: 'bar',
         data: age5Data,
-        options: barChartOptions
+        options: ageChartOptions
     });
     // region chart
     var regionResidenceChartCanvas = $("#regionResidenceChart");
@@ -313,10 +358,11 @@ $(function () {
         data: {
             datasets: [{
                 label: '# of People',
+                yAxisID: 0,
                 data: [1]
             }]
         },
-        options: barChartOptions
+        options: ageChartOptions
     });
     var pAreaWorkplaceChartCanvas = $("#pAreaWorkplaceChart");
     var pAreaWorkplaceChart = new Chart(pAreaWorkplaceChartCanvas, {
@@ -324,10 +370,11 @@ $(function () {
         data: {
             datasets: [{
                 label: '# of People',
+                yAxisID: 0,
                 data: [1]
             }]
         },
-        options: barChartOptions
+        options: ageChartOptions
     });
     var residenceTypeChartCanvas = $("#residenceTypeChart");
     var residenceTypeChart = new Chart(residenceTypeChartCanvas, {
@@ -530,18 +577,16 @@ $(function () {
         }
         populationData['age5'] = makeAgeHist(populationData.age, 5);
         populationData['age10'] = makeAgeHist(populationData.age, 10);
-        updatePopulationAge10Chart(age10Chart, populationData.age10)
     }
 
     function updatePopulationCharts() {
-
+        updatePopulationChart(pAreaWorkplaceChart, populationData.infer_workplace_planning_area);
+        updatePopulationChart(pAreaResidenceChart, populationData.infer_residence_planning_area);
+        updatePopulationAge10Chart(age10Chart, populationData.age10);
+        updatePopulationAge5Chart(age5Chart, populationData.age5)
     }
 
     function updateCharts() {
-        genderChart.data.datasets[1] = {
-            label: 'Population %',
-            data: [3000, 4000]
-        };
         updateChart(genderChart, attrTable.gender);
         updateChart(raceChart, attrTable.race);
         updateAge5Chart(age5Chart, ageTable.age5);
@@ -564,7 +609,7 @@ $(function () {
         var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
         dataLength = dataLength || Object.keys(dataDict).length;
         dataSorted = dataSorted.slice(0, dataLength);
-        chartColourArray = chartColourArray || getColourArray(dataLength);
+        chartColourArray = chartColourArray || defaultColourArray3.slice(0, dataLength);
         var labels = getKeys(dataSorted);
         var values = getValues(dataSorted);
         chart.data.labels = labels;
@@ -585,7 +630,8 @@ $(function () {
         dataSorted = dataSorted.slice(0, dataLength);
         var labels = getKeys(dataSorted);
         chartColourArray = labels.map(function(el){
-            return colourMap[mapTable[el]] || 'rgba(0,0,0,0.1)';
+            if (mapTable) return colourMap[mapTable[el]] || 'rgba(0,0,0,0.1)';
+            else return colourMap[el] || 'rgba(0,0,0,0.1)';
         });
         var values = getValues(dataSorted);
         chart.data.labels = labels;
@@ -604,14 +650,14 @@ $(function () {
         return second[1] - first[1];
     }
 
-    function getColourArray(numOfLabels) {
-        var colourArray = [];
-        for (var i = 0; i < numOfLabels; i++) {
-            var segmentAngle = parseInt(i * 360 / numOfLabels);
-            colourArray.push("hsl(" + segmentAngle + ",100%,75%)");
-        }
-        return colourArray
-    }
+    // function getColourArray(numOfLabels) {
+    //     var colourArray = [];
+    //     for (var i = 0; i < numOfLabels; i++) {
+    //         var segmentAngle = parseInt(i * 360 / numOfLabels);
+    //         colourArray.push("hsl(" + segmentAngle + ",100%,75%)");
+    //     }
+    //     return colourArray
+    // }
 
     function getKeys(keyValueArray) {
         var keyArray = [];
@@ -660,15 +706,54 @@ $(function () {
         chart.data.datasets[0].data[9] = dataDict['65'] || 0;
         chart.update();
     }
+    function updatePopulationChart(chart, dataDict) {
+        var popDataArray = chart.data.labels.map(function(key) {
+            return convertToPercent(dataDict[key])
+        });
+        popData = {
+            label: 'Population %',
+            yAxisID: 1,
+            type: 'line',
+            fill: false,
+            backgroundColor: 'rgba(0,0,0,0.7)',
+            data: popDataArray
+        };
+        chart.data.datasets[1] = popData;
+        chart.update();
+    }
     function updatePopulationAge10Chart(chart, dataDict) {
         popData = {
             label: 'Population %',
-            yAxisID: 'b',
+            yAxisID: 1,
+            type: 'line',
+            fill: false,
+            backgroundColor: 'rgba(0,0,0,0.7)',
             data: [convertToPercent(dataDict['20']),
                 convertToPercent(dataDict['30']),
                 convertToPercent(dataDict['40']),
                 convertToPercent(dataDict['50']),
                 convertToPercent(dataDict['60'])]
+        };
+        chart.data.datasets[1] = popData;
+        chart.update();
+    }
+    function updatePopulationAge5Chart(chart, dataDict) {
+        popData = {
+            label: 'Population %',
+            yAxisID: 1,
+            type: 'line',
+            fill: false,
+            backgroundColor: 'rgba(0,0,0,0.7)',
+            data: [convertToPercent(dataDict['20']),
+                convertToPercent(dataDict['25']),
+                convertToPercent(dataDict['30']),
+                convertToPercent(dataDict['35']),
+                convertToPercent(dataDict['40']),
+                convertToPercent(dataDict['45']),
+                convertToPercent(dataDict['50']),
+                convertToPercent(dataDict['55']),
+                convertToPercent(dataDict['60']),
+                convertToPercent(dataDict['65'])]
         };
         chart.data.datasets[1] = popData;
         chart.update();

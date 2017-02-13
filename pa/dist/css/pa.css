@@ -13,6 +13,20 @@
     align-content: center;
 }
 
+#mapid {
+    height: 600px;
+}
+
+.with-margin-top {
+    margin-top: 16px;
+}
+
+.chart-height{
+    max-height: 300px;
+    max-width: 300px;
+}
+
+
 .mapboxgl-ctrl-attrib {
     display: none;
 }
@@ -47,6 +61,12 @@
     z-index: 10;
 }
 
+#map-button-container-right {
+    position: absolute;
+    z-index: 10;
+    right: 0px;
+}
+
 #map-infograph-container {
     position: absolute;
     top: 34px;
@@ -60,15 +80,26 @@
 
 
 .infograph-spacer {
-    height: 160px;
+    min-height: 210px;
 }
 
 .map-chart {
     position: absolute;
-    height: 160px;
+    height: 200px;
     width: 320px;
     padding: 5px 15px 0px 15px;
-    background-color: rgba(0, 0, 0, 0.39);
+    /*background-color: rgba(0, 0, 0, 0.39);*/
+    right: 0px;
+    z-index: 10;
+}
+
+.map-chart-leaderboard {
+    position: relative;
+    overflow-y: scroll;
+    height: 510px;
+    width: 320px;
+    padding: 5px 15px 0px 15px;
+    /*background-color: rgba(0, 0, 0, 0.39);*/
     right: 0px;
     z-index: 10;
 }

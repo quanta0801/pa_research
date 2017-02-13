@@ -58,6 +58,40 @@ $(function () {
     var mapTable = {
         'domainTier2': {}
     };
+    var defaultColourArray =    ['#a6cee3',
+                                '#1f78b4',
+                                '#b2df8a',
+                                '#33a02c',
+                                '#fb9a99',
+                                '#e31a1c',
+                                '#fdbf6f',
+                                '#ff7f00',
+                                '#cab2d6',
+                                '#6a3d9a',
+                                '#ffff99',
+                                '#b15928'];
+    var defaultColourArray2 =   ['#fb8072',
+                                '#80b1d3',
+                                '#fdb462',
+                                '#b3de69',
+                                '#fccde5',
+                                '#d9d9d9',
+                                '#bc80bd',
+                                '#ccebc5',
+                                '#ffed6f',
+                                '#8dd3c7',
+                                '#ffffb3',
+                                '#bebada'];
+    var defaultColourArray3 =   ['rgba(50,136,189,0.7)',
+                                'rgba(102,194,165,0.7)',
+                                'rgba(171,221,164,0.7)',
+                                'rgba(230,245,152,0.7)',
+                                'rgba(255,255,191,0.7)',
+                                'rgba(254,224,139,0.7)',
+                                'rgba(253,174,97,0.7)',
+                                'rgba(244,109,67,0.7)',
+                                'rgba(213,62,79,0.7)',
+                                'rgba(158,1,66,0.7)']; //'rgba(94,79,162,0.7)',
     var colourMap = {
         'domainTier1': {},
         'network_type': {},
@@ -99,6 +133,14 @@ $(function () {
         legend: {
             display: false
         },
+        tooltips: {
+            intersect: false,
+            mode: "x"
+        },
+        hover: {
+            intersect: false,
+            mode: "x"
+        },
         scales: {
             yAxes: [{
                 ticks: {
@@ -110,6 +152,14 @@ $(function () {
     var horizontalBarChartOptions = {
         legend: {
             display: false
+        },
+        tooltips: {
+            intersect: false,
+            mode: "y"
+        },
+        hover: {
+            intersect: false,
+            mode: "y"
         },
         scales: {
             xAxes: [{
@@ -394,8 +444,10 @@ $(function () {
             var rowHtml = "<tr>";
             rowHtml += "<td>" + j + "</td>";
             rowHtml += "<td>" + row.domain + "</td>";
-            rowHtml += "<td style=\"background-color:" + (colourMap.domainTier1[row.tier1] || 'rgba(0,0,0,0.1)') +"\">" + row.tier2 + "</td>";
-            rowHtml += "<td style=\"background-color:" + (colourMap.domainTier1[row.tier1] || 'rgba(0,0,0,0.1)') +"\">" + row.tier1 + "</td>";
+            rowHtml += "<td>" + row.tier2 + "</td>";
+            rowHtml += "<td>" + row.tier1 + "</td>";
+            rowHtml += "<td><span style=\"background-color:" + colourMap.domainTier1[row.tier1] +"\">" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>";
             rowHtml += "<td>" + row.traffic + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
             rowHtml += "</tr>";
@@ -406,7 +458,7 @@ $(function () {
             "paging": true,
             "autoWidth": true,
             "pageLength": 10,
-            "order": [[ 4, 'desc' ],  [5, 'desc' ]],
+            "order": [[ 5, 'desc' ],  [6, 'desc' ]],
             "scrollX": true,
             "retrieve": true
         });
@@ -416,7 +468,7 @@ $(function () {
         $.ajax({
             url: 'query_mc_forum/' + year + '/' + month
         }).success(updateForumData).success(function() {
-            colourMap.forum = updateChart(forumChart, aggData.forum);
+            colourMap.forum = updateChart(forumChart, aggData.forum, 10);
             updateThreadTable('traffic');
         });
     }
@@ -430,7 +482,8 @@ $(function () {
         }
     }
     function updateThreadTable(sortedCol, filterValue) {
-        var data = sortObject(rawData.thread, sortedCol);
+        // var data = sortObject(rawData.thread, sortedCol);
+        var data = rawData.thread;
         threadTable.destroy();
         $("#top_thread_list").html("");
         var i = 0, j = 0;
@@ -441,7 +494,9 @@ $(function () {
             var rowHtml = "<tr>";
             rowHtml += "<td>" + j + "</td>";
             rowHtml += "<td>" + row.thread + "</td>";
-            rowHtml += "<td style=\"background-color:" + colourMap.forum[row.forum] +"\">" + row.forum + "</td>";
+            rowHtml += "<td>" + row.forum + "</td>";
+            rowHtml += "<td><span style=\"background-color:" + colourMap.forum[row.forum] +"\">" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>";
             rowHtml += "<td>" + row.traffic + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
             rowHtml += "</tr>";
@@ -452,7 +507,7 @@ $(function () {
             "paging": true,
             "autoWidth": true,
             "pageLength": 5,
-            "order": [[ 3, 'desc' ],  [4, 'desc' ]],
+            "order": [[ 4, 'desc' ],  [5, 'desc' ]],
             "scrollX": true,
             "retrieve": true,
         });
@@ -462,7 +517,7 @@ $(function () {
         $.ajax({
             url: 'query_mc_interest_group/' + year + '/' + month
         }).success(updateNetworkData).success(function() {
-            colourMap.network_type = updateChart(networkTypeChart, aggData.network_type);
+            colourMap.network_type = updateChart(networkTypeChart, aggData.network_type, 10);
             updateNetworkTable('traffic');
         });
     }
@@ -476,18 +531,21 @@ $(function () {
         }
     }
     function updateNetworkTable(sortedCol, filterValue) {
-        var data = sortObject(rawData.network_name, sortedCol);
+        // var data = sortObject(rawData.network_name, sortedCol);
+        var data = rawData.network_name;
         networkNameTable.destroy();
         $("#top_networkName_list").html("");
         var i = 0, j = 0;
-        while (i<20 && j < data.length) {
+        while (i<100 && j < data.length) {
             var row = data[j];
             j++;
             if (filterValue) if (row.network_type != filterValue) continue;
             var rowHtml = "<tr>";
             rowHtml += "<td>" + j + "</td>";
             rowHtml += "<td>" + row.network_name + "</td>";
-            rowHtml += "<td style=\"background-color:" + colourMap.network_type[row.network_type] +"\">" + row.network_type + "</td>";
+            rowHtml += "<td>" + row.network_type + "</td>";
+            rowHtml += "<td><span style=\"background-color:" + colourMap.network_type[row.network_type] +"\">" +
+                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>";
             rowHtml += "<td>" + row.traffic + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
             rowHtml += "</tr>";
@@ -497,8 +555,8 @@ $(function () {
         networkNameTable = $("#top_networkName_table").DataTable({
             "paging": true,
             "autoWidth": true,
-            "pageLength": 5,
-            "order": [[ 3, 'desc' ],  [4, 'desc' ]],
+            "pageLength": 10,
+            "order": [[ 4, 'desc' ],  [5, 'desc' ]],
             "scrollX": true,
             "retrieve": true,
         });
@@ -519,7 +577,7 @@ $(function () {
         dataSorted = dataSorted.slice(0, dataLength);
         var labels = getKeys(dataSorted);
         var values = getValues(dataSorted);
-        chartColourArray = chartColourArray || getColourArray(dataLength);
+        chartColourArray = chartColourArray ||defaultColourArray3.slice(0, dataLength);
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;
         chart.data.datasets[0].data = values;
@@ -569,18 +627,18 @@ $(function () {
         return second[1] - first[1];
     }
 
-    function getColourArray(numOfLabels) {
-        var colourArray = [];
-        if (numOfLabels == 1) {
-            colourArray = "hsl(0,100%,75%)"
-        } else {
-            for (var i = 0; i < numOfLabels; i++) {
-                var segmentAngle = parseInt(i * 360 / numOfLabels);
-                colourArray.push("hsl(" + segmentAngle + ",100%,75%)");
-            }
-        }
-        return colourArray
-    }
+    // function getColourArray(numOfLabels) {
+    //     var colourArray = [];
+    //     if (numOfLabels == 1) {
+    //         colourArray = "hsl(0,100%,75%)"
+    //     } else {
+    //         for (var i = 0; i < numOfLabels; i++) {
+    //             var segmentAngle = parseInt(i * 360 / numOfLabels);
+    //             colourArray.push("hsl(" + segmentAngle + ",100%,75%)");
+    //         }
+    //     }
+    //     return colourArray
+    // }
 
     function getKeys(keyValueArray) {
         var keyArray = [];

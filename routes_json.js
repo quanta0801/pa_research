@@ -11,7 +11,7 @@ module.exports = function (app) {
     let data_grid_region = null;
     let data_poi = null;
     let data_cc_poi = null;
-    let data_planning_area = null;
+
     let data_traffic = null;
 
     /**************************
@@ -31,22 +31,6 @@ module.exports = function (app) {
 
         res.setHeader('Content-Type', 'application/json');
         res.write(JSON.stringify(data_grid));
-        res.end();
-    });
-
-    app.get('/json/planning_area', function (req, res) {
-        // UTILITY.addDevHeaders(res);
-
-        if (!data_planning_area) {
-            let dirPath = dirPathPrefix + 'data_planning_area/';
-            let filename = 'planning_area.geojson';
-
-            data_planning_area = JSON.parse(fs.readFileSync(dirPath + filename, 'utf8'));
-            console.log(filename + " loaded!\n");
-        }
-
-        res.setHeader('Content-Type', 'application/json');
-        res.write(JSON.stringify(data_planning_area));
         res.end();
     });
 

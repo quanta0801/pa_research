@@ -4,12 +4,12 @@ module.exports = function(app){
 
     app.get('/db/microsegment', function (req, res) {
 
-        let is_pmet = (typeof req.query.is_pmet !== 'undefined') ? (req.query.is_pmet === 'true') : true;
-        let is_parent = (typeof req.query.is_parent !== 'undefined') ? (req.query.is_parent === 'true') : false;
-        let min_age = (typeof req.query.max_age !== 'undefined') ? parseInt(req.query.max_age) : 35;
-        let max_age = (typeof req.query.min_age !== 'undefined') ? parseInt(req.query.min_age) : 200;
-        let race_wanted = (typeof req.query.race_wanted !== 'undefined') ? req.query.race_wanted : 'INDIAN';
-        let infer_residence = (typeof req.query.infer_residence !== 'undefined') ? req.query.infer_residence : 'Tampines';
+        // let is_pmet = (typeof req.query.is_pmet !== 'undefined') ? (req.query.is_pmet === 'true') : true;
+        // let is_parent = (typeof req.query.is_parent !== 'undefined') ? (req.query.is_parent === 'true') : false;
+        // let min_age = (typeof req.query.max_age !== 'undefined') ? parseInt(req.query.max_age) : 35;
+        // let max_age = (typeof req.query.min_age !== 'undefined') ? parseInt(req.query.min_age) : 200;
+        // let race_wanted = (typeof req.query.race_wanted !== 'undefined') ? req.query.race_wanted : 'INDIAN';
+        // let infer_residence = (typeof req.query.infer_residence !== 'undefined') ? req.query.infer_residence : 'Tampines';
 
         let qrystr = req.cookies.query;
         console.log('/db/microsegment ', qrystr);
@@ -40,12 +40,12 @@ module.exports = function(app){
         let month_wanted = (typeof req.query.month_wanted !== 'undefined') ? req.query.month_wanted : '2016-07-01';
         let is_weekend = (typeof req.query.is_weekend !== 'undefined') ? (req.query.is_weekend === 'true') : false;
 
-        let is_pmet = (typeof req.query.is_pmet !== 'undefined') ? (req.query.is_pmet === 'true') : true;
-        let is_parent = (typeof req.query.is_parent !== 'undefined') ? (req.query.is_parent === 'true') : false;
-        let min_age = (typeof req.query.max_age !== 'undefined') ? parseInt(req.query.max_age) : 35;
-        let max_age = (typeof req.query.min_age !== 'undefined') ? parseInt(req.query.min_age) : 200;
-        let race_wanted = (typeof req.query.race_wanted !== 'undefined') ? req.query.race_wanted : 'INDIAN';
-        let infer_residence = (typeof req.query.infer_residence !== 'undefined') ? req.query.infer_residence : 'Tampines';
+        // let is_pmet = (typeof req.query.is_pmet !== 'undefined') ? (req.query.is_pmet === 'true') : true;
+        // let is_parent = (typeof req.query.is_parent !== 'undefined') ? (req.query.is_parent === 'true') : false;
+        // let min_age = (typeof req.query.max_age !== 'undefined') ? parseInt(req.query.max_age) : 35;
+        // let max_age = (typeof req.query.min_age !== 'undefined') ? parseInt(req.query.min_age) : 200;
+        // let race_wanted = (typeof req.query.race_wanted !== 'undefined') ? req.query.race_wanted : 'INDIAN';
+        // let infer_residence = (typeof req.query.infer_residence !== 'undefined') ? req.query.infer_residence : 'Tampines';
 
         let grid_wanted = (typeof req.query.grid_wanted !== 'undefined') ? req.query.grid_wanted : '1410157';
 
@@ -56,7 +56,9 @@ module.exports = function(app){
                 return console.error('error fetching client from pool', err);
             }
             client.query({
-                text: "SELECT DISTINCT(poi_name) FROM smarthub.smarthub_pa.loc_poi\
+                text: "SELECT poi_name, COUNT(DISTINCT imsi) as count_imsi, \
+                       AVG(frequency) as avg_frequency, AVG(avg_dwell_time) as avg_dwell_time  \
+                       FROM smarthub.smarthub_pa.loc_poi\
                        WHERE month = $1 AND is_weekend = $2 \
                        AND imsi in ( \
                             SELECT imsi " + qrystr + "\
@@ -64,7 +66,7 @@ module.exports = function(app){
                                 IN (SELECT neighbour_grid_id FROM smarthub_pa.mapping_table_grid_one_hop WHERE grid_id = $3) \
                                 OR infer_residence_grid = $3 \
                             )\
-                       )",
+                       )GROUP BY poi_name",
                 values: [month_wanted, is_weekend,
                     //is_pmet, is_parent, min_age, max_age, race_wanted, infer_residence,
                     grid_wanted],
