@@ -117,7 +117,7 @@ $(function () {
         'Woodlands': 'North',
         'Yishun': 'North'
     };
-    var defaultColourArray =    ['#a6cee3',
+    var pairedColourArray =    ['#a6cee3',
                                 '#1f78b4',
                                 '#b2df8a',
                                 '#33a02c',
@@ -129,7 +129,7 @@ $(function () {
                                 '#b15928',
                                 '#ffff99',
                                 '#fb9a99'];
-    var defaultColourArray2 =   ['#fb8072',
+    var set3ColourArray =   ['#fb8072',
                                 '#80b1d3',
                                 '#fdb462',
                                 '#b3de69',
@@ -141,7 +141,7 @@ $(function () {
                                 '#8dd3c7',
                                 '#ffffb3',
                                 '#bebada'];
-    var defaultColourArray3 =   ['rgba(50,136,189,0.7)',
+    var spectralColourArray =   ['rgba(50,136,189,0.7)',
                                 'rgba(102,194,165,0.7)',
                                 'rgba(171,221,164,0.7)',
                                 'rgba(230,245,152,0.7)',
@@ -609,7 +609,7 @@ $(function () {
         var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
         dataLength = dataLength || Object.keys(dataDict).length;
         dataSorted = dataSorted.slice(0, dataLength);
-        chartColourArray = chartColourArray || defaultColourArray3.slice(0, dataLength);
+        chartColourArray = chartColourArray || spectralColourArray.slice(0, dataLength);
         var labels = getKeys(dataSorted);
         var values = getValues(dataSorted);
         chart.data.labels = labels;

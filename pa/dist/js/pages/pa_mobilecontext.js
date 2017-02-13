@@ -58,7 +58,7 @@ $(function () {
     var mapTable = {
         'domainTier2': {}
     };
-    var defaultColourArray =    ['#a6cee3',
+    var pairedColourArray =    ['#a6cee3',
                                 '#1f78b4',
                                 '#b2df8a',
                                 '#33a02c',
@@ -70,7 +70,7 @@ $(function () {
                                 '#6a3d9a',
                                 '#ffff99',
                                 '#b15928'];
-    var defaultColourArray2 =   ['#fb8072',
+    var set3ColourArray =   ['#fb8072',
                                 '#80b1d3',
                                 '#fdb462',
                                 '#b3de69',
@@ -82,7 +82,7 @@ $(function () {
                                 '#8dd3c7',
                                 '#ffffb3',
                                 '#bebada'];
-    var defaultColourArray3 =   ['rgba(50,136,189,0.7)',
+    var spectralColourArray =   ['rgba(50,136,189,0.7)',
                                 'rgba(102,194,165,0.7)',
                                 'rgba(171,221,164,0.7)',
                                 'rgba(230,245,152,0.7)',
@@ -92,6 +92,19 @@ $(function () {
                                 'rgba(244,109,67,0.7)',
                                 'rgba(213,62,79,0.7)',
                                 'rgba(158,1,66,0.7)']; //'rgba(94,79,162,0.7)',
+    var spectralColourArray2 = [
+        ['rgba(255,255,191,0.7)'],
+        ['rgba(244,109,67,0.7)','rgba(102,194,165,0.7)'],
+        ['rgba(252,141,89,0.7)','rgba(255,255,191,0.7)','rgba(153,213,148,0.7)'],
+        ['rgba(215,25,28,0.7)','rgba(253,174,97,0.7)','rgba(171,221,164,0.7)','rgba(43,131,186,0.7)'],
+        ['rgba(215,25,28,0.7)','rgba(253,174,97,0.7)','rgba(255,255,191,0.7)','rgba(171,221,164,0.7)','rgba(43,131,186,0.7)'],
+        ['rgba(213,62,79,0.7)','rgba(252,141,89,0.7)','rgba(254,224,139,0.7)','rgba(230,245,152,0.7)','rgba(153,213,148,0.7)','rgba(50,136,189,0.7)'],
+        ['rgba(213,62,79,0.7)','rgba(252,141,89,0.7)','rgba(254,224,139,0.7)','rgba(255,255,191,0.7)','rgba(230,245,152,0.7)','rgba(153,213,148,0.7)','rgba(50,136,189,0.7)'],
+        ['rgba(213,62,79,0.7)','rgba(244,109,67,0.7)','rgba(253,174,97,0.7)','rgba(254,224,139,0.7)','rgba(230,245,152,0.7)','rgba(171,221,164,0.7)','rgba(102,194,165,0.7)','rgba(50,136,189,0.7)'],
+        ['rgba(213,62,79,0.7)','rgba(244,109,67,0.7)','rgba(253,174,97,0.7)','rgba(254,224,139,0.7)','rgba(255,255,191,0.7)','rgba(230,245,152,0.7)','rgba(171,221,164,0.7)','rgba(102,194,165,0.7)','rgba(50,136,189,0.7)'],
+        ['rgba(158,1,66,0.7)','rgba(213,62,79,0.7)','rgba(244,109,67,0.7)','rgba(253,174,97,0.7)','rgba(254,224,139,0.7)','rgba(230,245,152,0.7)','rgba(171,221,164,0.7)','rgba(102,194,165,0.7)','rgba(50,136,189,0.7)','rgba(94,79,162,0.7)'],
+        ['rgba(158,1,66,0.7)','rgba(213,62,79,0.7)','rgba(244,109,67,0.7)','rgba(253,174,97,0.7)','rgba(254,224,139,0.7)','rgba(255,255,191,0.7)','rgba(230,245,152,0.7)','rgba(171,221,164,0.7)','rgba(102,194,165,0.7)','rgba(50,136,189,0.7)','rgba(94,79,162,0.7)']
+    ];
     var colourMap = {
         'domainTier1': {},
         'network_type': {},
@@ -577,7 +590,7 @@ $(function () {
         dataSorted = dataSorted.slice(0, dataLength);
         var labels = getKeys(dataSorted);
         var values = getValues(dataSorted);
-        chartColourArray = chartColourArray ||defaultColourArray3.slice(0, dataLength);
+        chartColourArray = chartColourArray ||spectralColourArray.slice(0, dataLength);
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;
         chart.data.datasets[0].data = values;
