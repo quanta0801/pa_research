@@ -150,7 +150,78 @@ $(function () {
                                 'rgba(244,109,67,0.7)',
                                 'rgba(213,62,79,0.7)',
                                 'rgba(158,1,66,0.7)']; //'rgba(94,79,162,0.7)','rgba(255,255,191,0.7)',
-    // var defaultColourArray3 = ['#e6f598','#abdda4','#66c2a5','#3288bd','#2278cd','#fee08b','#d53e4f','#f46d43','#fdae61'];
+    var spectralColourArray2 = [['rgba(153,213,148,0.7)'],
+        ['rgba(153,213,148,0.7)','rgba(252,141,89,0.7)'],
+        ['rgba(153,213,148,0.7)','rgba(255,255,191,0.7)',
+            'rgba(252,141,89,0.7)'],
+        ['rgba(43,131,186,0.7)','rgba(171,221,164,0.7)',
+            'rgba(253,174,97,0.7)','rgba(215,25,28,0.7)'],
+        ['rgba(43,131,186,0.7)','rgba(171,221,164,0.7)',
+            'rgba(255,255,191,0.7)','rgba(253,174,97,0.7)',
+            'rgba(215,25,28,0.7)'],
+        ['rgba(50,136,189,0.7)','rgba(153,213,148,0.7)',
+            'rgba(230,245,152,0.7)','rgba(254,224,139,0.7)',
+            'rgba(252,141,89,0.7)','rgba(213,62,79,0.7)'],
+        ['rgba(50,136,189,0.7)','rgba(153,213,148,0.7)',
+            'rgba(230,245,152,0.7)','rgba(255,255,191,0.7)',
+            'rgba(254,224,139,0.7)','rgba(252,141,89,0.7)',
+            'rgba(213,62,79,0.7)'],
+        ['rgba(50,136,189,0.7)','rgba(102,194,165,0.7)',
+            'rgba(171,221,164,0.7)','rgba(230,245,152,0.7)',
+            'rgba(254,224,139,0.7)','rgba(253,174,97,0.7)',
+            'rgba(244,109,67,0.7)','rgba(213,62,79,0.7)'],
+        ['rgba(50,136,189,0.7)','rgba(102,194,165,0.7)',
+            'rgba(171,221,164,0.7)','rgba(230,245,152,0.7)',
+            'rgba(255,255,191,0.7)','rgba(254,224,139,0.7)',
+            'rgba(253,174,97,0.7)','rgba(244,109,67,0.7)',
+            'rgba(213,62,79,0.7)'],
+        ['rgba(94,79,162,0.7)','rgba(50,136,189,0.7)',
+            'rgba(102,194,165,0.7)','rgba(171,221,164,0.7)',
+            'rgba(230,245,152,0.7)','rgba(254,224,139,0.7)',
+            'rgba(253,174,97,0.7)','rgba(244,109,67,0.7)',
+            'rgba(213,62,79,0.7)','rgba(158,1,66,0.7)'],
+        ['rgba(94,79,162,0.7)','rgba(50,136,189,0.7)',
+            'rgba(102,194,165,0.7)','rgba(171,221,164,0.7)',
+            'rgba(230,245,152,0.7)','rgba(255,255,191,0.7)',
+            'rgba(254,224,139,0.7)','rgba(253,174,97,0.7)',
+            'rgba(244,109,67,0.7)','rgba(213,62,79,0.7)',
+            'rgba(158,1,66,0.7)']];
+    var spectralLightColourArray = [['rgba(204, 234, 202, 0.7)'],
+        ['rgba(204, 234, 202, 0.7)','rgba(253, 198, 172, 0.7)'],
+        ['rgba(204, 234, 202, 0.7)','rgba(255, 255, 223, 0.7)',
+            'rgba(253, 198, 172, 0.7)'],
+        ['rgba(141, 195, 229, 0.7)','rgba(213, 238, 210, 0.7)',
+            'rgba(254, 214, 176, 0.7)','rgba(241, 134, 136, 0.7)'],
+        ['rgba(141, 195, 229, 0.7)','rgba(213, 238, 210, 0.7)',
+            'rgba(255, 255, 223, 0.7)','rgba(254, 214, 176, 0.7)',
+            'rgba(241, 134, 136, 0.7)'],
+        ['rgba(148, 197, 227, 0.7)','rgba(204, 234, 202, 0.7)',
+            'rgba(242, 250, 203, 0.7)','rgba(255, 239, 197, 0.7)',
+            'rgba(253, 198, 172, 0.7)','rgba(234, 158, 167, 0.7)'],
+        ['rgba(148, 197, 227, 0.7)','rgba(204, 234, 202, 0.7)',
+            'rgba(242, 250, 203, 0.7)','rgba(255, 255, 223, 0.7)',
+            'rgba(255, 239, 197, 0.7)','rgba(253, 198, 172, 0.7)',
+            'rgba(234, 158, 167, 0.7)'],
+        ['rgba(148, 197, 227, 0.7)','rgba(178, 224, 210, 0.7)',
+            'rgba(213, 238, 210, 0.7)','rgba(242, 250, 203, 0.7)',
+            'rgba(255, 239, 197, 0.7)','rgba(254, 214, 176, 0.7)',
+            'rgba(249, 182, 161, 0.7)','rgba(234, 158, 167, 0.7)'],
+        ['rgba(148, 197, 227, 0.7)','rgba(178, 224, 210, 0.7)',
+            'rgba(213, 238, 210, 0.7)','rgba(242, 250, 203, 0.7)',
+            'rgba(255, 255, 223, 0.7)','rgba(255, 239, 197, 0.7)',
+            'rgba(254, 214, 176, 0.7)','rgba(249, 182, 161, 0.7)',
+            'rgba(234, 158, 167, 0.7)'],
+        ['rgba(173, 165, 211, 0.7)','rgba(148, 197, 227, 0.7)',
+            'rgba(178, 224, 210, 0.7)','rgba(213, 238, 210, 0.7)',
+            'rgba(242, 250, 203, 0.7)','rgba(255, 239, 197, 0.7)',
+            'rgba(254, 214, 176, 0.7)','rgba(249, 182, 161, 0.7)',
+            'rgba(234, 158, 167, 0.7)','rgba(254, 81, 152, 0.7)'],
+        ['rgba(173, 165, 211, 0.7)','rgba(148, 197, 227, 0.7)',
+            'rgba(178, 224, 210, 0.7)','rgba(213, 238, 210, 0.7)',
+            'rgba(242, 250, 203, 0.7)','rgba(255, 255, 223, 0.7)',
+            'rgba(255, 239, 197, 0.7)','rgba(254, 214, 176, 0.7)',
+            'rgba(249, 182, 161, 0.7)','rgba(234, 158, 167, 0.7)',
+            'rgba(254, 81, 152, 0.7)']];
     var colourMap = {
         residence: {},
         workplace: {}
@@ -199,26 +270,6 @@ $(function () {
         },
         scales: {
             yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    };
-    var ageChartOptions = {
-        legend: {
-            display: false
-        },
-        tooltips: {
-            intersect: false,
-            mode: "x"
-        },
-        hover: {
-            intersect: false,
-            mode: "x"
-        },
-        scales: {
-            yAxes: [{
                 id: 0,
                 position: 'left',
                 ticks: {
@@ -233,7 +284,7 @@ $(function () {
             }]
         }
     };
-    var ageChartColour = 'rgba(102,194,165,0.7)';
+    var ageChartColour = 'rgba(153,213,148,0.7)';
 
     // var chartOptions = {
     //     bar: {
@@ -286,6 +337,10 @@ $(function () {
         type: 'pie',
         data: {
             datasets: [{
+                label: '# of People',
+                data: [1]
+            }, {
+                label: 'Population %',
                 data: [1]
             }]
         }
@@ -296,6 +351,10 @@ $(function () {
         type: 'pie',
         data: {
             datasets: [{
+                label: '# of People',
+                data: [1]
+            }, {
+                label: 'Population %',
                 data: [1]
             }]
         }
@@ -314,7 +373,7 @@ $(function () {
     var age10Chart = new Chart(age10ChartCanvas, {
         type: 'bar',
         data: age10Data,
-        options: ageChartOptions
+        options: barChartOptions
     });
     // age5 chart
     var age5Data = {
@@ -330,7 +389,7 @@ $(function () {
     var age5Chart = new Chart(age5ChartCanvas, {
         type: 'bar',
         data: age5Data,
-        options: ageChartOptions
+        options: barChartOptions
     });
     // region chart
     var regionResidenceChartCanvas = $("#regionResidenceChart");
@@ -338,6 +397,10 @@ $(function () {
         type: 'pie',
         data: {
             datasets: [{
+                label: '# of People',
+                data: [1]
+            }, {
+                label: 'Population %',
                 data: [1]
             }]
         }
@@ -347,6 +410,10 @@ $(function () {
         type: 'pie',
         data: {
             datasets: [{
+                label: '# of People',
+                data: [1]
+            }, {
+                label: 'Population %',
                 data: [1]
             }]
         }
@@ -360,9 +427,16 @@ $(function () {
                 label: '# of People',
                 yAxisID: 0,
                 data: [1]
+            }, {
+                label: 'Population %',
+                yAxisID: 1,
+                type: 'line',
+                fill: false,
+                backgroundColor: 'rgba(0,0,0,0.7)',
+                data: [1]
             }]
         },
-        options: ageChartOptions
+        options: barChartOptions
     });
     var pAreaWorkplaceChartCanvas = $("#pAreaWorkplaceChart");
     var pAreaWorkplaceChart = new Chart(pAreaWorkplaceChartCanvas, {
@@ -372,9 +446,16 @@ $(function () {
                 label: '# of People',
                 yAxisID: 0,
                 data: [1]
+            }, {
+                label: 'Population %',
+                yAxisID: 1,
+                type: 'line',
+                fill: false,
+                backgroundColor: 'rgba(0,0,0,0.7)',
+                data: [1]
             }]
         },
-        options: ageChartOptions
+        options: barChartOptions
     });
     var residenceTypeChartCanvas = $("#residenceTypeChart");
     var residenceTypeChart = new Chart(residenceTypeChartCanvas, {
@@ -382,6 +463,14 @@ $(function () {
         data: {
             datasets: [{
                 label: '# of People',
+                yAxisID: 0,
+                data: [1]
+            }, {
+                label: 'Population %',
+                yAxisID: 1,
+                type: 'line',
+                fill: false,
+                backgroundColor: 'rgba(0,0,0,0.7)',
                 data: [1]
             }]
         },
@@ -580,22 +669,27 @@ $(function () {
     }
 
     function updatePopulationCharts() {
-        updatePopulationChart(pAreaWorkplaceChart, populationData.infer_workplace_planning_area);
-        updatePopulationChart(pAreaResidenceChart, populationData.infer_residence_planning_area);
+        addPopulationChart(genderChart, populationData.gender, true);
+        addPopulationChart(raceChart, populationData.race, true);
         updatePopulationAge10Chart(age10Chart, populationData.age10);
-        updatePopulationAge5Chart(age5Chart, populationData.age5)
+        updatePopulationAge5Chart(age5Chart, populationData.age5);
+        addPopulationChart(regionResidenceChart, populationData.infer_residence_region, true);
+        addPopulationChart(regionWorkplaceChart, populationData.infer_workplace_region, true);
+        addPopulationChart(pAreaWorkplaceChart, populationData.infer_workplace_planning_area);
+        addPopulationChart(pAreaResidenceChart, populationData.infer_residence_planning_area);
+        addPopulationChart(residenceTypeChart, populationData.residence_type);
     }
 
     function updateCharts() {
-        updateChart(genderChart, attrTable.gender);
-        updateChart(raceChart, attrTable.race);
+        updateChart(genderChart, attrTable.gender, populationData.gender);
+        updateChart(raceChart, attrTable.race, populationData.race);
         updateAge5Chart(age5Chart, ageTable.age5);
         updateAge10Chart(age10Chart, ageTable.age10);
-        colourMap.residence = updateChart(regionResidenceChart, attrTable.infer_residence_region);
-        colourMap.workplace = updateChart(regionWorkplaceChart, attrTable.infer_workplace_region);
-        updateChartWithColourMapping(pAreaResidenceChart, attrTable.infer_residence_planning_area, 20, regionTable, colourMap.residence);
-        updateChartWithColourMapping(pAreaWorkplaceChart, attrTable.infer_workplace_planning_area, 20, regionTable, colourMap.workplace);
-        updateChart(residenceTypeChart, attrTable.residence_type);
+        colourMap.residence = updateChart(regionResidenceChart, attrTable.infer_residence_region, populationData.infer_residence_region);
+        colourMap.workplace = updateChart(regionWorkplaceChart, attrTable.infer_workplace_region, populationData.infer_workplace_region);
+        updateChartWithColourMapping(pAreaResidenceChart, attrTable.infer_residence_planning_area, populationData.infer_residence_planning_area, 20, regionTable, colourMap.residence);
+        updateChartWithColourMapping(pAreaWorkplaceChart, attrTable.infer_workplace_planning_area, populationData.infer_workplace_planning_area, 20, regionTable, colourMap.workplace);
+        updateChart(residenceTypeChart, attrTable.residence_type, populationData.residence_type);
     }
 
     function resetChart(chart) {
@@ -604,17 +698,18 @@ $(function () {
         }
     }
 
-    function updateChart(chart, dataDict, dataLength, chartColourArray) {
+    function updateChart(chart, dataDict, popDataDict, dataLength, chartColourArray) {
         if (!dataDict) resetChart(chart);
         var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
         dataLength = dataLength || Object.keys(dataDict).length;
         dataSorted = dataSorted.slice(0, dataLength);
-        chartColourArray = chartColourArray || spectralColourArray.slice(0, dataLength);
+        chartColourArray = chartColourArray || getColourArray(dataLength);
         var labels = getKeys(dataSorted);
         var values = getValues(dataSorted);
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;
         chart.data.datasets[0].data = values;
+        if (popDataDict) updatePopulationChart(chart, popDataDict);
         chart.update();
         var colourMap = {};
         for (i=0;i<dataLength;i++){
@@ -623,7 +718,7 @@ $(function () {
         return colourMap;
     }
 
-    function updateChartWithColourMapping(chart, dataDict, dataLength, mapTable, colourMap) {
+    function updateChartWithColourMapping(chart, dataDict, popDataDict, dataLength, mapTable, colourMap) {
         if (!dataDict) resetChart(chart);
         var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
         dataLength = dataLength || Object.keys(dataDict).length;
@@ -637,6 +732,7 @@ $(function () {
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;
         chart.data.datasets[0].data = values;
+        if (popDataDict) updatePopulationChart(chart, popDataDict);
         chart.update();
     }
 
@@ -658,6 +754,14 @@ $(function () {
     //     }
     //     return colourArray
     // }
+    function getColourArray(numOfLabels) {
+        var idx = numOfLabels - 1;
+        return spectralColourArray2[idx]
+    }
+    function getColourArray2(numOfLabels) {
+        var idx = numOfLabels - 1;
+        return spectralLightColourArray[idx];
+    }
 
     function getKeys(keyValueArray) {
         var keyArray = [];
@@ -676,7 +780,7 @@ $(function () {
     }
 
     function convertToPercent(value) {
-        return (value * 100).toFixed(1);
+        return (value * 100).toFixed(2);
     }
 
     function updateAge10Chart(chart, dataDict) {
@@ -706,20 +810,24 @@ $(function () {
         chart.data.datasets[0].data[9] = dataDict['65'] || 0;
         chart.update();
     }
-    function updatePopulationChart(chart, dataDict) {
-        var popDataArray = chart.data.labels.map(function(key) {
+    function addPopulationChart(chart, dataDict) {
+        chart.data.datasets[1].data = chart.data.labels.map(function(key) {
             return convertToPercent(dataDict[key])
         });
-        popData = {
-            label: 'Population %',
-            yAxisID: 1,
-            type: 'line',
-            fill: false,
-            backgroundColor: 'rgba(0,0,0,0.7)',
-            data: popDataArray
-        };
-        chart.data.datasets[1] = popData;
+        if (chart.config.type == 'pie') {
+            var dataLength = chart.data.labels.length;
+            chart.data.datasets[1].backgroundColor = getColourArray2(dataLength);
+        }
         chart.update();
+    }
+    function updatePopulationChart(chart, dataDict) {
+        chart.data.datasets[1].data = chart.data.labels.map(function(key) {
+            return convertToPercent(dataDict[key])
+        });
+        if (chart.config.type == 'pie') {
+            var dataLength = chart.data.labels.length;
+            chart.data.datasets[1].backgroundColor = getColourArray2(dataLength);
+        }
     }
     function updatePopulationAge10Chart(chart, dataDict) {
         popData = {
