@@ -284,7 +284,7 @@ $(function () {
             }]
         }
     };
-    var ageChartColour = 'rgba(153,213,148,0.7)';
+    var ageChartColour = getColourArray(1)[0];//'rgba(153,213,148,0.7)';
 
     // var chartOptions = {
     //     bar: {
@@ -478,7 +478,7 @@ $(function () {
     });
 
     loadSettingsFromCookie();
-    loadPopulationMetrics();
+    loadPopulationData();
 
     function loadSettingsFromCookie() {
         $.ajax({
@@ -652,13 +652,13 @@ $(function () {
         return ageBandDict
     }
 
-    function loadPopulationMetrics() {
+    function loadPopulationData() {
         $.ajax({
             url: 'query_population'
-        }).success(updatePopulationData).then(updatePopulationCharts)
+        }).success(processPopulationData).then(addPopulationCharts)
     }
 
-    function updatePopulationData(results) {
+    function processPopulationData(results) {
         for (i=0;i<results.length;i++) {
             var row = results[i];
             if (!populationData[row.field]) populationData[row.field] = {};
@@ -666,13 +666,14 @@ $(function () {
         }
         populationData['age5'] = makeAgeHist(populationData.age, 5);
         populationData['age10'] = makeAgeHist(populationData.age, 10);
+        console.log(populationData);
     }
 
-    function updatePopulationCharts() {
+    function addPopulationCharts() {
         addPopulationChart(genderChart, populationData.gender, true);
         addPopulationChart(raceChart, populationData.race, true);
-        updatePopulationAge10Chart(age10Chart, populationData.age10);
-        updatePopulationAge5Chart(age5Chart, populationData.age5);
+        addPopulationAge10Chart(age10Chart, populationData.age10);
+        addPopulationAge5Chart(age5Chart, populationData.age5);
         addPopulationChart(regionResidenceChart, populationData.infer_residence_region, true);
         addPopulationChart(regionWorkplaceChart, populationData.infer_workplace_region, true);
         addPopulationChart(pAreaWorkplaceChart, populationData.infer_workplace_planning_area);
@@ -829,7 +830,7 @@ $(function () {
             chart.data.datasets[1].backgroundColor = getColourArray2(dataLength);
         }
     }
-    function updatePopulationAge10Chart(chart, dataDict) {
+    function addPopulationAge10Chart(chart, dataDict) {
         popData = {
             label: 'Population %',
             yAxisID: 1,
@@ -845,7 +846,7 @@ $(function () {
         chart.data.datasets[1] = popData;
         chart.update();
     }
-    function updatePopulationAge5Chart(chart, dataDict) {
+    function addPopulationAge5Chart(chart, dataDict) {
         popData = {
             label: 'Population %',
             yAxisID: 1,

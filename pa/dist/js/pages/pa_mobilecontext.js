@@ -45,53 +45,38 @@ $(function () {
         planning_area: 'Bishan'
     };
     var rawData = {
-        'domain': [],
-        'thread': [],
-        'network_name': []
+        domain: [],
+        thread: [],
+        network_name: [],
+        data_activity: {}
     };
     var aggData = {
-        'domainTier1': {},
-        'domainTier2': {},
-        'network_type': {},
-        'forum': {}
+        domainTier1: {},
+        domainTier2: {},
+        network_type: {},
+        forum: {}
     };
     var mapTable = {
-        'domainTier2': {}
+        domainTier2: {}
     };
-    var pairedColourArray =    ['#a6cee3',
-                                '#1f78b4',
-                                '#b2df8a',
-                                '#33a02c',
-                                '#fb9a99',
-                                '#e31a1c',
-                                '#fdbf6f',
-                                '#ff7f00',
-                                '#cab2d6',
-                                '#6a3d9a',
-                                '#ffff99',
-                                '#b15928'];
-    var set3ColourArray =   ['#fb8072',
-                                '#80b1d3',
-                                '#fdb462',
-                                '#b3de69',
-                                '#fccde5',
-                                '#d9d9d9',
-                                '#bc80bd',
-                                '#ccebc5',
-                                '#ffed6f',
-                                '#8dd3c7',
-                                '#ffffb3',
-                                '#bebada'];
-    var spectralColourArray =   ['rgba(50,136,189,0.7)',
-                                'rgba(102,194,165,0.7)',
-                                'rgba(171,221,164,0.7)',
-                                'rgba(230,245,152,0.7)',
-                                'rgba(255,255,191,0.7)',
-                                'rgba(254,224,139,0.7)',
-                                'rgba(253,174,97,0.7)',
-                                'rgba(244,109,67,0.7)',
-                                'rgba(213,62,79,0.7)',
-                                'rgba(158,1,66,0.7)']; //'rgba(94,79,162,0.7)',
+    var colourMap = {
+        domainTier1: {},
+        network_type: {},
+        forum: {}
+    };
+    var populationData = {
+        data_activity: {}
+    };
+    // var spectralColourArray =   ['rgba(50,136,189,0.7)',
+    //                             'rgba(102,194,165,0.7)',
+    //                             'rgba(171,221,164,0.7)',
+    //                             'rgba(230,245,152,0.7)',
+    //                             'rgba(255,255,191,0.7)',
+    //                             'rgba(254,224,139,0.7)',
+    //                             'rgba(253,174,97,0.7)',
+    //                             'rgba(244,109,67,0.7)',
+    //                             'rgba(213,62,79,0.7)',
+    //                             'rgba(158,1,66,0.7)']; //'rgba(94,79,162,0.7)',
     var spectralColourArray2 = [['rgba(153,213,148,0.7)'],
         ['rgba(153,213,148,0.7)','rgba(252,141,89,0.7)'],
         ['rgba(153,213,148,0.7)','rgba(255,255,191,0.7)',
@@ -164,11 +149,6 @@ $(function () {
             'rgba(255, 239, 197, 0.7)','rgba(254, 214, 176, 0.7)',
             'rgba(249, 182, 161, 0.7)','rgba(234, 158, 167, 0.7)',
             'rgba(254, 81, 152, 0.7)']];
-    var colourMap = {
-        'domainTier1': {},
-        'network_type': {},
-        'forum': {}
-    };
     var month = null, year = null;
 
     // initialise slider and slider value
@@ -221,6 +201,34 @@ $(function () {
             }]
         }
     };
+    var barChartOptions2 = {
+        legend: {
+            display: false
+        },
+        tooltips: {
+            intersect: false,
+            mode: "x"
+        },
+        hover: {
+            intersect: false,
+            mode: "x"
+        },
+        scales: {
+            yAxes: [{
+                id: 0,
+                position: 'left',
+                ticks: {
+                    beginAtZero: true
+                }
+            }, {
+                id: 1,
+                position: 'right',
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    };
     var horizontalBarChartOptions = {
         legend: {
             display: false
@@ -241,14 +249,64 @@ $(function () {
             }]
         }
     };
+    // activity chart
+    var activityLabels = [];
+    for (i=0;i<24;i++) {
+        activityLabels.push(('0' + i).slice(-2) + ':00');
+        activityLabels.push(('0' + i).slice(-2) + ':30');
+    }
+    var activityData = {
+        labels: activityLabels,
+        datasets: [{
+            label: 'Segment Weekday Usage',
+            fill: false,
+            data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            backgroundColor: getColourArray(2)[0]
+        }, {
+            label: 'Segment Weekend Usage',
+            fill: false,
+            data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            backgroundColor: getColourArray(2)[1]
+        }, {
+            label: 'Population Weekday Usage',
+            fill: false,
+            data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            backgroundColor: getColourArray2(2)[0]
+        }, {
+            label: 'Population Weekend Usage',
+            fill: false,
+            data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+            backgroundColor: getColourArray2(2)[1]
+        }]
+    };
+    var activityChartCanvas = $("#activityChart");
+    var activityChart = new Chart(activityChartCanvas, {
+        type: 'line',
+        data: activityData,
+        options: barChartOptions
+    });
     // tier1 chart
     var tier1ChartCanvas = $("#tier1Chart");
     var tier1Chart = new Chart(tier1ChartCanvas, {
         type: 'bar',
         data: {
             datasets: [{
+                label: '# of People',
+                // yAxisID: 0,
                 data: [1]
             }]
+            // }, {
+            //     label: 'Population %',
+            //     yAxisID: 1,
+            //     type: 'line',
+            //     fill: false,
+            //     backgroundColor: 'rgba(0,0,0,0.7)',
+            //     data: [1]
+            // }]
         },
         options: barChartOptions
     });
@@ -288,6 +346,7 @@ $(function () {
     var networkNameTable = $("#top_networkName_table").DataTable();
 
     loadSettingsFromCookie();
+    loadPopulationData();
     $('#month_display').text('...');
 
     function loadSettingsFromCookie() {
@@ -479,6 +538,7 @@ $(function () {
         query_domain(year, month);
         query_forum(year, month);
         query_interest_group(year, month);
+        query_data_activity(year, month);
     }
 
     function query_domain(year, month) {
@@ -586,6 +646,10 @@ $(function () {
         });
     }
 
+    function secondToMinute(seconds) {
+        return (seconds / 60).toFixed(2);
+    }
+
     function query_interest_group(year, month) {
         $.ajax({
             url: 'query_mc_interest_group/' + year + '/' + month
@@ -636,13 +700,54 @@ $(function () {
         });
     }
 
-    function secondToMinute(seconds) {
-        return (seconds / 60).toFixed(2);
+    function query_data_activity(year, month) {
+        $.when(
+            $.ajax({
+                url: 'query_mc_data_activity/' + year + '/' + month + '?is_weekend=false'
+            }).then(function(results) {
+                updateActivityData(results, 'weekday', rawData.data_activity)
+            }),
+            $.ajax({
+                url: 'query_mc_data_activity/' + year + '/' + month + '?is_weekend=true'
+            }).then(function(results) {
+                updateActivityData(results, 'weekend', rawData.data_activity)
+            })
+        ).then(function() {
+            updateActivityChart(activityChart, rawData.data_activity)
+        })
+    }
+    function updateActivityData(results, day_of_week, dataDict) {
+        var newDataDict = {};
+        for (i = 0; i < results.length; i++) {
+            newDataDict[results[i].start_timeband.slice(0,5)] = results[i].percentage_usage
+        }
+        dataDict[day_of_week] = newDataDict;
+    }
+
+    function loadPopulationData() {
+        loadPopulationActivityData()
+    }
+    function loadPopulationActivityData () {
+        $.when(
+            $.ajax({
+                url: 'query_mc_data_activity_population?is_weekend=false'
+            }).then(function(results) {
+                updateActivityData(results, 'weekday', populationData.data_activity)
+            }),
+            $.ajax({
+                url: 'query_mc_data_activity_population?is_weekend=true'
+            }).then(function(results) {
+                updateActivityData(results, 'weekend', populationData.data_activity)
+            })).then(function() {
+            updatePopulationActivityChart(activityChart, populationData.data_activity)
+        })
     }
 
     function resetChart(chart) {
-        for (i; i < chart.data.datasets[0].data.length; i++){
-            chart.data.datasets.data[i] = 0;
+        for (i=0;i<chart.data.datasets.length;i++){
+            for (j=0;j<chart.data.datasets[i].data.length;j++) {
+                chart.data.datasets[i].data[j] = 0;
+            }
         }
         chart.update();
     }
@@ -721,7 +826,10 @@ $(function () {
         var idx = numOfLabels - 1;
         return spectralColourArray2[idx]
     }
-
+    function getColourArray2(numOfLabels) {
+        var idx = numOfLabels - 1;
+        return spectralLightColourArray[idx]
+    }
     function getKeys(keyValueArray) {
         var keyArray = [];
         for (i = 0; i < keyValueArray.length; i++){
@@ -729,12 +837,57 @@ $(function () {
         }
         return keyArray
     }
-
     function getValues(keyValueArray) {
         var valueArray = [];
         for (i = 0; i < keyValueArray.length; i++){
             valueArray.push(keyValueArray[i][1])
         }
         return valueArray
+    }
+
+    function updateActivityChart(chart, dataDict) {
+        if (!dataDict) {
+            resetChart(chart);
+        }
+        for (i=0;i<chart.data.labels.length;i++) {
+            var label = chart.data.labels[i];
+            chart.data.datasets[0].data[i] = convertToPercent(dataDict.weekday[label]) || 0;
+            chart.data.datasets[1].data[i] = convertToPercent(dataDict.weekend[label]) || 0;
+        }
+        chart.update()
+    }
+    function updatePopulationActivityChart(chart, dataDict) {
+        if (!dataDict) {
+            resetChart(chart);
+        }
+        for (i=0;i<chart.data.labels.length;i++) {
+            var label = chart.data.labels[i];
+            chart.data.datasets[2].data[i] = convertToPercent(dataDict.weekday[label]) || 0;
+            chart.data.datasets[3].data[i] = convertToPercent(dataDict.weekend[label]) || 0;
+        }
+        chart.update()
+    }
+
+    function convertToPercent(value) {
+        return (value * 100).toFixed(2);
+    }
+    function addPopulationChart(chart, dataDict) {
+        chart.data.datasets[1].data = chart.data.labels.map(function(key) {
+            return convertToPercent(dataDict[key])
+        });
+        if (chart.config.type == 'pie') {
+            var dataLength = chart.data.labels.length;
+            chart.data.datasets[1].backgroundColor = getColourArray2(dataLength);
+        }
+        chart.update();
+    }
+    function updatePopulationChart(chart, dataDict) {
+        chart.data.datasets[1].data = chart.data.labels.map(function(key) {
+            return convertToPercent(dataDict[key])
+        });
+        if (chart.config.type == 'pie') {
+            var dataLength = chart.data.labels.length;
+            chart.data.datasets[1].backgroundColor = getColourArray2(dataLength);
+        }
     }
 });
