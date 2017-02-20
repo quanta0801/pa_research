@@ -24,21 +24,22 @@ $(function () {
     });
 
     // initialised default values and variable tables
-    var sliderDefaultValue = [20, 70];
-    var default_options = { segment: 'PMET',
+    var sliderDefaultValue = [20, 69];
+    var default_options = {
+        segment: 'PMET',
         filter_type: 'demographics',
         age: '20,70',
-        gender: 'BOTH',
-        race: [ 'CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS' ],
-        infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
-        infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
+        gender: ['Male', 'Female'],
+        race: ['CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS'],
+        infer_residence_region: ['Central', 'East', 'North', 'North-East', 'West'],
+        infer_workplace_region: ['Central', 'East', 'North', 'North-East', 'West']
     };
     var default_demo_op = {
         age: '20,70',
-        gender: 'BOTH',
-        race: [ 'CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS' ],
-        infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
-        infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
+        gender: ['Male', 'Female'],
+        race: ['CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS'],
+        infer_residence_region: ['Central', 'East', 'North', 'North-East', 'West'],
+        infer_workplace_region: ['Central', 'East', 'North', 'North-East', 'West']
     };
     var default_pArea_op = {
         area_filter: 'infer_residence_',
@@ -68,7 +69,7 @@ $(function () {
         value: sliderDefaultValue,
         // ticks_labels: [19, 65],
     });
-    $('#ageSlider').on('slide', function(sldEvt) {
+    $('#ageSlider').on('slide', function (sldEvt) {
         $('#ageSliderValue').text(sldEvt.value[0] + ' - ' + sldEvt.value[1]);
     });
 
@@ -77,12 +78,13 @@ $(function () {
         format: "mm-yyyy",
         viewMode: "months",
         minViewMode: "months"
-    }).on('changeMonth', function(e) {
+    }).on('changeMonth', function (e) {
+        $('#month_display').text('...');
         month = e.date.getMonth() + 1;
         year = e.date.getFullYear();
-        // $.ajax({
-        //     url: 'cookie_set_date/' + year + '/' + month
-        // });
+        $.ajax({
+            url: 'cookie_set_date/' + year + '/' + month
+        });
         query_data(year, month);
     });
 
@@ -99,7 +101,7 @@ $(function () {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero: true
                 }
             }]
         }
@@ -110,7 +112,7 @@ $(function () {
     function loadSettingsFromCookie() {
         $.ajax({
             url: 'read_cookie'
-        }).success(function(results){
+        }).success(function (results) {
             if (results.filter_settings) {
                 parseCurrentFilter(results.filter_settings);
                 updateTopWidgets(results);
@@ -147,7 +149,7 @@ $(function () {
             $('#planning_area-tab').removeClass('active');
             $('#area_filter_infer_residence_').addClass('active');
             $('#area_filter_infer_workplace_').removeClass('active');
-        } else  if (filter_op.filter_type == 'planning_area') {
+        } else if (filter_op.filter_type == 'planning_area') {
             $('#filter_type_planning_area').addClass('active');
             $('#filter_type_demographics').removeClass('active');
             $('#planning_area-tab').addClass('active');
@@ -174,15 +176,15 @@ $(function () {
     }
 
     function parseSelections(selected) {
-        Object.keys(selected).map(function(key) {
+        Object.keys(selected).map(function (key) {
             if (key == 'age') {
                 var ageRange = selected[key].split(',').map(Number);
                 $('#ageSlider').slider('setValue', ageRange);
                 $('#ageSliderValue').text(ageRange[0] + ' - ' + ageRange[1]);
-            } else if (typeof selected[key] === 'string'){
+            } else if (typeof selected[key] === 'string') {
                 checkThisOption(key, selected[key]);
             } else {
-                selected[key].map(function(value){
+                selected[key].map(function (value) {
                     checkThisOption(key, value);
                 })
             }
@@ -213,12 +215,12 @@ $(function () {
         $('input[name="planning_area"]').prop('disabled', !bool);
     }
 
-    $('input:radio[name="filter_type"]').change(function() {
+    $('input:radio[name="filter_type"]').change(function () {
         disableOptions($(this).val());
     });
 
     //filters applied, query new data, update charts
-    $('#filter_form').submit(function(evt) {
+    $('#filter_form').submit(function (evt) {
         evt.preventDefault();
         var frm = $(this);
         $('#segment_display').text('...');
@@ -230,7 +232,7 @@ $(function () {
             url: 'apply_filter',
             type: frm.attr('method'),
             data: frm.serialize()
-        }).success(updateTopWidgets).then(function() {
+        }).success(updateTopWidgets).then(function () {
             query_data(year, month);
         });
     });
@@ -242,13 +244,12 @@ $(function () {
     }
 
     function sortObject(obj, sortAttr) {
-        return obj.sort(function(first, second) {
+        return obj.sort(function (first, second) {
             return second[sortAttr] - first[sortAttr];
         })
     }
 
-    function query_data(year, month){
-        $('#month_display').text('...');
+    function query_data(year, month) {
         // query_grid_daily(year, month);
         // query_poi(year, month);
         if (mouseclick_mode == MOUSECLICK_HEXGRID) {
@@ -265,29 +266,31 @@ $(function () {
         $('#month_display').text(month + '/' + year)
     }
 
-    // function query_grid_daily(year, month) {
-    //     console.time('Grid_query');
-    //     $.ajax({
-    //         url: 'query_loc_grid_daily/' + year + '/' + month
-    //     }).success(function(results) {
-    //         console.timeEnd('Grid_query');
-    //         $('#month_display').text(month + '/' + year);
-    //     })
-    // }
-    // function query_poi(year, month) {
-    //     console.time('POI_query');
-    //     $.ajax({
-    //         url: 'query_loc_poi/' + year + '/' + month
-    //     }).success(updatePOIData).success(function(){
-    //         console.timeEnd('POI_query');
-    //     })
-    // }
-    // function updatePOIData(results){
-    //
-    // }
+    function query_grid_daily(year, month) {
+        console.time('Grid_query');
+        $.ajax({
+            url: 'query_loc_grid_daily/' + year + '/' + month
+        }).success(function (results) {
+            console.timeEnd('Grid_query');
+            $('#month_display').text(month + '/' + year);
+        })
+    }
+
+    function query_poi(year, month) {
+        console.time('POI_query');
+        $.ajax({
+            url: 'query_loc_poi/' + year + '/' + month
+        }).success(updatePOIData).success(function () {
+            console.timeEnd('POI_query');
+        })
+    }
+
+    function updatePOIData(results) {
+
+    }
 
     function resetChart(chart) {
-        for (i; i < chart.data.datasets[0].data.length; i++){
+        for (i; i < chart.data.datasets[0].data.length; i++) {
             chart.data.datasets.data[i] = 0;
         }
         chart.update();
@@ -307,7 +310,7 @@ $(function () {
         chart.data.datasets[0].data = values;
         chart.update();
         var colourMap = {};
-        for (i=0;i<dataLength;i++){
+        for (i = 0; i < dataLength; i++) {
             colourMap[labels[i]] = chartColourArray[i];
         }
         return colourMap;
@@ -320,7 +323,7 @@ $(function () {
         dataLength = dataLength || Object.keys(dataDict).length;
         dataSorted = dataSorted.slice(0, dataLength);
         var labels = getKeys(dataSorted);
-        chartColourArray = labels.map(function(el){
+        chartColourArray = labels.map(function (el) {
             if (mapTable) return colourMap[mapTable[el]] || 'rgba(0,0,0,0.1)';
             else return colourMap[el] || 'rgba(0,0,0,0.1)';
         });
@@ -334,7 +337,7 @@ $(function () {
     function updateChartWithFilter(chart, dataDict, dataLength, mapTable, colourMap, filterValue) {
         var dataDictSub = {};
         for (var key in dataDict) {
-            if (dataDict.hasOwnProperty(key) && mapTable[key] == filterValue){
+            if (dataDict.hasOwnProperty(key) && mapTable[key] == filterValue) {
                 dataDictSub[key] = dataDict[key];
             }
         }
@@ -342,10 +345,11 @@ $(function () {
     }
 
     function dictToKeyValueArray(dict) {
-        return Object.keys(dict).map(function(key) {
+        return Object.keys(dict).map(function (key) {
             return [key, dict[key]];
         })
     }
+
     // sort array by value
     function sortSecondValue(first, second) {
         return second[1] - first[1];
@@ -366,7 +370,7 @@ $(function () {
 
     function getKeys(keyValueArray) {
         var keyArray = [];
-        for (i = 0; i < keyValueArray.length; i++){
+        for (i = 0; i < keyValueArray.length; i++) {
             keyArray.push(keyValueArray[i][0])
         }
         return keyArray
@@ -374,12 +378,11 @@ $(function () {
 
     function getValues(keyValueArray) {
         var valueArray = [];
-        for (i = 0; i < keyValueArray.length; i++){
+        for (i = 0; i < keyValueArray.length; i++) {
             valueArray.push(keyValueArray[i][1])
         }
         return valueArray
     }
-
 
 
     var indicatorsForUseCase = [
@@ -445,6 +448,10 @@ $(function () {
             switchRenderPOI(poi_segment_weekdayResults, "Weekday!");
         } else if (mouseclick_mode == MOUSECLICK_LIFESPHERE) {
             switchRenderLifeSphere(buff_data_weekday, list_of_buffers_weekday, data_poi_segment, "Weekday!");
+        } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_HOME) {
+            switchRenderCCAttraction(cc_attraction_weekdayResults, "Weekday!");
+        } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_WORK) {
+            switchRenderCCAttraction(cc_attraction_weekdayResults, "Weekday!");
         }
 
         setIndicatorForUseCase('#button-mapmode-weekday', 'active', indicatorsForWeekType);
@@ -463,13 +470,14 @@ $(function () {
             switchRenderPOI(poi_segment_weekendResults, "Weekend!");
         } else if (mouseclick_mode == MOUSECLICK_LIFESPHERE) {
             switchRenderLifeSphere(buff_data_weekend, list_of_buffers_weekday, data_poi_segment_weekend, "Weekend!");
+        } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_HOME) {
+            switchRenderCCAttraction(cc_attraction_weekendResults, "Weekend!");
+        } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_WORK) {
+            switchRenderCCAttraction(cc_attraction_weekendResults, "Weekend!");
         }
 
         setIndicatorForUseCase('#button-mapmode-weekend', 'active', indicatorsForWeekType);
     }, false);
-
-
-
 
 
 });

@@ -24,18 +24,18 @@ $(function () {
     });
 
     // initialised default values and variable tables
-    var sliderDefaultValue = [20, 70];
+    var sliderDefaultValue = [19, 69];
     var default_options = { segment: 'PMET',
         filter_type: 'demographics',
         age: '20,70',
-        gender: 'Both',
+        gender: ['Male', 'Female'],
         race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
     var default_demo_op = {
         age: '20,70',
-        gender: 'Both',
+        gender: ['Male', 'Female'],
         race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
@@ -152,12 +152,14 @@ $(function () {
     var month = null, year = null;
 
     // initialise slider and slider value
-    $("#ageSlider").slider({
+    var sliderCanvas = $('#ageSlider');
+    var sliderValueCanvas = $('#ageSliderValue');
+    sliderCanvas.slider({
         ticks: sliderDefaultValue,
         value: sliderDefaultValue,
         // ticks_labels: [19, 65],
     }).on('slide', function(sldEvt) {
-        $('#ageSliderValue').text(sldEvt.value[0] + ' - ' + sldEvt.value[1]);
+        sliderValueCanvas.text(sldEvt.value[0] + ' - ' + sldEvt.value[1]);
     });
 
     // initialise calendar
@@ -417,8 +419,8 @@ $(function () {
         Object.keys(selected).map(function(key) {
             if (key == 'age') {
                 var ageRange = selected[key].split(',').map(Number);
-                $('#ageSlider').slider('setValue', ageRange);
-                $('#ageSliderValue').text(ageRange[0] + ' - ' + ageRange[1]);
+                sliderCanvas.slider('setValue', ageRange);
+                sliderValueCanvas.text(ageRange[0] + ' - ' + ageRange[1]);
             } else if (typeof selected[key] === 'string'){
                 checkThisOption(key, selected[key]);
             } else {
@@ -437,10 +439,10 @@ $(function () {
         var bool = null;
         if (value == 'planning_area') {
             bool = true;
-            $('#ageSlider').slider('disable');
+            sliderCanvas.slider('disable');
         } else if (value == 'demographics') {
             bool = false;
-            $('#ageSlider').slider('enable');
+            sliderCanvas.slider('enable');
         } else {
             console.log('Invalid Option!');
             console.log('filter_type: ' + value)
@@ -535,6 +537,7 @@ $(function () {
     }
 
     function query_data(year, month){
+        console.time('Domain query:');
         query_domain(year, month);
         query_forum(year, month);
         query_interest_group(year, month);
@@ -549,6 +552,7 @@ $(function () {
             updateChartWithColourMapping(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1);
             updateDomainTable('traffic');
             $('#month_display').text(month + '/' + year);
+            console.timeEnd('Domain query:');
         });
     }
     function updateDomainData(results) {

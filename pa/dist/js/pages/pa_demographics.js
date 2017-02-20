@@ -24,18 +24,18 @@ $(function () {
     });
 
     // initialised default values and variable tables
-    var sliderDefaultValue = [20, 70];
+    var sliderDefaultValue = [19, 69];
     var default_options = { segment: 'PMET',
         filter_type: 'demographics',
         age: '20,70',
-        gender: 'Both',
+        gender: ['Male', 'Female'],
         race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
     var default_demo_op = {
         age: '20,70',
-        gender: 'Both',
+        gender: ['Male', 'Female'],
         race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
@@ -229,12 +229,14 @@ $(function () {
     var month = 7, year = 2016;
 
     // initialise slider and slider value
-    $("#ageSlider").slider({
+    var sliderCanvas = $('#ageSlider');
+    var sliderValueCanvas = $('#ageSliderValue');
+    sliderCanvas.slider({
         ticks: sliderDefaultValue,
         value: sliderDefaultValue,
         // ticks_labels: [19, 65],
     }).on('slide', function(sldEvt) {
-        $('#ageSliderValue').text(sldEvt.value[0] + ' - ' + sldEvt.value[1]);
+        sliderValueCanvas.text(sldEvt.value[0] + ' - ' + sldEvt.value[1]);
     });
 
     // initialise calendar
@@ -551,8 +553,8 @@ $(function () {
         Object.keys(selected).map(function(key) {
             if (key == 'age') {
                 var ageRange = selected[key].split(',').map(Number);
-                $('#ageSlider').slider('setValue', ageRange);
-                $('#ageSliderValue').text(ageRange[0] + ' - ' + ageRange[1]);
+                sliderCanvas.slider('setValue', ageRange);
+                sliderValueCanvas.text(ageRange[0] + ' - ' + ageRange[1]);
             } else if (typeof selected[key] === 'string'){
                 checkThisOption(key, selected[key]);
             } else {
@@ -571,10 +573,10 @@ $(function () {
         var bool = null;
         if (value == 'planning_area') {
             bool = true;
-            $('#ageSlider').slider('disable');
+            sliderCanvas.slider('disable');
         } else if (value == 'demographics') {
             bool = false;
-            $('#ageSlider').slider('enable');
+            sliderCanvas.slider('enable');
         } else {
             console.log('Invalid Option!');
             console.log('filter_type: ' + value)
@@ -593,6 +595,7 @@ $(function () {
 
     //filters applied, query new data, update charts
     $('#filter_form').submit(function(evt) {
+        console.time('CRM query:');
         evt.preventDefault();
         var frm = $(this);
         $('#segment_display').text('...');
@@ -625,7 +628,8 @@ $(function () {
         }).success(function (results) {
             for (i = 0; i < results.length; i++) {
                 var row = results[i];
-                if (row[column] && (row[column] != "UNKNOWN")) {
+                // attrTable[column][row[column]] = row.count;
+                if (row[column] && (row[column] != "UNKNOWN" && (row[column] != "Unknown"))) {
                     attrTable[column][row[column]] = row.count;
                 }
             }
@@ -691,6 +695,7 @@ $(function () {
         updateChartWithColourMapping(pAreaResidenceChart, attrTable.infer_residence_planning_area, populationData.infer_residence_planning_area, 20, regionTable, colourMap.residence);
         updateChartWithColourMapping(pAreaWorkplaceChart, attrTable.infer_workplace_planning_area, populationData.infer_workplace_planning_area, 20, regionTable, colourMap.workplace);
         updateChart(residenceTypeChart, attrTable.residence_type, populationData.residence_type);
+        console.timeEnd('CRM query:');
     }
 
     function resetChart(chart) {
