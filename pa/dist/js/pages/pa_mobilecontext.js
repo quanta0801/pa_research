@@ -27,14 +27,14 @@ $(function () {
     var sliderDefaultValue = [19, 69];
     var default_options = { segment: 'PMET',
         filter_type: 'demographics',
-        age: '20,70',
+        age: '19,69',
         gender: ['Male', 'Female'],
         race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
     var default_demo_op = {
-        age: '20,70',
+        age: '19,69',
         gender: ['Male', 'Female'],
         race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
@@ -56,6 +56,12 @@ $(function () {
         network_type: {},
         forum: {}
     };
+    var aggDataPercent = {
+        domainTier1: {},
+        domainTier2: {},
+        network_type: {},
+        forum: {}
+    };
     var mapTable = {
         domainTier2: {}
     };
@@ -65,7 +71,16 @@ $(function () {
         forum: {}
     };
     var populationData = {
-        data_activity: {}
+        data_activity: {},
+        tier1: {},
+        tier2: {},
+        forum: {},
+        network_type: {}
+    };
+    var populationRaw = {
+        domain: {},
+        thread: {},
+        network_name: {}
     };
     // var spectralColourArray =   ['rgba(50,136,189,0.7)',
     //                             'rgba(102,194,165,0.7)',
@@ -175,6 +190,7 @@ $(function () {
             url: 'cookie_set_date/' + year + '/' + month
         });
         query_data(year, month);
+        loadPopulationData(year, month);
     });
 
 
@@ -189,7 +205,14 @@ $(function () {
         },
         tooltips: {
             intersect: false,
-            mode: "x"
+            mode: "x",
+            callbacks: {
+                title: function (item, data) {return data.labels[item[0].index];},
+                label: function(item, data) {
+                    return data.datasets[item.datasetIndex].label + ": " +
+                        data.datasets[item.datasetIndex].data[item.index] + '%';
+                }
+            }
         },
         hover: {
             intersect: false,
@@ -199,6 +222,15 @@ $(function () {
             yAxes: [{
                 ticks: {
                     beginAtZero:true
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    callback: function(value, index, values) {
+                        if (value.length > 20) return value.slice(0,15) + '...';
+                        else return value
+
+                    }
                 }
             }]
         }
@@ -227,26 +259,6 @@ $(function () {
                 position: 'right',
                 ticks: {
                     beginAtZero: true
-                }
-            }]
-        }
-    };
-    var horizontalBarChartOptions = {
-        legend: {
-            display: false
-        },
-        tooltips: {
-            intersect: false,
-            mode: "y"
-        },
-        hover: {
-            intersect: false,
-            mode: "y"
-        },
-        scales: {
-            xAxes: [{
-                ticks: {
-                    beginAtZero:true
                 }
             }]
         }
@@ -297,18 +309,15 @@ $(function () {
         type: 'bar',
         data: {
             datasets: [{
-                label: '# of People',
-                // yAxisID: 0,
+                label: 'Segment',
+                data: [1]
+            }, {
+                label: 'Population',
+                type: 'line',
+                fill: false,
+                backgroundColor: 'rgba(0,0,0,0.7)',
                 data: [1]
             }]
-            // }, {
-            //     label: 'Population %',
-            //     yAxisID: 1,
-            //     type: 'line',
-            //     fill: false,
-            //     backgroundColor: 'rgba(0,0,0,0.7)',
-            //     data: [1]
-            // }]
         },
         options: barChartOptions
     });
@@ -318,6 +327,13 @@ $(function () {
         type: 'bar',
         data: {
             datasets: [{
+                label: 'Segment',
+                data: [1]
+            }, {
+                label: 'Population',
+                type: 'line',
+                fill: false,
+                backgroundColor: 'rgba(0,0,0,0.7)',
                 data: [1]
             }]
         },
@@ -325,30 +341,43 @@ $(function () {
     });
     var forumChartCanvas = $("#forumChart");
     var forumChart = new Chart(forumChartCanvas, {
-        type: 'horizontalBar',
+        type: 'bar',
         data: {
             datasets: [{
+                label: 'Segment',
+                data: [1]
+            }, {
+                label: 'Population',
+                type: 'line',
+                fill: false,
+                backgroundColor: 'rgba(0,0,0,0.7)',
                 data: [1]
             }]
         },
-        options: horizontalBarChartOptions
+        options: barChartOptions
     });
     var networkTypeChartCanvas = $("#networkTypeChart");
     var networkTypeChart = new Chart(networkTypeChartCanvas, {
-        type: 'horizontalBar',
+        type: 'bar',
         data: {
             datasets: [{
+                label: 'Segment',
+                data: [1]
+            }, {
+                label: 'Population',
+                type: 'line',
+                fill: false,
+                backgroundColor: 'rgba(0,0,0,0.7)',
                 data: [1]
             }]
         },
-        options: horizontalBarChartOptions
+        options: barChartOptions
     });
     var domainTable = $("#top_domain_table").DataTable();
     var threadTable = $("#top_thread_table").DataTable();
     var networkNameTable = $("#top_networkName_table").DataTable();
 
     loadSettingsFromCookie();
-    loadPopulationData();
     $('#month_display').text('...');
 
     function loadSettingsFromCookie() {
@@ -360,14 +389,16 @@ $(function () {
                 updateTopWidgets(results);
                 year = results.dateParams.year;
                 month = results.dateParams.month;
-                query_data(year, month)
+                query_data(year, month);
+                loadPopulationData(year, month);
             } else {
                 parseCurrentFilter(default_options);
                 $('#submit').submit();
                 $.ajax({
                     url: 'cookie_set_date/2016/7'
                 });
-                query_data(2016, 7)
+                query_data(2016, 7);
+                loadPopulationData(2016, 7);
             }
         })
     }
@@ -464,7 +495,7 @@ $(function () {
         var firstPoint = activePoints[0];
         if (firstPoint) {
             var label = tier1Chart.data.labels[firstPoint._index];
-            updateChartWithFilter(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1, label);
+            updateChartWithFilter(tier2Chart, aggDataPercent.domainTier2, populationData.tier2, 20, mapTable.domainTier2,  colourMap.domainTier1, label);
             updateDomainTable('traffic', 'tier1', label);
         }
     });
@@ -494,7 +525,7 @@ $(function () {
     });
 
     $('#tier2Reset').click(function() {
-        updateChartWithColourMapping(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1);
+        updateChartWithColourMapping(tier2Chart, aggDataPercent.domainTier2, populationData.tier2, 20, mapTable.domainTier2, colourMap.domainTier1);
     });
     $('#domainReset').click(function() {
         updateDomainTable('traffic');
@@ -548,23 +579,23 @@ $(function () {
         $.ajax({
             url: 'query_mc_domain/' + year + '/' + month
         }).success(updateDomainData).success(function() {
-            colourMap.domainTier1 = updateChart(tier1Chart, aggData.domainTier1, 10);
-            updateChartWithColourMapping(tier2Chart, aggData.domainTier2, 20, mapTable.domainTier2, colourMap.domainTier1);
+            colourMap.domainTier1 = updateChart(tier1Chart, aggDataPercent.domainTier1, populationData.tier1, 10);
+            updateChartWithColourMapping(tier2Chart, aggDataPercent.domainTier2, populationData.tier2, 20, mapTable.domainTier2, colourMap.domainTier1);
             updateDomainTable('traffic');
             $('#month_display').text(month + '/' + year);
             console.timeEnd('Domain query:');
         });
     }
     function updateDomainData(results) {
-        aggData.domainTier1 = {};
-        aggData.domainTier2 = {};
+        aggDataPercent.domainTier1 = {};
+        aggDataPercent.domainTier2 = {};
         rawData.domain = results;
         for (i = 0; i < results.length; i++) {
             var row = results[i];
-            if (!aggData.domainTier1[row.tier1]) aggData.domainTier1[row.tier1] = parseInt(row.traffic);
-            else aggData.domainTier1[row.tier1] += parseInt(row.traffic);
-            if (!aggData.domainTier2[row.tier2]) aggData.domainTier2[row.tier2] = parseInt(row.traffic);
-            else aggData.domainTier2[row.tier2] += parseInt(row.traffic);
+            if (!aggDataPercent.domainTier1[row.tier1]) aggDataPercent.domainTier1[row.tier1] = parseFloat(row.percent_traffic);
+            else aggDataPercent.domainTier1[row.tier1] += parseFloat(row.percent_traffic);
+            if (!aggDataPercent.domainTier2[row.tier2]) aggDataPercent.domainTier2[row.tier2] = parseFloat(row.percent_traffic);
+            else aggDataPercent.domainTier2[row.tier2] += parseFloat(row.percent_traffic);
             if (!mapTable.domainTier2[row.tier2]) mapTable.domainTier2[row.tier2] = row.tier1;
         }
     }
@@ -585,7 +616,9 @@ $(function () {
             rowHtml += "<td><span style=\"background-color:" + colourMap.domainTier1[row.tier1] +"\">" +
                 "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>";
             rowHtml += "<td>" + row.traffic + "</td>";
+            rowHtml += "<td>" + convertToPercent(row.percent_traffic, 4) + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
+            rowHtml += "<td>" + convertToPercent(populationRaw.domain[row.tier1][row.tier2][row.domain].traffic, 4) || 0 + "</td>";
             rowHtml += "</tr>";
             $("#top_domain_list").append(rowHtml);
             i++;
@@ -604,20 +637,22 @@ $(function () {
         $.ajax({
             url: 'query_mc_forum/' + year + '/' + month
         }).success(updateForumData).success(function() {
-            colourMap.forum = updateChart(forumChart, aggData.forum, 10);
+            colourMap.forum = updateChart(forumChart, aggDataPercent.forum, populationData.forum, 10);
             updateThreadTable('traffic');
         });
     }
     function updateForumData(results) {
-        aggData.forum = {};
+        aggDataPercent.forum = {};
         rawData.thread = results;
         for (i = 0; i < results.length; i++) {
             var row = results[i];
-            if (!aggData.forum[row.forum]) aggData.forum[row.forum] = parseInt(row.traffic);
-            else aggData.forum[row.forum] += parseInt(row.traffic);
+            if (!aggDataPercent.forum[row.forum]) aggDataPercent.forum[row.forum] = parseFloat(row.percent_traffic);
+            else aggDataPercent.forum[row.forum] += parseFloat(row.percent_traffic);
         }
     }
     function updateThreadTable(sortedCol, filterValue) {
+        if (!Object.keys(populationRaw.thread).length) return;
+        if (!rawData.thread) return;
         // var data = sortObject(rawData.thread, sortedCol);
         var data = rawData.thread;
         threadTable.destroy();
@@ -634,8 +669,15 @@ $(function () {
             rowHtml += "<td><span style=\"background-color:" + colourMap.forum[row.forum] +"\">" +
             "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>";
             rowHtml += "<td>" + row.traffic + "</td>";
+            rowHtml += "<td>" + convertToPercent(row.percent_traffic, 4) + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
             rowHtml += "<td>" + row.avg_duration.toFixed(0) + "</td>";
+            if (populationRaw.thread[row.forum][row.thread]) {
+                rowHtml += "<td>" + convertToPercent(populationRaw.thread[row.forum][row.thread].traffic, 4) + "</td>";
+            } else {
+                rowHtml += "<td>0</td>";
+            }
+
             rowHtml += "</tr>";
             $("#top_thread_list").append(rowHtml);
             i++;
@@ -658,20 +700,24 @@ $(function () {
         $.ajax({
             url: 'query_mc_interest_group/' + year + '/' + month
         }).success(updateNetworkData).success(function() {
-            colourMap.network_type = updateChart(networkTypeChart, aggData.network_type, 10);
+            colourMap.network_type = updateChart(networkTypeChart, aggDataPercent.network_type, populationData.network_type, 10);
             updateNetworkTable('traffic');
         });
     }
     function updateNetworkData(results) {
-        aggData.network_type = {};
+        aggDataPercent.network_type = {};
         rawData.network_name = results;
         for (i = 0; i < results.length; i++) {
             var row = results[i];
-            if (!aggData.network_type[row.network_type]) aggData.network_type[row.network_type] = parseInt(row.traffic);
-            else aggData.network_type[row.network_type] += parseInt(row.traffic);
+            if (!aggDataPercent.network_type[row.network_type]) {
+                aggDataPercent.network_type[row.network_type] = parseFloat(row.percent_traffic);
+            }
+            else aggDataPercent.network_type[row.network_type] += parseFloat(row.percent_traffic);
         }
     }
     function updateNetworkTable(sortedCol, filterValue) {
+        if (!Object.keys(populationRaw.network_name).length) return;
+        if (!rawData.network_name) return;
         // var data = sortObject(rawData.network_name, sortedCol);
         var data = rawData.network_name;
         networkNameTable.destroy();
@@ -688,8 +734,10 @@ $(function () {
             rowHtml += "<td><span style=\"background-color:" + colourMap.network_type[row.network_type] +"\">" +
                 "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>";
             rowHtml += "<td>" + row.traffic + "</td>";
+            rowHtml += "<td>" + convertToPercent(row.percent_traffic, 4) + "</td>";
             rowHtml += "<td>" + row.count + "</td>";
             rowHtml += "<td>" + row.avg_duration.toFixed(0) + "</td>";
+            rowHtml += "<td>" + convertToPercent(populationRaw.network_name[row.network_type][row.network_name].traffic, 4) || 0 + "</td>";
             rowHtml += "</tr>";
             $("#top_networkName_list").append(rowHtml);
             i++;
@@ -728,23 +776,113 @@ $(function () {
         dataDict[day_of_week] = newDataDict;
     }
 
-    function loadPopulationData() {
-        loadPopulationActivityData()
+    function loadPopulationData(year, month) {
+        loadPopulationActivityData(year, month);
+        loadPopulationDomainData(year, month);
+        loadPopulationForumData(year, month);
+        loadPopulationNetworkData(year, month);
     }
-    function loadPopulationActivityData () {
+    function loadPopulationActivityData(year, month) {
         $.when(
             $.ajax({
-                url: 'query_mc_data_activity_population?is_weekend=false'
+                url: 'query_mc_data_activity_population/' + year + '/' + month + '?is_weekend=false'
             }).then(function(results) {
                 updateActivityData(results, 'weekday', populationData.data_activity)
             }),
             $.ajax({
-                url: 'query_mc_data_activity_population?is_weekend=true'
+                url: 'query_mc_data_activity_population/' + year + '/' + month + '?is_weekend=true'
             }).then(function(results) {
                 updateActivityData(results, 'weekend', populationData.data_activity)
             })).then(function() {
             updatePopulationActivityChart(activityChart, populationData.data_activity)
         })
+    }
+    function loadPopulationDomainData(year, month) {
+        $.ajax({
+            url: 'query_mc_domain_population/' + year + '/' + month
+        }).then(updatePopulationDomainData).then(function() {
+            addPopulationChart(tier1Chart, populationData.tier1);
+            addPopulationChart(tier2Chart, populationData.tier2);
+        });
+    }
+    function updatePopulationDomainData(results) {
+        populationData.tier1 = {};
+        populationData.tier2 = {};
+        for (i=0;i<results.length;i++) {
+            var row = results[i];
+            if (!populationData.tier1[row.tier1]) {
+                populationData.tier1[row.tier1] = row.percent_traffic;
+            } else {
+                populationData.tier1[row.tier1] += row.percent_traffic;
+            }
+            if (!populationData.tier2[row.tier2]) {
+                populationData.tier2[row.tier2] = row.percent_traffic;
+            } else {
+                populationData.tier2[row.tier2] += row.percent_traffic;
+            }
+            if (!populationRaw.domain[row.tier1]){
+                populationRaw.domain[row.tier1] = {}
+            }
+            if (!populationRaw.domain[row.tier1][row.tier2]){
+                populationRaw.domain[row.tier1][row.tier2] = {}
+            }
+            populationRaw.domain[row.tier1][row.tier2][row.domain] = {
+                traffic: row.percent_traffic,
+                count: null
+            }
+        }
+    }
+    function loadPopulationForumData(year, month) {
+        $.ajax({
+            url: 'query_mc_forum_population/' + year + '/' + month
+        }).then(updatePopulationForumData).then(function() {
+            addPopulationChart(forumChart, populationData.forum);
+            updateThreadTable();
+        })
+    }
+    function updatePopulationForumData(results) {
+        populationData.forum = {};
+        for (i=0;i<results.length;i++) {
+            var row = results[i];
+            if (!populationData.forum[row.forum]) {
+                populationData.forum[row.forum] = row.percent_traffic;
+            } else {
+                populationData.forum[row.forum] += row.percent_traffic;
+            }
+            if (!populationRaw.thread[row.forum]){
+                populationRaw.thread[row.forum] = {}
+            }
+            populationRaw.thread[row.forum][row.thread] = {
+                traffic: row.percent_traffic,
+                count: null
+            }
+        }
+    }
+    function loadPopulationNetworkData(year, month) {
+        $.ajax({
+            url: 'query_mc_interest_group_population/' + year + '/' + month
+        }).then(updatePopulationNetworkData).then(function() {
+            addPopulationChart(networkTypeChart, populationData.network_type);
+            updateNetworkTable();
+        })
+    }
+    function updatePopulationNetworkData(results) {
+        populationData.network_type = {};
+        for (i=0;i<results.length;i++) {
+            var row = results[i];
+            if (!populationData.network_type[row.network_type]) {
+                populationData.network_type[row.network_type] = row.percent_traffic;
+            } else {
+                populationData.network_type[row.network_type] += row.percent_traffic;
+            }
+            if (!populationRaw.network_name[row.network_type]){
+                populationRaw.network_name[row.network_type] = {}
+            }
+            populationRaw.network_name[row.network_type][row.network_name] = {
+                traffic: row.percent_traffic,
+                count: null
+            }
+        }
     }
 
     function resetChart(chart) {
@@ -756,18 +894,18 @@ $(function () {
         chart.update();
     }
 
-    function updateChart(chart, dataDict, dataLength, chartColourArray) {
+    function updateChart(chart, dataDict, popDataDict, dataLength, chartColourArray) {
         if (!dataDict) resetChart(chart);
         var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
-        if (dataLength && dataLength > Object.keys(dataDict).length) dataLength = Object.keys(dataDict).length;
         dataLength = dataLength || Object.keys(dataDict).length;
         dataSorted = dataSorted.slice(0, dataLength);
+        chartColourArray = chartColourArray || getColourArray(dataLength);
         var labels = getKeys(dataSorted);
         var values = getValues(dataSorted);
-        chartColourArray = chartColourArray || getColourArray(dataLength);
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;
         chart.data.datasets[0].data = values;
+        if (popDataDict) updatePopulationChart(chart, popDataDict);
         chart.update();
         var colourMap = {};
         for (i=0;i<dataLength;i++){
@@ -776,10 +914,9 @@ $(function () {
         return colourMap;
     }
 
-    function updateChartWithColourMapping(chart, dataDict, dataLength, mapTable, colourMap) {
+    function updateChartWithColourMapping(chart, dataDict, popDataDict, dataLength, mapTable, colourMap) {
         if (!dataDict) resetChart(chart);
         var dataSorted = dictToKeyValueArray(dataDict).sort(sortSecondValue);
-        if (dataLength && dataLength > Object.keys(dataDict).length) dataLength = Object.keys(dataDict).length;
         dataLength = dataLength || Object.keys(dataDict).length;
         dataSorted = dataSorted.slice(0, dataLength);
         var labels = getKeys(dataSorted);
@@ -791,17 +928,18 @@ $(function () {
         chart.data.labels = labels;
         chart.data.datasets[0].backgroundColor = chartColourArray;
         chart.data.datasets[0].data = values;
+        if (popDataDict) updatePopulationChart(chart, popDataDict);
         chart.update();
     }
 
-    function updateChartWithFilter(chart, dataDict, dataLength, mapTable, colourMap, filterValue) {
+    function updateChartWithFilter(chart, dataDict, popDataDict, dataLength, mapTable, colourMap, filterValue) {
         var dataDictSub = {};
         for (var key in dataDict) {
             if (dataDict.hasOwnProperty(key) && mapTable[key] == filterValue){
                 dataDictSub[key] = dataDict[key];
             }
         }
-        updateChart(chart, dataDictSub, dataLength, colourMap[filterValue]);
+        updateChart(chart, dataDictSub, popDataDict, dataLength, colourMap[filterValue]);
     }
 
     function dictToKeyValueArray(dict) {
@@ -844,7 +982,7 @@ $(function () {
     function getValues(keyValueArray) {
         var valueArray = [];
         for (i = 0; i < keyValueArray.length; i++){
-            valueArray.push(keyValueArray[i][1])
+            valueArray.push(convertToPercent(keyValueArray[i][1]))
         }
         return valueArray
     }
@@ -872,8 +1010,9 @@ $(function () {
         chart.update()
     }
 
-    function convertToPercent(value) {
-        return (value * 100).toFixed(2);
+    function convertToPercent(value, dp) {
+        dp = dp || 2;
+        return (value * 100).toFixed(dp);
     }
     function addPopulationChart(chart, dataDict) {
         chart.data.datasets[1].data = chart.data.labels.map(function(key) {

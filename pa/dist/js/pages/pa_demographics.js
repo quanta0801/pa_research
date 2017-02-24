@@ -27,14 +27,14 @@ $(function () {
     var sliderDefaultValue = [19, 69];
     var default_options = { segment: 'PMET',
         filter_type: 'demographics',
-        age: '20,70',
+        age: '19,69',
         gender: ['Male', 'Female'],
         race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
         infer_workplace_region: [ 'Central', 'East', 'North', 'North-East', 'West' ]
     };
     var default_demo_op = {
-        age: '20,70',
+        age: '19,69',
         gender: ['Male', 'Female'],
         race: [ 'Chinese', 'Eurasian', 'Indian', 'Malay', 'Others' ],
         infer_residence_region: [ 'Central', 'East', 'North', 'North-East', 'West' ],
@@ -59,6 +59,7 @@ $(function () {
         residence_districtcode: {},
         residence_type: {}
     };
+    var totalsTable = {};
     var populationData = {};
     var regionTable = {
         'Ang Mo Kio': 'North-East',
@@ -227,6 +228,7 @@ $(function () {
         workplace: {}
     };
     var month = 7, year = 2016;
+    var mapmode = 'residence';
 
     // initialise slider and slider value
     var sliderCanvas = $('#ageSlider');
@@ -264,7 +266,13 @@ $(function () {
         },
         tooltips: {
             intersect: false,
-            mode: "x"
+            mode: "x",
+            callbacks: {
+                label: function(item, data) {
+                    return data.datasets[item.datasetIndex].label + ": " +
+                        data.datasets[item.datasetIndex].data[item.index] + '%';
+                }
+            }
         },
         hover: {
             intersect: false,
@@ -272,18 +280,27 @@ $(function () {
         },
         scales: {
             yAxes: [{
-                id: 0,
-                position: 'left',
+                beginAtZero: true
+            }],
+            xAxes: [{
                 ticks: {
-                    beginAtZero: true
-                }
-            }, {
-                id: 1,
-                position: 'right',
-                ticks: {
-                    beginAtZero: true
+                    callback: function(value, index, values) {
+                        if (value.length > 20) return value.slice(0,15) + '...';
+                        else return value
+
+                    }
                 }
             }]
+        }
+    };
+    var pieChartOptions = {
+        tooltips: {
+            callbacks: {
+                label: function(item, data) {
+                    return data.labels[item.index] + ' ' + data.datasets[item.datasetIndex].label
+                        + ": " + data.datasets[item.datasetIndex].data[item.index] + '%';
+                }
+            }
         }
     };
     var ageChartColour = getColourArray(1)[0];//'rgba(153,213,148,0.7)';
@@ -310,7 +327,7 @@ $(function () {
     //     },
     //     bar: {
     //         datasets: [{
-    //             label: '# of people',
+    //             label: 'Segment %',
     //             data: [1]
     //         }]
     //     }
@@ -339,13 +356,14 @@ $(function () {
         type: 'pie',
         data: {
             datasets: [{
-                label: '# of People',
+                label: 'Segment',
                 data: [1]
             }, {
-                label: 'Population %',
+                label: 'Population',
                 data: [1]
             }]
-        }
+        },
+        options: pieChartOptions
     });
     // race chart
     var raceChartCanvas = $("#raceChart");
@@ -353,20 +371,20 @@ $(function () {
         type: 'pie',
         data: {
             datasets: [{
-                label: '# of People',
+                label: 'Segment',
                 data: [1]
             }, {
-                label: 'Population %',
+                label: 'Population',
                 data: [1]
             }]
-        }
+        },
+        options: pieChartOptions
     });
     // age10 chart
     var age10Data = {
         labels: ["Under 30", "30-39", "40-49", "50-59", "Above 59"],
         datasets: [{
-            label: '# of People',
-            yAxisID: 0,
+            label: 'Segment',
             data: [1, 1, 1, 1, 1],
             backgroundColor: ageChartColour
         }]
@@ -381,8 +399,7 @@ $(function () {
     var age5Data = {
         labels: ["Under 25", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "Above 64"],
         datasets: [{
-            label: '# of People',
-            yAxisID: 0,
+            label: 'Segment',
             data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             backgroundColor: ageChartColour
         }]
@@ -399,26 +416,28 @@ $(function () {
         type: 'pie',
         data: {
             datasets: [{
-                label: '# of People',
+                label: 'Segment',
                 data: [1]
             }, {
-                label: 'Population %',
+                label: 'Population',
                 data: [1]
             }]
-        }
+        },
+        options: pieChartOptions
     });
     var regionWorkplaceChartCanvas = $("#regionWorkplaceChart");
     var regionWorkplaceChart = new Chart(regionWorkplaceChartCanvas, {
         type: 'pie',
         data: {
             datasets: [{
-                label: '# of People',
+                label: 'Segment',
                 data: [1]
             }, {
-                label: 'Population %',
+                label: 'Population',
                 data: [1]
             }]
-        }
+        },
+        options: pieChartOptions
     });
     // planning area chart
     var pAreaResidenceChartCanvas = $("#pAreaResidenceChart");
@@ -426,12 +445,10 @@ $(function () {
         type: 'bar',
         data: {
             datasets: [{
-                label: '# of People',
-                yAxisID: 0,
+                label: 'Segment',
                 data: [1]
             }, {
-                label: 'Population %',
-                yAxisID: 1,
+                label: 'Population',
                 type: 'line',
                 fill: false,
                 backgroundColor: 'rgba(0,0,0,0.7)',
@@ -445,12 +462,10 @@ $(function () {
         type: 'bar',
         data: {
             datasets: [{
-                label: '# of People',
-                yAxisID: 0,
+                label: 'Segment',
                 data: [1]
             }, {
-                label: 'Population %',
-                yAxisID: 1,
+                label: 'Population',
                 type: 'line',
                 fill: false,
                 backgroundColor: 'rgba(0,0,0,0.7)',
@@ -464,12 +479,10 @@ $(function () {
         type: 'bar',
         data: {
             datasets: [{
-                label: '# of People',
-                yAxisID: 0,
+                label: 'Segment',
                 data: [1]
             }, {
-                label: 'Population %',
-                yAxisID: 1,
+                label: 'Population',
                 type: 'line',
                 fill: false,
                 backgroundColor: 'rgba(0,0,0,0.7)',
@@ -491,6 +504,7 @@ $(function () {
                 updateTopWidgets(results);
                 updateDataTable();
                 updateCharts();
+                updatePAreaRender(attrTable, mapmode);
                 year = results.dateParams.year;
                 month = results.dateParams.month;
                 $('#month_display').text(month + '/' + year)
@@ -606,7 +620,10 @@ $(function () {
             url: 'apply_filter',
             type: frm.attr('method'),
             data: frm.serialize()
-        }).success(updateTopWidgets).then(updateDataTable).then(updateCharts);
+        }).success(updateTopWidgets).then(updateDataTable).then(updateCharts).then(function() {
+            updatePAreaRender(attrTable, mapmode)
+            }
+        )
     });
 
     function updateTopWidgets(cookieData) {
@@ -622,15 +639,26 @@ $(function () {
 
     function updateCRMAttrData(column) {
         attrTable[column] = {};
+        totalsTable[column] = null;
         $.ajax({
             url: 'query_crm/' + column,
             async: false
         }).success(function (results) {
             for (i = 0; i < results.length; i++) {
                 var row = results[i];
-                // attrTable[column][row[column]] = row.count;
                 if (row[column] && (row[column] != "UNKNOWN" && (row[column] != "Unknown"))) {
-                    attrTable[column][row[column]] = row.count;
+                    if (!totalsTable[column]) totalsTable[column] = parseInt(row.count);
+                    else totalsTable[column] += parseInt(row.count);
+                }
+            }
+            for (i = 0; i < results.length; i++) {
+                row = results[i];
+                if (row[column] && (row[column] != "UNKNOWN" && (row[column] != "Unknown"))) {
+                    if (column != 'age') {
+                        attrTable[column][row[column]] = convertToPercent(parseFloat(row.count) / totalsTable[column]);
+                    } else {
+                        attrTable[column][row[column]] = parseFloat(row.count) / totalsTable[column];
+                    }
                 }
             }
         })
@@ -653,6 +681,9 @@ $(function () {
                 ageBandDict[ageBandFloor] += parseFloat(ageDict[key]);
             }
         });
+        Object.keys(ageBandDict).map(function(key){
+            ageBandDict[key] = convertToPercent(ageBandDict[key])
+        });
         return ageBandDict
     }
 
@@ -670,7 +701,6 @@ $(function () {
         }
         populationData['age5'] = makeAgeHist(populationData.age, 5);
         populationData['age10'] = makeAgeHist(populationData.age, 10);
-        console.log(populationData);
     }
 
     function addPopulationCharts() {
@@ -686,6 +716,7 @@ $(function () {
     }
 
     function updateCharts() {
+        console.log('Updating charts');
         updateChart(genderChart, attrTable.gender, populationData.gender);
         updateChart(raceChart, attrTable.race, populationData.race);
         updateAge5Chart(age5Chart, ageTable.age5);
@@ -695,6 +726,8 @@ $(function () {
         updateChartWithColourMapping(pAreaResidenceChart, attrTable.infer_residence_planning_area, populationData.infer_residence_planning_area, 20, regionTable, colourMap.residence);
         updateChartWithColourMapping(pAreaWorkplaceChart, attrTable.infer_workplace_planning_area, populationData.infer_workplace_planning_area, 20, regionTable, colourMap.workplace);
         updateChart(residenceTypeChart, attrTable.residence_type, populationData.residence_type);
+        console.log('Update charts complete!');
+        console.log(attrTable);
         console.timeEnd('CRM query:');
     }
 
@@ -785,8 +818,9 @@ $(function () {
         return valueArray
     }
 
-    function convertToPercent(value) {
-        return (value * 100).toFixed(2);
+    function convertToPercent(value, dp) {
+        dp = dp || 2;
+        return (value * 100).toFixed(dp);
     }
 
     function updateAge10Chart(chart, dataDict) {
@@ -837,39 +871,174 @@ $(function () {
     }
     function addPopulationAge10Chart(chart, dataDict) {
         popData = {
-            label: 'Population %',
-            yAxisID: 1,
+            label: 'Population',
             type: 'line',
             fill: false,
             backgroundColor: 'rgba(0,0,0,0.7)',
-            data: [convertToPercent(dataDict['20']),
-                convertToPercent(dataDict['30']),
-                convertToPercent(dataDict['40']),
-                convertToPercent(dataDict['50']),
-                convertToPercent(dataDict['60'])]
+            data: [dataDict['20'],
+                dataDict['30'],
+                dataDict['40'],
+                dataDict['50'],
+                dataDict['60']]
         };
         chart.data.datasets[1] = popData;
         chart.update();
     }
     function addPopulationAge5Chart(chart, dataDict) {
         popData = {
-            label: 'Population %',
-            yAxisID: 1,
+            label: 'Population',
             type: 'line',
             fill: false,
             backgroundColor: 'rgba(0,0,0,0.7)',
-            data: [convertToPercent(dataDict['20']),
-                convertToPercent(dataDict['25']),
-                convertToPercent(dataDict['30']),
-                convertToPercent(dataDict['35']),
-                convertToPercent(dataDict['40']),
-                convertToPercent(dataDict['45']),
-                convertToPercent(dataDict['50']),
-                convertToPercent(dataDict['55']),
-                convertToPercent(dataDict['60']),
-                convertToPercent(dataDict['65'])]
+            data: [dataDict['20'],
+                dataDict['25'],
+                dataDict['30'],
+                dataDict['35'],
+                dataDict['40'],
+                dataDict['45'],
+                dataDict['50'],
+                dataDict['55'],
+                dataDict['60'],
+                dataDict['65']]
         };
         chart.data.datasets[1] = popData;
         chart.update();
     }
+
+    // mapbox
+    /**********************************
+     * MAPBOX TOKEN AND INITIALISATION *
+     ***********************************/
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGF5eWg4OSIsImEiOiJjaXh1NjNpOGYwMDRlMzJueWpvM3Y5cWh3In0.JcG3gPgPbOposSrudP8t1w';
+    let map1 = new mapboxgl.Map({
+        container: 'map1',
+        center: [103.8198, 1.3521],
+        zoom: 11,
+        style: 'mapbox://styles/mapbox/dark-v9'
+    });
+
+    // disable map rotation using right click + drag
+    map1.dragRotate.disable();
+
+    // disable map rotation using touch rotation gesture
+    map1.touchZoomRotate.disableRotation();
+
+    // Create a popup, but don't add it to the map yet.
+    let popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+    });
+
+    var mapmode = 'residence';
+    $('input:radio[name="mapmode"]').change(function() {
+        mapmode = $(this).val();
+        updatePAreaRender(attrTable, mapmode);
+    });
+
+    map1.on('load', function () {
+        renderPArea();
+    });
+
+    let data_render_pArea = null;
+    let map_pArea = {};
+    let layer_pArea = "layer_pArea";
+        let source_pArea = "source_pArea";
+    function renderPArea() {
+        $.getJSON("json/planning_area", function (result) {
+            data_render_pArea = result;
+
+            for (let i = 0; i < result.features.length; i++) {
+                let some_area = result.features[i];
+                let some_area_name = some_area["properties"]["planning_area"];
+                map_pArea[some_area_name] = i;
+            }
+
+            map1.addSource(source_pArea, {
+                type: 'geojson',
+                data: data_render_pArea
+            });
+
+            map1.addLayer({
+                'id': layer_pArea,
+                'type': 'fill',
+                'source': source_pArea,
+                'layout': {},
+                'paint': {
+                    'fill-color': {
+                        "property": "count",
+                        "stops": [
+                            // "freq" is 0   -> circle color will be blue
+                            [-2, '#888888'],
+                            [-1, '#ffffff'],
+                            [0, '#ffffff'],
+                            [0.01, '#37FF00'],
+                            [4, '#FFFB00'],
+                            // "freq" is 100 -> circle color will be red
+                            [7, '#FF0000']
+                        ]
+                    },
+                    'fill-outline-color': '#bbbbbb',
+                    'fill-opacity': {
+                        "property": "count",
+                        "stops": [
+                            [-2, 0.1],
+                            [-1, 0.3],
+                            [0, 0.0],
+                            [1, 0.2],
+                            [7, 0.9]
+                        ]
+                    }
+                }
+            });
+            console.log("renderPArea OK");
+
+        }).fail(function () {
+            console.log("error");
+        }).success(function () {
+            updatePAreaRender (attrTable, mapmode)
+        });
+    }
+
+    function updatePAreaRender(attrDict, attr) {
+        if (!data_render_pArea) return;
+        var dataDict = attrDict["infer_" + attr + "_planning_area"];
+        for (var i=0;i<data_render_pArea.features.length;i++) {
+            var planning_area = data_render_pArea.features[i].properties.planning_area;
+            data_render_pArea.features[i].properties.count = dataDict[planning_area] || 0;
+        }
+
+        map1.getSource(source_pArea).setData(data_render_pArea);
+    }
+
+    map1.on('mousemove', function (e) {
+        let features = map1.queryRenderedFeatures(e.point, {layers: [layer_pArea]});
+        map1.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+        if (!features.length) return;
+
+        popup.remove();
+
+        var feature = features[0];
+        // if (feature.properties.count == 0) {
+        //     return;
+        // }
+
+        var centroid = JSON.parse(feature.properties.cent);
+        var ll = new mapboxgl.LngLat(centroid[0], centroid[1]);
+
+        var planning_area = feature.properties.planning_area;
+        var residence_count = attrTable.infer_residence_planning_area[planning_area] || 0;
+        var workplace_count = attrTable.infer_workplace_planning_area[planning_area] || 0;
+
+        popup = new mapboxgl.Popup({closeButton: false})
+            .setLngLat(ll) //.setLngLat(map.unproject(e.point))
+            // .setHTML(planning_area)
+            .setHTML("<strong>" + feature.properties.planning_area + "</strong>" +
+                "<p>" + "Residence: " + residence_count + "% of segment" + "</p>" +
+                "<p>" + "Workplace: " + workplace_count + "% of segment" + "</p>"
+            )
+            .addTo(map1);
+    });
+
 });

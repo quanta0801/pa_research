@@ -24,18 +24,18 @@ $(function () {
     });
 
     // initialised default values and variable tables
-    var sliderDefaultValue = [20, 69];
+    var sliderDefaultValue = [19, 69];
     var default_options = {
         segment: 'PMET',
         filter_type: 'demographics',
-        age: '20,70',
+        age: '19,69',
         gender: ['Male', 'Female'],
         race: ['CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS'],
         infer_residence_region: ['Central', 'East', 'North', 'North-East', 'West'],
         infer_workplace_region: ['Central', 'East', 'North', 'North-East', 'West']
     };
     var default_demo_op = {
-        age: '20,70',
+        age: '19,69',
         gender: ['Male', 'Female'],
         race: ['CHINESE', 'EURASIAN', 'INDIAN', 'MALAY', 'OTHERS'],
         infer_residence_region: ['Central', 'East', 'North', 'North-East', 'West'],
@@ -250,8 +250,8 @@ $(function () {
     }
 
     function query_data(year, month) {
-        // query_grid_daily(year, month);
-        // query_poi(year, month);
+        query_grid_daily(year, month);
+        query_poi(year, month);
         if (mouseclick_mode == MOUSECLICK_HEXGRID) {
             refreshMapForGridSegment();
         } else if (mouseclick_mode == MOUSECLICK_POI_SEGMENT) {
@@ -263,7 +263,6 @@ $(function () {
         } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_WORK) {
             refreshMapForCCAttractionWork();
         }
-        $('#month_display').text(month + '/' + year)
     }
 
     function query_grid_daily(year, month) {
@@ -469,7 +468,7 @@ $(function () {
         } else if (mouseclick_mode == MOUSECLICK_POI_SEGMENT) {
             switchRenderPOI(poi_segment_weekendResults, "Weekend!");
         } else if (mouseclick_mode == MOUSECLICK_LIFESPHERE) {
-            switchRenderLifeSphere(buff_data_weekend, list_of_buffers_weekday, data_poi_segment_weekend, "Weekend!");
+            switchRenderLifeSphere(buff_data_weekend, list_of_buffers_weekend, data_poi_segment_weekend, "Weekend!");
         } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_HOME) {
             switchRenderCCAttraction(cc_attraction_weekendResults, "Weekend!");
         } else if (mouseclick_mode == MOUSECLICK_CC_ATTRACTION_WORK) {

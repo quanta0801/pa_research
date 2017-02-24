@@ -60,7 +60,7 @@ module.exports = function(app){
             }
             client.query({
                 text: "SELECT " + which_grid + ", COUNT(DISTINCT imsi) as count_imsi " + qrystr + whereOrAnd + "imsi in (\
-                            SELECT imsi FROM smarthub_pa.loc_grid_daily\
+                            SELECT imsi FROM smarthub_pa.loc_grid_daily_v3\
                             WHERE avg_dwell_time >= $1 \
                             AND month = $2\
                             AND is_weekend = $3\
@@ -69,7 +69,7 @@ module.exports = function(app){
                                 SELECT neighbour_grid_id FROM smarthub.smarthub_pa.mapping_table_grid_two_hop WHERE grid_id = $5\
                             )\
                        ) GROUP BY " + which_grid + ";",
-                values: [avg_dwell_time, month_wanted, is_weekend, freq_threshold, grid_wanted],
+                values: [avg_dwell_time, month_wanted, is_weekend, freq_threshold, grid_wanted]
             }, function (err, result) {
                 //call `done()` to release the client back to the pool
                 done();
@@ -119,7 +119,7 @@ module.exports = function(app){
             client.query({
                 text: "WITH mcgriddle AS (\
                             SELECT " + which_grid + " as gid, imsi "+ qrystr + whereOrAnd + "imsi in (\
-                                SELECT imsi FROM smarthub_pa.loc_grid_daily\
+                                SELECT imsi FROM smarthub_pa.loc_grid_daily_v3\
                                 WHERE avg_dwell_time >= $1\
                                 AND is_weekend = $2\
                                 AND frequency >= $3\

@@ -81,7 +81,7 @@ module.exports = function(app){
             }
             client.query({
                 text: "WITH mcgriddle AS (\
-                            SELECT grid_id as gid, COUNT(DISTINCT imsi) as count_imsi FROM smarthub_pa.loc_grid_daily\
+                            SELECT grid_id as gid, COUNT(DISTINCT imsi) as count_imsi FROM smarthub_pa.loc_grid_daily_v3\
                                 WHERE imsi in (\
                                     SELECT imsi " + qrystr + "\
                                 )\
@@ -136,7 +136,7 @@ module.exports = function(app){
                 return console.error('error fetching client from pool', err);
             }
             client.query({
-                text: "SELECT hour, SUM(frequency) as count_imsi FROM smarthub_pa.loc_grid_hourly\
+                text: "SELECT hour, SUM(frequency) as count_imsi FROM smarthub_pa.loc_grid_hourly_v3\
                        WHERE imsi in (\
                             SELECT imsi " + qrystr + "\
                         )\
@@ -195,7 +195,7 @@ module.exports = function(app){
             client.query({
                 text: "WITH mcgriddle AS (\
                             SELECT imsi, grid_id as gid\
-                            FROM smarthub_pa.loc_grid_daily\
+                            FROM smarthub_pa.loc_grid_daily_v3\
                             WHERE imsi in (\
                                 SELECT imsi "+ qrystr +"\
                             )\

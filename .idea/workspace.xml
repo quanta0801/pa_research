@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js" description="var index = numOfLabels - 2;" line="967" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="624c33db-4d3e-4812-83ee-2ed5f512c16a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pa/pa_geospatial.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pa/pa_mobilecontext.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/mime" afterPath="$PROJECT_DIR$/node_modules/.bin/mime" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/.bin/semver" afterPath="$PROJECT_DIR$/node_modules/.bin/semver" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/(old) pa_demographics.html" afterPath="$PROJECT_DIR$/pa/(old) pa_demographics.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/(old) pa_geospatial.html" afterPath="$PROJECT_DIR$/pa/(old) pa_geospatial.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/(old) pa_mobilecontext.html" afterPath="$PROJECT_DIR$/pa/(old) pa_mobilecontext.html" />
+    <list default="true" id="5becd309-cbfd-4887-8c52-9b74fb51f83e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/population_queries.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/mime" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/.bin/semver" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/other/sample_query.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pa/static/data_poi/poi_latlng.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pa/static/data_poi/poi_latlng_old.csv" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_v3.js" afterPath="$PROJECT_DIR$/app_v3.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/dist/css/pa.css" afterPath="$PROJECT_DIR$/pa/dist/css/pa.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js" afterPath="$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/dist/js/pages/pa_geospatial.js" afterPath="$PROJECT_DIR$/pa/dist/js/pages/pa_geospatial.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js" afterPath="$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/dist/js/pages/pa_template.js" afterPath="$PROJECT_DIR$/pa/dist/js/pages/pa_template.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/pa_demographics.html" afterPath="$PROJECT_DIR$/pa/pa_demographics.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/pa_template2.html" afterPath="$PROJECT_DIR$/pa/pa_template2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/pa_mobilecontext.html" afterPath="$PROJECT_DIR$/pa/pa_mobilecontext.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/static/data_cc_poi/poi_cc.csv" afterPath="$PROJECT_DIR$/pa/static/data_cc_poi/poi_cc.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/static/data_cc_poi/poi_cc.geojson" afterPath="$PROJECT_DIR$/pa/static/data_cc_poi/poi_cc.geojson" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/static/data_planning_area/planning_area.geojson" afterPath="$PROJECT_DIR$/pa/static/data_planning_area/planning_area.geojson" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/static/data_poi/poi_latlng.csv" afterPath="$PROJECT_DIR$/pa/static/data_poi/poi_latlng.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pa/static/data_poi/poi_latlng.geojson" afterPath="$PROJECT_DIR$/pa/static/data_poi/poi_latlng.geojson" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes_geo_cc_attraction.js" afterPath="$PROJECT_DIR$/routes_geo_cc_attraction.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes_geo_grid_segment.js" afterPath="$PROJECT_DIR$/routes_geo_grid_segment.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes_geo_lifesphere.js" afterPath="$PROJECT_DIR$/routes_geo_lifesphere.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes_geo_poi_segment.js" afterPath="$PROJECT_DIR$/routes_geo_poi_segment.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes_json.js" afterPath="$PROJECT_DIR$/routes_json.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,45 +45,110 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="pa_demographics.js" pinned="false" current-in-tab="false">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="pa_mobilecontext.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pa/pa_mobilecontext.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pa_demographics.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
-              <caret line="351" column="18" lean-forward="false" selection-start-line="351" selection-start-column="14" selection-end-line="351" selection-end-column="18" />
+            <state relative-caret-position="22">
+              <caret line="268" column="22" lean-forward="false" selection-start-line="268" selection-start-column="22" selection-end-line="268" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pa/index.html">
+      <file leaf-file-name="app_v3.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_v3.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="586" column="52" lean-forward="true" selection-start-line="586" selection-start-column="52" selection-end-line="586" selection-end-column="52" />
+            <state relative-caret-position="1716">
+              <caret line="78" column="18" lean-forward="false" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pa_demographics.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pa/pa_demographics.html">
+      <file leaf-file-name="pa_mobilecontext.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="279" column="0" lean-forward="true" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="4950">
+              <caret line="225" column="15" lean-forward="false" selection-start-line="225" selection-start-column="15" selection-end-line="234" selection-end-column="14" />
+              <folding>
+                <marker date="1487898736456" expanded="true" signature="23832:23849" ph="..." />
+                <marker date="1487898736456" expanded="true" signature="23912:23918" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="23918:23924" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="23924:23930" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="23930:23936" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="23936:23942" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="23942:23948" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="26151:26168" ph="..." />
+                <marker date="1487898736456" expanded="true" signature="26221:26227" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="26227:26233" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="26233:26239" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="26239:26245" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="26245:26251" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="26251:26257" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="28940:28957" ph="..." />
+                <marker date="1487898736456" expanded="true" signature="29028:29034" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="29034:29040" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="29040:29046" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="29046:29052" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="29052:29058" ph=" " />
+                <marker date="1487898736456" expanded="true" signature="29058:29064" ph=" " />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>memeberfunction updateGenderChart(chart) {     //     if (!attrTable.gender) {     //         resetChart(chart);     //     }     //     chart.data.datasets[0].data[0] = attrTable.gender.MALE || 0;     //     chart.data.datasets[0].data[1] = attrTable.gender.FEMALE || 0;     //     chart.update();     // }</find>
-      <find>member since</find>
-      <find>donut</find>
-      <find>age5</find>
+      <find>networktable</find>
+      <find>load</find>
+      <find>query_data</find>
+      <find>populationRaw.thread</find>
+      <find>console.log</find>
+      <find>updatethreadtable</find>
+      <find>updatenetworktable</find>
+      <find>smarthub_pa</find>
+      <find>population</find>
+      <find>updatepopulation</find>
+      <find>loadpopulation</find>
+      <find>loadpopulationdata</find>
+      <find>populationraw</find>
+      <find>calendar</find>
+      <find>threadtable</find>
+      <find>console</find>
+      <find>chartoption</find>
+      <find>reset</find>
+      <find>domaintier2</find>
+      <find>mc_domain</find>
+      <find>aggdata</find>
+      <find>aggDataPercent</find>
+      <find>domaintable</find>
+      <find>row.traffic</find>
+      <find>traffic</find>
+      <find>bar</find>
+      <find>piechartop</find>
+      <find>age10chart</find>
+      <find>population %</find>
+      <find>Segment %</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -78,15 +157,21 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js" />
-        <option value="$PROJECT_DIR$/pa/dist/js/pages/pa_template.js" />
-        <option value="$PROJECT_DIR$/pa/pa_template2.html" />
-        <option value="$PROJECT_DIR$/pa/(old) pa_demographics.html" />
-        <option value="$PROJECT_DIR$/pa/(old) pa_mobilecontext.html" />
-        <option value="$PROJECT_DIR$/pa/(old) pa_geospatial.html" />
-        <option value="$PROJECT_DIR$/pa/pa__mobilecontext.html" />
-        <option value="$PROJECT_DIR$/pa/pa__geospatial.html" />
+        <option value="$PROJECT_DIR$/pa/dist/js/pages/pa_geospatial_map.js" />
+        <option value="$PROJECT_DIR$/pa/dist/css/pa.css" />
+        <option value="$PROJECT_DIR$/pa/pa_geospatial.html" />
         <option value="$PROJECT_DIR$/pa/pa_demographics.html" />
+        <option value="$PROJECT_DIR$/routes_json.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/population_queries.js" />
+        <option value="$PROJECT_DIR$/routes_geo_lifesphere.js" />
+        <option value="D:/StarHub/Desktop/pa_research/routes_geo_lifesphere.js" />
+        <option value="$PROJECT_DIR$/routes_geo_poi_segment.js" />
+        <option value="$PROJECT_DIR$/pa/dist/js/pages/pa_geospatial.js" />
+        <option value="$PROJECT_DIR$/app_v3.js" />
+        <option value="$PROJECT_DIR$/pa/pa_mobilecontext.html" />
+        <option value="$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js" />
+        <option value="$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js" />
       </list>
     </option>
   </component>
@@ -100,10 +185,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-13" />
-    <option name="y" value="-13" />
-    <option name="width" value="3856" />
-    <option name="height" value="2106" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1924" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -120,6 +205,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -143,6 +230,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa_research" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa_research" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa_research" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa_research" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data_planning_area" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -212,16 +339,105 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa_research" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa_research" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pa" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/StarHub/Desktop/pa_research" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\pa_research" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -231,36 +447,54 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="624c33db-4d3e-4812-83ee-2ed5f512c16a" name="Default" comment="" />
-      <created>1485748469663</created>
+      <changelist id="5becd309-cbfd-4887-8c52-9b74fb51f83e" name="Default" comment="" />
+      <created>1486692311656</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1485748469663</updated>
-      <workItem from="1485748471205" duration="5364000" />
+      <updated>1486692311656</updated>
+      <workItem from="1486692313673" duration="15371000" />
+      <workItem from="1486949285484" duration="18331000" />
+      <workItem from="1487043691404" duration="13760000" />
+      <workItem from="1487123910676" duration="3576000" />
+      <workItem from="1487139242975" duration="12013000" />
+      <workItem from="1487212301272" duration="2766000" />
+      <workItem from="1487298735220" duration="1769000" />
+      <workItem from="1487559998455" duration="11770000" />
+      <workItem from="1487644274266" duration="17799000" />
+      <workItem from="1487726396258" duration="5314000" />
+      <workItem from="1487732301841" duration="2738000" />
+      <workItem from="1487758297749" duration="4046000" />
+      <workItem from="1487812533103" duration="2075000" />
+      <workItem from="1487815051699" duration="1609000" />
+      <workItem from="1487816933264" duration="12483000" />
+      <workItem from="1487843325409" duration="190000" />
+      <workItem from="1487843744718" duration="4402000" />
+      <workItem from="1487898693056" duration="669000" />
+      <workItem from="1487910923889" duration="16000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5364000" />
+    <option name="totallyTimeSpent" value="130697000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="3856" height="2106" extended-state="0" />
-    <editor active="false" />
+    <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24986945" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24658972" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298153" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -276,100 +510,499 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/(old) pa_mobilecontext.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pa/(old) pa_mobilecontext.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1422">
-          <caret line="348" column="54" lean-forward="true" selection-start-line="348" selection-start-column="54" selection-end-line="348" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pa/(old) pa_geospatial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1554">
-          <caret line="349" column="33" lean-forward="false" selection-start-line="349" selection-start-column="33" selection-end-line="349" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pa/(old) pa_demographics.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1554">
-          <caret line="378" column="33" lean-forward="false" selection-start-line="378" selection-start-column="33" selection-end-line="378" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pa/pa_template2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17962">
-          <caret line="84" column="38" lean-forward="false" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pa/pa__mobilecontext.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1508">
-          <caret line="674" column="46" lean-forward="false" selection-start-line="674" selection-start-column="46" selection-end-line="674" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pa/pa__geospatial.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1508">
-          <caret line="674" column="43" lean-forward="false" selection-start-line="674" selection-start-column="43" selection-end-line="674" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_template.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="240" column="5" lean-forward="true" selection-start-line="240" selection-start-column="5" selection-end-line="240" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="10846">
+          <caret line="493" column="45" lean-forward="false" selection-start-line="493" selection-start-column="45" selection-end-line="493" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="351" column="18" lean-forward="false" selection-start-line="351" selection-start-column="14" selection-end-line="351" selection-end-column="18" />
-          <folding />
+        <state relative-caret-position="17996">
+          <caret line="818" column="31" lean-forward="false" selection-start-line="818" selection-start-column="16" selection-end-line="818" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pa/index.html">
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="586" column="52" lean-forward="true" selection-start-line="586" selection-start-column="52" selection-end-line="586" selection-end-column="52" />
-          <folding />
+        <state relative-caret-position="8932">
+          <caret line="406" column="33" lean-forward="false" selection-start-line="406" selection-start-column="33" selection-end-line="406" selection-end-column="33" />
+          <folding>
+            <marker date="1487898736456" expanded="true" signature="23832:23849" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="23912:23918" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23918:23924" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23924:23930" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23930:23936" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23936:23942" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23942:23948" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26151:26168" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="26221:26227" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26227:26233" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26233:26239" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26239:26245" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26245:26251" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26251:26257" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="28940:28957" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="29028:29034" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29034:29040" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29040:29046" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29046:29052" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29052:29058" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29058:29064" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_geospatial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7678">
+          <caret line="349" column="39" lean-forward="false" selection-start-line="349" selection-start-column="33" selection-end-line="349" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="32" lean-forward="false" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <marker date="1487898736456" expanded="true" signature="23832:23849" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="23912:23918" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23918:23924" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23924:23930" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23930:23936" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23936:23942" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23942:23948" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26151:26168" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="26221:26227" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26227:26233" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26233:26239" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26239:26245" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26245:26251" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26251:26257" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="28940:28957" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="29028:29034" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29034:29040" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29040:29046" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29046:29052" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29052:29058" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29058:29064" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_geospatial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7678">
+          <caret line="349" column="39" lean-forward="false" selection-start-line="349" selection-start-column="33" selection-end-line="349" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3388">
+          <caret line="154" column="39" lean-forward="true" selection-start-line="154" selection-start-column="39" selection-end-line="154" selection-end-column="39" />
+          <folding>
+            <marker date="1487898736456" expanded="true" signature="23832:23849" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="23912:23918" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23918:23924" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23924:23930" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23930:23936" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23936:23942" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23942:23948" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26151:26168" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="26221:26227" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26227:26233" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26233:26239" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26239:26245" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26245:26251" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26251:26257" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="28940:28957" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="29028:29034" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29034:29040" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29040:29046" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29046:29052" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29052:29058" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29058:29064" ph=" " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pa/pa_demographics.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="279" column="0" lean-forward="true" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
+        <state relative-caret-position="10604">
+          <caret line="482" column="6" lean-forward="false" selection-start-line="482" selection-start-column="6" selection-end-line="482" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_v3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7678">
+          <caret line="349" column="39" lean-forward="false" selection-start-line="349" selection-start-column="33" selection-end-line="349" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6182">
+          <caret line="281" column="25" lean-forward="false" selection-start-line="281" selection-start-column="17" selection-end-line="281" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15664">
+          <caret line="712" column="41" lean-forward="false" selection-start-line="712" selection-start-column="25" selection-end-line="712" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1487898736456" expanded="true" signature="23832:23849" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="23912:23918" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23918:23924" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23924:23930" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23930:23936" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23936:23942" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23942:23948" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26151:26168" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="26221:26227" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26227:26233" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26233:26239" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26239:26245" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26245:26251" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26251:26257" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="28940:28957" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="29028:29034" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29034:29040" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29040:29046" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29046:29052" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29052:29058" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29058:29064" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/pa_mobilecontext.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5610">
+          <caret line="255" column="45" lean-forward="false" selection-start-line="255" selection-start-column="45" selection-end-line="255" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="50" column="19" lean-forward="false" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="60" column="28" lean-forward="false" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
+          <folding>
+            <marker date="1487898736456" expanded="true" signature="23832:23849" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="23912:23918" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23918:23924" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23924:23930" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23930:23936" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23936:23942" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23942:23948" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26151:26168" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="26221:26227" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26227:26233" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26233:26239" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26239:26245" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26245:26251" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26251:26257" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="28940:28957" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="29028:29034" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29034:29040" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29040:29046" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29046:29052" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29052:29058" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29058:29064" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6512">
+          <caret line="296" column="42" lean-forward="false" selection-start-line="296" selection-start-column="42" selection-end-line="296" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2860">
+          <caret line="130" column="62" lean-forward="false" selection-start-line="130" selection-start-column="62" selection-end-line="130" selection-end-column="62" />
+          <folding>
+            <marker date="1487898736456" expanded="true" signature="23832:23849" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="23912:23918" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23918:23924" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23924:23930" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23930:23936" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23936:23942" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23942:23948" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26151:26168" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="26221:26227" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26227:26233" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26233:26239" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26239:26245" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26245:26251" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26251:26257" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="28940:28957" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="29028:29034" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29034:29040" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29040:29046" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29046:29052" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29052:29058" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29058:29064" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1738">
+          <caret line="79" column="26" lean-forward="false" selection-start-line="79" selection-start-column="10" selection-end-line="79" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/pa_demographics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10032">
+          <caret line="456" column="33" lean-forward="false" selection-start-line="456" selection-start-column="33" selection-end-line="456" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/StarHub/Desktop/pa_research_20170213/pa/dist/js/app.js" />
+    <entry file="file://$PROJECT_DIR$/routes_geo_cc_attraction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/css/pa.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1358">
+          <caret line="81" column="12" lean-forward="true" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_geospatial_map-setup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_utility.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes_json.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_globals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12320">
+          <caret line="560" column="0" lean-forward="false" selection-start-line="560" selection-start-column="0" selection-end-line="561" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/population_queries.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="28" column="15" lean-forward="false" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes_geo_lifesphere.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="108" column="76" lean-forward="false" selection-start-line="108" selection-start-column="76" selection-end-line="108" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/StarHub/Desktop/pa_research/routes_geo_lifesphere.js" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zO475D61E7/routes_geo_lifesphere.js" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zO475E70B7/app_v3.js" />
+    <entry file="file://$PROJECT_DIR$/routes_geo_poi_segment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="25" column="46" lean-forward="false" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zOCBF0C7D8/pa_demographics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5610">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes_geo_grid_segment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1100">
+          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/pa_demographics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="948" column="42" lean-forward="false" selection-start-line="948" selection-start-column="27" selection-end-line="948" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_geospatial_map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-770">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/pa_geospatial.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-660">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_geospatial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="26" column="36" lean-forward="false" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zOC59C5CB9/pa_geospatial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_v3.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1716">
+          <caret line="78" column="18" lean-forward="false" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/pa_mobilecontext.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_mobilecontext.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4950">
+          <caret line="225" column="15" lean-forward="false" selection-start-line="225" selection-start-column="15" selection-end-line="234" selection-end-column="14" />
+          <folding>
+            <marker date="1487898736456" expanded="true" signature="23832:23849" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="23912:23918" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23918:23924" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23924:23930" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23930:23936" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23936:23942" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="23942:23948" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26151:26168" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="26221:26227" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26227:26233" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26233:26239" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26239:26245" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26245:26251" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="26251:26257" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="28940:28957" ph="..." />
+            <marker date="1487898736456" expanded="true" signature="29028:29034" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29034:29040" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29040:29046" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29046:29052" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29052:29058" ph=" " />
+            <marker date="1487898736456" expanded="true" signature="29058:29064" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pa/dist/js/pages/pa_demographics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="268" column="22" lean-forward="false" selection-start-line="268" selection-start-column="22" selection-end-line="268" selection-end-column="22" />
           <folding />
         </state>
       </provider>

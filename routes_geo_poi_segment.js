@@ -30,7 +30,7 @@ module.exports = function(app){
             }
             client.query({
                 text: "SELECT poi_name, COUNT(DISTINCT imsi) as count_imsi, SUM(frequency) as avg_frequency, AVG(avg_dwell_time) as avg_dwell_time\
-                        FROM smarthub.smarthub_pa.loc_poi\
+                        FROM smarthub.smarthub_pa.loc_poi_v3\
                         WHERE imsi in (\
                             SELECT imsi " + qrystr + "\
                             )\

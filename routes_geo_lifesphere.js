@@ -62,7 +62,7 @@ module.exports = function(app){
             client.query({
                 text: "SELECT poi_name, COUNT(DISTINCT imsi) as count_imsi, \
                        AVG(frequency) as avg_frequency, AVG(avg_dwell_time) as avg_dwell_time  \
-                       FROM smarthub.smarthub_pa.loc_poi\
+                       FROM smarthub.smarthub_pa.loc_poi_v3 \
                        WHERE month = $1 AND is_weekend = $2 \
                        AND imsi in ( \
                             SELECT imsi " + qrystr + "\
@@ -114,7 +114,7 @@ module.exports = function(app){
             client.query({
                 text: "WITH ranked_test AS ( \
                         SELECT avg_distance, ntile(4) over (order by avg_distance) as quartile, cume_dist() over (order by avg_distance) as percentile \
-                        FROM smarthub_pa.loc_life_sphere_residence \
+                        FROM smarthub_pa.loc_life_sphere_residence_v3 \
                         WHERE month = $1 AND is_weekend = $2 AND imsi in ( \
                             SELECT imsi " + qrystr + "\
                             AND (infer_residence_grid \

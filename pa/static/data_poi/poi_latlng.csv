@@ -1,931 +1,868 @@
 poi_type;poi_cat;poi_name;lat;long
-Commercial;Commercial Building;1 Cleantech Loop;1.355524;103.692535
-Residential;Landed;131 Rifle Range Road;1.341289;103.779749
-Commercial;Commercial Building;161 Airport Road;1.342648;103.898882
-Residential;Landed;25 Greenwich Drive;1.37022;103.90891
-Commercial;Commercial Building;2A Changi Business Park Crescent;1.33307;103.9648255
-Commercial;Commercial Building;30 hill street;1.293611667;103.8495262
-Retail;Shopping Mall;313@ Somerset;1.3014695;103.838293
-Educational;Research Centre;3M Innovation Centre;1.445997;103.8111785
-Commercial;Commercial Building;5 Sims Way;1.307978;103.875673
-Commercial;Commercial Building;500 East Coast parkway;1.294647;103.875846
-Health;Medical Centre;60 Buangkok View;1.380324;103.885838
-Commercial;Commercial Building;71 Robinson Road;1.278364;103.848803
-Commercial;Commercial Building;79 Anson Road;1.274038;103.845697
-Commercial;Commercial Building;80 Robinson Road;1.280109;103.849294
-Commercial;Industrial Building/Estate;9 @ Tagore;1.383621;103.826068
-Residential;Condominium;99 Robertson Quay;1.291702;103.836993
-Commercial;Commercial Building;Acer Building;1.326355333;103.7467363
-Commercial;Industrial Building/Estate;Activcard Asia Pte Ltd;1.29052;103.787235
-Commercial;Industrial Building/Estate;Admirax;1.4608825;103.818791
-Commercial;Industrial Building/Estate;Advanced Flat Panel Display Pte Ltd;1.360496;103.9296925
-Commercial;Industrial Building/Estate;Agilent Technologies;1.440367;103.840658
-Commercial;Commercial Building;AIA;1.354639;103.941897
-Commercial;Commercial Building;AIA Tower;1.281991;103.85113
-Commercial;Commercial Building;Airline House;1.377358;103.9972975
-Travel;Land;Airport Cargo Complex;1.366945333;103.9889463
-Government;Police/Fire Department;Airport Police Station;1.3432055;103.9807885
-Retail;Shopping Mall;Albert Complex;1.3021505;103.8543105
-Educational;University;ALCON;1.2760535;103.6224325
-Commercial;Commercial Building;Alexandra Point;1.277264333;103.8021253
-Commercial;Commercial Building;Alexandra Technopark A;1.2777225;103.800752
-Commercial;Commercial Building;Alexandra Technopark B;1.277401;103.7994235
-Residential;Hotel;Allson Hotel;1.297338986;103.8526152
-Residential;Condominium;Altez;1.274621;103.844477
-Retail;Shopping Mall;AMK Hub;1.369367975;103.8482053
-Retail;Shopping Mall;Anchor Point;1.288616498;103.8050032
-Commercial;Commercial Building;Anson House;1.273846;103.844474
-Commercial;Industrial Building/Estate;Aperia;1.3104105;103.8635665
-Commercial;Commercial Building;Apex Tower;1.2741175;103.844752
-Commercial;Commercial Building;Apple South Asia Pte Ltd;1.389909;103.845018
-Commercial;Industrial Building/Estate;Applied Materials South East Asia Pte Ltd;1.336888;103.967125
-Commercial;Commercial Building;Applied Materials South East Asia Pte Ltd;1.336899;103.967251
-Commercial;Commercial Building;Ascott Singapore Raffles Place;1.282643;103.851846
-Commercial;Industrial Building/Estate;ASE Singapore;1.450319;103.803971
-Commercial;Commercial Building;Asia Square Tower 1;1.2789405;103.8512485
-Commercial;Commercial Building;Asia Square Tower 2;1.278687333;103.8509977
-Retail;Exhibition;Asian Civilisation Museum;1.2880015;103.8515
-Commercial;Industrial Building/Estate;ASM Technology Singapore;1.442217;103.839685
-Retail;Shopping Mall;Atrium @ Orchard;1.2996965;103.8453345
-Commercial;Industrial Building/Estate;AutoBay @ Kaki Bukit;1.3414735;103.9124655
-Retail;Shopping Mall;Automobile Megamart;1.331534;103.901251
-Commercial;Commercial Building;AXA Tower;1.2755268;103.8477148
-Commercial;Industrial Building/Estate;AZ @ Paya Lebar;1.328197;103.890839
-Retail;Shopping Mall;Balestier Plaza;1.325754;103.850389
-Residential;Condominium;Balestier Point;1.322791;103.852038
-Retail;Shopping Mall;Balmoral Plaza;1.3159295;103.8360158
-Commercial;Commercial Building;Bank of China;1.285771;103.852226
-Commercial;Commercial Building;Bank of Singapore Centre;1.284298;103.850619
-Travel;Land;Bartley;1.34285;103.879702
-Travel;Land;Bartley MRT;1.34285;103.879702
-Residential;Hotel;Bay Hotel;1.26617;103.823
-Travel;Land;Bayfront MRT;1.282104;103.859181
-Commercial;Commercial Building;BEA Building;1.280726;103.849703
-Retail;Shopping Mall;Beauty World Centre;1.342416;103.7765325
-Travel;Land;Beauty World MRT;1.3415855;103.7759205
-Commercial;Commercial Building;Becton Dickinson;1.3265665;103.657645
-Retail;Shopping Mall;Bedok Mall;1.324502;103.929604
-Retail;Shopping Mall;Bedok Point;1.3249465;103.932338
-Government;Police/Fire Department;Bedok Police Division HQ;1.332686;103.937132
-Residential;HDB;Bedok Reservoir Road Blk 730;1.338089;103.927623
-Educational;Research Centre;Biopolis Research Centre;1.301508;103.793407
-Educational;Research Centre;Biopolis St No.60 Building;1.303075333;103.792144
-Retail;Shopping Mall;Bishan Junction 8 Shopping Centre;1.350791471;103.848867
-Travel;Land;Bishan MRT;1.350688;103.848066
-Travel;Land;Bishan Place;1.351584;103.8491025
+Commercial;Commercial Building;Mapletree Business City;1.27505519925581;103.799063744186
+Travel;Land;Braddell MRT;1.340476;103.846806
+Commercial;Commercial Building;Sandcrawler;1.299942;103.789352
 Travel;Land;Boon Keng MRT;1.319579;103.861742
-Retail;Shopping Mall;Boon Lay Shopping Centre;1.346382589;103.7124798
-Travel;Land;Botanic Garden MRT;1.322195;103.815121
-Travel;Land;Braddell MRT;1.340248;103.846903
-Retail;Shopping Mall;Bras Basah Complex;1.2969805;103.8535955
-Travel;Land;Bras Basah MRT;1.2968955;103.850802
-Commercial;Commercial Building;BreadTalk IHQ;1.334322;103.889745
-Travel;Land;Buangkok MRT;1.382742;103.893159
-Travel;Land;BuangKok MRT;1.391689;103.895484
-Government;Religion;Buddha Tooth Relic Temple;1.281455;103.844373
-Government;Religion;Buddha Tooth Relic Temple and Museum;1.281455;103.844373
-Retail;Shopping Mall;Bugis Junction Parco;1.299459464;103.8552922
-Travel;Land;Bugis MRT;1.30017325;103.8561968
-Retail;Shopping Mall;Bugis+;1.2996395;103.854294
-Travel;Land;Bukit Panjang MRT;1.378904;103.761476
-Retail;Shopping Mall;Bukit Panjang Plaza;1.380363511;103.7641745
-Retail;Shopping Mall;Bukit Timah Plaza;1.339064538;103.7782039
-Retail;Shopping Mall;Bukit Timah Shopping Centre;1.3433065;103.7758565
-Recreational;Country Club;Bukit Timah Turf Club;1.338022667;103.7935083
-Travel;Land;Buona Vista MRT;1.306953;103.7903995
-Retail;Shopping Mall;Burlington Square;1.302729169;103.8522665
-Residential;Landed;Cabana;1.387997;103.855345
-Travel;Land;Caldecott MRT;1.337623;103.8395205
-Commercial;Commercial Building;Caltex House;1.284191;103.851959
-Government;Government Building;Calyon Outram Central Plaza;1.286254;103.828047
-Health;Medical Centre;Camden Medical Centre;1.303142;103.823925
-Educational;Non-tertiary Institution;Canadian International School;1.347332333;103.718396
-Educational;Specialized Training School;Candian Internation School;1.345253;103.727058
-Commercial;Commercial Building;Canon Digital Media Hub;1.300727;103.856232
-Residential;Hotel;Capella Hotel;1.2495135;103.824223
-Commercial;Commercial Building;CapitaGreen;1.2820655;103.850171
-Retail;Shopping Mall;Capital Square;1.2838455;103.848787
-Commercial;Commercial Building;Capital Tower;1.277521769;103.8476958
-Commercial;Commercial Building;CAPRI by FRASER;1.334147;103.96368
-Travel;Air;Cargo Agents Building C;1.374678113;103.9958926
-Residential;Hotel;Carlton City Hotel;1.276043;103.843687
-Residential;Hotel;Carlton Hotel;1.2956995;103.8530075
-Travel;Land;Cashew MRT;1.369322;103.764281
-Retail;Shopping Mall;Causeway Point;1.436069965;103.7860031
-Commercial;Commercial Building;CCI International Ltd;1.328296;103.748228
-Commercial;Industrial Building/Estate;Celestica Serangoon;1.374479;103.869107
-Commercial;Commercial Building;Cendex Centre;1.279389667;103.823523
-Commercial;Industrial Building/Estate;Centennial Tower;1.293503;103.86027
-Retail;Shopping Mall;Central @ Clarke Quay;1.288988029;103.8467531
-Retail;Shopping Mall;Central Mall;1.288486;103.8424945
-Retail;Shopping Mall;Central Place Hougang Point;1.375672;103.879453
-Retail;Shopping Mall;Centrepoint Shopping Centre;1.301651988;103.8402308
-Retail;Shopping Mall;Century Square;1.3523655;103.943782
-Commercial;Commercial Building;Certis Cisco Centre;1.3221945;103.8921605
-Commercial;Industrial Building/Estate;Chai CheeTechnopark;1.323403;103.9213147
-Retail;Shopping Mall;Change Alley;1.284196;103.852544
-Travel;Air;Changi Airport;1.35512181;103.9889652
-Travel;Land;Changi Airport MRT;1.35734;103.988206
-Travel;Air;Changi Airport Terminal 1;1.365316194;103.9904868
-Travel;Air;Changi Airport Terminal 2;1.354847;103.989041
-Travel;Air;Changi Airport Terminal 3;1.3567845;103.9863725
-Commercial;Commercial Building;Changi Bus Park Vista;1.336899;103.967251
-Commercial;Commercial Building;Changi Business Park Crescent No.9;1.335189;103.967258
-Travel;Air;Changi Cargo Agents Megaplex 1;1.373037;103.995017
-Commercial;Commercial Building;Changi City Point;1.333805669;103.9630166
-Retail;Exhibition;Changi Exhibition Centre;1.364500667;104.0202957
-Health;Hospital;Changi General Hospital;1.340847;103.9491305
-Commercial;Industrial Building/Estate;Changi International Logistics Centre Ltd;1.375966;103.97302
-Commercial;Commercial Building;Changi North Way;1.353085023;103.9729468
-Government;Prison;Changi Prison Cluster B Complex;1.3318605;103.904086
-Residential;Hotel;Changi Village Hotel;1.39060566;103.986053
-Commercial;Industrial Building/Estate;Chartered Semiconductor Manufacturing;1.415242302;103.8203263
-Retail;Food Area;CHIJMES;1.295531;103.8520765
-Travel;Land;Chinatown MRT;1.285017;103.8433585
-Retail;Shopping Mall;Chinatown Plaza;1.278631;103.842143
-Retail;Shopping Mall;Chinatown Point;1.2851815;103.84494
-Commercial;Commercial Building;CIAS Cargo Centre;1.372466;103.99635
-Commercial;Commercial Building;Citibank;1.334243493;103.9652181
-Travel;Land;City Hall MRT;1.292989667;103.8528433
-Government;Religion;City Harvest Church;1.3431195;103.6918905
-Commercial;Commercial Building;City House;1.2812543;103.8497843
-Retail;Shopping Mall;City Plaza;1.3154495;103.893351
-Retail;Shopping Mall;City Square Mall;1.3115312;103.8564344
-Retail;Shopping Mall;Citylink Mall;1.292419751;103.8550584
-Recreational;Country Club;Civil Service Club;1.352611;103.749375
-Educational;University;Civil Service College;1.309778225;103.7919182
-Travel;Land;Clarke Quay MRT;1.288721;103.846614
-Commercial;Industrial Building/Estate;Cleanhull Singapore Pte Ltd;1.27487096;103.7991108
-Retail;Shopping Mall;Clementi Mall;1.314153986;103.7647901
-Retail;Shopping Mall;Clifford Centre;1.2838545;103.85213
-Government;Prison;Cluster B Prison Admin Blk;1.35803;103.971334
-Residential;Condominium;Compass Green;1.358994;103.974641
-Residential;Condominium;Compass Green Block;1.3589605;103.974659
-Retail;Shopping Mall;Compass Point;1.392023333;103.8950527
-Residential;Hotel;Concorde Hotel;1.2888825;103.834205
-Health;Hospital;Connexion;1.312413;103.854117
-Residential;Hotel;Conrad International;1.293521;103.85877
-Residential;Hotel;Conrad International Centennial Singapore Hotel;1.293517;103.858765
-Residential;Hotel;Copthorne Kings Hotel;1.288262;103.836638
-Retail;Shopping Mall;Coronation Shopping Plaza;1.324004;103.809998
-Retail;Shopping Mall;Courts Megastore;1.3736275;103.93389
-Commercial;Commercial Building;CPF Building;1.277769271;103.8481127
-Retail;Shopping Mall;CPF Tampines Building;1.353101;103.9437
-Educational;University;Create Way UNIVERSITY TOWN;1.304078;103.774125
-Commercial;Commercial Building;Creative Resource Building;1.328618;103.7459495
-Educational;Non-tertiary Institution;Crest Secondary School;1.345253;103.727058
-Residential;Hotel;Crowne Plaza Hotel;1.358726;103.987961
-Travel;Land;CTE;1.301789333;103.8427163
-Retail;Shopping Mall;Cuppage Plaza;1.3020035;103.8407295
-Commercial;Commercial Building;CWT Distribution Ltd;1.317263;103.718988
-Commercial;Commercial Building;CWT Logistic Hub 1;1.301267667;103.7375997
-Commercial;Commercial Building;Da Vinci Building;1.3378385;103.8926415
-Travel;Land;Dakota MRT;1.3085945;103.8887855
-Residential;Hotel;Day Hotels;1.326737;103.846604
-Residential;Hotel;Days Hotel;1.326946;103.846805
-Commercial;Commercial Building;DBS Asia Hub;1.334795;103.96605
-Commercial;Commercial Building;DBS Tai Seng Branch;1.335497;103.889247
-Commercial;Commercial Building;DBS Tower 1;1.277019;103.848419
-Commercial;Commercial Building;DBS Tower 2;1.2775225;103.8487295
-Government;Government Building;Defence Science & Technology Agency;1.291147;103.788318
-Commercial;Commercial Building;Defence Technology Tower A;1.279765;103.815992
-Educational;Specialized Training School;Devan Nair Institute;1.336112;103.745087
-Travel;Land;Dhoby Ghaut MRT - CCL;1.298804;103.8463515
-Travel;Land;Dhoby Ghaut MRT - NEL;1.2994275;103.8452985
-Travel;Land;Dhoby Ghaut MRT - NSL;1.2991135;103.845979
-Residential;Condominium;D'leedon;1.31598;103.80366
-Travel;Land;Downtown MRT;1.279363;103.8524375
-Government;Military;DSO National Laboratories;1.287311;103.7874315
-Educational;University;DSTA;1.279728;103.816575
-Educational;University;DSTA Science Park;1.291147;103.788318
-Retail;Shopping Mall;East Point Mall;1.342375714;103.9532184
-Health;Hospital;East Shore Hospital;1.315115;103.9089925
-Educational;Specialized Training School;East SIA Training Centre;1.3458145;103.96583
-Residential;Condominium;EasTower ood Centre;1.321553;103.955531
-Residential;Condominium;Eden Residence Capitol;1.293213;103.851392
-Commercial;Commercial Building;EFG Bank;1.290178;103.849698
-Commercial;Commercial Building;Eightrium;1.337758;103.964533
-Retail;Shopping Mall;Elias Mall;1.378586;103.941976
-Commercial;Commercial Building;EMC;1.336899;103.967251
-Commercial;Commercial Building;Enterprise Hub;1.33683;103.75434
-Commercial;Industrial Building/Estate;Enterprise One;1.332763;103.90268
-Commercial;Commercial Building;Enviroment Building;1.310501;103.836325
-Travel;Land;Esplanade MRT;1.2931925;103.8555345
-Retail;Tourism;Esplanade Theatres On The Bay;1.289873;103.8552825
-Commercial;Commercial Building;Eunos Technolink;1.3347406;103.9002426
-Residential;Hotel;Excelsior Hotel;1.29201;103.849811
-Travel;Land;Expo MRT;1.334652;103.9618005
-Commercial;Industrial Building/Estate;ExxonMobil;1.268685;103.697995
-Commercial;Industrial Building/Estate;F&N foods;1.311814;103.749192
-Commercial;Commercial Building;Fairprice Hub;1.328890333;103.6787253
-Retail;Shopping Mall;Far East Plaza;1.307213993;103.8338068
-Retail;Shopping Mall;Far East Shopping Centre;1.306019335;103.8299403
-Travel;Land;Farrer Road MRT;1.317457;103.807481
-Travel;Land;Farrier Park MRT;1.312627;103.854112
-Residential;Condominium;Flamingo Valley;1.318055;103.921725
-Commercial;Industrial Building/Estate;FoodXchange;1.463147;103.814403
-Retail;Food Area;FoodXChange;1.397907;103.8585135
-Commercial;Commercial Building;Fook Hai Building;1.284976;103.846434
-Travel;Land;Fort Canning Tunnel;1.296846;103.846998
-Retail;Shopping Mall;Fortune Center;1.3004225;103.852285
-Retail;Shopping Mall;Forum Shopping Mall;1.306179029;103.8288537
-Residential;Hotel;Four Seasons Hotel;1.30521;103.8286535
-Retail;Shopping Mall;Fu Lu Shou Complex;1.30169725;103.8546708
-Commercial;Commercial Building;Fuji Xerox Towers;1.2731615;103.8436945
-Residential;Hotel;Fullerton Bay Hotel;1.283224;103.8535555
-Residential;Hotel;Fullerton Hotel;1.286195;103.852974
-Retail;Shopping Mall;Funan The IT Mall;1.291308;103.850081
-Residential;Hotel;Furama Riverfront Hotel;1.287803667;103.8366063
-Residential;Hotel;Furama Singapore Hotel;1.286454;103.844608
-Educational;Research Centre;Fusionopolis;1.300016333;103.7882083
-Educational;Research Centre;Fusionopolis Commercial Building;1.298898;103.787765
-Educational;Research Centre;Fusionopolis Two;1.299189;103.787006
-Travel;Land;Gali Batu Depot;1.403;103.757
-Retail;Tourism;Gardens by The Bay;1.284485667;103.8649078
-Commercial;Commercial Building;Gateway East;1.298507;103.858684
-Commercial;Industrial Building/Estate;Genetech Singapore Pte Ltd;1.296571;103.640546
-Commercial;Commercial Building;Genting Centre;1.273374;103.842032
-Retail;Shopping Mall;Giant Supermarket;1.372224;103.932061
-Health;Hospital;Gleneagles Medical Centre;1.307387657;103.8197274
-Health;Hospital;Glenegales Hopsital Main;1.307065;103.820119
-Residential;Hotel;Golden Landmark Hotel;1.301922;103.857786
-Commercial;Commercial Building;Golden Mile Complex;1.302774;103.8651575
-Retail;Shopping Mall;Golden Mile Tower;1.301891;103.864152
-Commercial;Commercial Building;Golden Wall Centre;1.303888;103.851183
-Retail;Shopping Mall;Goldhill Plaza;1.31877525;103.8427753
-Residential;Hotel;Goodwood Park Hotel;1.308894;103.8344703
-Commercial;Commercial Building;Grace Global Raffles;1.282229;103.850521
-Commercial;Commercial Building;Grace Global Raffles;1.282229;103.850521
-Residential;Hotel;Grand Copthrone Waterfront Hotel;1.290044423;103.8348147
-Residential;Hotel;Grand Mercure Roxy Hotel;1.30334;103.904697
-Residential;Hotel;Grand Plaza Royal Park Hotel;1.2926135;103.8502395
-Retail;Shopping Mall;Grandlink Square;1.3139228;103.8912382
-Commercial;Commercial Building;Great Eastern Centre;1.284809;103.847642
-Commercial;Commercial Building;Great Eastern Changi;1.316952;103.903559
-Retail;Shopping Mall;Great World City;1.293732959;103.831988
-Residential;Hotel;Great World City Service Apartments;1.294514;103.831594
-Retail;Shopping Mall;Greenwich Village;1.387775993;103.8693725
-Commercial;Industrial Building/Estate;Grundfos Singapore;1.3261145;103.713794
-Commercial;Commercial Building;HaliBurton;1.31968575;103.6447295
-Commercial;Commercial Building;Hansa Point;1.335748;103.966492
-Retail;Shopping Mall;Harbourfront Centre;1.307113988;103.8466081
-Travel;Land;HarbourFront MRT;1.26515975;103.8214705
-Retail;Shopping Mall;Harbourfront Tower One;1.264774;103.81912
-Retail;Shopping Mall;Harbourfront Tower Two;1.2646265;103.818691
-Residential;Hotel;Hard Rock Hotel;1.257914;103.818547
-Travel;Land;Haw Par Villa MRT;1.282556;103.7817445
-Government;Government Building;HDB Hub;1.332169286;103.8482476
-Residential;HDB;HDB Marine Parade 89;1.301327;103.906282
-Government;Government Building;Health Promotion Board;1.279764251;103.8385173
-Retail;Shopping Mall;Heartland Mall-Kovan;1.359534;103.8851945
-Education;Primary School;Henry Park Primary School;1.3167;103.784302
-Commercial;Commercial Building;Hewlett Packard Alexandra;1.276781;103.800945
-Commercial;Industrial Building/Estate;Hewlett Packard Singapore;1.28242;103.808041
-Commercial;Commercial Building;Hewlett Packard Singapore Pte Ltd;1.282702;103.8080535
-Retail;Shopping Mall;High Street Centre;1.2902982;103.848483
-Travel;Land;Hillview MRT;1.362653;103.7672855
-Residential;Hotel;Hilton International Hotel;1.30588;103.829317
-Commercial;Commercial Building;Hitachi Square;1.3557045;103.9414755
-Commercial;Commercial Building;Hitachi Tower;1.284168;103.8525685
-Residential;Hotel;Holiday Inn Park View Hotel;1.3022815;103.8411
-Retail;Shopping Mall;Holland Road Shopping Centre;1.3103675;103.795172
-Travel;Land;Holland Village MRT;1.312292;103.795961
-Commercial;Commercial Building;Hong Leong Building;1.2813805;103.8509145
-Residential;Hotel;Hotel Ibis bencoolen;1.301122;103.852557
-Residential;Hotel;Hotel Michael;1.255285667;103.8202897
-Residential;Hotel;Hotel Rendezvous;1.298628;103.84934
-Residential;Hotel;Hotel Royal Queens;1.297553;103.852249
-Retail;Shopping Mall;Hougang Green Shopping Mall;1.379423328;103.8874544
-Travel;Land;Hougang MRT;1.3713915;103.8927785
-Commercial;Commercial Building;HSBC;1.285084;103.852801
-Commercial;Commercial Building;HSR Building;1.337485514;103.854878
-Residential;Hotel;Hyatt Regency Singapore;1.306318;103.833307
-Commercial;Commercial Building;Hyflux Innovation Centre;1.317265;103.863441
-Commercial;Commercial Building;IBM Place;1.336543;103.965108
-Commercial;Commercial Building;IBM Tower;1.2731615;103.8436945
-Commercial;Commercial Building;Icon @ IBP;1.3275999;103.749234
-Retail;Shopping Mall;Icon Village;1.2752295;103.8442665
-Commercial;Commercial Building;Icon@IBP;1.327329667;103.7496563
-Commercial;Commercial Building;IHUB Building;1.32876;103.741868
-Retail;Shopping Mall;IKEA Ind Building;1.287977474;103.8059969
-Retail;Shopping Mall;IKEA Tampines;1.374093;103.932533
-Commercial;Commercial Building;IMFLASH;1.454844;103.793648
-Retail;Shopping Mall;IMM;1.335075833;103.7471523
-Government;Government Building;Immigration And Checkpoint Authority;1.306508681;103.8626433
-Commercial;Industrial Building/Estate;Infineon Technologies;1.325333;103.874947
-Commercial;Commercial Building;Infineon Technologies;1.324311;103.873217
-Commercial;Commercial Building;Infinite Studio;1.292689071;103.794638
-Educational;University;INSEAD Institute;1.29977625;103.7864843
-Health;Hospital;Institute of Mental Health;1.382271;103.884936
-Educational;Research Centre;institute of Microelectronics;1.289586;103.779635
-Residential;Hotel;Inter-Continental Hotel;1.298452;103.8548865
-Retail;Shopping Mall;International Building;1.306092;103.831011
-Commercial;Commercial Building;International Business Park;1.327712;103.746102
-Travel;Marine;International Cruise Terminal;1.266041;103.860502
-Retail;Shopping Mall;International Plaza;1.2753515;103.846278
-Commercial;Commercial Building;Invensys Building;1.337357;103.964083
-Retail;Shopping Mall;ION Orchard;1.304413971;103.8319814
-Government;Government Building;Istana;1.305486;103.843118
-Educational;Specialized Training School;ITE College West - CCK;1.375116;103.751985
-Educational;Specialized Training School;ITE HQ and College Central;1.3781495;103.8562985
-Educational;Specialized Training School;ITE HQ and College Central;1.37752375;103.8558173
-Government;Government Building;ITS centre;1.292552;103.843817
-Retail;Shopping Mall;Jackson Square;1.336936;103.8482354
-Retail;Shopping Mall;Jalan Besar Plaza;1.308656;103.858047
-Retail;Shopping Mall;JCUBE;1.333208;103.740238
-Retail;Shopping Mall;JEM Jurong;1.3335096;103.7433354
-Travel;Land;Jln Ahmad Ibrahim Tuas Check Point;1.349309;103.636145
-Retail;Shopping Mall;John Little@Orchard;1.301851959;103.8384834
-Retail;Shopping Mall;Joo Chiat Shopping Complex;1.315541;103.899034
-Commercial;Industrial Building/Estate;JTC (Flatted Factory);1.440978;103.783657
-Commercial;Industrial Building/Estate;JTC Corporation;1.3556844;103.9496184
-Commercial;Commercial Building;JTC Summit;1.3311535;103.741897
-Commercial;Commercial Building;JTC Summit Building;1.331655;103.739265
-Retail;Shopping Mall;Junction 10;1.380136537;103.7602208
-Recreational;Country Club;Jurong Country Club;1.3279478;103.7406198
-Residential;HDB;Jurong East Street 13 Blk 102;1.336098;103.738224
-Retail;Shopping Mall;Jurong Point Extension;1.3394505;103.70668
-Retail;Shopping Mall;Jurong Point Shopping Centre;1.339475111;103.7066077
-Government;Police/Fire Department;Jurong Police;1.350901;103.702242
-Government;Police/Fire Department;Jurong Police Station;1.350901;103.702242
-Commercial;Commercial Building;Jurong Superbowl;1.325487;103.725201
-Commercial;Commercial Building;K&S Corporate Headquarters;1.37555;103.873582
-Retail;Shopping Mall;Kallang Wave Mall;1.303922;103.873846
-Retail;Shopping Mall;Katong Mall;1.305158;103.9050575
-Retail;Shopping Mall;Katong Shopping Centre;1.303872;103.90107
-Travel;Land;Kembangan MRT;1.3208882;103.9128494
-Retail;Shopping Mall;Kembangan Plaza;1.320594333;103.912659
-Travel;Land;Kent Ridge MRT;1.2933812;103.784545
-Commercial;Commercial Building;Keppel Bay Tower;1.264858;103.818267
-Commercial;Commercial Building;Keppel Towers;1.2744285;103.8425365
-Health;Hospital;Khoo Teck Puat Hospital;1.4245956;103.8398458
-Commercial;Commercial Building;Kimberly Clarke Asia Pacific;1.294045;103.642475
-Travel;Land;King Albert Park MRT;1.3355605;103.7836905
-Commercial;Commercial Building;King's Centre;1.28961;103.8357665
-Health;Hospital;KK Women's And Children's Hospital;1.310952667;103.8467283
-Travel;Land;Kovan MRT;1.3601805;103.885004
-Travel;Land;KPE Ventilator Building C;1.320483;103.877199
-Travel;Land;KPE Ventilator Building D;1.333416;103.890057
-Travel;Land;KPE Ventilator Building F;1.356801;103.901657
-Travel;Land;Kranji MRT;1.425135;103.762147
-Travel;Land;Labrador Park MRT;1.2722985;103.8028195
-Recreational;Country Club;Laguna National Golf and Country Club;1.3200635;103.9627542
-Retail;Food Area;Lam Lai Pheng;1.332673;103.937148
-Commercial;Industrial Building/Estate;Lanxess Butyl Pte. Ltd;1.266434;103.667459
-Educational;University;Lasalle College of the Arts;1.3030836;103.8519532
-Travel;Land;Lavender MRT;1.3075376;103.8630352
-Residential;Hotel;Le Meridien;1.300629973;103.8420029
-Residential;Hotel;Le Meridien SC.;1.300627;103.842248
-Educational;University;Lee Kuan Yew School of Public Policy and Institute of Policy Studies;1.29057;103.777572
-Recreational;Country Club;Legend Fort Canning Pk;1.295891;103.845465
-Retail;Shopping Mall;Leisure Park Kallang;1.30113075;103.8764365
-Retail;Shopping Mall;Liang Court;1.291240809;103.8448758
-Commercial;Commercial Building;Liat Towers 541;1.3051045;103.8307285
-Educational;Specialized Training School;Lifelong Learning institute;1.3198635;103.8923453
-Commercial;Commercial Building;LIPPO Centre;1.2730895;103.8450415
-Travel;Land;Little India MRT;1.306895667;103.8492643
-Commercial;Industrial Building/Estate;Lonza Biologics Tuas Pte Ltd;1.2989605;103.639949
-Travel;Land;Lorong Chuan MRT;1.351644;103.864266
-Retail;Shopping Mall;Lot 1 Shoppers Mall;1.384932942;103.7450042
-Retail;Shopping Mall;Loyang Point;1.3664378;103.9641238
-Commercial;Industrial Building/Estate;LTH Logistics;1.308072;103.729933
-Retail;Shopping Mall;Lucky Chinatown;1.283649482;103.8432048
-Retail;Shopping Mall;Lucky Plaza;1.304596346;103.8339052
-Commercial;Commercial Building;Lucrum Capital Building;1.282234;103.851285
-Residential;Hotel;M Hotel;1.273694;103.8450695
-Travel;Land;MacPherson MRT;1.326211;103.890359
-Retail;Shopping Mall;Mandarin Orchard;1.296318013;103.8399769
-Commercial;Commercial Building;Mapletree Anson;1.274997;103.8453423
-Retail;Tourism;Marina Barrage;1.280811;103.870972
-Retail;Shopping Mall;Marina Bay Link Mall and MBFC Tower 1;1.2802075;103.853801
-Travel;Land;Marina Bay MRT;1.276476;103.854762
-Retail;Casino;Marina Bay Sands Casino;1.284106;103.859565
-Retail;Exhibition;Marina Bay Sands Expo & Convention Centre;1.28253625;103.8585198
-Retail;Exhibition;Marina Bay Sands Hall D;1.282734;103.859065
-Retail;Exhibition;Marina Bay Sands Hall E;1.282255;103.85875
-Residential;Hotel;Marina Bay Sands Hotel;1.284120667;103.8602377
-Retail;Exhibition;Marina Bay Sands MICE Expo;1.283102024;103.8585334
-Retail;Exhibition;Marina Bay Sands MICE Expo;1.283102024;103.8585334
-Retail;Exhibition;Marina Bay Sands MICE L3;1.282731;103.858621
-Retail;Shopping Mall;Marina Bay Sands The Shoppes;1.2835952;103.8589642
-Retail;Casino;Marina Bay Sands Theatre;1.285219667;103.8600077
-Retail;Tourism;Marina Bay Seating Gallery;1.289074;103.85905
-Residential;Condominium;Marina Bay Suites;1.279821;103.851343
-Commercial;Commercial Building;Marina Boulevard NTUC Centre;1.282257;103.852589
-Residential;Condominium;Marina Boulevard Residences;1.279587;103.854996
-Residential;Hotel;Marina Mandarin;1.291744501;103.8570312
-Educational;University;Marina South Pier;1.270530159;103.8633019
-Travel;Land;Marina South Pier MRT;1.27198;103.86321
-Retail;Shopping Mall;Marina Square;1.291820546;103.8577507
-Residential;Hotel;Marina Square;1.292434754;103.8582111
-Commercial;Commercial Building;Marine Centre;1.279589;103.847926
-Government;Public Facility;Marine Parade Library;1.3048805;103.909673
-Commercial;Commercial Building;Market Street;1.2832635;103.85057
-Residential;Hotel;Marriott Hotel + CK Tang;1.305008981;103.8330306
-Commercial;Commercial Building;Marsh Maclenna Centre;1.2834845;103.846864
-Travel;Land;Marymount MRT;1.3483575;103.8397185
-Commercial;Commercial Building;MAS Building;1.2754585;103.8466528
-Commercial;Commercial Building;Maxwell House;1.27910025;103.844809
-Commercial;Commercial Building;Maybank Kim Eng Securities;1.287572333;103.8466303
-Commercial;Commercial Building;Maybank Tower;1.285895;103.852505
-Commercial;Commercial Building;MBFC Tower 1;1.280062333;103.8541072
-Commercial;Commercial Building;MBFC Tower 2;1.279457;103.8537965
-Commercial;Commercial Building;MBFC Tower 3;1.279104;103.854468
-Travel;Land;MCE Ventilation Building 1;1.284091;103.877954
-Travel;Land;MCE Ventilation Building 2;1.27531;103.86642
-Commercial;Commercial Building;Mediacorp East Wing Building;1.338328332;103.8328378
-Residential;Hotel;Merchant Court Hotel;1.288304693;103.8457896
-Commercial;Commercial Building;Merck Sharp Dohme Technology;1.30279;103.634162
-Residential;Hotel;Meritus Negara Hotel;1.307378;103.82989
-Commercial;Commercial Building;Merrill Lynch HarbourFront;1.2656995;103.8190635
-Commercial;Commercial Building;Micron SemiConductor;1.3178;103.864656
-Commercial;Commercial Building;Millenia Tower;1.292675;103.8603045
-Commercial;Commercial Building;Millenia Walk;1.292681473;103.8599409
-Government;Government Building;Ministry of Education;1.3053805;103.7910465
-Government;Government Building;Ministry of Foreign Affairs;1.304704;103.81841
-Government;Government Building;Ministry of Home Affairs;1.323969305;103.8447543
-Government;Government Building;Ministry of Manpower;1.303066;103.8541492
-Residential;Hotel;Miramar Hotel;1.288199;103.837406
-Commercial;Commercial Building;Mitsubishi Electric Building;1.289075;103.806892
-Commercial;Commercial Building;MND;1.278973;103.84581
-Residential;Hotel;Moevenpick Heritage Hotel Sentosa;1.253151;103.819583
-Health;Hospital;Mount Alvernia Hospital;1.341698452;103.837818
-Health;Hospital;Mount Elizabeth Hospital;1.3046825;103.835418
-Travel;Land;Mountbatten MRT;1.3061445;103.8819918
-Retail;Shopping Mall;Mountbatten Square;1.307561;103.881284
-Residential;Hotel;Movenpick Heritage Hotel Sentosa;1.253153;103.8195855
-Government;Military;Multi Mission Range Complex;1.34233;103.67298
-Recreational;Sports Facility;Multi-purpose Indoor Arena;1.303787;103.874656
-Retail;Shopping Mall;Mustafa Centre;1.3101325;103.8553831
-Retail;Shopping Mall;MyVillage @Serangoon Garden;1.365066005;103.8650345
-Commercial;Commercial Building;Nanyang Executive Centre;1.351206;103.687828
-Education;Junior College;Nanyang Polytechnic;1.380697;103.849606
-Retail;Exhibition;National Art Gallery;1.290353;103.851355
-Health;Medical Centre;National Cancer Centre;1.279132;103.8362197
-Government;Government Building;national Design Centre;1.298765;103.853365
-Government;Government Building;National Environment Agency;1.310501;103.836325
-Government;Public Facility;National History Museum;1.29673;103.848502
-Government;Government Building;National Parks Board HQ;1.31544;103.81643
-Recreational;Country Club;National Service Resort and Country Club;1.4131523;103.7561568
-Recreational;Sports Facility;National Stadium;1.304187846;103.8747304
-Educational;University;National University of Singapore;1.30397;103.7855288
-Commercial;Industrial Building/Estate;NCS;1.319708;103.930202
-Recreational;Parks/Gardens;Nepal Park;1.3021475;103.7876875
-Commercial;Commercial Building;Neuros & Immunos;1.302308;103.793131
-Educational;Research Centre;Neuros Biopolis;1.3023065;103.793148
-Government;Public Facility;New National Library;1.2976345;103.854116
-Residential;Hotel;New Park Hotel;1.310483;103.855614
-Government;Government Building;New Supreme Court;1.290405;103.850747
-Government;Police/Fire Department;New Tanglin Police Station;1.3119115;103.846427
-Commercial;Commercial Building;New Tech Park;1.35186725;103.861049
-Travel;Land;Newton MRT;1.3128368;103.8379124
-Retail;Shopping Mall;NEX @ Serangoon;1.350408494;103.872638
-Commercial;Commercial Building;Nexus @ one-north;1.298955;103.789701
-Health;Hospital;Ng Teng Fong General Hospital;1.333683;103.745443
-Retail;Shopping Mall;Ngee Ann City;1.302698799;103.8345389
-Commercial;Commercial Building;Ngee Ann City Towers A and B;1.302516;103.83456
-Travel;Land;Nicoll Highway MRT;1.2997395;103.8635645
-Educational;Research Centre;No 1 Cleantech Loop;1.35498;103.69227
-Commercial;Industrial Building/Estate;No. 1 Woodlands Industrial Park E9;1.4516745;103.801786
-Commercial;Commercial Building;No.1 Stars Ave Mediapolis;1.29439;103.79681
-Commercial;Commercial Building;No.80 Tuas South Boulevard;1.25142;103.61303
-Commercial;Commercial Building;Nobel Building;1.337176479;103.8882403
-Commercial;Commercial Building;Nordic European Centre;1.327316;103.748442
-Government;Government Building;North Changi Prison;1.3567945;103.9719015
-Commercial;Commercial Building;North Spring Bizhub;1.438126;103.8432037
-Commercial;Industrial Building/Estate;Northlink Building;1.462355;103.8124715
-Commercial;Industrial Building/Estate;Northpoint Bizhub;1.436155;103.843155
-Retail;Shopping Mall;NorthPoint Shopping Centre;1.429703;103.8357965
-Commercial;Industrial Building/Estate;NorthTech;1.455919981;103.8000031
-Travel;Land;Novena MRT;1.320059814;103.8440247
-Commercial;Industrial Building/Estate;NTT Serangoon;1.376079;103.874911
-Educational;University;NTU - SPMS;1.341805;103.681938
-Educational;University;NTU Alumni Club;1.3037;103.789852
-Recreational;Country Club;NTU Alumni Club @ One North;1.3037405;103.789858
-Educational;Research Centre;NTU Research Techno Plaza;1.342912516;103.6792605
-Educational;University;NTU School of Biological Science;1.345209;103.6793965
-Educational;University;NTU School of Chemical and BioMedical Engineering;1.345402;103.6790515
-Educational;University;NTU School of Mechanical & Aerospace Engineering;1.347664;103.682586
-Retail;Shopping Mall;NTUC Hougang Mall;1.372488598;103.8938688
-Commercial;Commercial Building;NTUC Income;1.296567;103.851709
-Commercial;Commercial Building;NTUC Trade Union House;1.29691;103.851428
-Educational;University;NTU-N2.1;1.347412993;103.6805409
-Health;Hospital;NUH;1.29412547;103.7827639
-Educational;University;NUH System Acadamic Block;1.2924575;103.7833335
-Educational;University;NUS - Centre for Life Science;1.294419;103.780517
-Educational;University;NUS - MD11;1.296008;103.7816325
-Educational;University;NUS - MD6;1.295364;103.781594
-Educational;University;NUS - University Cultural Centre;1.301745;103.772045
-Educational;University;NUS - Yong Siew Toh;1.302299;103.772609
-Educational;University;NUS Graduate Medical School Singapore;1.281203;103.834153
-Educational;University;NUS Guild House and Shaw Foundation;1.293854;103.773254
-Educational;University;NUS Guild House and Shaw Foundation Alumni House;1.293854;103.773254
-Education;Secondary School;NUS High School;1.307159;103.769453
-Educational;University;NUS School of Computing;1.295006;103.773708
-Educational;University;NUS School of Computing;1.295006;103.773708
-Educational;University;NUS T-LAB;1.299772;103.772073
-Educational;University;NUS University Hall;1.29667186;103.7779487
-Educational;Research Centre;NUS Utown- Bar Towers;1.304085;103.774126
-Educational;Research Centre;NUS Utown- Create Building;1.304078;103.774125
-Educational;Research Centre;NUS Utown- Create Tower;1.304085;103.774126
-Educational;University;NUS-18 Medical Drive;1.294948;103.781047
-Educational;University;NUS-MD1;1.2955375;103.7802495
-Residential;Hotel;Oasia Hotel and Novena Specialist Centre;1.320002;103.844793
-Commercial;Commercial Building;OCBC Aquatic Centre;1.304915;103.873769
-Recreational;Sports Facility;OCBC Arena;1.305064;103.8762324
-Commercial;Commercial Building;OCBC Centre;1.285093519;103.849039
-Commercial;Commercial Building;Ocean Financial Centre;1.283129669;103.8519228
-Commercial;Commercial Building;Odeon Towers;1.296198;103.853249
-Retail;Shopping Mall;OG Peoples Park;1.285236;103.843166
-Commercial;Commercial Building;One George Street;1.285655;103.847815
-Retail;Shopping Mall;One KM;1.31509;103.894432
-Commercial;Commercial Building;One Marina Boulevard NTUC Centre;1.282261;103.852586
-Commercial;Commercial Building;One Raffles Quay North Tower;1.281293;103.8520065
-Commercial;Commercial Building;One Raffles Quay South Tower;1.281103495;103.8518442
-Residential;Condominium;One Shenton Way;1.279277;103.850548
-Commercial;Commercial Building;One@Changi City;1.3338385;103.9628825
-Travel;Land;One-North MRT;1.2997505;103.7874385
-Retail;Shopping Mall;Orchard Central;1.300905027;103.8398927
-Retail;Shopping Mall;Orchard Cineleisure;1.301497982;103.8362143
-Retail;Shopping Mall;Orchard Gateway;1.300479;103.839329
-Residential;Hotel;Orchard Hotel;1.307837484;103.8286584
-Travel;Land;Orchard MRT;1.3040425;103.8320935
-Residential;Hotel;Orchard Parade Hotel;1.306448;103.8277163
-Retail;Shopping Mall;Orchard Plaza;1.301033;103.841096
+Recreational;Hotel;Raffles Hotel;1.294947;103.854269
+Retail;Shopping Mall;City Plaza;1.31649766666667;103.882372222222
+Travel;Land;Promenade MRT;1.2924745;103.8607545
+Commercial;Exhibition;Suntec City Convention and Exhibition Centre;1.29370108219178;103.857315821918
+Retail;Shopping Mall;JEM Jurong;1.33278635294118;103.743360117647
 Retail;Shopping Mall;Orchard Point;1.301379;103.84057
-Retail;Shopping Mall;Orchard Shopping Centre;1.30151999;103.8379974
-Retail;Shopping Mall;Orchard Towers;1.3075665;103.829161
-Recreational;Country Club;Orchid Country Club;1.411126;103.844205
-Residential;Hotel;Orchid Hotel;1.276901;103.843866
-Retail;Shopping Mall;Orchird Gateway;1.3019035;103.838646
-Retail;Shopping Mall;Orienral Plaza;1.281857;103.842009
-Retail;Shopping Mall;Oriental Plaza;1.281847;103.842009
-Commercial;Commercial Building;OUB Centre;1.283629506;103.8512535
-Retail;Shopping Mall;OUB Centre;1.283629506;103.8512535
-Commercial;Commercial Building;OUE Bayfront;1.2829435;103.852917
-Travel;Land;Outram Park MRT;1.278562143;103.8407904
-Commercial;Commercial Building;Oxley Bizhub;1.332243;103.892286
-Residential;Condominium;Oxley Rise;1.298212;103.842824
-Educational;Research Centre;P&G Innovation Centre;1.30337;103.79211
-Residential;Hotel;Pacific Plaza;1.306543;103.8321285
-Retail;Shopping Mall;Palais Renaissance;1.306365167;103.8298075
-Residential;Hotel;Pan Pacific Hotel;1.292423;103.8588115
-Retail;Shopping Mall;Paradiz Centre;1.3000765;103.8492885
-Retail;Shopping Mall;Paragon;1.3038715;103.835863
-Retail;Shopping Mall;Paragon II;1.303836994;103.8354326
-Residential;Hotel;Paramount Hotel/SG;1.303763;103.90288
-Residential;Hotel;Park Ave Changi Hotels & Suites;1.334792;103.963895
-Residential;Condominium;Park Avenue Residence;1.292211;103.840407
-Retail;Shopping Mall;Park Avenue Rochester & Rochester Mall;1.30524;103.7883575
-Residential;Hotel;Park Hotel Alexandra;1.287537;103.8053
-Retail;Shopping Mall;Park Mall;1.297884974;103.8451031
-Residential;Hotel;Park Regis Hotel;1.287989993;103.8447631
-Retail;Shopping Mall;Parklane Shopping Mall;1.301027;103.8491745
-Residential;Hotel;Parkroyal Hotel;1.2856575;103.8462775
-Residential;Hotel;Parkroyal on Pickering;1.285655;103.846275
-Retail;Shopping Mall;Parkview Square;1.300239;103.857602
-Health;Hospital;Parkway Novena Hospital & Specialist centre;1.322156;103.8441485
-Retail;Shopping Mall;Parkway Parade Tower;1.301335;103.905279
-Commercial;Commercial Building;Parliament House;1.288995513;103.8506573
-Travel;Land;Pasir Panjang MRT;1.276186;103.7913315
-Retail;Shopping Mall;Pasir Ris West Plaza;1.379276;103.93599
-Travel;Land;Paya Lebar MRT;1.3176545;103.892623
-Retail;Shopping Mall;Paya Lebar Square;1.3188725;103.892612
-Retail;Shopping Mall;Peace Centre;1.3013225;103.84923
-Retail;Shopping Mall;Peninsula Plaza;1.292327;103.850823
-Retail;Shopping Mall;Peoples Park Center;1.285774;103.8439745
-Retail;Shopping Mall;Peoples Park Complex;1.2841295;103.84259
-Commercial;Commercial Building;Philips Electronics Singapore Pte Ltd;1.335574;103.8420493
-Commercial;Industrial Building/Estate;Philips Lumileds Singapore Pte Ltd;1.4409264;103.836677
-Commercial;Commercial Building;Pioneer Centre;1.332718;103.697549
-Commercial;Commercial Building;Pioneer Hub;1.3217575;103.695403
-Commercial;Industrial Building/Estate;Pioneer Junction;1.334642;103.697004
-Commercial;Commercial Building;Plaza 8;1.333248;103.965643
-Commercial;Commercial Building;Plaza By The Park;1.297873613;103.8502159
-Residential;Hotel;Plaza Hotel;1.298064;103.858521
-Retail;Shopping Mall;Plaza Singapura;1.300613257;103.8449351
-Government;Police/Fire Department;Police Cantonment Complex;1.2786005;103.8394225
-Government;Police/Fire Department;Police Coast Guard;1.258547333;103.8313617
-Travel;Land;Potong Pasir MRT;1.331243;103.8690075
-Commercial;Industrial Building/Estate;PowerQ Technology Pte Ltd;1.336853;103.759634
-Travel;Land;Promenade MRT;1.292733;103.8608363
-Commercial;Commercial Building;Prudential @ Scotts;1.312816333;103.837777
-Commercial;Commercial Building;Prudential Tower;1.282804;103.849873
-Commercial;Commercial Building;PSA Building;1.2735645;103.8015455
-Residential;Condominium;PSB Sc Park;1.291650949;103.7854381
-Educational;University;PSB Science Park;1.291866;103.785623
-Government;Government Building;PUB Building;1.3002225;103.837252
-Educational;Research Centre;PUB waterhub;1.334452;103.757692
-Travel;Land;Punggol MRT;1.404662;103.90213
-Retail;Shopping Mall;Punggol Plaza;1.394280525;103.91301
-Commercial;Commercial Building;PWC Building;1.282322;103.849001
-Commercial;Industrial Building/Estate;Qualcomm Cdma Technologies Asia-Pacific Pte Ltd;1.374492;103.86903
-Residential;Hotel;Quality Hotel;1.3200605;103.8525265
-Retail;Shopping Mall;Queensway Shopping Centre;1.287632488;103.8031952
-Retail;Shopping Mall;Raffles City Shopping Centre;1.293917512;103.8531317
-Health;Hospital;Raffles Health Pte. Ltd;1.3010815;103.857248
-Health;Hospital;Raffles Hospital;1.3010815;103.857248
-Residential;Hotel;Raffles Hotel;1.294874;103.854368
-Travel;Land;Raffles Place MRT;1.2839325;103.8512285
-Commercial;Commercial Building;Raffles Quay;1.281807;103.8513865
-Retail;Shopping Mall;Raffles The Plaza North;1.29328;103.8533235
-Retail;Shopping Mall;Raffles The Plaza South;1.293273;103.853373
-Recreational;Country Club;Raffles Town Club;1.321901;103.824963
-Retail;Shopping Mall;Raffless City Tower;1.29398051;103.8530479
-Commercial;Commercial Building;REC Group;1.27244;103.6227265
-Commercial;Commercial Building;REC Singapore;1.27244;103.6227265
-Commercial;Industrial Building/Estate;Rec Site Services Pte Ltd;1.272424;103.622728
-Residential;Condominium;Reflection@Keppel Bay Residences;1.267282;103.811078
-Residential;Hotel;Regent Hotel;1.3046705;103.824888
-Commercial;Commercial Building;Republic Plaza;1.283218667;103.8508713
-Residential;Hotel;Resort World at Sentosa- Hard Rock Hotel;1.257769;103.818885
-Residential;Hotel;Resort World at Sentosa- Hotel Michael;1.255274;103.820005
-Commercial;Commercial Building;Revenue House;1.30993725;103.842023
-Residential;Hotel;Ritz Carlton Hotel;1.2907205;103.860052
-Residential;Hotel;River View Hotel;1.289376;103.836601
-Retail;Shopping Mall;Riverside Point;1.2891725;103.844254
-Retail;Shopping Mall;Rivervale Mall;1.392229221;103.9043081
-Retail;Shopping Mall;Rivervale Plaza;1.385549;103.9019505
-Residential;Hotel;Robertson Quay Hotel;1.291185333;103.8420177
-Retail;Shopping Mall;Robertson Walk;1.28943;103.8412933
-Retail;Shopping Mall;Robinson Centre;1.279265;103.849341
-Retail;Shopping Mall;Robinson Point;1.2795945;103.8495885
-Retail;Shopping Mall;Rochester Mall (Retail) and Park Aveune Rochester (Hotel);1.305256;103.788304
-Commercial;Commercial Building;Rochor Centre;1.301949333;103.854892
-Travel;Land;Rochor MRT;1.303788;103.852491
-Commercial;Commercial Building;Rolls Royce;1.402365;103.866806
-Retail;Shopping Mall;Roxy Square;1.304236;103.9041275
-Retail;Shopping Mall;Roxy Square new;1.30334;103.904697
-Retail;Shopping Mall;Roxy Square old;1.304354;103.9040465
-Commercial;Commercial Building;Royal Brothers Building;1.28389;103.850817
-Residential;Hotel;Royal Plaza On Scotts;1.3070575;103.8320885
-Commercial;Commercial Building;SAESL;1.372742;103.981728
-Commercial;Industrial Building/Estate;SAESL new Extension;1.372742;103.981728
-Recreational;Country Club;SAFRA Clubhouse;1.3303155;103.854551
-Recreational;Country Club;Safra Toa Payoh;1.3303155;103.854551
-Recreational;Country Club;SAFRA Town Club;1.288157;103.847381
-Recreational;Country Club;SAFRA Yishun;1.4241965;103.8409235
-Commercial;Commercial Building;Samsung Hub;1.283306;103.84962
-Commercial;Commercial Building;Sandcrawler;1.299783;103.789326
-Commercial;Commercial Building;Sandcrawler;1.299783;103.789326
-Commercial;Industrial Building/Estate;SATS Inflight Catering Centre 1;1.34123;103.984805
-Commercial;Industrial Building/Estate;SATS Inflight Catering Centre 2;1.344117;103.9702935
-Commercial;Industrial Building/Estate;SATS Inflight Catering Centre 2;1.344062;103.970225
-Travel;Land;SBS Transit West District;1.3554;103.6923
-Retail;Shopping Mall;Scape;1.300984991;103.8358853
-Government;Police/Fire Department;SCDF Division Four;1.373443;103.7528235
-Government;Police/Fire Department;SCDF Division One Queensway;1.288446;103.802799
-Government;Police/Fire Department;SCDF Division Three;1.444479557;103.8369526
-Government;Police/Fire Department;SCDF Division Two;1.358098;103.929407
-Government;Police/Fire Department;SCDF HQ at Ubi;1.334261;103.893134
-Commercial;Commercial Building;Schenker Singapore Pte Ltd;1.37191;103.91049
-Educational;Specialized Training School;School of The Art;1.2991345;103.8487075
-Commercial;Commercial Building;Scotts Square Commercial Development;1.3057955;103.8330305
-Commercial;Industrial Building/Estate;SDV logistic Green Hub;1.3203085;103.7012925
-Residential;Hotel;Seacare Hotel;1.287716;103.839914
-Commercial;Industrial Building/Estate;Seagate;1.411182;103.8300296
-Commercial;Commercial Building;Seagate Gambas W2;1.444503;103.809465
-Commercial;Industrial Building/Estate;Seagate Singapore Design Centre (The Shugurt);1.295642;103.790518
+Retail;Shopping Mall;Automobile Megamart;1.331534;103.901251
+Travel;Land;Marina South Pier MRT;1.27198;103.86321
+Retail;Shopping Mall;Orchard Plaza;1.301033;103.841096
+Travel;Land;Lavender MRT;1.307398;103.86278
+Industrial;Industrial Building/Estate;Globalfoundries;1.43745870071429;103.766371414286
+Defence;Police/Fire Department;Police Coast Guard;1.25916;103.829306
+Commercial;Commercial Building;MAS Building;1.274711;103.846665
+Travel;Land;Gali Batu Depot;1.403;103.757
+Recreational;Country Club;Singapore Recreation Club;1.292122;103.853719
+Healthcare;Hospital;National Eye Centre;1.281481;103.836694
+Retail;Shopping Mall;Tiong Bahru Plaza;1.2864940395;103.82697265
+Commercial;Exhibition;Changi Exhibition Centre;1.36519029411765;104.017401647059
+Travel;Land;Cashew MRT;1.369322;103.764281
+Retail;Shopping Mall;Millenia Walk;1.29261320875;103.859998825
+Retail;Shopping Mall;NEX @ Serangoon;1.35049711076923;103.872485596154
+Commercial;Commercial Building;Fuji Xerox Towers;1.27315833333333;103.843692333333
+Travel;Land;Bras Basah MRT;1.296981;103.850606
+Commercial;Commercial Building;Hyflux Innovation Centre;1.317265;103.863441
+Government;Public Facility;Marine Parade Library;1.3048796;103.9096744
+Travel;Land;Tanjong Pagar MRT;1.276604;103.845899
+Retail;Shopping Mall;Holland Road Shopping Centre;1.310265;103.795344
 Commercial;Commercial Building;Seagate Technology Woodlands;1.433907;103.803442
-Commercial;Commercial Building;Secom Centre;1.334920516;103.7588594
-Recreational;Country Club;Seletar Country Club;1.409431571;103.858309
-Recreational;Country Club;Sembawang Country Club;1.415152;103.8175535
-Travel;Marine;Sembawang Shipyard;1.459953;103.822721
-Retail;Shopping Mall;Sembawang Vista Sun Plaza;1.448193;103.8194935
-Commercial;Industrial Building/Estate;SembCorp Cogen Pte Ltd;1.254278;103.702869
-Travel;Land;Seng Kang MRT;1.391689;103.895484
-Residential;Hotel;Sentosa Cove;1.246243;103.842378
-Residential;Hotel;Sentosa Resort;1.245969;103.827593
-Retail;Tourism;Sentosa Resort;1.2455145;103.8275595
-Residential;Hotel;Sentosa Retort;1.2455145;103.8275595
-Retail;Tourism;Sentosa Underwater World;1.258421;103.811441
-Recreational;Country Club;Serangoon Gardens Country Club;1.36556599;103.8668574
-Travel;Land;Serangoon MRT;1.350032333;103.8730777
-Recreational;Sports Facility;Sg National Eye Centre;1.280812;103.836051
-Health;Hospital;SGH Heart Centre;1.2801795;103.8361645
-Commercial;Commercial Building;SGX Centre 1;1.279583;103.849995
-Residential;Hotel;Shangri-La Hotel;1.311287707;103.8264796
-Residential;Hotel;Shangri-La Rasa Sentosa Hotel;1.257633;103.8097705
-Retail;Shopping Mall;Shaw Centre/House A;1.306070273;103.83198
-Commercial;Commercial Building;Shaw House;1.3057935;103.831539
-Commercial;Commercial Building;Shaw Plaza;1.3250355;103.8511875
-Commercial;Commercial Building;Shaw Tower;1.298065571;103.8534093
-Commercial;Commercial Building;Shaw Tower Office;1.296611;103.856854
-Retail;Shopping Mall;Sheng Siong;1.338216;103.9234335
-Commercial;Commercial Building;Sheng Siong 1 Station Market;1.338216;103.923475
-Residential;Hotel;Sheraton Towers Hotel;1.311847333;103.8361093
-Commercial;Industrial Building/Estate;Shun Li Ind Park;1.336652;103.91072
-Commercial;Industrial Building/Estate;Shun Li Industrial Park;1.336703;103.910697
-Commercial;Commercial Building;SIA Building;1.277757015;103.8482183
-Commercial;Commercial Building;Siemen Centre;1.327386;103.870766
-Retail;Shopping Mall;Siglap Center;1.3125945;103.923167
-Educational;University;SIM;1.32933;103.775537
-Educational;University;SIM HQ;1.329156322;103.776136
-Retail;Shopping Mall;Sim Lim Square;1.303069;103.8523707
-Retail;Shopping Mall;Sim Lim Tower;1.3037995;103.8546585
-Commercial;Commercial Building;Singapore Air Traffic Control Centre;1.390656333;103.9832907
-Retail;Tourism;Singapore Airshow;1.36544;104.01637
-Retail;Exhibition;Singapore Airshow & Events Pte Ltd;1.36544;104.01637
-Government;Public Facility;Singapore Art Museum;1.29732;103.850971
-Recreational;Parks/Gardens;Singapore Botanic Gardens;1.311083867;103.8171914
-Travel;Air;Singapore Changi Airport Terminal 3;1.357418577;103.9862132
-Commercial;Commercial Building;Singapore Conference Hall;1.276171;103.8490155
-Government;Public Facility;Singapore Discovery Centre;1.332703;103.678937
-Commercial;Commercial Building;Singapore Exchange Tower 2;1.278973;103.84959
-Retail;Exhibition;Singapore Expo Hall;1.334352987;103.9595642
-Retail;Exhibition;Singapore Expo Registration Centre;1.333629498;103.9571654
-Retail;Tourism;Singapore Flyers;1.289971;103.862392
-Health;Hospital;Singapore General Hospital;1.27972775;103.8350065
-Health;Hospital;Singapore General Hospital - The Academia;1.281958;103.835813
-Government;Public Facility;Singapore Girls Home;1.346815739;103.8916259
-Government;Public Facility;Singapore Indoor Stadium;1.300309587;103.8752364
-Recreational;Country Club;Singapore Island Country Club;1.347724667;103.813622
-Commercial;Commercial Building;Singapore Labour Foundation (SLF Building);1.332856;103.8389153
-Commercial;Commercial Building;Singapore Land Tower;1.284665;103.85213
-Health;Medical Centre;Singapore National Eye Centre;1.281384;103.836155
-Retail;Tourism;Singapore Navy Musuem;1.462143;103.814476
-Government;Police/Fire Department;Singapore Police Force Building & Interpol;1.306107;103.822446
-Commercial;Commercial Building;Singapore Pools Building;1.301468;103.851042
-Commercial;Commercial Building;Singapore Post Building;1.278364;103.848803
-Government;Post Office;Singapore Post Centre;1.318881135;103.8948825
-Recreational;Country Club;Singapore Recreation Centre;1.292122;103.853719
-Retail;Tourism;Singapore Science Centre;1.3325025;103.7354025
-Educational;University;Singapore Science Park;1.28986;103.787576
-Educational;University;Singapore Science Park II;1.287707022;103.7803115
-Educational;University;Singapore Science Park-Reuters;1.2902165;103.7882845
-Retail;Shopping Mall;Singapore Shopping Center;1.298132;103.84414
-Recreational;Sports Facility;Singapore Sports Hub;1.3048538;103.8760608
-Recreational;Country Club;Singapore Turf Club Seating Gallery;1.422240204;103.7615103
-Educational;University;Singapore University of technology and Design;1.341019;103.9636635
-Educational;University;Singapore University Of Technology And Design;1.3001575;103.780586
-Educational;University;Singapore University of Technology Design;1.3001575;103.780586
-Recreational;Parks/Gardens;Singapore Zoo;1.404723667;103.7909903
-Residential;Condominium;Sinsov Building;1.284467;103.850653
-Educational;University;Site Name ITE College West - CCK;1.375116;103.751985
-Travel;Land;Sixth Avenue MRT;1.3307895;103.7973425
-Residential;Condominium;Skysuites @ Anson;1.274638;103.844749
-Educational;University;SMU - School of Information System Block;1.297427484;103.8497463
-Educational;University;SMU Administration Block;1.2966655;103.8521
-Educational;University;SMU Lee Kong Chian School of Business;1.2952195;103.8505455
-Educational;Research Centre;Solaris Building;1.299015667;103.7885083
-Travel;Land;Somerset MRT;1.300071667;103.8386077
-Educational;Non-tertiary Institution;SOTA - School Of The Arts;1.29921012;103.8487036
-Commercial;Commercial Building;South Beach Lifestyle Quarter;1.2950385;103.856182
-Commercial;Commercial Building;South Point;1.273439;103.841264
-Recreational;Country Club;Spans-Jom Clubhouse;1.3290375;103.848477
-Commercial;Commercial Building;SPH Holdings Toa Payoh;1.343175734;103.848641
-Commercial;Commercial Building;Spring Singapore;1.284303;103.813744
-Commercial;Commercial Building;Springleaf Tower;1.2755515;103.846547
-Retail;Shopping Mall;Square II;1.320888;103.8440913
-Commercial;Commercial Building;ST Electronics;1.392195667;103.8489233
-Commercial;Commercial Building;ST Microelectronics;1.375205572;103.8657919
-Residential;Hotel;St Regis Hotel;1.305976;103.8259635
-Travel;Land;Stadium MRT;1.304334;103.8759287
-Retail;Shopping Mall;Stamford Court;1.294346605;103.8501285
-Commercial;Commercial Building;Standard Chartered;1.334743;103.9665915
-Commercial;Commercial Building;Standard Chartered Bank;1.285467;103.851763
-Commercial;Commercial Building;Standard Chartered Changi;1.335189;103.967258
-Retail;Shopping Mall;Star Vista;1.306837;103.788456
-Commercial;Commercial Building;StarHub Centre;1.302850491;103.8400857
-Commercial;Commercial Building;StarHub Green;1.32414075;103.8928433
+Recreational;Hotel;The Elizabeth Hotel;1.3081558;103.8357918
+Travel;Land;Haw Par Villa MRT;1.282541;103.781736
 Commercial;Commercial Building;StarHub Tai Seng Building;1.337733;103.893674
-Commercial;Commercial Building;STATS ChipPac;1.439711;103.8426615
-Travel;Land;Stevens MRT;1.320072;103.825919
-Commercial;Commercial Building;Straits Trading Building;1.285124;103.85232
-Commercial;Commercial Building;Suki Sushi;1.335497;103.889247
-Commercial;Commercial Building;Sultan Plaza;1.302969;103.86192
-Residential;Condominium;Sunshine Plaza;1.30051;103.850713
-Retail;Shopping Mall;Suntec City Mall;1.295415593;103.8590003
-Retail;Shopping Mall;Suntec City Mall Suntec City B;1.295579;103.858086
-Retail;Shopping Mall;Suntec City Mall Suntec City E;1.295023;103.860178
-Retail;Shopping Mall;Suntec City Tower 1;1.295517996;103.8581556
-Retail;Shopping Mall;Suntec City Tower 2;1.295911333;103.8587477
-Retail;Shopping Mall;Suntec City Tower 3;1.295244;103.859557
-Retail;Shopping Mall;Suntec City Tower 4;1.2946655;103.8597255
-Retail;Shopping Mall;Suntec City Tower 5;1.294496;103.8579785
-Retail;Exhibition;Suntec Convention Hall;1.293690778;103.8572831
-Retail;Shopping Mall;Swissotel The Stamford;1.293399995;103.853285
-Travel;Land;Tai Seng MRT;1.33526;103.888221
-Retail;Shopping Mall;Tampines 1;1.35432435;103.9450162
-Recreational;Country Club;Tampines Course;1.328092667;103.974167
-Retail;Shopping Mall;Tampines Junction;1.352338;103.941945
-Retail;Shopping Mall;Tampines Mall;1.35272825;103.9443478
-Retail;Shopping Mall;Tampines Mart;1.354451;103.960096
-Retail;Shopping Mall;Tampines Plaza / Abacus;1.353039528;103.9428409
+Education;Primary School;Henry Park Primary School;1.3167;103.784302
+Government;Government Building;National Parks Board;1.31543938916667;103.8164305
+Industrial;Industrial Building/Estate;JTC (Flatted Factory);1.440978;103.783657
+Recreational;Country Club;SAFRA Town Club;1.288157;103.847381
+Retail;Shopping Mall;Citylink Mall;1.2924897176;103.85458492
+Commercial;Commercial Building;Prudential Services;1.280109;103.849294
+Commercial;Commercial Building;Micron SemiConductor;1.3178;103.864656
+Recreational;Hotel;W Hotel;1.246243;103.842378
+Government;Prison;Changi Prison Admin Block;1.35803;103.971334
+Commercial;Commercial Building;Certis Cisco Centre;1.321971;103.892265
+Recreational;Hotel;Conrad Centennial Singapore;1.293517;103.858765
+Travel;Land;BuangKok MRT;1.391689;103.895484
+Retail;Shopping Mall;Parklane Shopping Mall;1.300634;103.849442
+Commercial;Commercial Building;Tourism Court;1.3036700245;103.82399375
+Commercial;Commercial Building;AIA Tower;1.281991;103.85113
+Government;Public Facility;PPT Lodge 1B Workers Dormitory;1.41824;103.89719
+Recreational;Hotel;Ritz Carlton Hotel;1.290723;103.860057
+Commercial;Commercial Building;Seagate;1.377663;103.872874
+Retail;Shopping Mall;ION Orchard;1.30400657142857;103.831991809524
+Travel;Tunnel;KPE Ventilator Building A;1.294647;103.875846
+Recreational;Hotel;Parkroyal Kitchener Road;1.310483;103.855614
+Education;University;NUS Utown Stephen Riady Centre;1.304587;103.772522
+Recreational;Hotel;Hotel Mercure;1.299594;103.853061333333
+Government;Government Building;The Treasury;1.290846;103.849666
+Commercial;Commercial Building;DBS Asia Hub;1.33341375862069;103.96512537931
+Retail;Shopping Mall;Singapore Shopping Centre;1.298132;103.8441404
+Recreational;Hotel;Orchid Hotel;1.276901;103.843866
+Commercial;Commercial Building;Apple South Asia Pte Ltd;1.389909;103.845018
+Commercial;Commercial Building;Mapletree Anson;1.2748544;103.845205
+Retail;Shopping Mall;Coronation Shopping Plaza;1.323858;103.809998
+Commercial;Commercial Building;DB Schenker SLC 3;1.37191;103.91049
+Commercial;Commercial Building;SGX Centre 1;1.279583;103.849995
+Education;University;Lily-NUS Centre;1.2960088;103.7816322
+Recreational;Hotel;Ascott Raffles Place;1.282643;103.851846
+Commercial;Commercial Building;One George Street;1.285655;103.847815
+Residential;Condominium;The Bencoolen;1.301628;103.8533485
+Commercial;Commercial Building;Hewlett Packard Enterprise;1.276781;103.800945
+Education;Research Centre;Neuros & Immunos;1.30231;103.793133
+Retail;Shopping Mall;Fu Lu Shou Complex;1.301472;103.85451
+Recreational;Hotel;Pan Pacific Orchard;1.307378;103.82989
+Commercial;Commercial Building;EFG Bank;1.290178;103.849698
+Commercial;Commercial Building;Robinson 77;1.277754;103.848437
+Retail;Shopping Mall;Punggol Plaza;1.3942846196;103.9130116
+Retail;Shopping Mall;UE Square;1.2920131784;103.84273348
+Retail;Shopping Mall;IKEA Tampines;1.374093;103.932535
+Retail;Shopping Mall;Tampines Plaza / Abacus;1.353159;103.942681
+Retail;Shopping Mall;Orchard Shopping Centre;1.30151999;103.8379974
+Recreational;Hotel;Marina Bay Sands Hotel;1.284352;103.860954
+Government;Public Facility;Singapore Girls Home;1.3469410868;103.89167248
+Travel;Land;Bendemeer MRT;1.313897;103.862746
+Recreational;Country Club;The American Club;1.3080478;103.8321412
+Education;University;Lee Kong Chian School of Business;1.295223;103.850541
+Commercial;Commercial Building;Singapore Conference Hall;1.276164;103.849015
+Retail;Shopping Mall;Sheng Siong Bedok Reservoir;1.33821827272727;103.923432727273
+Retail;Shopping Mall;Golden Mile Complex;1.3027746;103.8651546
+Residential;Condominium;The Interlace;1.28252;103.8026
+Residential;HDB;Tanjong Pagar Plaza;1.275564;103.842674
+Defence;Police/Fire Department;Alexandra Fire Station;1.288446;103.802799
+Education;Non-tertiary Institution;The Cultural Centre Basement Carpark;1.443792;103.784268
+Retail;Shopping Mall;Parkway Parade;1.301335;103.905279
+Residential;Condominium;Treetops Executive Residences;1.3085;103.82689
+Commercial;Commercial Building;The JTC Summit;1.33121;103.741855
+Recreational;Hotel;Village Hotel Bugis;1.301922;103.857786
+Retail;Shopping Mall;Fairprice Finest Marine Parade;1.301327;103.906282
+Commercial;Commercial Building;REC Group;1.2724432;103.6227262
+Travel;Land;Sam Kee LRT;1.410272;103.906962
+Government;Government Building;Parliament House;1.2889916152;103.85082616
+Retail;Shopping Mall;Mandarin Orchard;1.3021056156;103.83623065
+Commercial;Commercial Building;The Synergy;1.32941518775;103.74933371875
+Industrial;Industrial Building/Estate;K&S Corporate Headquarters;1.37555;103.873582
+Travel;Land;Rochor MRT;1.3038024;103.8524256
+Retail;Shopping Mall;Park Avenue Hotel;1.305256;103.788304
+Industrial;Industrial Building/Estate;Novartis Singapore Pharmaceutical Manufacturing;1.297425;103.634673
+Commercial;Commercial Building;WCEGA Tower and Plaza;1.3381418;103.759508
+Retail;Shopping Mall;Connection One;1.28296028571429;103.818826952381
+Education;Specialized Training School;Lifelong Learning institute;1.31996675;103.892258625
+Retail;Shopping Mall;Clarke Quay Central;1.289046;103.846506
+Commercial;Commercial Building;Singapore Press Holdings;1.3432304812;103.84862996
+Recreational;Hotel;M�venpick Heritage Hotel Sentosa;1.253151;103.819583
+Commercial;Commercial Building;Prudential @ Scotts;1.312612;103.837408
+Commercial;Commercial Building;Ubi Tech Park;1.327263;103.896331
+Commercial;Commercial Building;BEA Building;1.280726;103.849703
+Recreational;Country Club;Singapore Turf Club;1.42222594714286;103.762138714286
+Travel;Tunnel;KPE Ventilator Building D;1.333416;103.890057
+Commercial;Exhibition;Esplanade Theatres On The Bay;1.2898752;103.8552814
+Government;Government Building;National Environment Agency;1.310501;103.836325
+Industrial;Industrial Building/Estate;MCE Ventilation Building;1.2797005;103.872187
+Defence;Police/Fire Department;SCDF Division Two;1.358098;103.929407
+Recreational;Hotel;Sofitel Resort;1.2456054;103.8275662
 Travel;Land;Tan Kah Kee MRT;1.326039;103.807169
-Health;Hospital;Tan Tock Seng Hospital;1.321112502;103.8467779
-Retail;Shopping Mall;Tanglin Mall;1.305017977;103.8239398
-Retail;Shopping Mall;Tanglin Shopping Centre;1.306382196;103.8266869
-Retail;Shopping Mall;Tanjong Katong Complex;1.316463;103.894357
-Travel;Land;Tanjong Pagar MRT;1.276602;103.84595
-Retail;Shopping Mall;Tanjong Pagar Plaza;1.275564;103.842674
-Commercial;Industrial Building/Estate;TechLink;1.335623;103.905612
-Commercial;Industrial Building/Estate;Technopark @ Chai Chee;1.32327;103.921728
-Commercial;Commercial Building;Technopreneur Centre @ Ayer Rajah;1.295579;103.789789
-Commercial;Commercial Building;Techpoint;1.389335;103.8492855
-Retail;Shopping Mall;Tekka Mall;1.304607;103.852304
-Travel;Land;Telok Ayer MRT;1.282358;103.848268
-Travel;Land;Telok Blangah MRT;1.270704;103.8097675
-Commercial;Commercial Building;Temasek Tower;1.275741;103.847265
-Commercial;Commercial Building;Tetra Pak;1.311711;103.659803
-Retail;Shopping Mall;Textile Centre;1.3037355;103.861509
-Retail;Shopping Mall;The Adelphi;1.291198;103.8511755
-Retail;Shopping Mall;The Agape;1.326956;103.724647
-Residential;Hotel;The Amara;1.274935;103.843547
-Recreational;Country Club;The American Club;1.308049;103.83214
-Commercial;Commercial Building;The Arcade;1.2836205;103.852063
-Residential;Hotel;The Bencoolen;1.301628;103.8533485
-Retail;Shopping Mall;The Cathay;1.299276019;103.8479058
-Recreational;Country Club;The Chevrons;1.33113775;103.7493393
-Commercial;Commercial Building;The Concourse Office Tower;1.301078;103.862605
-Government;Public Facility;The Cultural Centre Basement Carpark;1.4437905;103.784268
-Residential;Hotel;The Elizabeth Hotel;1.308142;103.835788
-Retail;Shopping Mall;The Heeren;1.302665488;103.8371585
-Residential;Condominium;The Interlace;1.2833604;103.8029918
-Educational;University;The Kendall;1.285871;103.783508
-Recreational;Country Club;The Legends Fort Canning Park;1.295891;103.845465
-Commercial;Commercial Building;The Little Skool-House International;1.286715;103.835091
-Residential;Condominium;The Luxurie;1.38915775;103.8953448
-Commercial;Commercial Building;The Metropolis;1.305996;103.7914375
-Commercial;Commercial Building;The Octagon;1.2805425;103.8491845
-Retail;Shopping Mall;The Odean Katong;1.304637;103.901901
-Residential;Hotel;The Oriental Hotel;1.290097;103.858451
-Retail;Tourism;The Pits Building;1.2912865;103.8639275
-Residential;Condominium;The Sail @ Marina Bay;1.280877;103.852602
-Retail;Shopping Mall;The Seletar Mall;1.391327;103.876072
-Residential;Condominium;The Shaughnessy;1.417787;103.847236
-Recreational;Country Club;The Star Performing Arts Centre;1.3068665;103.788446
-Commercial;Commercial Building;The Strategy;1.330795;103.7465227
-Commercial;Commercial Building;The Synergy;1.331004982;103.7521473
-Commercial;Commercial Building;The Treasury;1.290846;103.849666
-Government;Government Building;The URA Centre;1.279584;103.845284
-Commercial;Commercial Building;The URA Centre - East Wing and Tower building;1.279584;103.845284
-Retail;Shopping Mall;Thomson Plaza;1.354648;103.8309225
-Travel;Land;Tiong Bahru MRT;1.286094667;103.8270253
-Retail;Shopping Mall;Tiong Bahru Plaza;1.286387758;103.8269157
-Travel;Land;Toa Payoh MRT;1.332613;103.8477675
-Commercial;Industrial Building/Estate;Toh Guan Centre;1.337694;103.754682
-Residential;Condominium;Tomlinson Heights;1.3029765;103.826996
-Commercial;Commercial Building;Tong Eng Building;1.28112;103.849306
-Commercial;Commercial Building;Tourism Court;1.303670025;103.8239938
-Commercial;Commercial Building;Tower Fifteen;1.273786;103.842148
-Commercial;Commercial Building;Toyota Motor Asia Pacific;1.275336;103.845632
-Residential;Hotel;Traders Hotel;1.3042705;103.8239115
-Government;Post Office;Traffic Police Headquarters;1.33018;103.89135
-Government;Police/Fire Department;Traffic Police Station;1.33018;103.89135
-Residential;Condominium;Treetop Executive Residences;1.3085;103.82689
-Commercial;Commercial Building;Tristar Complex;1.3158835;103.897326
-Commercial;Commercial Building;Tung Centre;1.284687;103.852696
-Commercial;Commercial Building;Tyco Electonics;1.376070667;103.8644712
-Commercial;Industrial Building/Estate;UB.One;1.333457;103.891752
-Commercial;Industrial Building/Estate;Ubi Tech Park;1.327263;103.896331
-Commercial;Commercial Building;UE BIZ Hub East;1.335333;103.9635085
-Commercial;Commercial Building;UE Bizhub Central;1.391226333;103.846582
-Retail;Shopping Mall;UE Square;1.292842203;103.8421972
-Commercial;Commercial Building;ung Centre;1.284687;103.852696
-Educational;University;Unilever Four Acres Campus;1.302107;103.787868
-Retail;Shopping Mall;United Square;1.317240757;103.8437651
-Educational;University;University Town;1.3043325;103.7733235
-Commercial;Commercial Building;UOB Alexandra Building;1.27791;103.802253
-Commercial;Commercial Building;UOB Kay Hian;1.311272;103.837746
-Commercial;Commercial Building;UOB Plaza 1;1.285394667;103.8506137
-Commercial;Commercial Building;UOB Plaza 2;1.285378667;103.8507373
-Retail;Shopping Mall;Upp Serangoon Shopping Centre;1.353487;103.878841
-Commercial;Commercial Building;UPS House;1.330506;103.96729
-Educational;Non-tertiary Institution;UWCSEA Centre for International Education;1.359;103.93093
-Residential;Hotel;V Hotel Lavender;1.307660333;103.8629657
-Retail;Shopping Mall;Valley Point;1.293071;103.827073
-Commercial;Commercial Building;Valley Point Office Tower;1.293071;103.827073
-Commercial;Commercial Building;Vertex Ubi;1.33299;103.894096
-Residential;Hotel;Village Hotel Katong;1.303763;103.90288
-Retail;Shopping Mall;VIVO City;1.264827983;103.8228077
-Residential;Hotel;W Hotel;1.246248;103.8423865
-Residential;Hotel;W Singapore - Sentosa Cove;1.2465664;103.8429378
-Residential;Condominium;WaterFront Gold;1.338436;103.92946
-Residential;Condominium;Waterfront Isle;1.338082;103.927634
-Retail;Shopping Mall;Waterway Point;1.406300333;103.9017173
-Commercial;Commercial Building;WCEGA Plaza;1.339001;103.759424
-Retail;Shopping Mall;West Coast Plaza;1.303880504;103.766494
-Retail;Shopping Mall;West Mall;1.350271521;103.7491733
-Retail;Shopping Mall;Westgate;1.334735325;103.7426213
-Commercial;Commercial Building;Westgate Retail;1.334735325;103.7426213
-Retail;Shopping Mall;Wheelock Place;1.304620055;103.830681
-Retail;Shopping Mall;White Sand Shopping Centre;1.3724145;103.9497505
-Retail;Shopping Mall;Wilkie Edge;1.3021225;103.8495125
-Commercial;Commercial Building;Winsland House II;1.29931;103.8408668
-Retail;Shopping Mall;Wisma Atria SC;1.303705485;103.8330921
-Commercial;Industrial Building/Estate;Woodlands Bizhub;1.452073;103.792106
-Commercial;Commercial Building;Woodlands Bizhub;1.452073;103.792106
-Travel;Land;Woodlands Checkpoint;1.445586;103.769005
-Commercial;Commercial Building;Woodlands Civic Centre;1.435012;103.7869165
-Residential;HDB;Woodlands HDB 678A;1.440531;103.801758
-Recreational;Parks/Gardens;Woodlands Industrial Park D;1.437443;103.766098
-Travel;Land;Woodleigh MRT;1.339417333;103.8708423
-Commercial;Commercial Building;Woodsville Interchange;1.326114;103.867728
+Residential;Condominium;Eden Residence Capitol;1.2932414;103.8514206
+Recreational;Hotel;Furama Riverfront Hotel;1.28739511111111;103.837862333333
+Retail;Shopping Mall;Tristar Complex;1.3158824;103.8973504
+Travel;Land;Kovan MRT;1.3601814;103.885004
+Retail;Shopping Mall;Shophouses at 986F Upper Changi North;1.35606625;103.97222125
+Retail;Shopping Mall;Park Mall;1.29788;103.845205
+Residential;Condominium;Flamingo Valley;1.318055;103.921725
+Retail;Shopping Mall;Waterway Point;1.4062726;103.9017426
+Commercial;Commercial Building;NTUC Income Centre;1.29671944444444;103.851584111111
+Commercial;Commercial Building;One@Changi City;1.33399345454545;103.962974454545
+Commercial;Commercial Building;LIPPO Centre;1.273116;103.845117
+Defence;Police/Fire Department;SCDF Division Three;1.444639336;103.83700045
+Defence;Police/Fire Department;The Interpol;1.306107;103.822446
+Commercial;Commercial Building;PSB Building;1.291863949;103.78562205
+Industrial;Industrial Building/Estate;Toh Guan Centre;1.337694;103.754682
+Travel;Marine;Sembcorp Marine Tuas Boulevard Yard;1.25142;103.61302
+Commercial;Commercial Building;PSA Building;1.273703;103.801625
+Commercial;Commercial Building;Maxwell House;1.278998125;103.84467125
+Commercial;Commercial Building;Zuellig Pharma;1.35317;103.972894
+Travel;Air;Singapore Air Traffic Control Centre;1.390789;103.983478
+Commercial;Commercial Building;Keppel Bay Tower;1.264858;103.818267
+Retail;Shopping Mall;Lucky Chinatown;1.283661144;103.8433037
+Commercial;Commercial Building;Mediacorp Campus;1.29439;103.79681
+Education;Research Centre;Agilent Technologies;1.440367;103.840658
+Travel;Land;Orchard MRT;1.304015;103.832186
+Retail;Shopping Mall;Marina Bay Sands The Shoppes;1.28395483333333;103.858842583333
+Travel;Land;Mattar MRT;1.326938;103.883177
+Commercial;Commercial Building;Parkview Square;1.300239;103.857602
+Tourism;Tourism;Asian Civilisation Museum;1.28817675;103.8515365
+Government;Prison;Changi Prison Cluster B Complex;1.35803;103.971334
+Industrial;Industrial Building/Estate;Admirax;1.462475;103.815963
+Commercial;Commercial Building;CWT Logistic Hub 1;1.299839;103.738947
+Recreational;Hotel;InterContinental Hotel;1.298454;103.854876
+Recreational;Casino;Marina Bay Sands Casino;1.2842125;103.859525875
+Commercial;Commercial Building;Hewlett Packard 1;1.28242;103.808041
+Travel;Land;Tai Seng MRT;1.335499;103.888247
+Retail;Shopping Mall;Orchard Cineleisure;1.30149765125;103.836250208333
+Recreational;Hotel;Orchard Hotel;1.3076133908;103.82853876
+Commercial;Commercial Building;Merrill Lynch HarbourFront;1.265701;103.819058
+Retail;Shopping Mall;313 @ Somerset;1.300988;103.838288
+Commercial;Commercial Building;Cendex Centre;1.280158;103.822798
+Government;Government Building;Woodlands Civic Centre;1.4350122;103.786916
+Retail;Shopping Mall;Courts Megastore;1.373682;103.933882
+Education;University;NUS School of Computing;1.294893;103.773934
+Travel;Land;Novena MRT;1.320459;103.843824
+Commercial;Commercial Building;Springleaf Tower;1.275083;103.846242
+Recreational;Hotel;Furama City Centre;1.286454;103.844608
+Travel;Land;Jalan Besar MRT;1.305762;103.855389
+Education;University;Civil Service College;1.309776891;103.7918776
+Industrial;Industrial Building/Estate;Enterprise One;1.332763;103.90268
+Recreational;Hotel;Four Points by Sheraton;1.289376;103.836601
+Commercial;Commercial Building;UOB Plaza 2;1.285341;103.851055
 Commercial;Commercial Building;WPP Building;1.310861;103.837091
-Commercial;Commercial Building;Xilink Asia Pacific Building;1.337905;103.9659183
-Commercial;Industrial Building/Estate;Yamazaki Mazak;1.32375;103.672255
-Retail;Shopping Mall;Yew Tee Point;1.397056019;103.7468308
-Residential;Hotel;York Hotel;1.30701;103.835317
-Retail;Shopping Mall;Youth Scape Park;1.300984991;103.8358853
-Retail;Shopping Mall;Zhongshan Mall;1.326737;103.846604
+Commercial;Commercial Building;Alexandra Technopark B;1.2774014;103.7994236
+Retail;Shopping Mall;Sim Lim Square;1.303016;103.853032
+Recreational;Country Club;HomeTeamNS JOM;1.3290372;103.8484762
+Education;University;Tahir Foundation Building;1.29547766666667;103.78028
+Industrial;Industrial Building/Estate;ASM Technology Singapore;1.4422195;103.8396905
+Recreational;Hotel;Hotel Rendezvous;1.298628;103.84934
+Commercial;Commercial Building;112 Robinson Road;1.279242;103.848822
+Residential;HDB;Blk 808C Ping Yi Greens;1.32795;103.92408
+Residential;Condominium;Visioncrest Residence;1.298212;103.842824
+Education;University;NUS Graduate Medical School Singapore;1.2812042;103.8341522
+Commercial;Commercial Building;Peace Centre;1.3012335;103.849553
+Retail;Shopping Mall;Goldhill Plaza;1.318146;103.842767
+Commercial;Commercial Building;Eightrium;1.33778157142857;103.964491857143
+Travel;Land;Potong Pasir MRT;1.3312538;103.8689868
+Recreational;Country Club;Orchid Country Club;1.4111392;103.8441996
+Recreational;Country Club;NTU Alumni Club @ One North;1.3037405;103.789858
+Recreational;Hotel;Concorde Hotel & Shopping Mall;1.3006284865;103.84212545
+Commercial;Commercial Building;IHUB Building;1.32876;103.741868
+Commercial;Commercial Building;Winsland House II;1.2997066;103.8409826
+Retail;Shopping Mall;Peoples Park Complex;1.2841296;103.842591
+Industrial;Industrial Building/Estate;ASE Singapore;1.450319;103.803971
+Recreational;Hotel;Grand Park City Hall;1.2926135;103.8502395
+Retail;Shopping Mall;Ngee Ann City;1.30257669678261;103.834655895652
+Industrial;Industrial Building/Estate;Micron Semiconductor Asia;1.3746481444;103.8656812
+Travel;Land;Kembangan MRT;1.321052;103.912933
+Government;Government Building;Ministry of Education;1.3053754;103.7910544
+Commercial;Commercial Building;Odeon Towers;1.296198;103.853249
+Travel;Land;Kaki Bukit MRT;1.335044;103.908694
+Healthcare;Medical Centre;Camden Medical Centre;1.303142;103.823925
+Commercial;Commercial Building;1A International Business Park;1.32804;103.748387
+Travel;Land;Downtown MRT;1.279267;103.8523958
+Retail;Shopping Mall;White Sand Shopping Centre;1.3724145;103.9497505
+Government;Government Building;Singapore Labour Foundation (SLF Building);1.333674;103.839351
+Commercial;Commercial Building;Citibank;1.33413348633333;103.9658305
+Travel;Land;Holland Village MRT;1.312239;103.796404
+Recreational;Hotel;Robertson Quay Hotel;1.291201;103.84201
+Education;University;Singapore Institute of Management;1.329232998;103.775907688889
+Commercial;Commercial Building;City House;1.281227;103.849788
+Commercial;Commercial Building;J'Forte;1.335497;103.889247
+Recreational;Hotel;Hilton International Hotel;1.30588;103.829317
+Commercial;Commercial Building;Income @ Raffles;1.28419163636364;103.852547818182
+Commercial;Commercial Building;Philips Electronics Singapore Pte Ltd;1.334837;103.841858
+Retail;Shopping Mall;Bukit Timah Plaza;1.3386178392;103.77861828
+Retail;Shopping Mall;Tekka Mall;1.304601;103.852314
+Travel;Land;Bartley MRT;1.34285;103.879702
+Commercial;Commercial Building;The Arcade;1.283621;103.852067
+Retail;Shopping Mall;The Adelphi;1.291203;103.851172444444
+Commercial;Commercial Building;Standard Chartered at Changi Business Park;1.33474082758621;103.966675551724
+Commercial;Commercial Building;DBS Tower 2;1.278052;103.849051
+Retail;Shopping Mall;East Point Mall;1.3427085;103.9529645
+Retail;Shopping Mall;Balestier Plaza;1.325754;103.850389
+Travel;Land;Caldecott MRT;1.337627;103.839523
+Recreational;Hotel;Changi Village Hotel;1.3903835;103.9860795
+Industrial;Industrial Building/Estate;SDV logistic Green Hub;1.320282;103.701315
+Retail;Shopping Mall;Katong Square;1.304744;103.9044
+Retail;Shopping Mall;Balmoral Plaza;1.316455;103.835476
+Commercial;Commercial Building;Invensys Building;1.337357;103.964083
+Travel;Land;Buangkok MRT;1.382742;103.893159
+Recreational;Hotel;Bay Hotel;1.26617;103.823
+Education;Primary School;UWCSEA Dover Campus;1.301967;103.778591
+Travel;Land;Marina Bay MRT;1.2763088;103.8547388
+Industrial;Industrial Building/Estate;Micron Semiconductor Asia (North Coast);1.454844;103.793648
+Commercial;Commercial Building;Fusionopolis Galaxis;1.3000156;103.78827845
+Commercial;Commercial Building;Samsung Hub;1.283306;103.84962
+Recreational;Hotel;Capella Hotel;1.249457;103.824446
+Industrial;Industrial Building/Estate;FoodXChange;1.332763;103.90268
+Recreational;Hotel;Goodwood Park Hotel;1.308895;103.8344656
+Recreational;Hotel;Sheraton Towers Hotel;1.311937;103.836473
+Commercial;Commercial Building;Cuppage Plaza;1.3020035;103.8407295
+Recreational;Hotel;Novena Specialist;1.319997;103.844796
+Industrial;Industrial Building/Estate;LTH Logistics;1.308072;103.729933
+Travel;Land;Paya Lebar MRT;1.317269;103.892248
+Education;University;Unilever Four Acres Campus;1.302107;103.787868
+Travel;Land;Newton MRT;1.31301209090909;103.837822090909
+Commercial;Commercial Building;1 Cleantech Loop;1.355524;103.692535
+Travel;Land;Hillview MRT;1.3627616;103.7672234
+Recreational;Country Club;The Chevrons;1.330902;103.748643
+Defence;Police/Fire Department;Airport Police Station;1.3431868;103.9808166
+Recreational;Hotel;Hotel Boss;1.306062;103.86007
+Education;Research Centre;Defence Science & Technology Agency;1.28788442857143;103.796391428571
+Travel;Land;Beauty World MRT;1.3414328;103.7758008
+Travel;Land;Mountbatten MRT;1.306177;103.882424
+Recreational;Hotel;Copthorne Kings Hotel;1.288262;103.836638
+Recreational;Country Club;SAFRA Yishun;1.4242458;103.840903
+Travel;Land;Marymount MRT;1.348845;103.839437
+Residential;Condominium;Corals at Keppel Bay;1.267271;103.817136
+Commercial;Commercial Building;The Concourse Office Tower;1.301078;103.862605
+Commercial;Commercial Building;UOB Kay Hian;1.311272;103.837746
+Industrial;Industrial Building/Estate;Philips Lumileds Singapore Pte Ltd;1.440425;103.83623
+Industrial;Industrial Building/Estate;Shun Li Industrial Park;1.3366826;103.9107062
+Government;Government Building;Istana;1.303977;103.843024
+Education;Specialized Training School;Lasalle College of the Arts;1.303043;103.851613
+Recreational;Hotel;Hotel Royal Queens;1.297553;103.852249
+Commercial;Commercial Building;3M Innovation Centre;1.4459988;103.811181
+Industrial;Industrial Building/Estate;Rolls Royce Seletar;1.402365;103.866806
+Retail;Shopping Mall;The Seletar Mall;1.391327;103.876072
+Travel;Land;Seng Kang MRT;1.391689;103.895484
+Commercial;Commercial Building;CapitaGreen;1.28208758823529;103.850103117647
+Retail;Shopping Mall;Sun Plaza;1.4481922;103.8194924
+Travel;Land;Nicoll Highway MRT;1.29974;103.863567
+Residential;Condominium;Leedon Residence;1.313792;103.801859
+Retail;Shopping Mall;Tanglin Mall;1.304856;103.823882
+Commercial;Commercial Building;Akzonobel House;1.3368935;103.967188
+Retail;Shopping Mall;Centrepoint Shopping Centre;1.301926;103.839803
+Travel;Land;Tiong Bahru MRT;1.286111;103.827359
+Industrial;Industrial Building/Estate;F&N Foods;1.311814;103.749192
+Healthcare;Medical Centre;Singapore National Eye Centre;1.280812;103.836051
+Commercial;Commercial Building;Da Vinci Building;1.3378404;103.8926406
+Travel;Tunnel;Fort Canning Tunnel;1.296846;103.846998
+Commercial;Commercial Building;Creative Resource Building;1.3286306;103.7459446
+Commercial;Commercial Building;The Metropolis;1.305996;103.7914375
+Retail;Shopping Mall;Queensway Shopping Centre;1.2876309904;103.80323396
+Industrial;Industrial Building/Estate;Lanxess Butyl Pte. Ltd;1.266434;103.667459
+Commercial;Commercial Building;Liat Towers;1.3051045;103.8307285
+Industrial;Industrial Building/Estate;Enterprise Hub;1.33683;103.75434
+Industrial;Industrial Building/Estate;Northlink Building;1.46235684615385;103.812471615385
+Retail;Shopping Mall;OG Albert Complex;1.302379;103.853784
+Retail;Shopping Mall;Hougang Point;1.375673;103.8794536
+Recreational;Hotel;Hotel Jen;1.30427;103.823911
+Commercial;Commercial Building;Apex Tower;1.274115;103.845259
+Travel;Land;Expo MRT;1.334654;103.961603
+Recreational;Hotel;Seacare Hotel;1.287716;103.839914
+Commercial;Commercial Building;MBFC Tower 1;1.28012342268041;103.854202793814
+Travel;Land;Somerset MRT;1.300229;103.83917
+Travel;Air;Changi Airport Terminal 1;1.36518594454054;103.990498113514
+Defence;Military;Multi Mission Range Complex;1.34233;103.67298
+Commercial;Exhibition;Singapore Art Museum;1.29732;103.850971
+Residential;Condominium;Waterfront Isle;1.33808666666667;103.927626666667
+Education;University;SMU Administration Block;1.296871;103.8522
+Commercial;Commercial Building;Park Avenue Changi Hotel;1.3354412;103.9634312
+Residential;Condominium;Altez Condo;1.274621;103.844477
+Retail;Shopping Mall;West Coast Plaza;1.3038260056;103.76614712
+Commercial;Commercial Building;Republic Plaza;1.283208;103.850812
+Healthcare;Hospital;Institute of Mental Health;1.382271;103.884936
+Commercial;Commercial Building;Sultan Plaza;1.302969;103.86192
+Commercial;Commercial Building;HSBC Building;1.285084;103.852801
+Retail;Shopping Mall;Changi City Point;1.334095007;103.9630229
+Commercial;Commercial Building;Keppel Towers;1.274407;103.842204
+Retail;Shopping Mall;Tanglin Shopping Centre;1.306388;103.826991
+Commercial;Commercial Building;The Strategy;1.330068;103.747244
+Commercial;Commercial Building;Kimberly Clark;1.294044375;103.642475
+Commercial;Commercial Building;Fook Hai Building;1.284976;103.846434
+Defence;Police/Fire Department;Bedok Police Division HQ;1.3326808;103.9371384
+Education;Research Centre;Institute of Microelectronics;1.289586;103.779635
+Travel;Land;Tuas Checkpoint;1.349309;103.636145
+Recreational;Country Club;Raffles Town Club;1.321901;103.824963
+Retail;Shopping Mall;NorthPoint Shopping Centre;1.429703;103.8357965
+Healthcare;Hospital;Parkway East Hospital;1.3151156;103.9089956
+Commercial;Commercial Building;Capital Tower;1.27758087914286;103.847684914286
+Recreational;Hotel;Parkroyal on Pickering;1.285655;103.846275
+Commercial;Commercial Building;Xilink Asia Pacific Building;1.337794;103.965888
+Commercial;Commercial Building;OCBC Centre;1.285140038;103.848999
+Retail;Shopping Mall;Robertson Walk;1.291869;103.841455
+Residential;HDB;2 Jurong West St 23;1.35132;103.70958
+Commercial;Commercial Building;STATS ChipPac;1.43969272727273;103.842685545455
+Retail;Shopping Mall;Wheelock Place;1.3046610512;103.83051964
+Retail;Shopping Mall;MyVillage @Serangoon Garden;1.365132;103.865071
+Recreational;Hotel;St Regis Hotel;1.305636;103.826044
+Travel;Tunnel;KPE Ventilator Building B;1.307978;103.875673
+Recreational;Hotel;Amara Hotel;1.274935;103.843545333333
+Recreational;Hotel;Shangri-La Hotel;1.31135155157895;103.826575905263
+Commercial;Commercial Building;Mountbatten Square;1.307561;103.881284
+Commercial;Commercial Building;Shaw Tower;1.29651063636364;103.856859454545
+Recreational;Hotel;Regent Hotel;1.304668;103.824879
+Travel;Land;Lorong Chuan MRT;1.351644;103.864266
+Recreational;Country Club;Singapore Island Country Club;1.34687828571429;103.813303857143
+Travel;Land;SBS Transit West District;1.3554;103.6923
+Government;Government Building;Ministry of Home Affairs;1.32394105692308;103.844776076923
+Commercial;Commercial Building;Airline House;1.3772675;103.99729575
+Defence;Police/Fire Department;SCDF HQ at Ubi;1.334261;103.893134
+Education;Research Centre;P&G Innovation Centre;1.30337;103.79211
+Recreational;Casino;Marina Bay Sands Theatre;1.28426442857143;103.859624
+Industrial;Industrial Building/Estate;NorthTech;1.455919981;103.8000031
+Retail;Shopping Mall;TANGS at Tang Plaza;1.305009961;103.8330002
+Residential;Condominium;Sky Vue;1.35267733333333;103.850696
+Commercial;Commercial Building;30 Hill Street;1.29360907422222;103.849527755556
+Travel;Land;Bencoolen MRT;1.298829;103.850235
+Post Office;Post Office;Singapore Post Centre;1.319035703;103.8949422
+Commercial;Commercial Building;AXA Tower;1.275741;103.847265
+Commercial;Commercial Building;Southpoint;1.273439;103.841264
+Industrial;Industrial Building/Estate;Chartered Semiconductor Manufacturing;1.370842;103.928775
+Commercial;Commercial Building;Grandlink Square;1.31414866666667;103.891648333333
+Retail;Shopping Mall;Far East Plaza;1.307194794;103.83376824
+Commercial;Commercial Building;Tung Centre;1.284687;103.852696
+Commercial;Commercial Building;Nexus @ one-north;1.298955;103.789701
+Retail;Shopping Mall;Hougang Green Shopping Mall;1.3793387864;103.88785532
+Commercial;Commercial Building;UPS House;1.330506;103.96729
+Food;Food Area;CHIJMES;1.295468;103.851993
+Retail;Shopping Mall;Paragon;1.303874;103.835866
+Retail;Shopping Mall;SCAPE;1.3010019928;103.8358626
+Commercial;Commercial Building;SBF Centre;1.279758;103.847978
+Retail;Shopping Mall;Heartland Mall-Kovan;1.3595318;103.8851996
+Commercial;Commercial Building;UOB Alexandra Building;1.27791;103.802253
+Tourism;Tourism;Singapore Discovery Centre;1.332703;103.678937
+Government;Government Building;National Design Centre;1.298765;103.853365
+Retail;Shopping Mall;Palais Renaissance;1.30666025;103.8295925
+Commercial;Commercial Building;Mediacorp Caldecott East Wing Building;1.3383389304;103.8327938
+Government;Public Facility;Tuas View Dormitory;1.3127;103.626
+Travel;Tunnel;CTE;1.3018036;103.8427002
+Recreational;Hotel;Hard Rock Hotel;1.25777394117647;103.818885352941
+Commercial;Exhibition;National Gallery;1.290353;103.851355
+Recreational;Hotel;Hotel Ibis bencoolen;1.301122;103.852557
+Travel;Land;Botanic Garden MRT;1.322195;103.815121
+Residential;HDB;Woodlands HDB 678A;1.440531;103.801758
+Commercial;Commercial Building;Great Eastern Changi;1.316952;103.903559
+Retail;Shopping Mall;High Street Centre;1.29005266666667;103.849202333333
+Education;Non-tertiary Institution;Canadian International School Jurong;1.3453952;103.7272002
+Commercial;Commercial Building;Xilinx;1.33813;103.965991
+Commercial;Commercial Building;29A International Business Park;1.327712;103.746102
+Retail;Shopping Mall;Shaw Plaza;1.325071;103.851162
+Commercial;Commercial Building;Prudential Tower;1.282804;103.849873
+Recreational;Sports Facility;OCBC Aquatic Centre;1.304915;103.873769
+Commercial;Commercial Building;Chevron House;1.284191;103.851959
+Retail;Shopping Mall;Bukit Timah Shopping Centre;1.343292;103.775859
+Education;Specialized Training School;SIA Training Centre;1.34581354545455;103.965821727273
+Travel;Land;Dhoby Ghaut MRT;1.29896268181818;103.845848363636
+Commercial;Commercial Building;Techpoint;1.3893364;103.8492846
+Industrial;Industrial Building/Estate;Grundfos Singapore;1.325783;103.711951
+Retail;Shopping Mall;Big Box;1.33083;103.746762
+Travel;Land;Kranji MRT;1.425135;103.762147
+Retail;Shopping Mall;Westgate;1.33535;103.74297
+Industrial;Industrial Building/Estate;Yamazaki Mazak;1.32375;103.672255
+Retail;Shopping Mall;Fairprice Hub;1.326536;103.678572
+Commercial;Commercial Building;Straits Trading Building;1.285124;103.85232
+Education;University;NUS Temasek Laboratories;1.299772;103.772073
+Travel;Marine;Marina Bay Cruise Centre;1.266041;103.860502
+Residential;Condominium;WaterFront Gold;1.338436;103.92946
+Residential;Condominium;Tree House Residences;1.370144;103.775997
+Commercial;Commercial Building;AIA Building Tampines;1.354639;103.941897
+Retail;Shopping Mall;City Square Mall;1.3116028;103.8563558
+Industrial;Industrial Building/Estate;Northpoint Bizhub;1.436155;103.843155
+Retail;Shopping Mall;Roxy Square;1.303908;103.9043263
+Travel;Land;Esplanade MRT;1.293199;103.855534
+Commercial;Commercial Building;Standard Chartered Bank;1.285467;103.851763
+Healthcare;Hospital;KK Women's And Children's Hospital;1.310494;103.846759
+Recreational;Hotel;Royal Plaza On Scotts;1.30706;103.832088
+Retail;Shopping Mall;Peoples Park Centre;1.285774;103.8439745
+Residential;Condominium;Marina Bay Suites;1.280354;103.852142
+Recreational;Country Club;Safra Toa Payoh;1.3302388;103.8545576
+Education;Research Centre;Energy Studies Institute;1.29057;103.777572
+Retail;Shopping Mall;Pacific Plaza;1.306549;103.832131
+Travel;Land;Raffles Place MRT;1.283935;103.851459
+Retail;Shopping Mall;Rivervale Plaza;1.3855482;103.9019484
+Education;University;Nanyang Technological University;1.34559544926316;103.681428026316
+Retail;Shopping Mall;Anchorpoint;1.28861533166667;103.8050041
+Residential;Condominium;Marina Boulevard Residences;1.279587;103.854996
+Commercial;Commercial Building;79 Anson Road;1.274039;103.845696
+Retail;Shopping Mall;Bedok Mall;1.324502;103.929604
+Retail;Shopping Mall;Novena Square;1.31987716285714;103.844087642857
+Commercial;Commercial Building;Plaza 8;1.3332782;103.965643
+Industrial;Industrial Building/Estate;FoodXchange;1.463147;103.814403
+Retail;Shopping Mall;Burlington Square;1.3022585925;103.8526084
+Commercial;Commercial Building;Equinix;1.29581;103.789901
+Retail;Shopping Mall;Orchard Central;1.30077;103.839789
+Commercial;Commercial Building;Siemens Centre;1.327386;103.870766
+Travel;Tunnel;KPE Ventilator Building F;1.356801;103.901657
+Commercial;Commercial Building;Standard Chartered at Changi2;1.335189;103.967258
+Travel;Land;Bayfront MRT;1.282104;103.859181
+Religious Sites;Religion;Buddha Tooth Relic Temple;1.281455;103.844373
+Healthcare;Hospital;Changi General Hospital;1.34089466666667;103.949056555556
+Healthcare;Hospital;Mount Elizabeth Novena Hospital;1.32214738461538;103.844145
+Industrial;Industrial Building/Estate;Halliburton;1.27962;103.6278
+Recreational;Sports Facility;OCBC Arena;1.304973;103.876296
+Travel;Land;Woodsville Interchange;1.326114;103.867728
+Retail;Shopping Mall;The Agape;1.326956;103.724647
+Travel;Land;Kent Ridge MRT;1.2933644;103.784369666667
+Retail;Shopping Mall;Orchard Towers;1.3069668;103.8292154
+Industrial;Industrial Building/Estate;Genentech Singapore;1.29635414285714;103.640302285714
+Retail;Shopping Mall;IMM;1.3358496;103.7464028
+Industrial;Industrial Building/Estate;Mapletree Industrial Serangoon North;1.3744842;103.8690762
+Commercial;Commercial Building;Robinson Centre;1.279265;103.849341
+Retail;Shopping Mall;Aperia;1.3104105;103.8635665
+Commercial;Commercial Building;Chai Chee Technopark;1.3232572;103.92141055
+Travel;Tunnel;KPE Ventilator Building E;1.342648;103.898882
+Industrial;Industrial Building/Estate;SATS Inflight Catering Centre 1;1.34123;103.984805
+Government;Public Facility;Marina Barrage;1.280811;103.870972
+Commercial;Commercial Building;Ocean Financial Centre;1.28317114285714;103.851894857143
+Retail;Shopping Mall;Riverside Point;1.289168;103.844258
+Recreational;Country Club;Sembawang Country Club;1.416677;103.815978
+Recreational;Hotel;M Hotel;1.273692;103.845074
+Commercial;Commercial Building;Sinsov Building;1.284467;103.850653
+Education;University;SIT @ Nanyang Polytechnic;1.377566;103.848750666667
+Recreational;Sports Facility;Jurong Superbowl;1.325487;103.725201
+Commercial;Exhibition;National Museum;1.29673;103.848502
+Travel;Land;Clarke Quay MRT;1.288721;103.846614
+Retail;Shopping Mall;Chinatown Plaza;1.278631;103.842143
+Residential;Condominium;Tomlinson Heights;1.302919;103.826947
+Commercial;Commercial Building;71 Robinson Road;1.278364;103.848803
+Commercial;Commercial Building;Gateway East;1.298834;103.859413
+Defence;Police/Fire Department;Traffic Police Headquarters;1.33018;103.89135
+Commercial;Commercial Building;One Raffles Quay North Tower;1.281441;103.852103
+Commercial;Commercial Building;One Raffles Quay South Tower;1.280877;103.851691
+Industrial;Industrial Building/Estate;Advanced Flat Panel Display Pte Ltd;1.360502;103.929684
+Commercial;Commercial Building;Tong Eng Building;1.28112;103.849306
+Retail;Shopping Mall;Century Square;1.35237;103.943779
+Recreational;Sports Facility;National Stadium;1.30416106451613;103.874690375
+Commercial;Commercial Building;The Westin;1.2782916;103.8506444
+Travel;Land;Toa Payoh MRT;1.332756;103.847535
+Retail;Shopping Mall;JCUBE;1.33320633333333;103.740237333333
+Education;University;Yale-NUS College;1.30582;103.772106
+Retail;Shopping Mall;Far East Shopping Centre;1.305492;103.829977
+Religious Sites;Religion;Buddha Tooth Relic Temple and Museum;1.281455;103.844373
+Commercial;Commercial Building;Maybank Tower;1.285895;103.852505
+Commercial;Commercial Building;HSR Building;1.33756588575;103.854901275
+Recreational;Hotel;Carlton City Hotel;1.276043;103.843687
+Retail;Shopping Mall;Chinatown Point;1.2851808;103.8449394
+Commercial;Commercial Building;Royal Brothers Building;1.28389;103.850817
+Retail;Shopping Mall;Upp Serangoon Shopping Centre;1.353487;103.878841
+Travel;Land;Chinatown MRT;1.285017;103.8433585
+Retail;Shopping Mall;Greenwich Village;1.387586;103.869298
+Retail;Shopping Mall;Katong Shopping Centre;1.303872;103.90107
+Commercial;Commercial Building;Canon Digital Media Hub;1.300727;103.856232
+Healthcare;Hospital;Khoo Teck Puat Hospital;1.424084;103.838592
+Retail;Shopping Mall;Bugis Junction;1.29960296236364;103.855517218182
+Industrial;Industrial Building/Estate;Lonza Biologics Tuas Pte Ltd;1.29894222222222;103.639944333333
+Commercial;Commercial Building;Mitsubishi Electric Building;1.289075;103.806892
+Recreational;Hotel;Marina Mandarin;1.291606;103.857044
+Education;Non-tertiary Institution;ITE HQ and College Central;1.3781495;103.8562985
+Travel;Land;Jurong East MRT;1.333077;103.742351
+Recreational;Hotel;Orchard Parade Hotel;1.306576;103.827721
+Tourism;Tourism;Gardens by The Bay;1.2840578;103.865138
+Retail;Shopping Mall;Central Mall;1.288405;103.842312
+Commercial;Commercial Building;Asia Square Tower 1;1.278934;103.851251
+Retail;Shopping Mall;Orchard Gateway;1.30079275;103.8391793
+Industrial;Industrial Building/Estate;Pioneer Junction;1.33418766666667;103.697549666667
+Travel;Land;Labrador Park MRT;1.272288;103.802625
+Recreational;Hotel;Swissotel Merchant Court;1.28834804;103.84583845
+Education;Primary School;UWCSEA Tampines;1.359;103.93093
+Commercial;Commercial Building;AZ @ Paya Lebar;1.328197;103.890839
+Retail;Shopping Mall;Stamford Court;1.294473326;103.85013044
+Defence;Police/Fire Department;Police Cantonment Complex;1.2785438;103.839421
+Recreational;Country Club;Temasek Club;1.34452633333333;103.780730333333
+Retail;Shopping Mall;Sunshine Plaza;1.3005102;103.850712
+Recreational;Hotel;Raffles City;1.2933324784;103.853393664
+Commercial;Commercial Building;Oxley Bizhub 2;1.332243;103.892286
+Healthcare;Hospital;Yishun Community Hospital;1.43162533333333;103.837306666667
+Retail;Shopping Mall;Square II;1.321089;103.843955
+Recreational;Parks/Gardens;Taman Serasi Food Centre;1.308503;103.818112
+Commercial;Commercial Building;Changi Cargo Agents Megaplex 1;1.37303928571429;103.995015285714
+Government;Public Facility;National Library;1.297579;103.854232
+Government;Government Building;Immigration And Checkpoint Authority;1.3064640168;103.86266916
+Travel;Land;Dakota MRT;1.308339;103.888571
+Retail;Shopping Mall;Siglap Center;1.312583;103.923166
+Healthcare;Hospital;National Heart Centre;1.281481;103.836694
+Commercial;Commercial Building;TripleOne Somerset;1.300223;103.837247
+Retail;Shopping Mall;Paya Lebar Square;1.31883875;103.8926135
+Travel;Land;Telok Ayer MRT;1.282358;103.848268
+Commercial;Commercial Building;Robinson Point;1.279572;103.849543
+Commercial;Commercial Building;King's Centre;1.289611;103.8357658
+Commercial;Commercial Building;SGX Centre 2;1.278973;103.84959
+Recreational;Hotel;Grand Pacific Hotel;1.297405979;103.85269535
+Commercial;Commercial Building;DBS Tower 1;1.277045;103.84843
+Retail;Shopping Mall;Loyang Point;1.367076;103.964615333333
+Commercial;Commercial Building;Maybank Kim Eng Securities;1.287522;103.846591
+Healthcare;Hospital;Singapore General Hospital;1.27954;103.834579888889
+Commercial;Commercial Building;Great Eastern Centre;1.284809;103.847642
+Recreational;Hotel;Fullerton Hotel;1.286195;103.852974
+Government;Government Building;Health Promotion Board;1.2797611012;103.83847356
+Recreational;Hotel;Grand Copthorne Waterfront Hotel;1.2901210772;103.83512152
+Retail;Shopping Mall;Raffles City Shopping Centre;1.29393673129412;103.853137415686
+Residential;Condominium;Park Avenue Residence;1.292211;103.840407
+Commercial;Commercial Building;Fusionopolis Symbiosis;1.298898;103.787765
+Commercial;Commercial Building;Alexandra Point;1.277282;103.802022
+Commercial;Commercial Building;Marsh & McLennan Centre;1.283537;103.846868
+Commercial;Commercial Building;Twenty Anson;1.275336;103.845632
+Education;Research Centre;Synapse;1.301508;103.793407
+Industrial;Industrial Building/Estate;AutoBay @ Kaki Bukit;1.341464;103.912462
+Industrial;Industrial Building/Estate;Satair Seletar;1.40673;103.86138
+Commercial;Commercial Building;Anson House;1.273846;103.844474
+Retail;Shopping Mall;Bras Basah Complex;1.29689675;103.85362475
+Recreational;Hotel;Four Seasons Hotel;1.30521;103.828654
+Healthcare;Hospital;NUH System Acadamic Block;1.2924588;103.783333
+Residential;HDB;Jurong East Street 13 Blk 102;1.336098;103.738224
+Travel;Land;Buona Vista MRT;1.306641;103.790708
+Commercial;Commercial Building;Millenia Tower;1.292671;103.860306
+Residential;HDB;Hougang Capeview Blk 476A;1.37686;103.90414
+Commercial;Commercial Building;Spring Singapore;1.284303;103.813744
+Recreational;Hotel;Hotel Michael;1.25527133333333;103.820013666667
+Education;Research Centre;DNV GL;1.29052;103.787235
+Retail;Shopping Mall;Tampines Mart;1.354451;103.960096
+Commercial;Commercial Building;PWC Building;1.282322;103.849001
+Retail;Shopping Mall;Sim Lim Tower;1.303788;103.854677
+Travel;Land;Geylang Bahru MRT;1.321355;103.871932
+Residential;Condominium;The Luxurie;1.389115;103.896325
+Travel;Air;Changi Airport Terminal 2;1.35519080948387;103.988976754839
+Recreational;Country Club;Civil Service Club @ Bukit Batok;1.352611;103.749375
+Residential;Condominium;Balestier Point;1.322791;103.852038
+Commercial;Commercial Building;StarHub Centre;1.3028504905;103.84008565
+Retail;Shopping Mall;Leisure Park Kallang;1.302351;103.876438
+Tourism;Tourism;Singapore Science Centre;1.332859;103.735952
+Retail;Shopping Mall;OG Peoples Park;1.285236;103.843166
+Industrial;Industrial Building/Estate;TAG.A;1.386819;103.82931
+Education;Research Centre;JTC Cleantech One;1.35498;103.69227
+Retail;Shopping Mall;Tanjong Pagar Centre;1.27698225;103.84554425
+Recreational;Hotel;V Hotel Lavender;1.307851;103.8625
+Commercial;Commercial Building;Thomson Reuters;1.2902165;103.7882845
+Education;Non-tertiary Institution;Nanyang Polytechnic;1.380697;103.849606
+Industrial;Industrial Building/Estate;Changi International Logistics Centre Ltd;1.375966;103.97302
+Retail;Shopping Mall;IKEA Alexandra;1.2879774735;103.8059969
+Industrial;Industrial Building/Estate;Secom Centre;1.335021;103.758716
+Recreational;Hotel;Hotel Fort Canning;1.295891;103.845465
+Retail;Shopping Mall;Harbourfront Centre;1.264088;103.820215
+Retail;Shopping Mall;Icon Village;1.275159;103.844533
+Industrial;Industrial Building/Estate;Jackson Square;1.337009;103.848855
+Commercial;Commercial Building;One Finlayson Green;1.282234;103.851285
+Commercial;Commercial Building;South Beach Tower;1.29510283333333;103.856182958333
+Commercial;Commercial Building;Vertex Ubi;1.33299;103.894096
+Healthcare;Hospital;Mount Alvernia Hospital;1.341755904;103.83808645
+Travel;Land;Farrer Park MRT;1.312627;103.854112
+Commercial;Commercial Building;NTUC Centre;1.282261;103.852586
+Recreational;Hotel;Pan Pacific Singapore;1.292432;103.858809
+Retail;Shopping Mall;Tanjong Katong Complex;1.316463;103.894357
+Retail;Shopping Mall;Bukit Panjang Plaza;1.379917;103.764349
+Industrial;Industrial Building/Estate;NCS;1.319708;103.930202
+Recreational;Hotel;Hyatt Regency Singapore;1.306323;103.833303
+Retail;Shopping Mall;Kembangan Plaza;1.320374;103.912665
+Industrial;Industrial Building/Estate;9 @ Tagore;1.383621;103.826068
+Government;Government Building;Ministry of Foreign Affairs;1.304704;103.81841
+Retail;Shopping Mall;One KM;1.314854;103.894555
+Recreational;Country Club;National Service Resort and Country Club;1.318719;103.974321
+Commercial;Commercial Building;Capital Square;1.2838694;103.8488094
+Retail;Shopping Mall;The Heeren;1.30266859;103.8371906
+Travel;Land;City Hall MRT;1.292989;103.852533
+Defence;Police/Fire Department;Jurong Police Station;1.350901;103.702242
+Commercial;Commercial Building;Fragrance Empire Building;1.27523;103.80141
+Education;Specialized Training School;Devan Nair Institute;1.336112;103.745087
+Retail;Shopping Mall;Oriental Plaza;1.281855;103.842009
+Travel;Land;Telok Blangah MRT;1.270701;103.809773
+Residential;Condominium;The Sail @ Marina Bay;1.280877;103.852602
+Commercial;Commercial Building;ST Electronics;1.3916062;103.849267
+Residential;Condominium;Rivergate Condo;1.291702;103.836993
+Retail;Shopping Mall;Causeway Point;1.436069965;103.7860031
+Commercial;Commercial Building;The Kendall;1.285871;103.783508
+Healthcare;Hospital;Connexion;1.3124615;103.854033
+Retail;Shopping Mall;Wisma Atria SC;1.30370686375;103.833115075
+Commercial;Commercial Building;BreadTalk IHQ;1.334322;103.889745
+Tourism;Tourism;Singapore Flyer;1.289971;103.862392
+Commercial;Commercial Building;MBFC Tower 2;1.279448;103.853805
+Commercial;Commercial Building;MBFC Tower 3;1.27914846153846;103.854474615385
+Industrial;Industrial Building/Estate;KA Foodlink;1.33591;103.882807333333
+Healthcare;Medical Centre;National Cancer Centre;1.2792844;103.8365338
+Retail;Shopping Mall;Bugis+;1.29964;103.854283
+Commercial;Commercial Building;UOB Plaza 1;1.2853932;103.8506958
+Residential;Condominium;Reflections at Keppel Bay;1.267282;103.811078
+Commercial;Commercial Building;Icon@IBP;1.327233225;103.74924975
+Retail;Shopping Mall;International Building;1.306092;103.831011
+Industrial;Industrial Building/Estate;Exxonmobil Chemical Manufacturing;1.268685;103.697995
+Commercial;Commercial Building;Solaris @ One-North;1.298888875;103.788483875
+Education;University;SMU School of Information System;1.297565;103.849494
+Recreational;Hotel;Shangri-La Rasa Sentosa Hotel;1.257635;103.809773
+Retail;Shopping Mall;Jalan Besar Plaza;1.308656;103.858047
+Retail;Shopping Mall;Great World City;1.29346507033333;103.83197795
+Retail;Shopping Mall;Marina Bay Financial Centre;1.280216;103.8535238
+Commercial;Commercial Building;The URA Centre;1.279584;103.845284
+Industrial;Industrial Building/Estate;SATS Inflight Catering Centre 2;1.344128;103.9703072
+Commercial;Commercial Building;Havelock II;1.287242;103.844998
+Residential;Condominium;The Shaughnessy;1.417787;103.847236
+Commercial;Commercial Building;CPF Building Robinson;1.277024;103.847988
+Recreational;Hotel;Crowne Plaza Hotel;1.358746;103.987957
+Retail;Shopping Mall;Scotts Square;1.305801;103.833061
+Retail;Shopping Mall;Bedok Point;1.3249468;103.9323374
+Education;University;NUS Utown Create Building;1.3040825;103.774125642857
+Retail;Shopping Mall;Junction 10;1.380351044;103.76013536
+Commercial;Commercial Building;International Plaza;1.27585976;103.84594672
+Retail;Shopping Mall;Elias Mall;1.378586;103.941976
+Education;Research Centre;NUS Centre for Life Sciences;1.294419;103.780517
+Travel;Land;Farrer Road MRT;1.317457;103.807481
+Government;Government Building;CPF Tampines Building;1.353101;103.9437
+Education;University;Singapore Institute of Technology;1.299976;103.780303
+Education;Research Centre;JTC Cleantech Two;1.35470133333333;103.692147333333
+Industrial;Industrial Building/Estate;NTT Serangoon;1.376079;103.874911
+Retail;Shopping Mall;AMK Hub;1.369216;103.848411
+Retail;Shopping Mall;Rivervale Mall;1.3922346572;103.90446216
+Education;University;Yong Siew Toh Conservatory of Music;1.302264;103.772727
+Education;Secondary School;NUS High School of Mathematics and Science;1.307159;103.769453
+Healthcare;Hospital;Mount Elizabeth Hospital;1.304886;103.835459
+Retail;Shopping Mall;Beauty World Centre;1.342419;103.776526
+Travel;Land;Serangoon MRT;1.3501997;103.872847
+Healthcare;Medical Centre;St Andrews Nursing Home;1.380324;103.885838
+Residential;Condominium;Great World City Service Apartments;1.294514;103.831594
+Retail;Shopping Mall;Hougang Mall;1.3724928795;103.89380465
+Retail;Shopping Mall;Suntec City Mall;1.2953213467579;103.858842012632
+Retail;Shopping Mall;Peninsula Plaza;1.292327;103.850823
+Defence;Police/Fire Department;SCDF Division Four;1.3734414;103.7528252
+Commercial;Commercial Building;Singapore Land Tower;1.284665;103.852132
+Recreational;Country Club;Jurong Country Club;1.3285275;103.7376345
+Commercial;Commercial Building;Cargo Agents Building C;1.374472168;103.9958378
+Commercial;Commercial Building;Alexandra Technopark A;1.2777216;103.8007546
+Commercial;Commercial Building;Hansa Point;1.335748;103.966492
+Retail;Shopping Mall;Paradiz Centre;1.300077;103.849291
+Recreational;Hotel;Genting Hotel Jurong;1.331655;103.739265
+Travel;Land;Airport Cargo Complex;1.354754;103.976811
+Commercial;Commercial Building;IBM Place;1.336548;103.965108
+Recreational;Country Club;NUS Alumni Relations;1.293854;103.773254
+Travel;Land;Sixth Avenue MRT;1.3307634;103.797248
+Retail;Shopping Mall;Textile Centre;1.303758;103.8615254
+Retail;Shopping Mall;Lot 1 Shoppers Mall;1.384959439;103.7450049
+Recreational;Hotel;Hotel Indigo Katong;1.304486;103.904734
+Recreational;Country Club;Laguna National Golf and Country Club;1.320071;103.956925
+Travel;Marine;Marina South Pier;1.2708703904;103.86322408
+Travel;Land;MacPherson MRT;1.326326;103.88988375
+Recreational;Country Club;Serangoon Gardens Country Club;1.366242;103.866718
+Residential;Condominium;Skysuites @ Anson;1.274638;103.844749
+Commercial;Commercial Building;Acer Building;1.326908;103.746267
+Industrial;Industrial Building/Estate;Tyco Electronics;1.3761634;103.8658718
+Retail;Shopping Mall;VIVO City;1.26448076814815;103.822519111111
+Commercial;Commercial Building;Harbourfront Tower;1.2646855;103.8189055
+Education;Non-tertiary Institution;ITE College West - CCK;1.375116;103.751985
+Retail;Shopping Mall;Shaw House;1.3057938;103.8315404
+Healthcare;Hospital;National University Hospital;1.2940197352;103.782660573333
+Retail;Shopping Mall;Lucky Plaza;1.3045734074;103.83392912
+Commercial;Commercial Building;The Plaza;1.29998;103.861
+Commercial;Commercial Building;Seagate Gambas W2;1.444503;103.809465
+Travel;Air;Changi Airport Terminal 4;1.33901025;103.983926875
+Travel;Land;Pasir Panjang MRT;1.276271;103.791313
+Recreational;Hotel;Fullerton Bay Hotel;1.2832242;103.8535552
+Travel;Land;Stadium MRT;1.302845;103.875368
+Government;Government Building;Social Service Institute;1.286254;103.828047
+Retail;Shopping Mall;Jurong Point Shopping Centre;1.339450885;103.706678391667
+Recreational;Hotel;RELC International Hotel;1.312854;103.826079
+Recreational;Hotel;Miramar Hotel;1.288199;103.837406
+Religious Sites;Religion;City Harvest Church;1.343245;103.691914
+Commercial;Commercial Building;Woodlands Bizhub;1.452073;103.792106
+Government;Public Facility;Singapore Indoor Stadium;1.3006234685;103.874371
+Commercial;Commercial Building;Infineon Technologies;1.32469425;103.87386575
+Travel;Land;Outram Park MRT;1.28094158823529;103.839215647059
+Retail;Shopping Mall;Mustafa Centre;1.30964763636364;103.855831090909
+Education;Research Centre;Genome Institute of Singapore;1.30263366666667;103.792609888889
+Retail;Shopping Mall;Compass Point;1.3920195;103.89505125
+Recreational;Country Club;Tanah Merah Country Club;1.32752133333333;103.971222666667
+Commercial;Commercial Building;Defence Technology Tower A;1.279765;103.815992
+Commercial;Commercial Building;Finexis Building;1.279536;103.848982
+Recreational;Hotel;Quality Hotel;1.3200614;103.8525272
+Commercial;Commercial Building;Hitachi Square;1.355691;103.941486
+Tourism;Tourism;Singapore F1 Pit Building;1.291291;103.863933
+Commercial;Commercial Building;Valley Point Office Tower;1.293071;103.827073
+Residential;Condominium;D'Leedon Condominium;1.31598;103.80366
+Government;Government Building;Ministry of Manpower;1.306941;103.856588
+Commercial;Commercial Building;Clifford Centre;1.283852;103.852132
+Recreational;Hotel;Excelsior Hotel;1.29201;103.849811
+Retail;Shopping Mall;United Square;1.31711557225;103.8436484
+Commercial;Commercial Building;Tampines Junction;1.352339;103.9419456
+Industrial;Industrial Building/Estate;Tetra Pak;1.311711;103.659803
+Industrial;Industrial Building/Estate;Eunos Technolink;1.334644;103.900718
+Commercial;Commercial Building;OUE Bayfront;1.282945;103.852916
+Commercial;Commercial Building;Bank of Singapore Centre;1.284298;103.850619
+Retail;Shopping Mall;The Cathay;1.299192;103.847812
+Education;Research Centre;Singapore Science Park II;1.287344348;103.780743644444
+Retail;Shopping Mall;West Mall;1.350092507;103.749288416667
+Commercial;Commercial Building;Genting Centre;1.273374;103.842032
+Travel;Land;HarbourFront MRT;1.265201;103.82135
+Education;University;Centre for Translational Medicine;1.295364;103.781594
+Travel;Land;Little India MRT;1.306973;103.8490735
+Travel;Land;Fort Canning MRT;1.291921;103.844063
+Industrial;Industrial Building/Estate;Pioneer Hub;1.321796;103.695338
+Healthcare;Hospital;Tan Tock Seng Hospital;1.32109761043478;103.846405686957
+Commercial;Commercial Building;Infinite Studio;1.292498214;103.7945591
+Travel;Marine;Admiralty Yard;1.459953;103.822721
+Commercial;Commercial Building;JTC Corporation Loyang;1.372326;103.971381
+Commercial;Commercial Building;StarHub Green;1.3240811025641;103.892665307692
+Recreational;Hotel;Park Hotel Alexandra;1.287537;103.8053
+Retail;Shopping Mall;Thomson Plaza;1.354646;103.8309
+Recreational;Hotel;Village Hotel Katong;1.303763;103.90288
+Commercial;Commercial Building;Fusionopolis Connexis;1.299189;103.787006
+Commercial;Commercial Building;Merck Sharp & Dohme;1.30279;103.634162
+Commercial;Commercial Building;Tokio Marine Centre;1.279589;103.847926
+Defence;Military;Sembawang Camp;1.462143;103.814476
+Healthcare;Hospital;Gleneagles Hospital and Medical Centre;1.30728032688889;103.819826022222
+Healthcare;Hospital;Ng Teng Fong General Hospital;1.3339335;103.74514275
+Retail;Shopping Mall;Kallang Wave Mall;1.303922;103.873846
+Education;Specialized Training School;The Little Skool-House International;1.286715;103.835091
+Government;Government Building;Supreme Court of Singapore;1.290405;103.850744
+Industrial;Industrial Building/Estate;SAESL;1.37297975;103.9818315
+Travel;Land;Bedok North MRT;1.334698;103.918044
+Retail;Shopping Mall;Clementi Mall;1.314856;103.764413
+Recreational;Hotel;Park Regis Hotel;1.28807;103.844525
+Travel;Air;Changi Airport Terminal 3;1.35705252380952;103.986471904762
+Residential;Condominium;Cabana;1.387997;103.855345
+Government;Government Building;ITS centre;1.292552;103.843817
+Commercial;Commercial Building;Seagate Singapore Design Centre (The Shugurt);1.295642;103.790518
+Recreational;Country Club;Seletar Country Club;1.4094953565;103.85822745
+Retail;Shopping Mall;Yew Tee Point;1.397052;103.74666
+Commercial;Commercial Building;Bank of China;1.285771;103.852226
+Retail;Shopping Mall;Courts Orchard;1.3018524385;103.83848105
+Recreational;Hotel;Carlton Hotel;1.2956995;103.8530075
+Commercial;Commercial Building;Centennial Tower;1.293503;103.86027
+Defence;Police/Fire Department;Tanglin Police Divisional Headquarters;1.3119116;103.8464262
+Industrial;Industrial Building/Estate;Becton Dickinson;1.32655325;103.6576475
+Government;Government Building;Singapore Water Association;1.334452;103.757692
+Industrial;Industrial Building/Estate;Alcon Singapore Manufacturing;1.276031;103.622422
+Retail;Shopping Mall;Pasir Ris West Plaza;1.379276;103.93599
+Travel;Land;King Albert Park MRT;1.3355632;103.7835714
+Commercial;Commercial Building;Wilkie Edge;1.302123;103.849514
+Commercial;Commercial Building;One Raffles Place;1.28436930938462;103.851049723077
+Retail;Shopping Mall;The Odean Katong;1.304637;103.901901
+Recreational;Hotel;CAPRI by FRASER;1.334147;103.96368
+Healthcare;Hospital;Singapore General Hospital - The Academia;1.281868;103.835688
+Commercial;Commercial Building;Microsoft Woodlands;1.452078;103.801672333333
+Travel;Land;Bugis MRT;1.30037575;103.856144
+Residential;Condominium;Terrasse Condominium;1.36927766666667;103.87832
+Industrial;Industrial Building/Estate;YS-One;1.43823933333333;103.841152666667
+Commercial;Commercial Building;Hewlett Packard 2;1.282984;103.808066
+Education;University;NUS University Cultural Centre;1.3017364;103.772029
+Retail;Shopping Mall;Rochor Centre;1.302003;103.855013
+Recreational;Hotel;York Hotel;1.30701;103.835317
+Commercial;Commercial Building;Singpost Regional Ecommerce Logistics Hub;1.371137;103.910148
+Commercial;Exhibition;Marina Bay Sands Expo & Convention Centre;1.28294793636364;103.858690536364
+Industrial;Industrial Building/Estate;Marquis Q Square;1.337043;103.88848
+Retail;Shopping Mall;Marina Square;1.2922694586;103.85797048
+Commercial;Commercial Building;Equinix IBX Data Center;1.30980183333333;103.815786666667
+Commercial;Commercial Building;North Spring Bizhub;1.438170375;103.843190375
+Commercial;Commercial Building;The Octagon;1.280547;103.849202
+Industrial;Industrial Building/Estate;UB.One;1.333457;103.891752
+Travel;Land;Punggol MRT;1.404662;103.90213
+Commercial;Commercial Building;Ascent Solutions;1.291525;103.784469333333
+Education;University;Singapore University of Technology and Design;1.34085771428571;103.963471
+Retail;Shopping Mall;Raffles City Tower;1.293881;103.853099
+Retail;Shopping Mall;Marina Bay Link Mall;1.279704;103.854323
+Retail;Shopping Mall;Giant Tampines;1.372194;103.932043
+Commercial;Commercial Building;Golden Wall Centre;1.303919;103.851448
+Recreational;Hotel;M Social;1.29083;103.837279
+Retail;Shopping Mall;Tampines Mall;1.35257466666667;103.944693142857
+Commercial;Commercial Building;Nordic European Centre;1.327316;103.748442
+Commercial;Commercial Building;Tower Fifteen;1.273786;103.842148
+Retail;Shopping Mall;Forum Shopping Mall;1.306048;103.828705
+Commercial;Commercial Building;Atrium @ Orchard;1.299566;103.845263
+Retail;Shopping Mall;Shaw Centre;1.3061211408;103.83195736
+Commercial;Commercial Building;Manulife Centre;1.29780592;103.8502348
+Travel;Land;Changi Airport MRT;1.35733;103.988413
+Travel;Land;Woodlands Checkpoint;1.445586;103.769005
+Travel;Land;Ubi MRT;1.32999;103.89974
+Recreational;Country Club;Bukit Timah Turf Club;1.33833725;103.793387875
+Recreational;Hotel;Mandarin Oriental Singapore;1.290101;103.858459
+Commercial;Commercial Building;Fusionopolis Innovis;1.299189;103.787006
+Travel;Land;Stevens MRT;1.320072;103.825919
+Retail;Shopping Mall;Fortune Centre;1.300431;103.852277
+Commercial;Commercial Building;CWT Distribution Ltd;1.317263;103.718988
+Commercial;Commercial Building;UE Bizhub Central;1.390129;103.845984
+Travel;Land;One-North MRT;1.299765;103.787432
+Retail;Shopping Mall;I12 Katong;1.305093;103.905071
+Travel;Tunnel;KPE Ventilator Building C;1.320483;103.877199
+Education;University;INSEAD;1.29979533333333;103.786484666667
+Retail;Shopping Mall;Star Vista;1.30687211111111;103.788448444444
+Travel;Land;Hougang MRT;1.371167;103.892393
+Travel;Land;Bukit Panjang MRT;1.378904;103.761476
+Retail;Shopping Mall;Joo Chiat Shopping Complex;1.315541;103.899034
+Government;Government Building;Sport Singapore;1.303922;103.875438
+Commercial;Commercial Building;CIAS Cargo Centre;1.372466;103.99635
+Commercial;Commercial Building;New Tech Park;1.3520776;103.8606904
+Commercial;Commercial Building;Meissa;1.276212;103.796159
+Retail;Shopping Mall;Valley Point;1.293071;103.827073
+Commercial;Exhibition;Singapore Expo Hall;1.33260083573077;103.958939261538
+Industrial;Industrial Building/Estate;TechLink;1.335623;103.905612
+Retail;Shopping Mall;Boon Lay Shopping Centre;1.34638362766667;103.712487066667
+Commercial;Commercial Building;STT Mediahub;1.292332;103.791295
+Travel;Land;Bishan MRT;1.35106418181818;103.848619727273
+Retail;Shopping Mall;Tampines 1;1.35432125;103.94502175
+Commercial;Commercial Building;Singapore Pools Building;1.301468;103.851042
+Healthcare;Hospital;Raffles Hospital;1.301027;103.857241
+Residential;Condominium;Eastwood Centre;1.321553;103.955531
+Education;Specialized Training School;School of The Art;1.2993569444;103.84869716
+Retail;Shopping Mall;321 Clementi;1.311976;103.764958
+Education;University;Yong Loo Lin School of Medicine;1.294948;103.781047
+Recreational;Hotel;Pan Pacific Serviced Suites Beach Road;1.299265;103.860294
+Residential;Condominium;Compass Green;1.358994;103.974641
+Education;University;NUS University Hall;1.297164083;103.777472314286
+Recreational;Hotel;Holiday Inn Orchard;1.302301;103.841087
+Commercial;Commercial Building;Hong Leong Building;1.281398;103.85091
+Commercial;Commercial Building;Asia Insurance Building;1.281802;103.851387
+Residential;Condominium;One Shenton Way;1.279277;103.850548
+Travel;Land;Woodleigh MRT;1.339204;103.8707492
+Retail;Shopping Mall;Bishan Junction 8 Shopping Centre;1.350503;103.848735
+Residential;Condominium;W Residences;1.245856;103.843287
+Recreational;Hotel;Concorde Hotel;1.288879;103.834203
+Commercial;Commercial Building;MND;1.278973;103.84581
+Government;Government Building;HDB Hub;1.33214878;103.84823614
+Industrial;Industrial Building/Estate;Tee Hai Chem;1.37022;103.90891
+Industrial;Industrial Building/Estate;ASM Building;1.44415;103.837877
+Retail;Shopping Mall;Plaza Singapura;1.30075864527273;103.845046745455
+Industrial;Industrial Building/Estate;Pioneer Centre;1.332718;103.697549
+Commercial;Exhibition;The Float at Marina Bay;1.2890944;103.8590474
+Retail;Shopping Mall;Liang Court;1.2915360652;103.84469868
+Recreational;Hotel;Days Hotel;1.3269878;103.8468452
+Industrial;Industrial Building/Estate;SembCorp Cogen Pte Ltd;1.254278;103.702869
+Retail;Shopping Mall;Funan Digitalife Mall;1.291307;103.850084
+Education;Research Centre;DSO National Laboratories;1.28844444444444;103.787496555556
+Government;Government Building;Revenue House;1.319494;103.842146
+Retail;Shopping Mall;Golden Mile Tower;1.301888;103.86416
+Commercial;Commercial Building;Grace Global Raffles;1.282229;103.850521
